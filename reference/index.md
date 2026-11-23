@@ -11,6 +11,11 @@ OAuth2-authenticated access to profiles, activities, events and worlds.
   [`zwift_activity()`](zwift_get.md) [`zwift_followers()`](zwift_get.md)
   [`zwift_followees()`](zwift_get.md) [`zwift_rideons()`](zwift_get.md)
   [`zwift_give_rideon()`](zwift_get.md) [`zwift_event()`](zwift_get.md)
+  [`zwift_event_subgroups()`](zwift_get.md)
+  [`zwift_subgroup_results()`](zwift_get.md)
+  [`zwift_event_results()`](zwift_get.md)
+  [`zwift_subgroup_entrants()`](zwift_get.md)
+  [`zwift_event_entrants()`](zwift_get.md)
   [`zwift_worlds()`](zwift_get.md)
   [`zwift_riders_in_world()`](zwift_get.md) : Low-level Zwift GET
 - [`zwift_post()`](zwift_post.md) : Low-level Zwift POST

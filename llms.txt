@@ -42,7 +42,10 @@ library(zwiftverse)
 za  <- zwift_auth()                    # token auto-refreshes
 me  <- zwift_profile(za)               # your profile (one-row tibble)
 oth <- zwift_profile(za, 1234567)      # another rider's public profile
-act <- zwift_activities(za, 1234567, limit = 50)
+act <- zwift_activities(za, limit = Inf)   # whole history, auto-paged
+fol <- zwift_followers(za)             # all followers (auto-paged)
+res <- zwift_event_results(za, 5795672)  # official results, all subgroups
+ent <- zwift_event_entrants(za, 5795672) # sign-ups, all subgroups
 wld <- zwift_riders_in_world(za, 1)    # roster currently in Watopia
 raw <- zwift_get(za, "/api/profiles/me/activities/", list(limit = 5))  # escape hatch
 
@@ -94,8 +97,11 @@ zv_cache_clear()                       # wipe it
 ## Endpoint coverage
 
 - **Zwift:** `profile`, `activities`, `activity`, `followers`,
-  `followees`, `rideons` (+ `give_rideon`), `event`, `worlds`,
-  `riders_in_world`, plus `zwift_get`/`zwift_post`.
+  `followees` (list endpoints auto-page: `limit` is the total wanted,
+  `Inf` = all), `rideons` (+ `give_rideon`), `event`, `event_subgroups`,
+  `event_results`, `subgroup_results`, `event_entrants`,
+  `subgroup_entrants`, `worlds`, `riders_in_world`, plus
+  `zwift_get`/`zwift_post`.
 - **ZwiftPower:** `profile`, `result`, `signups`, `team`, `event_list`,
   `result_list`, `team_riders`, `team_list`, `sprints`, `primes`,
   `league_list`, `league_results`, `league_team_standings`, plus
@@ -117,6 +123,11 @@ OAuth2-authenticated access to profiles, activities, events and worlds.
   [`zwift_activity()`](zwift_get.md) [`zwift_followers()`](zwift_get.md)
   [`zwift_followees()`](zwift_get.md) [`zwift_rideons()`](zwift_get.md)
   [`zwift_give_rideon()`](zwift_get.md) [`zwift_event()`](zwift_get.md)
+  [`zwift_event_subgroups()`](zwift_get.md)
+  [`zwift_subgroup_results()`](zwift_get.md)
+  [`zwift_event_results()`](zwift_get.md)
+  [`zwift_subgroup_entrants()`](zwift_get.md)
+  [`zwift_event_entrants()`](zwift_get.md)
   [`zwift_worlds()`](zwift_get.md)
   [`zwift_riders_in_world()`](zwift_get.md) : Low-level Zwift GET
 - [`zwift_post()`](zwift_post.md) : Low-level Zwift POST

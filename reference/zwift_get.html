@@ -45,19 +45,70 @@
 <span></span>
 <span><span class="fu">zwift_profile</span><span class="op">(</span><span class="va">auth</span>, rider_id <span class="op">=</span> <span class="st">"me"</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">zwift_activities</span><span class="op">(</span><span class="va">auth</span>, rider_id <span class="op">=</span> <span class="st">"me"</span>, start <span class="op">=</span> <span class="fl">0</span>, limit <span class="op">=</span> <span class="fl">20</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">zwift_activities</span><span class="op">(</span></span>
+<span>  <span class="va">auth</span>,</span>
+<span>  rider_id <span class="op">=</span> <span class="st">"me"</span>,</span>
+<span>  start <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  limit <span class="op">=</span> <span class="fl">20</span>,</span>
+<span>  parse <span class="op">=</span> <span class="st">"tbl"</span>,</span>
+<span>  ttl <span class="op">=</span> <span class="fu">.zv_ttl</span><span class="op">(</span><span class="st">"zwift"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">zwift_activity</span><span class="op">(</span><span class="va">auth</span>, <span class="va">activity_id</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">zwift_followers</span><span class="op">(</span><span class="va">auth</span>, rider_id <span class="op">=</span> <span class="st">"me"</span>, start <span class="op">=</span> <span class="fl">0</span>, limit <span class="op">=</span> <span class="fl">200</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">zwift_followers</span><span class="op">(</span></span>
+<span>  <span class="va">auth</span>,</span>
+<span>  rider_id <span class="op">=</span> <span class="st">"me"</span>,</span>
+<span>  start <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  limit <span class="op">=</span> <span class="cn">Inf</span>,</span>
+<span>  parse <span class="op">=</span> <span class="st">"tbl"</span>,</span>
+<span>  ttl <span class="op">=</span> <span class="fu">.zv_ttl</span><span class="op">(</span><span class="st">"zwift"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">zwift_followees</span><span class="op">(</span><span class="va">auth</span>, rider_id <span class="op">=</span> <span class="st">"me"</span>, start <span class="op">=</span> <span class="fl">0</span>, limit <span class="op">=</span> <span class="fl">200</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">zwift_followees</span><span class="op">(</span></span>
+<span>  <span class="va">auth</span>,</span>
+<span>  rider_id <span class="op">=</span> <span class="st">"me"</span>,</span>
+<span>  start <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  limit <span class="op">=</span> <span class="cn">Inf</span>,</span>
+<span>  parse <span class="op">=</span> <span class="st">"tbl"</span>,</span>
+<span>  ttl <span class="op">=</span> <span class="fu">.zv_ttl</span><span class="op">(</span><span class="st">"zwift"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">zwift_rideons</span><span class="op">(</span><span class="va">auth</span>, <span class="va">rider_id</span>, <span class="va">activity_id</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">zwift_give_rideon</span><span class="op">(</span><span class="va">auth</span>, <span class="va">rider_id</span>, <span class="va">activity_id</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">zwift_event</span><span class="op">(</span><span class="va">auth</span>, <span class="va">event_id</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">zwift_event_subgroups</span><span class="op">(</span><span class="va">auth</span>, <span class="va">event_id</span>, parse <span class="op">=</span> <span class="st">"tbl"</span>, ttl <span class="op">=</span> <span class="fu">.zv_ttl</span><span class="op">(</span><span class="st">"zwift"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">zwift_subgroup_results</span><span class="op">(</span></span>
+<span>  <span class="va">auth</span>,</span>
+<span>  <span class="va">subgroup_id</span>,</span>
+<span>  start <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  limit <span class="op">=</span> <span class="cn">Inf</span>,</span>
+<span>  parse <span class="op">=</span> <span class="st">"tbl"</span>,</span>
+<span>  ttl <span class="op">=</span> <span class="fu">.zv_ttl</span><span class="op">(</span><span class="st">"zwift"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">zwift_event_results</span><span class="op">(</span><span class="va">auth</span>, <span class="va">event_id</span>, ttl <span class="op">=</span> <span class="fu">.zv_ttl</span><span class="op">(</span><span class="st">"zwift"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">zwift_subgroup_entrants</span><span class="op">(</span></span>
+<span>  <span class="va">auth</span>,</span>
+<span>  <span class="va">subgroup_id</span>,</span>
+<span>  participation <span class="op">=</span> <span class="st">"signed_up"</span>,</span>
+<span>  start <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  limit <span class="op">=</span> <span class="cn">Inf</span>,</span>
+<span>  parse <span class="op">=</span> <span class="st">"tbl"</span>,</span>
+<span>  ttl <span class="op">=</span> <span class="fu">.zv_ttl</span><span class="op">(</span><span class="st">"zwift"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">zwift_event_entrants</span><span class="op">(</span></span>
+<span>  <span class="va">auth</span>,</span>
+<span>  <span class="va">event_id</span>,</span>
+<span>  participation <span class="op">=</span> <span class="st">"signed_up"</span>,</span>
+<span>  ttl <span class="op">=</span> <span class="fu">.zv_ttl</span><span class="op">(</span><span class="st">"zwift"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">zwift_worlds</span><span class="op">(</span><span class="va">auth</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
@@ -98,7 +149,8 @@
 
 
 <dt id="arg-start-limit">start, limit<a class="anchor" aria-label="anchor" href="#arg-start-limit"></a></dt>
-<dd><p>Paging offset and page size.</p></dd>
+<dd><p>Offset of the first record, and how many records to
+return (<code>Inf</code> = all). Paging happens automatically.</p></dd>
 
 
 <dt id="arg-activity-id">activity_id<a class="anchor" aria-label="anchor" href="#arg-activity-id"></a></dt>
@@ -107,6 +159,15 @@
 
 <dt id="arg-event-id">event_id<a class="anchor" aria-label="anchor" href="#arg-event-id"></a></dt>
 <dd><p>Zwift event id.</p></dd>
+
+
+<dt id="arg-subgroup-id">subgroup_id<a class="anchor" aria-label="anchor" href="#arg-subgroup-id"></a></dt>
+<dd><p>Event subgroup id (from <code>zwift_event_subgroups()</code>).</p></dd>
+
+
+<dt id="arg-participation">participation<a class="anchor" aria-label="anchor" href="#arg-participation"></a></dt>
+<dd><p>Entrant filter passed to the API; <code>"signed_up"</code> is the
+value verified to work.</p></dd>
 
 
 <dt id="arg-world-id">world_id<a class="anchor" aria-label="anchor" href="#arg-world-id"></a></dt>
@@ -121,13 +182,27 @@
     <h2 id="functions">Functions<a class="anchor" aria-label="anchor" href="#functions"></a></h2>
 
 <ul><li><p><code>zwift_profile()</code>: A rider's profile (<code>"me"</code> or a Zwift id).</p></li>
-<li><p><code>zwift_activities()</code>: A rider's activities (paged).</p></li>
+<li><p><code>zwift_activities()</code>: A rider's activities, newest first. <code>limit</code> is the
+total wanted: values above the server's page size (50) are fetched page by
+page and bound; <code>limit = Inf</code> fetches the whole history.</p></li>
 <li><p><code>zwift_activity()</code>: A single activity by id.</p></li>
-<li><p><code>zwift_followers()</code>: A rider's followers.</p></li>
-<li><p><code>zwift_followees()</code>: A rider's followees.</p></li>
+<li><p><code>zwift_followers()</code>: A rider's followers (auto-paged, 200 per request).</p></li>
+<li><p><code>zwift_followees()</code>: Riders a rider follows (auto-paged, 200 per request).</p></li>
 <li><p><code>zwift_rideons()</code>: Ride Ons on an activity.</p></li>
 <li><p><code>zwift_give_rideon()</code>: Give a Ride On (POST). Returns the raw response.</p></li>
 <li><p><code>zwift_event()</code>: An event by id.</p></li>
+<li><p><code>zwift_event_subgroups()</code>: An event's subgroups (pens / categories): one row
+each, with <code>id</code> (the subgroup id used by the results and entrants
+functions), <code>subgroupLabel</code> (A, B, ...), start time and route.</p></li>
+<li><p><code>zwift_subgroup_results()</code>: Official Zwift race results for one subgroup, in
+finishing order (<code>rank</code>), auto-paged (50 per request). Nested objects are
+flattened: <code>activityData.*</code>, <code>criticalP.*</code>, <code>sensorData.*</code>,
+<code>profileData.*</code>, <code>scoreHistory.*</code>.</p></li>
+<li><p><code>zwift_event_results()</code>: Race results for every subgroup of an event, bound
+into one tibble with a leading <code>subgroup</code> label column.</p></li>
+<li><p><code>zwift_subgroup_entrants()</code>: Riders signed up to one subgroup (auto-paged).</p></li>
+<li><p><code>zwift_event_entrants()</code>: Sign-ups for every subgroup of an event, with a
+leading <code>subgroup</code> label column.</p></li>
 <li><p><code>zwift_worlds()</code>: List of active worlds.</p></li>
 <li><p><code>zwift_riders_in_world()</code>: Roster of riders currently in a world. Live
 position/power is protobuf on <code>/relay/worlds/{id}/players/{id}</code>; this JSON
