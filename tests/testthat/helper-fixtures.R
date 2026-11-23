@@ -4,7 +4,9 @@
 # request -> .zv_fetch() -> .zv_to_tbl() path runs without network or creds.
 # Tests skip until the corresponding fixture exists.
 
-options(zwiftverse.cache = FALSE)
+# (The cache is switched off for tests in setup-options.R, not here: helper
+# files are also sourced by devtools::load_all(), which would silently disable
+# caching in interactive dev sessions.)
 
 fixture_path <- function(api, name) test_path("fixtures", api, paste0(name, ".json"))
 

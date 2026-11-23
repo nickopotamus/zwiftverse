@@ -18,6 +18,7 @@
 #   ZV_ZR_RACE_ID      a ZwiftRacing.app event id (often same as the ZP/Zwift id)
 #   ZV_ZR_CLUB_ID      a ZwiftRacing.app club id
 #   ZV_ZWIFT_EVENT_ID  a Zwift event id
+#   ZV_ZP_SEGMENT_ID   a ZwiftPower segment id (default 13, Watopia Epic KOM)
 
 if (file.exists("dev/local.env")) readRenviron("dev/local.env")
 
@@ -84,6 +85,9 @@ zv_dev_specs <- function() {
          call = function(h) zp_sprints(h$zp, .env("ZV_ZP_RACE_ID"), parse = "resp")),
     list(api = "zp", name = "primes",   needs = "ZV_ZP_RACE_ID",
          call = function(h) zp_primes(h$zp, .env("ZV_ZP_RACE_ID"), parse = "resp")),
+    list(api = "zp", name = "segment_standings", needs = "ZV_ZP_TEAM_ID",
+         call = function(h) zp_segment_standings(h$zp, .env("ZV_ZP_SEGMENT_ID") %||% 13,
+                                                 .env("ZV_ZP_TEAM_ID"), parse = "resp")),
     list(api = "zp", name = "team",     needs = "ZV_ZP_TEAM_ID",
          call = function(h) zp_team(h$zp, .env("ZV_ZP_TEAM_ID"), parse = "resp"))
   )

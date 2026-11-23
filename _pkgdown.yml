@@ -33,3 +33,4 @@ articles:
   navbar: ~
   contents:
   - race-analysis
+  - climb-prediction

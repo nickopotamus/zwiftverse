@@ -10,16 +10,27 @@ zp_unflag(tbl)
 \item{tbl}{A tibble returned by a \verb{zp_*()} function.}
 }
 \value{
-\code{tbl} with \verb{[value, flag]} list-columns replaced by atomic columns.
+\code{tbl} with those list-columns replaced by atomic columns.
 }
 \description{
-Many ZwiftPower numeric fields (\code{avg_wkg}, \code{avg_power}, \code{time}, \code{weight},
-\code{wkg1200}, ...) arrive as two-element \verb{[value, flag]} arrays, which become
-list-columns in the returned tibble. \code{zp_unflag()} replaces every such
-column with its first element, converted to number where possible. The
-flag (an upload/verification marker) is dropped.
+Many ZwiftPower numeric fields arrive as small arrays rather than scalars,
+which become list-columns in the returned tibble:
+}
+\details{
+\itemize{
+\item \verb{[value, flag]} pairs — results/profile fields such as \code{avg_wkg},
+\code{avg_power}, \code{time}, \code{weight}, \code{wkg1200};
+\item \verb{[code, value, percentile]} triples — the sign-up power bests
+(\code{cp_300_wkg}, \code{cp_1200_watts}, ...). Verified: element 2 is the value
+(\verb{cp_*_watts[2] / weight == cp_*_wkg[2]}).
+}
+
+\code{zp_unflag()} replaces every such column with its value, converted to
+number where possible.
 }
 \examples{
-x <- tibble::tibble(zwid = 1:2, avg_wkg = list(c("3.8", "0"), c("4.1", "0")))
+x <- tibble::tibble(zwid = 1:2,
+                    avg_wkg = list(c("3.8", "0"), c("4.1", "0")),
+                    cp_300_wkg = list(c("8", "3.7", "23.4"), c("8", "4.2", "51.0")))
 zp_unflag(x)
 }

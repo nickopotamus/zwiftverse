@@ -182,6 +182,13 @@ Rscript -e 'devtools::test()'   # fixture tests now run instead of skipping
       ZwiftPower's 147 finishers.
 - [x] ~~Cache key for `zr_riders`~~ — moot in v2 (per-rider requests).
 
+**Added since P1 (2026-11-23):** `zp_segment_standings()` (api3
+`segment_standings`, optional `team_id`); `zp_unflag()` now also handles the
+sign-up `[code, value, percentile]` triples (value = element 2, verified);
+vignette `climb-prediction` (pen entrants → ZR/ZP power curves → CP model →
+climb time calibrated on a team's segment efforts, leave-one-out MAPE ≈ 11%).
+Vignettes evaluate only when `ZV_LIVE_VIGNETTES=true`.
+
 **P2 — polish**
 - [ ] Token-refresh edge cases (clock skew, refresh-expiry races) in `zwift_auth`.
 - [ ] Optional `memoise` in-session layer over the disk cache.

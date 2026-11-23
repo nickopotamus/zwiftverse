@@ -95,3 +95,11 @@ test_that(".zv_bind reconciles column types that differ between pages", {
   expect_equal(nrow(out), 4)
   expect_equal(out$note, c(NA, NA, "x", "5"))
 })
+
+test_that(".zp_unescape decodes ZwiftPower HTML entities", {
+  x <- tibble::tibble(name = c("Eibert van&#039;t Hof", "A &amp; B", "&quot;Q&quot; &#x1F98C;", NA),
+                      n = 1:4)
+  out <- zwiftverse:::.zp_unescape(x)
+  expect_equal(out$name, c("Eibert van't Hof", "A & B", "\"Q\" \U0001F98C", NA))
+  expect_equal(out$n, 1:4)
+})

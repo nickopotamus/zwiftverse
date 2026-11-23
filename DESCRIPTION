@@ -27,6 +27,7 @@ Suggests:
     rvest,
     testthat (>= 3.0.0),
     tidyr,
+    withr,
     xml2
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)

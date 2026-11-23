@@ -12,6 +12,7 @@
 \alias{zp_team_list}
 \alias{zp_sprints}
 \alias{zp_primes}
+\alias{zp_segment_standings}
 \alias{zp_league_list}
 \alias{zp_league_results}
 \alias{zp_league_team_standings}
@@ -39,6 +40,8 @@ zp_sprints(s, race_id, ...)
 
 zp_primes(s, race_id, category = "", prime_type = "", ...)
 
+zp_segment_standings(s, segment_id, team_id = NULL, ...)
+
 zp_league_list(s, ...)
 
 zp_league_results(s, id, ...)
@@ -60,9 +63,11 @@ zp_league_team_standings(s, id, ...)
 
 \item{race_id}{ZwiftPower event id.}
 
-\item{team_id}{ZwiftPower team id.}
+\item{team_id}{ZwiftPower team id (optional for \code{zp_segment_standings()}).}
 
 \item{category, prime_type}{Optional ZwiftPower prime filters.}
+
+\item{segment_id}{ZwiftPower segment id.}
 
 \item{id}{League / league-event id.}
 }
@@ -93,6 +98,13 @@ Low-level ZwiftPower GET
 \item \code{zp_sprints()}: Fastest-through-segment (FTS) data for an event.
 
 \item \code{zp_primes()}: Prime (intermediate sprint/KOM) results for an event.
+
+\item \code{zp_segment_standings()}: Best efforts on a ZwiftPower segment (one row per
+rider: \code{elapsed} seconds, average \code{power}, \code{weight}, \code{wkg}, and the \code{zid}
+/ \code{date} of the event it was set in). Without \code{team_id} returns the global
+leaderboard (top ~2000); with it, every effort by that team's riders.
+Segment ids are the numbers in \code{zp_sprints()} column names (\code{msec.13})
+and \code{zp_primes()}'s \code{sprint_id}; e.g. 13 = Watopia Epic KOM Forward.
 
 \item \code{zp_league_list()}: List of leagues.
 

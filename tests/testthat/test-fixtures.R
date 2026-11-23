@@ -83,6 +83,14 @@ test_that("ZP result: one row per finisher with the vignette's columns (Risk 1)"
               info = paste("columns:", paste(names(out), collapse = ", ")))
 })
 
+test_that("ZP segment standings: one row per rider with time and w/kg", {
+  use_fixture("zp", "segment_standings")
+  out <- zp_unflag(zp_segment_standings(fake_zp(), 13, 1))
+  expect_gt(nrow(out), 1)
+  expect_true(all(c("zwid", "elapsed", "wkg", "power", "weight", "zid", "date") %in% names(out)))
+  expect_true(all(as.numeric(out$elapsed) > 0))
+})
+
 for (ep in c("profile", "signups", "sprints", "primes", "team")) local({
   ep <- ep
   test_that(sprintf("ZP %s parses to a tibble", ep), {
@@ -163,4 +171,14 @@ test_that("zp_unflag turns [value, flag] list-columns into numbers", {
   expect_type(out$avg_power, "integer")
   expect_false(any(vapply(out[c("avg_wkg", "avg_power", "time")], is.list, logical(1))))
   expect_true(all(out$avg_wkg > 0 & out$avg_wkg < 10, na.rm = TRUE))
+})
+
+test_that("zp_unflag takes the value (element 2) from sign-up cp triples", {
+  use_fixture("zp", "signups")
+  raw <- zp_signups(fake_zp(), 1)
+  out <- zp_unflag(raw)
+  expect_type(out$cp_1200_wkg, "double")
+  w <- vapply(raw$cp_1200_watts, function(v) as.numeric(v[[2]]), numeric(1))
+  expect_equal(out$cp_1200_watts, w)
+  expect_true(all(out$cp_1200_wkg > 0.5 & out$cp_1200_wkg < 8, na.rm = TRUE))
 })

@@ -125,7 +125,33 @@ zp_get <- function(s, url, parse = "tbl", ttl = .zv_ttl("zp")) {
     req_headers(Accept = "application/json") |>
     req_retry(max_tries = 3) |>
     req_error(body = function(resp) resp_body_string(resp))
-  .zv_fetch(req, parse, ttl)
+  out <- .zv_fetch(req, parse, ttl)
+  if (parse == "tbl") .zp_unescape(out) else out
+}
+
+# ZwiftPower HTML-escapes text (names arrive as "van&#039;t Hof"). Decode the
+# common named entities and all numeric ones in character columns.
+.zp_unescape <- function(tbl) {
+  dec <- function(x) {
+    if (!any(grepl("&", x, fixed = TRUE), na.rm = TRUE)) return(x)
+    x <- gsub("&quot;", "\"", x, fixed = TRUE)
+    x <- gsub("&lt;", "<", x, fixed = TRUE)
+    x <- gsub("&gt;", ">", x, fixed = TRUE)
+    x <- gsub("&apos;", "'", x, fixed = TRUE)
+    m <- gregexpr("&#(x[0-9A-Fa-f]+|[0-9]+);", x, perl = TRUE)
+    regmatches(x, m) <- lapply(regmatches(x, m), function(e) {
+      if (!length(e)) return(e)
+      code <- sub("^&#(.*);$", "\\1", e)
+      n <- ifelse(startsWith(code, "x"), strtoi(substring(code, 2), 16L), strtoi(code, 10L))
+      vapply(n, intToUtf8, character(1))
+    })
+    gsub("&amp;", "&", x, fixed = TRUE)
+  }
+  for (n in names(tbl)) if (is.character(tbl[[n]])) {
+    ok <- !is.na(tbl[[n]])
+    tbl[[n]][ok] <- dec(tbl[[n]][ok])
+  }
+  tbl
 }
 
 # -- static cache3 JSON --
@@ -147,7 +173,7 @@ zp_signups <- function(s, race_id, ...)
   zp_get(s, sprintf("/cache3/results/%s_signups.json", race_id), ...)
 
 #' @describeIn zp_get Team roster.
-#' @param team_id ZwiftPower team id.
+#' @param team_id ZwiftPower team id (optional for `zp_segment_standings()`).
 #' @export
 zp_team <- function(s, team_id, ...)
   zp_get(s, sprintf("/cache3/teams/%s_riders.json", team_id), ...)
@@ -185,6 +211,18 @@ zp_primes <- function(s, race_id, category = "", prime_type = "", ...)
   zp_get(s, sprintf("/api3.php?do=event_primes&zid=%s&category=%s&prime_type=%s",
                     race_id, category, prime_type), ...)
 
+#' @describeIn zp_get Best efforts on a ZwiftPower segment (one row per
+#'   rider: `elapsed` seconds, average `power`, `weight`, `wkg`, and the `zid`
+#'   / `date` of the event it was set in). Without `team_id` returns the global
+#'   leaderboard (top ~2000); with it, every effort by that team's riders.
+#'   Segment ids are the numbers in `zp_sprints()` column names (`msec.13`)
+#'   and `zp_primes()`'s `sprint_id`; e.g. 13 = Watopia Epic KOM Forward.
+#' @param segment_id ZwiftPower segment id.
+#' @export
+zp_segment_standings <- function(s, segment_id, team_id = NULL, ...)
+  zp_get(s, paste0("/api3.php?do=segment_standings&id=", segment_id,
+                   if (!is.null(team_id)) paste0("&team_id=", team_id)), ...)
+
 #' @describeIn zp_get List of leagues.
 #' @export
 zp_league_list <- function(s, ...)
@@ -203,28 +241,42 @@ zp_league_team_standings <- function(s, id, ...)
 
 #' Unwrap ZwiftPower `[value, flag]` columns
 #'
-#' Many ZwiftPower numeric fields (`avg_wkg`, `avg_power`, `time`, `weight`,
-#' `wkg1200`, ...) arrive as two-element `[value, flag]` arrays, which become
-#' list-columns in the returned tibble. `zp_unflag()` replaces every such
-#' column with its first element, converted to number where possible. The
-#' flag (an upload/verification marker) is dropped.
+#' Many ZwiftPower numeric fields arrive as small arrays rather than scalars,
+#' which become list-columns in the returned tibble:
+#'
+#' * `[value, flag]` pairs — results/profile fields such as `avg_wkg`,
+#'   `avg_power`, `time`, `weight`, `wkg1200`;
+#' * `[code, value, percentile]` triples — the sign-up power bests
+#'   (`cp_300_wkg`, `cp_1200_watts`, ...). Verified: element 2 is the value
+#'   (`cp_*_watts[2] / weight == cp_*_wkg[2]`).
+#'
+#' `zp_unflag()` replaces every such column with its value, converted to
+#' number where possible.
 #'
 #' @param tbl A tibble returned by a `zp_*()` function.
-#' @return `tbl` with `[value, flag]` list-columns replaced by atomic columns.
+#' @return `tbl` with those list-columns replaced by atomic columns.
 #' @export
 #' @examples
-#' x <- tibble::tibble(zwid = 1:2, avg_wkg = list(c("3.8", "0"), c("4.1", "0")))
+#' x <- tibble::tibble(zwid = 1:2,
+#'                     avg_wkg = list(c("3.8", "0"), c("4.1", "0")),
+#'                     cp_300_wkg = list(c("8", "3.7", "23.4"), c("8", "4.2", "51.0")))
 #' zp_unflag(x)
 zp_unflag <- function(tbl) {
-  is_pair <- function(col) {
-    is.list(col) && length(col) > 0 &&
-      all(vapply(col, function(v) is.null(v) || (is.atomic(v) && length(v) %in% c(0, 2)), logical(1)))
+  unwrap_len <- function(col) {
+    if (!is.list(col) || !length(col)) return(NA_integer_)
+    ok <- vapply(col, function(v) is.null(v) || (is.atomic(v) && length(v) %in% c(0, 2, 3)), logical(1))
+    if (!all(ok)) return(NA_integer_)
+    lens <- unique(lengths(col)[lengths(col) > 0])
+    if (length(lens) == 1) lens else if (!length(lens)) 2L else NA_integer_
   }
-  for (n in names(tbl)[vapply(tbl, is_pair, logical(1))]) {
-    first <- vapply(tbl[[n]], function(v) if (length(v)) as.character(v[[1]]) else NA_character_,
-                    character(1))
-    first[first == ""] <- NA_character_
-    tbl[[n]] <- utils::type.convert(first, as.is = TRUE)
+  for (n in names(tbl)) {
+    len <- unwrap_len(tbl[[n]])
+    if (is.na(len)) next
+    pick <- if (len == 3) 2L else 1L
+    vals <- vapply(tbl[[n]], function(v) if (length(v)) as.character(v[[pick]]) else NA_character_,
+                   character(1))
+    vals[vals == ""] <- NA_character_
+    tbl[[n]] <- utils::type.convert(vals, as.is = TRUE)
   }
   tbl
 }
