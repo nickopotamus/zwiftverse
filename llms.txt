@@ -149,8 +149,8 @@ Session-cookie access to results, teams, leagues and segment data.
   [`zp_team()`](zp_get.md) [`zp_event_list()`](zp_get.md)
   [`zp_result_list()`](zp_get.md) [`zp_team_riders()`](zp_get.md)
   [`zp_team_list()`](zp_get.md) [`zp_sprints()`](zp_get.md)
-  [`zp_primes()`](zp_get.md) [`zp_league_list()`](zp_get.md)
-  [`zp_league_results()`](zp_get.md)
+  [`zp_primes()`](zp_get.md) [`zp_segment_standings()`](zp_get.md)
+  [`zp_league_list()`](zp_get.md) [`zp_league_results()`](zp_get.md)
   [`zp_league_team_standings()`](zp_get.md) : Low-level ZwiftPower GET
 
 - [`zp_unflag()`](zp_unflag.md) :
@@ -187,3 +187,4 @@ On-disk TTL cache controls.
 
 - [Race analysis across Zwift, ZwiftPower and
   ZwiftRacing.app](race-analysis.md):
+- [Predicting a pen's times up a KOM](climb-prediction.md):

@@ -27,6 +27,8 @@ zp_sprints(s, race_id, ...)
 
 zp_primes(s, race_id, category = "", prime_type = "", ...)
 
+zp_segment_standings(s, segment_id, team_id = NULL, ...)
+
 zp_league_list(s, ...)
 
 zp_league_results(s, id, ...)
@@ -66,11 +68,15 @@ zp_league_team_standings(s, id, ...)
 
 - team_id:
 
-  ZwiftPower team id.
+  ZwiftPower team id (optional for `zp_segment_standings()`).
 
 - category, prime_type:
 
   Optional ZwiftPower prime filters.
+
+- segment_id:
+
+  ZwiftPower segment id.
 
 - id:
 
@@ -101,6 +107,14 @@ A tibble, parsed list, or httr2 response.
 - `zp_sprints()`: Fastest-through-segment (FTS) data for an event.
 
 - `zp_primes()`: Prime (intermediate sprint/KOM) results for an event.
+
+- `zp_segment_standings()`: Best efforts on a ZwiftPower segment (one
+  row per rider: `elapsed` seconds, average `power`, `weight`, `wkg`,
+  and the `zid` / `date` of the event it was set in). Without `team_id`
+  returns the global leaderboard (top ~2000); with it, every effort by
+  that team's riders. Segment ids are the numbers in `zp_sprints()`
+  column names (`msec.13`) and `zp_primes()`'s `sprint_id`; e.g. 13 =
+  Watopia Epic KOM Forward.
 
 - `zp_league_list()`: List of leagues.
 

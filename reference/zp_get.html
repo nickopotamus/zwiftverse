@@ -19,6 +19,7 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/race-analysis.html">Race analysis across Zwift, ZwiftPower and ZwiftRacing.app</a></li>
+    <li><a class="dropdown-item" href="../articles/climb-prediction.html">Predicting a pen's times up a KOM</a></li>
   </ul></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
@@ -63,6 +64,8 @@
 <span></span>
 <span><span class="fu">zp_primes</span><span class="op">(</span><span class="va">s</span>, <span class="va">race_id</span>, category <span class="op">=</span> <span class="st">""</span>, prime_type <span class="op">=</span> <span class="st">""</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
+<span><span class="fu">zp_segment_standings</span><span class="op">(</span><span class="va">s</span>, <span class="va">segment_id</span>, team_id <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
 <span><span class="fu">zp_league_list</span><span class="op">(</span><span class="va">s</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">zp_league_results</span><span class="op">(</span><span class="va">s</span>, <span class="va">id</span>, <span class="va">...</span><span class="op">)</span></span>
@@ -103,11 +106,15 @@
 
 
 <dt id="arg-team-id">team_id<a class="anchor" aria-label="anchor" href="#arg-team-id"></a></dt>
-<dd><p>ZwiftPower team id.</p></dd>
+<dd><p>ZwiftPower team id (optional for <code>zp_segment_standings()</code>).</p></dd>
 
 
 <dt id="arg-category-prime-type">category, prime_type<a class="anchor" aria-label="anchor" href="#arg-category-prime-type"></a></dt>
 <dd><p>Optional ZwiftPower prime filters.</p></dd>
+
+
+<dt id="arg-segment-id">segment_id<a class="anchor" aria-label="anchor" href="#arg-segment-id"></a></dt>
+<dd><p>ZwiftPower segment id.</p></dd>
 
 
 <dt id="arg-id">id<a class="anchor" aria-label="anchor" href="#arg-id"></a></dt>
@@ -131,6 +138,12 @@
 <li><p><code>zp_team_list()</code>: List of teams (api3).</p></li>
 <li><p><code>zp_sprints()</code>: Fastest-through-segment (FTS) data for an event.</p></li>
 <li><p><code>zp_primes()</code>: Prime (intermediate sprint/KOM) results for an event.</p></li>
+<li><p><code>zp_segment_standings()</code>: Best efforts on a ZwiftPower segment (one row per
+rider: <code>elapsed</code> seconds, average <code>power</code>, <code>weight</code>, <code>wkg</code>, and the <code>zid</code>
+/ <code>date</code> of the event it was set in). Without <code>team_id</code> returns the global
+leaderboard (top ~2000); with it, every effort by that team's riders.
+Segment ids are the numbers in <code>zp_sprints()</code> column names (<code>msec.13</code>)
+and <code>zp_primes()</code>'s <code>sprint_id</code>; e.g. 13 = Watopia Epic KOM Forward.</p></li>
 <li><p><code>zp_league_list()</code>: List of leagues.</p></li>
 <li><p><code>zp_league_results()</code>: League event results.</p></li>
 <li><p><code>zp_league_team_standings()</code>: League team event standings.</p></li>

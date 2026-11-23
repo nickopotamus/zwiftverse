@@ -8,13 +8,20 @@ on the cache so repeated runs don’t re-hit the servers.
 
 ## Credentials
 
+Put these in `~/.Renviron` (never in code you commit), then restart R:
+
+``` r
+
+ZWIFT_USERNAME=you@example.com
+ZWIFT_PASSWORD=...
+ZR_AUTH=your-zwiftracing-key     # sent as the x-api-key header
+ZP_SID=...                       # phpbb3_lswlk_sid cookie from zwiftpower.com
+```
+
 ``` r
 
 library(zwiftverse)
 library(dplyr)
-
-Sys.setenv(ZWIFT_USERNAME = "you@example.com", ZWIFT_PASSWORD = "…")
-Sys.setenv(ZR_AUTH = "your-zwiftracing-key")   # sent as the x-api-key header
 ```
 
 The field names returned by each API are not stable or documented, so
@@ -22,8 +29,8 @@ the first thing to do with any new endpoint is look at what came back:
 
 ``` r
 
-zp  <- zp_set_cookie(zp_session(), "PASTE_phpbb3_lswlk_sid")
-race_id <- 3590800L
+zp  <- zp_set_cookie(zp_session(), Sys.getenv("ZP_SID"))
+race_id <- 5795672L        # a completed race (ZwiftPower id = Zwift event id)
 
 res <- zp_result(zp, race_id)
 dplyr::glimpse(res)        # confirm the id / position / category column names
@@ -98,7 +105,7 @@ zr_riders(zr, finishers$zwid[1:5]) |>      # one request per rider (no v2 batch)
 ``` r
 
 race <- finishers |>
-  left_join(ratings_flat, by = "zwid")
+  left_join(ratings, by = "zwid")
 
 race |> count(is.na(zr_current))   # how many finishers had no ZR rating?
 ```
@@ -162,12 +169,13 @@ Everything above is cached on disk, keyed on method + URL + body:
 zv_cache_info()                       # what's stored, how big, how old
 
 # Completed races never change — cache the heavy pulls permanently:
-zp_result(zp, race_id,        ttl = Inf)
-zr_result(zr, race_id,        ttl = Inf)
+res     <- zp_result(zp, race_id, ttl = Inf)
+zr_race <- zr_result(zr, race_id, ttl = Inf)
 
-# Force-refresh a single call, or wipe everything:
+# Force-refresh a single call:
 zr_rider(zr, winner, ttl = 0)
-zv_cache_clear()
+
+# ...or wipe everything with zv_cache_clear()
 ```
 
 A rider’s rating history (no snapshot endpoint in v2) comes from
@@ -175,7 +183,9 @@ A rider’s rating history (no snapshot endpoint in v2) comes from
 
 ``` r
 
-zr_rider_velo(zr, winner, days = 365, parse = "json")$data$history
+zr_rider_velo(zr, winner, days = 365, parse = "json")$data$history |>
+  tibble::as_tibble() |>
+  head()
 ```
 
 ## Caveats
