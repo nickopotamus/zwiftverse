@@ -1,0 +1,188 @@
+# Race analysis across Zwift, ZwiftPower and ZwiftRacing.app
+
+This walkthrough answers one question end to end: **for a given race,
+does a rider’s ZwiftRacing.app rating predict where they finished?** It
+touches all three sources — finishers from ZwiftPower, ratings from
+ZwiftRacing.app, and a spot-check against the Zwift game API — and leans
+on the cache so repeated runs don’t re-hit the servers.
+
+## Credentials
+
+``` r
+
+library(zwiftverse)
+library(dplyr)
+
+Sys.setenv(ZWIFT_USERNAME = "you@example.com", ZWIFT_PASSWORD = "…")
+Sys.setenv(ZR_AUTH = "your-zwiftracing-key")   # sent as the x-api-key header
+```
+
+The field names returned by each API are not stable or documented, so
+the first thing to do with any new endpoint is look at what came back:
+
+``` r
+
+zp  <- zp_set_cookie(zp_session(), "PASTE_phpbb3_lswlk_sid")
+race_id <- 3590800L
+
+res <- zp_result(zp, race_id)
+dplyr::glimpse(res)        # confirm the id / position / category column names
+```
+
+The ZwiftPower columns used below (`zwid`, `name`, `position_in_cat`,
+`category`, `avg_wkg`) are confirmed against live data.
+
+## 1. Finishers from ZwiftPower
+
+[`zp_result()`](../reference/zp_get.md) returns one row per finisher.
+ZwiftPower ships most numbers as `[value, flag]` pairs (they arrive as
+list-columns), so run [`zp_unflag()`](../reference/zp_unflag.md) first,
+then pull the rider id, finishing position and category. Column names
+below were verified against live responses (2026-11).
+
+``` r
+
+finishers <- res |>
+  zp_unflag() |>
+  transmute(
+    zwid     = as.integer(zwid),          # ZwiftPower rider id
+    name,
+    position = as.integer(position_in_cat),
+    category,
+    wkg_avg  = as.numeric(avg_wkg)
+  ) |>
+  arrange(category, position)
+
+finishers
+```
+
+## 2. Ratings from ZwiftRacing.app (one call)
+
+ZwiftRacing.app scores the same race, so its event endpoint already
+carries every finisher’s rating *going into* the race — no per-rider
+lookups needed. [`zr_result()`](../reference/zr_get.md) flattens all
+pens into one row per rider. ZwiftRacing keys events on the Zwift event
+id, which is usually the same number as the ZwiftPower id.
+
+``` r
+
+zr <- zr_client()
+
+ratings <- zr_result(zr, race_id) |>
+  transmute(
+    zwid       = as.integer(riderId),
+    zr_current = ratingBefore,          # ZR rating before the race
+    zr_after   = rating,                # ...and after it
+    zr_velo    = riderVelo.race         # vELO rating
+  )
+
+ratings
+```
+
+These column names were verified against the live v2 API (2026-11). For
+riders outside a single race, [`zr_rider()`](../reference/zr_get.md)
+returns the current profile (vELO rating under `velo$race`), and
+[`zr_rider_overview()`](../reference/zr_get.md) the legacy `live` /
+`max30` / `max90` ratings:
+
+``` r
+
+library(tidyr)
+zr_riders(zr, finishers$zwid[1:5]) |>      # one request per rider (no v2 batch)
+  hoist(velo, zr_velo = "race") |>
+  select(riderId, zr_velo)
+```
+
+## 3. Join and analyse
+
+``` r
+
+race <- finishers |>
+  left_join(ratings_flat, by = "zwid")
+
+race |> count(is.na(zr_current))   # how many finishers had no ZR rating?
+```
+
+Within a category, does a higher pre-race rating go with a better
+finish? A rank correlation is the honest summary here — rating and
+position are both ordinal and the relationship is monotonic, not linear.
+
+``` r
+
+race |>
+  filter(!is.na(zr_current)) |>
+  group_by(category) |>
+  summarise(
+    n       = dplyr::n(),
+    rho     = cor(zr_current, position, method = "spearman"),
+    .groups = "drop"
+  )
+```
+
+A strong negative `rho` means the favourites (higher rating) finished
+nearer the front — i.e. the result went to form.
+
+``` r
+
+library(ggplot2)
+
+race |>
+  filter(!is.na(zr_current)) |>
+  ggplot(aes(zr_current, position, colour = category)) +
+  geom_point(alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE, linewidth = 0.5) +
+  scale_y_reverse() +                     # position 1 at the top
+  labs(x = "ZwiftRacing rating (pre-race)", y = "Finishing position",
+       colour = "Category",
+       title = sprintf("Race %d: rating vs finish", race_id)) +
+  theme_minimal()
+```
+
+## 4. Cross-check against the Zwift game API
+
+ZwiftPower and ZwiftRacing.app both derive from Zwift, so the game API
+is the tie-breaker when a number looks off. Here we confirm the winner’s
+category enforcement FTP straight from source:
+
+``` r
+
+za     <- zwift_auth()
+winner <- race |> filter(category == "A", position == 1) |> pull(zwid)
+
+zwift_profile(za, winner) |>
+  select(any_of(c("firstName", "lastName", "ftp", "competitionMetrics")))
+```
+
+## Caching notes
+
+Everything above is cached on disk, keyed on method + URL + body:
+
+``` r
+
+zv_cache_info()                       # what's stored, how big, how old
+
+# Completed races never change — cache the heavy pulls permanently:
+zp_result(zp, race_id,        ttl = Inf)
+zr_result(zr, race_id,        ttl = Inf)
+
+# Force-refresh a single call, or wipe everything:
+zr_rider(zr, winner, ttl = 0)
+zv_cache_clear()
+```
+
+A rider’s rating history (no snapshot endpoint in v2) comes from
+[`zr_rider_velo()`](../reference/zr_get.md):
+
+``` r
+
+zr_rider_velo(zr, winner, days = 365, parse = "json")$data$history
+```
+
+## Caveats
+
+These are reverse-engineered APIs. Field names can shift under you,
+personal data is GDPR-consent-gated (non-consenting riders simply won’t
+appear), and the ZwiftPower cookie login is the brittle link — if
+[`zp_login()`](../reference/zp_login.md) fails, fall back to
+[`zp_set_cookie()`](../reference/zp_set_cookie.md) with a value copied
+from your browser.

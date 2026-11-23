@@ -1,0 +1,26 @@
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/HANDOFF.html</loc></url>
+<url><loc>/LICENSE-text.html</loc></url>
+<url><loc>/articles/index.html</loc></url>
+<url><loc>/articles/race-analysis.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/zp_get.html</loc></url>
+<url><loc>/reference/zp_login.html</loc></url>
+<url><loc>/reference/zp_session.html</loc></url>
+<url><loc>/reference/zp_set_cookie.html</loc></url>
+<url><loc>/reference/zp_unflag.html</loc></url>
+<url><loc>/reference/zr_client.html</loc></url>
+<url><loc>/reference/zr_get.html</loc></url>
+<url><loc>/reference/zv_cache_clear.html</loc></url>
+<url><loc>/reference/zv_cache_dir.html</loc></url>
+<url><loc>/reference/zv_cache_enabled.html</loc></url>
+<url><loc>/reference/zv_cache_info.html</loc></url>
+<url><loc>/reference/zwift_auth.html</loc></url>
+<url><loc>/reference/zwift_get.html</loc></url>
+<url><loc>/reference/zwift_post.html</loc></url>
+<url><loc>/reference/zwiftverse-package.html</loc></url>
+</urlset>
+

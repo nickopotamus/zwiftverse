@@ -1,0 +1,178 @@
+# zwiftverse
+
+Tidy [httr2](https://httr2.r-lib.org) clients for three unofficial
+Zwift-ecosystem APIs. Every endpoint returns a **tibble**; an on-disk
+TTL cache keeps you from re-fetching stable data.
+
+| API | Auth | Base |
+|----|----|----|
+| Zwift game | OAuth2 password grant (`Zwift_Mobile_Link`) | `us-or-rly101.zwift.com` |
+| ZwiftPower | phpBB/SSO session cookie | `zwiftpower.com` |
+| ZwiftRacing.app | static key in `x-api-key` header | `api.zwiftracing.app/api/v2` |
+
+> **Unofficial & reverse-engineered.** None of these are sanctioned
+> APIs. The Zwift and ZwiftPower flows need *your own* Zwift
+> credentials. Personal data is GDPR-consent-gated — you only see riders
+> who have opted in. Endpoints can change without notice.
+
+## Install
+
+``` r
+
+# install.packages("devtools")
+devtools::install_local("zwiftverse")   # or install.packages("zwiftverse_0.1.0.tar.gz", repos = NULL)
+devtools::document("zwiftverse")         # regenerate man/ from the roxygen tags
+```
+
+## Credentials
+
+``` r
+
+Sys.setenv(ZWIFT_USERNAME = "you@example.com", ZWIFT_PASSWORD = "…")
+Sys.setenv(ZR_AUTH = "your-zwiftracing-key")   # sent as the x-api-key header
+```
+
+## Usage
+
+``` r
+
+library(zwiftverse)
+
+## Zwift game API ----------------------------------------------------
+za  <- zwift_auth()                    # token auto-refreshes
+me  <- zwift_profile(za)               # your profile (one-row tibble)
+oth <- zwift_profile(za, 1234567)      # another rider's public profile
+act <- zwift_activities(za, 1234567, limit = 50)
+wld <- zwift_riders_in_world(za, 1)    # roster currently in Watopia
+raw <- zwift_get(za, "/api/profiles/me/activities/", list(limit = 5))  # escape hatch
+
+## ZwiftPower --------------------------------------------------------
+zp   <- zp_set_cookie(zp_session(), "PASTE_phpbb3_lswlk_sid")  # robust path
+# zp <- zp_login(zp_session())                                 # or SSO (brittle)
+res  <- zp_result(zp, 3590800)         # finishers
+team <- zp_team(zp, 456)
+fts  <- zp_sprints(zp, 3590800)
+
+## ZwiftRacing.app ---------------------------------------------------
+zr <- zr_client()
+r1 <- zr_rider(zr, 1234567)                  # vELO rating in velo$race
+lg <- zr_rider_overview(zr, 1234567)         # legacy ratings: live / max30 / max90
+rr <- zr_rider_results(zr, 1234567, days = 90)
+ev <- zr_result(zr, 5800908)                 # one row per rider, all pens
+cm <- zr_club_riders(zr, 456)                # all pages
+rb <- zr_riders(zr, c(1234567, 2345678))     # one request per rider (no v2 batch)
+```
+
+Nested JSON arrives as list-columns:
+
+``` r
+
+library(tidyr)
+zr_rider(zr, 1234567) |> hoist(velo, velo_race = "race")
+```
+
+## Caching
+
+The cache is on by default and keyed on method + URL + body. TTL
+(seconds): `0` = off, `Inf` = permanent (immutable data such as
+completed results).
+
+``` r
+
+options(
+  zwiftverse.cache     = TRUE,         # master switch
+  zwiftverse.ttl_zwift = 900,          # per-API defaults
+  zwiftverse.ttl_zp    = 3600,
+  zwiftverse.ttl_zr    = 3600
+)
+
+zr_result(zr, 5800908, ttl = Inf)      # per-call override (finished race)
+zv_cache_info()                        # what's cached
+zv_cache_clear()                       # wipe it
+```
+
+## Endpoint coverage
+
+- **Zwift:** `profile`, `activities`, `activity`, `followers`,
+  `followees`, `rideons` (+ `give_rideon`), `event`, `worlds`,
+  `riders_in_world`, plus `zwift_get`/`zwift_post`.
+- **ZwiftPower:** `profile`, `result`, `signups`, `team`, `event_list`,
+  `result_list`, `team_riders`, `team_list`, `sprints`, `primes`,
+  `league_list`, `league_results`, `league_team_standings`, plus
+  `zp_get`.
+- **ZwiftRacing.app (v2):** `rider`, `rider_overview`, `rider_results`,
+  `rider_ranking`, `rider_velo`, `rider_power`, `riders`, `event`,
+  `result`, `club`, `club_riders`, `routes`, plus `zr_get`.
+
+# Package index
+
+## Zwift game API
+
+OAuth2-authenticated access to profiles, activities, events and worlds.
+
+- [`zwift_auth()`](zwift_auth.md) : Authenticate against the Zwift game
+  API
+- [`zwift_get()`](zwift_get.md) [`zwift_profile()`](zwift_get.md)
+  [`zwift_activities()`](zwift_get.md)
+  [`zwift_activity()`](zwift_get.md) [`zwift_followers()`](zwift_get.md)
+  [`zwift_followees()`](zwift_get.md) [`zwift_rideons()`](zwift_get.md)
+  [`zwift_give_rideon()`](zwift_get.md) [`zwift_event()`](zwift_get.md)
+  [`zwift_worlds()`](zwift_get.md)
+  [`zwift_riders_in_world()`](zwift_get.md) : Low-level Zwift GET
+- [`zwift_post()`](zwift_post.md) : Low-level Zwift POST
+
+## ZwiftPower
+
+Session-cookie access to results, teams, leagues and segment data.
+
+- [`zp_session()`](zp_session.md) : Create a ZwiftPower session
+
+- [`zp_set_cookie()`](zp_set_cookie.md) : Set the ZwiftPower session
+  cookie directly
+
+- [`zp_login()`](zp_login.md) : Log in to ZwiftPower via Zwift SSO (best
+  effort)
+
+- [`zp_get()`](zp_get.md) [`zp_profile()`](zp_get.md)
+  [`zp_result()`](zp_get.md) [`zp_signups()`](zp_get.md)
+  [`zp_team()`](zp_get.md) [`zp_event_list()`](zp_get.md)
+  [`zp_result_list()`](zp_get.md) [`zp_team_riders()`](zp_get.md)
+  [`zp_team_list()`](zp_get.md) [`zp_sprints()`](zp_get.md)
+  [`zp_primes()`](zp_get.md) [`zp_league_list()`](zp_get.md)
+  [`zp_league_results()`](zp_get.md)
+  [`zp_league_team_standings()`](zp_get.md) : Low-level ZwiftPower GET
+
+- [`zp_unflag()`](zp_unflag.md) :
+
+  Unwrap ZwiftPower `[value, flag]` columns
+
+## ZwiftRacing.app
+
+Key-authenticated rider ratings, results and club rosters.
+
+- [`zr_client()`](zr_client.md) : Create a ZwiftRacing.app client
+- [`zr_get()`](zr_get.md) [`zr_rider()`](zr_get.md)
+  [`zr_rider_overview()`](zr_get.md) [`zr_rider_results()`](zr_get.md)
+  [`zr_rider_ranking()`](zr_get.md) [`zr_rider_velo()`](zr_get.md)
+  [`zr_rider_power()`](zr_get.md) [`zr_riders()`](zr_get.md)
+  [`zr_event()`](zr_get.md) [`zr_result()`](zr_get.md)
+  [`zr_club()`](zr_get.md) [`zr_club_riders()`](zr_get.md)
+  [`zr_routes()`](zr_get.md) : Low-level ZwiftRacing.app GET
+
+## Caching
+
+On-disk TTL cache controls.
+
+- [`zv_cache_clear()`](zv_cache_clear.md) : Clear the on-disk cache.
+- [`zv_cache_dir()`](zv_cache_dir.md) : Path to the cache directory
+  (created on demand).
+- [`zv_cache_enabled()`](zv_cache_enabled.md) : Is caching currently
+  enabled?
+- [`zv_cache_info()`](zv_cache_info.md) : Summarise the cache contents.
+
+# Articles
+
+### Guides
+
+- [Race analysis across Zwift, ZwiftPower and
+  ZwiftRacing.app](race-analysis.md):
