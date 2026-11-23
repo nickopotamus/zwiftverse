@@ -8,7 +8,7 @@ keeps you from re-fetching stable data.
 |---|---|---|
 | Zwift game | OAuth2 password grant (`Zwift_Mobile_Link`) | `us-or-rly101.zwift.com` |
 | ZwiftPower | phpBB/SSO session cookie | `zwiftpower.com` |
-| ZwiftRacing.app | static `Authorization` key | `api.zwiftracing.app/api` |
+| ZwiftRacing.app | static key in `x-api-key` header | `api.zwiftracing.app/api/v2` |
 
 > **Unofficial & reverse-engineered.** None of these are sanctioned APIs. The
 > Zwift and ZwiftPower flows need *your own* Zwift credentials. Personal data is
@@ -27,7 +27,7 @@ devtools::document("zwiftverse")         # regenerate man/ from the roxygen tags
 
 ```r
 Sys.setenv(ZWIFT_USERNAME = "you@example.com", ZWIFT_PASSWORD = "…")
-Sys.setenv(ZR_AUTH = "your-zwiftracing-key")   # raw header value, no "Bearer"
+Sys.setenv(ZR_AUTH = "your-zwiftracing-key")   # sent as the x-api-key header
 ```
 
 ## Usage
@@ -52,23 +52,25 @@ fts  <- zp_sprints(zp, 3590800)
 
 ## ZwiftRacing.app ---------------------------------------------------
 zr <- zr_client()
-r1 <- zr_rider(zr, 1234567)
-rb <- zr_riders(zr, c(1234567, 2345678, 3456789))   # batch POST, 1 request
-cl <- zr_club(zr, 456)
+r1 <- zr_rider(zr, 1234567)                  # vELO rating in velo$race
+lg <- zr_rider_overview(zr, 1234567)         # legacy ratings: live / max30 / max90
+rr <- zr_rider_results(zr, 1234567, days = 90)
+ev <- zr_result(zr, 5800908)                 # one row per rider, all pens
+cm <- zr_club_riders(zr, 456)                # all pages
+rb <- zr_riders(zr, c(1234567, 2345678))     # one request per rider (no v2 batch)
 ```
 
 Nested JSON arrives as list-columns:
 
 ```r
 library(tidyr)
-zr_rider(zr, 1234567) |> unnest_wider(race)
+zr_rider(zr, 1234567) |> hoist(velo, velo_race = "race")
 ```
 
 ## Caching
 
 The cache is on by default and keyed on method + URL + body. TTL (seconds):
-`0` = off, `Inf` = permanent (immutable data such as completed results or a
-historical `epoch` snapshot).
+`0` = off, `Inf` = permanent (immutable data such as completed results).
 
 ```r
 options(
@@ -78,7 +80,7 @@ options(
   zwiftverse.ttl_zr    = 3600
 )
 
-zr_rider(zr, 1234567, ttl = Inf)       # per-call override
+zr_result(zr, 5800908, ttl = Inf)      # per-call override (finished race)
 zv_cache_info()                        # what's cached
 zv_cache_clear()                       # wipe it
 ```
@@ -91,5 +93,6 @@ zv_cache_clear()                       # wipe it
 - **ZwiftPower:** `profile`, `result`, `signups`, `team`, `event_list`,
   `result_list`, `team_riders`, `team_list`, `sprints`, `primes`, `league_list`,
   `league_results`, `league_team_standings`, plus `zp_get`.
-- **ZwiftRacing.app:** `rider` (+ epoch), `riders` (batch), `result`, `club`,
-  `categories`, plus `zr_get`/`zr_post`.
+- **ZwiftRacing.app (v2):** `rider`, `rider_overview`, `rider_results`,
+  `rider_ranking`, `rider_velo`, `rider_power`, `riders`, `event`, `result`,
+  `club`, `club_riders`, `routes`, plus `zr_get`.

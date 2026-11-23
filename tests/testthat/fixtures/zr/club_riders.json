@@ -1,0 +1,1461 @@
+{
+  "success": true,
+  "data": [
+    {
+      "riderId": 1000009,
+      "name": "Test Rider",
+      "imageSrc": "REDACTED",
+      "country": "de",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 939.6459
+      },
+      "score": 495.956183522444,
+      "percentile": 96,
+      "points": {
+        "gc": {
+          "percentile": 96,
+          "ranking": 495.956183522444
+        },
+        "sprint": {
+          "percentile": 98.6,
+          "ranking": 262.577070328932
+        },
+        "climb": {
+          "percentile": 9.3,
+          "ranking": 38.583910706843
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 997.53,
+        "wkg5": 11.71,
+        "w15": 884.09,
+        "wkg15": 10.38,
+        "w30": 758.7,
+        "wkg30": 8.9,
+        "w60": 601.14,
+        "wkg60": 7.06,
+        "w120": 524.18,
+        "wkg120": 6.15,
+        "w300": 467.61,
+        "wkg300": 5.49,
+        "w1200": 420.85,
+        "wkg1200": 4.94,
+        "ftp": 427,
+        "wkgFtp": 5.01
+      },
+      "age": "50+",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 11,
+        "wins": 1,
+        "podiums": 2,
+        "dnfs": 0
+      }
+    },
+    {
+      "riderId": 1000010,
+      "name": "Test Rider",
+      "imageSrc": "REDACTED",
+      "country": "gb",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 841.4396
+      },
+      "score": 262.596722498062,
+      "percentile": 25.4,
+      "points": {
+        "gc": {
+          "percentile": 25.4,
+          "ranking": 262.596722498062
+        },
+        "sprint": {
+          "percentile": 0.3,
+          "ranking": 48.4488449190474
+        },
+        "climb": {
+          "percentile": 72.9,
+          "ranking": 86.6821761664091
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 1012.5,
+        "wkg5": 11.64,
+        "w15": 818.4,
+        "wkg15": 9.41,
+        "w30": 652.5,
+        "wkg30": 7.5,
+        "w60": 551.07,
+        "wkg60": 6.33,
+        "w120": 483.27,
+        "wkg120": 5.55,
+        "w300": 411.73,
+        "wkg300": 4.73,
+        "w1200": 375.4,
+        "wkg1200": 4.31,
+        "ftp": 427,
+        "wkgFtp": 4.91
+      },
+      "age": "50+",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 3,
+        "wins": 0,
+        "podiums": 0,
+        "dnfs": 0
+      }
+    },
+    {
+      "riderId": 1000011,
+      "name": "Test Rider",
+      "imageSrc": null,
+      "country": "se",
+      "male": false,
+      "visibility": "public",
+      "velo": {
+        "race": 835.74055
+      },
+      "score": null,
+      "percentile": null,
+      "points": {
+        "gc": {
+          "percentile": null,
+          "ranking": null
+        },
+        "sprint": {
+          "percentile": null,
+          "ranking": null
+        },
+        "climb": {
+          "percentile": null,
+          "ranking": null
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 1082.79,
+        "wkg5": 15.25,
+        "w15": 839.7,
+        "wkg15": 11.83,
+        "w30": 682.78,
+        "wkg30": 9.62,
+        "w60": 549.62,
+        "wkg60": 7.74,
+        "w120": 406.04,
+        "wkg120": 5.72,
+        "w300": 372.86,
+        "wkg300": 5.25,
+        "w1200": 309.06,
+        "wkg1200": 4.35,
+        "ftp": 305,
+        "wkgFtp": 4.3
+      },
+      "age": "50+",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 14,
+        "wins": 0,
+        "podiums": 0,
+        "dnfs": 0
+      }
+    },
+    {
+      "riderId": 1000012,
+      "name": "Test Rider",
+      "imageSrc": "REDACTED",
+      "country": "it",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 785.296087685151
+      },
+      "score": 484.525285813802,
+      "percentile": 95.1,
+      "points": {
+        "gc": {
+          "percentile": 95.1,
+          "ranking": 484.525285813802
+        },
+        "sprint": {
+          "percentile": 86.3,
+          "ranking": 186.868812058764
+        },
+        "climb": {
+          "percentile": 94.1,
+          "ranking": 130.581700631886
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 762.3,
+        "wkg5": 11.82,
+        "w15": 671.79,
+        "wkg15": 10.55,
+        "w30": 561,
+        "wkg30": 8.64,
+        "w60": 466,
+        "wkg60": 7.18,
+        "w120": 400,
+        "wkg120": 6.18,
+        "w300": 339.35,
+        "wkg300": 5.25,
+        "w1200": 287.66,
+        "wkg1200": 4.44,
+        "ftp": 271,
+        "wkgFtp": 4.19
+      },
+      "age": "50+",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 9,
+        "wins": 2,
+        "podiums": 4,
+        "dnfs": 0
+      }
+    },
+    {
+      "riderId": 1000013,
+      "name": "Test Rider",
+      "imageSrc": "REDACTED",
+      "country": "gb-wls",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 774.1078
+      },
+      "score": null,
+      "percentile": null,
+      "points": {
+        "gc": {
+          "percentile": null,
+          "ranking": null
+        },
+        "sprint": {
+          "percentile": null,
+          "ranking": null
+        },
+        "climb": {
+          "percentile": null,
+          "ranking": null
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 852.3,
+        "wkg5": 12.35,
+        "w15": 711,
+        "wkg15": 10.3,
+        "w30": 621,
+        "wkg30": 9,
+        "w60": 430,
+        "wkg60": 6.23,
+        "w120": 386.14,
+        "wkg120": 5.6,
+        "w300": 305.86,
+        "wkg300": 4.43,
+        "w1200": 272.24,
+        "wkg1200": 3.95,
+        "ftp": 330,
+        "wkgFtp": 4.78
+      },
+      "age": "Vet",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 0,
+        "wins": 0,
+        "podiums": 0,
+        "dnfs": 0
+      }
+    },
+    {
+      "riderId": 1000014,
+      "name": "Test Rider",
+      "imageSrc": "REDACTED",
+      "country": "at",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 768.7596
+      },
+      "score": null,
+      "percentile": null,
+      "points": {
+        "gc": {
+          "percentile": null,
+          "ranking": null
+        },
+        "sprint": {
+          "percentile": null,
+          "ranking": null
+        },
+        "climb": {
+          "percentile": null,
+          "ranking": null
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 803.7,
+        "wkg5": 13.18,
+        "w15": 607.5,
+        "wkg15": 9.96,
+        "w30": 531,
+        "wkg30": 8.7,
+        "w60": 431.72,
+        "wkg60": 6.96,
+        "w120": 345.72,
+        "wkg120": 5.67,
+        "w300": 285.36,
+        "wkg300": 4.68,
+        "w1200": 255.84,
+        "wkg1200": 4.13,
+        "ftp": 291,
+        "wkgFtp": 4.77
+      },
+      "age": "Mas",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 0,
+        "wins": 0,
+        "podiums": 0,
+        "dnfs": 0
+      }
+    },
+    {
+      "riderId": 1000015,
+      "name": "Test Rider",
+      "imageSrc": "REDACTED",
+      "country": "cn",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 767.342711058073
+      },
+      "score": 424.865301483379,
+      "percentile": 87.5,
+      "points": {
+        "gc": {
+          "percentile": 87.5,
+          "ranking": 424.865301483379
+        },
+        "sprint": {
+          "percentile": 91.3,
+          "ranking": 203.297484503203
+        },
+        "climb": {
+          "percentile": 90.5,
+          "ranking": 116.609573329142
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 645.92,
+        "wkg5": 10.77,
+        "w15": 605.36,
+        "wkg15": 10.09,
+        "w30": 506.45,
+        "wkg30": 8.44,
+        "w60": 400.43,
+        "wkg60": 6.67,
+        "w120": 355.83,
+        "wkg120": 5.93,
+        "w300": 325.25,
+        "wkg300": 5.42,
+        "w1200": 270.14,
+        "wkg1200": 4.5,
+        "ftp": 261,
+        "wkgFtp": 4.35
+      },
+      "age": "Snr",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 22,
+        "wins": 1,
+        "podiums": 3,
+        "dnfs": 1
+      }
+    },
+    {
+      "riderId": 1000016,
+      "name": "Test Rider",
+      "imageSrc": "REDACTED",
+      "country": "ch",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 762.413430245516
+      },
+      "score": 272.386768828525,
+      "percentile": 29.8,
+      "points": {
+        "gc": {
+          "percentile": 29.8,
+          "ranking": 272.386768828525
+        },
+        "sprint": {
+          "percentile": 41.1,
+          "ranking": 123.076353101571
+        },
+        "climb": {
+          "percentile": 0.1,
+          "ranking": 10.3407856875468
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 631.8,
+        "wkg5": 11.08,
+        "w15": 563.4,
+        "wkg15": 9.88,
+        "w30": 474.3,
+        "wkg30": 8.32,
+        "w60": 384,
+        "wkg60": 6.74,
+        "w120": 340.63,
+        "wkg120": 5.98,
+        "w300": 297,
+        "wkg300": 5.21,
+        "w1200": 268,
+        "wkg1200": 4.7,
+        "ftp": 220,
+        "wkgFtp": 3.86
+      },
+      "age": "50+",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 3,
+        "wins": 0,
+        "podiums": 0,
+        "dnfs": 1
+      }
+    },
+    {
+      "riderId": 1000017,
+      "name": "Test Rider",
+      "imageSrc": "REDACTED",
+      "country": "gb",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 748.1584
+      },
+      "score": null,
+      "percentile": null,
+      "points": {
+        "gc": {
+          "percentile": null,
+          "ranking": null
+        },
+        "sprint": {
+          "percentile": null,
+          "ranking": null
+        },
+        "climb": {
+          "percentile": null,
+          "ranking": null
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 632.7,
+        "wkg5": 8.67,
+        "w15": 603,
+        "wkg15": 8.26,
+        "w30": 578.7,
+        "wkg30": 7.93,
+        "w60": 440.32,
+        "wkg60": 6.03,
+        "w120": 362.06,
+        "wkg120": 4.96,
+        "w300": 296.02,
+        "wkg300": 4.06,
+        "w1200": 271.42,
+        "wkg1200": 3.72,
+        "ftp": 361,
+        "wkgFtp": 4.95
+      },
+      "age": "U23",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 0,
+        "wins": 0,
+        "podiums": 0,
+        "dnfs": 0
+      }
+    },
+    {
+      "riderId": 1000018,
+      "name": "Test Rider",
+      "imageSrc": "REDACTED",
+      "country": "au",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 744.1494
+      },
+      "score": null,
+      "percentile": null,
+      "points": {
+        "gc": {
+          "percentile": null,
+          "ranking": null
+        },
+        "sprint": {
+          "percentile": null,
+          "ranking": null
+        },
+        "climb": {
+          "percentile": null,
+          "ranking": null
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 849.6,
+        "wkg5": 14.16,
+        "w15": 782.1,
+        "wkg15": 13.04,
+        "w30": 612,
+        "wkg30": 10.2,
+        "w60": 479.02,
+        "wkg60": 7.98,
+        "w120": 375.82,
+        "wkg120": 6.26,
+        "w300": 299.3,
+        "wkg300": 4.99,
+        "w1200": 228.78,
+        "wkg1200": 3.81,
+        "ftp": 232,
+        "wkgFtp": 3.87
+      },
+      "age": "U23",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 0,
+        "wins": 0,
+        "podiums": 0,
+        "dnfs": 0
+      }
+    },
+    {
+      "riderId": 1000019,
+      "name": "Test Rider",
+      "imageSrc": "REDACTED",
+      "country": "no",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 727.529188265657
+      },
+      "score": 97.702719840895,
+      "percentile": 0.1,
+      "points": {
+        "gc": {
+          "percentile": 0.1,
+          "ranking": 97.702719840895
+        },
+        "sprint": {
+          "percentile": 0.1,
+          "ranking": 43.9631226797445
+        },
+        "climb": {
+          "percentile": 0.1,
+          "ranking": 4.189687604001
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 705.32,
+        "wkg5": 10.69,
+        "w15": 675.39,
+        "wkg15": 10.23,
+        "w30": 612.54,
+        "wkg30": 9.28,
+        "w60": 459.46,
+        "wkg60": 6.96,
+        "w120": 397.67,
+        "wkg120": 6.03,
+        "w300": 318.35,
+        "wkg300": 4.9,
+        "w1200": 277,
+        "wkg1200": 4.2,
+        "ftp": 261,
+        "wkgFtp": 3.95
+      },
+      "age": "Vet",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 8,
+        "wins": 1,
+        "podiums": 1,
+        "dnfs": 2
+      }
+    },
+    {
+      "riderId": 1000020,
+      "name": "Test Rider",
+      "imageSrc": "REDACTED",
+      "country": "fr",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 719.665220112759
+      },
+      "score": null,
+      "percentile": null,
+      "points": {
+        "gc": {
+          "percentile": null,
+          "ranking": null
+        },
+        "sprint": {
+          "percentile": null,
+          "ranking": null
+        },
+        "climb": {
+          "percentile": null,
+          "ranking": null
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 892.8,
+        "wkg5": 10.69,
+        "w15": 885.6,
+        "wkg15": 10.61,
+        "w30": 730.8,
+        "wkg30": 8.75,
+        "w60": 573.62,
+        "wkg60": 6.87,
+        "w120": 438.6,
+        "wkg120": 5.25,
+        "w300": 368.75,
+        "wkg300": 4.42,
+        "w1200": 339,
+        "wkg1200": 4.06,
+        "ftp": 321,
+        "wkgFtp": 3.84
+      },
+      "age": "Vet",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 14,
+        "wins": 0,
+        "podiums": 0,
+        "dnfs": 0
+      }
+    },
+    {
+      "riderId": 1000001,
+      "name": "Test Rider",
+      "imageSrc": "REDACTED",
+      "country": "gb",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 715.23210431096
+      },
+      "score": 425.564965229313,
+      "percentile": 87.6,
+      "points": {
+        "gc": {
+          "percentile": 87.6,
+          "ranking": 425.564965229313
+        },
+        "sprint": {
+          "percentile": 89.1,
+          "ranking": 194.823612597185
+        },
+        "climb": {
+          "percentile": 0.7,
+          "ranking": 22.4654545895018
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 934,
+        "wkg5": 11.97,
+        "w15": 875,
+        "wkg15": 11.22,
+        "w30": 679,
+        "wkg30": 8.71,
+        "w60": 533,
+        "wkg60": 6.83,
+        "w120": 439,
+        "wkg120": 5.63,
+        "w300": 363.31,
+        "wkg300": 4.66,
+        "w1200": 305.71,
+        "wkg1200": 3.92,
+        "ftp": 287,
+        "wkgFtp": 3.68
+      },
+      "age": "Vet",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 13,
+        "wins": 3,
+        "podiums": 7,
+        "dnfs": 1
+      }
+    },
+    {
+      "riderId": 1000021,
+      "name": "Test Rider",
+      "imageSrc": "REDACTED",
+      "country": "ca",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 713.1407
+      },
+      "score": 157.479604499686,
+      "percentile": 0.2,
+      "points": {
+        "gc": {
+          "percentile": 0.2,
+          "ranking": 157.479604499686
+        },
+        "sprint": {
+          "percentile": 2.2,
+          "ranking": 64.7654077136407
+        },
+        "climb": {
+          "percentile": 0.1,
+          "ranking": 2.78491670313474
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 635.68,
+        "wkg5": 9.31,
+        "w15": 597.54,
+        "wkg15": 8.75,
+        "w30": 576.02,
+        "wkg30": 8.43,
+        "w60": 472.95,
+        "wkg60": 6.92,
+        "w120": 395.06,
+        "wkg120": 5.78,
+        "w300": 325,
+        "wkg300": 4.76,
+        "w1200": 287,
+        "wkg1200": 4.2,
+        "ftp": 274,
+        "wkgFtp": 4.01
+      },
+      "age": "Vet",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 20,
+        "wins": 0,
+        "podiums": 0,
+        "dnfs": 0
+      }
+    },
+    {
+      "riderId": 1000022,
+      "name": "Test Rider",
+      "imageSrc": null,
+      "country": "gb",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 704.66015
+      },
+      "score": null,
+      "percentile": null,
+      "points": {
+        "gc": {
+          "percentile": null,
+          "ranking": null
+        },
+        "sprint": {
+          "percentile": null,
+          "ranking": null
+        },
+        "climb": {
+          "percentile": null,
+          "ranking": null
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 423.32,
+        "wkg5": 4.83,
+        "w15": 423.32,
+        "wkg15": 4.83,
+        "w30": 423.32,
+        "wkg30": 4.83,
+        "w60": 421.84,
+        "wkg60": 4.82,
+        "w120": 421.84,
+        "wkg120": 4.82,
+        "w300": 396.74,
+        "wkg300": 4.53,
+        "w1200": 386.9,
+        "wkg1200": 4.42,
+        "ftp": 383,
+        "wkgFtp": 4.37
+      },
+      "age": "Mas",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 1,
+        "wins": 0,
+        "podiums": 0,
+        "dnfs": 0
+      }
+    },
+    {
+      "riderId": 1000023,
+      "name": "Test Rider",
+      "imageSrc": "REDACTED",
+      "country": "de",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 703.01385
+      },
+      "score": 152.675734309135,
+      "percentile": 0.1,
+      "points": {
+        "gc": {
+          "percentile": 0.1,
+          "ranking": 152.675734309135
+        },
+        "sprint": {
+          "percentile": 1.8,
+          "ranking": 62.797569218785
+        },
+        "climb": {
+          "percentile": 0.1,
+          "ranking": 2.75930287073112
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 920.7,
+        "wkg5": 11.8,
+        "w15": 851.4,
+        "wkg15": 10.92,
+        "w30": 639.9,
+        "wkg30": 8.2,
+        "w60": 466.16,
+        "wkg60": 5.62,
+        "w120": 413.89,
+        "wkg120": 5.19,
+        "w300": 361.88,
+        "wkg300": 4.54,
+        "w1200": 316.89,
+        "wkg1200": 3.98,
+        "ftp": 319,
+        "wkgFtp": 4
+      },
+      "age": "Vet",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 17,
+        "wins": 0,
+        "podiums": 0,
+        "dnfs": 2
+      }
+    },
+    {
+      "riderId": 1000024,
+      "name": "Test Rider",
+      "imageSrc": "REDACTED",
+      "country": "zw",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 691.472859783056
+      },
+      "score": 83.7356606669402,
+      "percentile": 0.1,
+      "points": {
+        "gc": {
+          "percentile": 0.1,
+          "ranking": 83.7356606669402
+        },
+        "sprint": {
+          "percentile": 0.1,
+          "ranking": 23.0632294907392
+        },
+        "climb": {
+          "percentile": 0.2,
+          "ranking": 17.081854460263
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 790.2,
+        "wkg5": 9.76,
+        "w15": 638.1,
+        "wkg15": 7.88,
+        "w30": 624.6,
+        "wkg30": 7.71,
+        "w60": 444.89,
+        "wkg60": 5.3,
+        "w120": 425.89,
+        "wkg120": 5.07,
+        "w300": 405.87,
+        "wkg300": 4.83,
+        "w1200": 342.89,
+        "wkg1200": 4.08,
+        "ftp": 278,
+        "wkgFtp": 3.31
+      },
+      "age": "50+",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 2,
+        "wins": 0,
+        "podiums": 1,
+        "dnfs": 0
+      }
+    },
+    {
+      "riderId": 1000025,
+      "name": "Test Rider",
+      "imageSrc": "REDACTED",
+      "country": "gb",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 691.43585410407
+      },
+      "score": 163.186667592978,
+      "percentile": 0.4,
+      "points": {
+        "gc": {
+          "percentile": 0.4,
+          "ranking": 163.186667592978
+        },
+        "sprint": {
+          "percentile": 0.1,
+          "ranking": 4.08825794384667
+        },
+        "climb": {
+          "percentile": 9.3,
+          "ranking": 38.4919354538533
+        },
+        "tt": {
+          "percentile": 0.1,
+          "ranking": 81.6560091436271
+        }
+      },
+      "power": {
+        "w5": 782.1,
+        "wkg5": 9.54,
+        "w15": 729.9,
+        "wkg15": 8.9,
+        "w30": 655.17,
+        "wkg30": 7.99,
+        "w60": 463.65,
+        "wkg60": 5.65,
+        "w120": 397.32,
+        "wkg120": 4.85,
+        "w300": 360.28,
+        "wkg300": 4.39,
+        "w1200": 348.87,
+        "wkg1200": 4.25,
+        "ftp": 334,
+        "wkgFtp": 4.07
+      },
+      "age": "50+",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 16,
+        "wins": 3,
+        "podiums": 4,
+        "dnfs": 0
+      }
+    },
+    {
+      "riderId": 1000026,
+      "name": "Test Rider",
+      "imageSrc": null,
+      "country": "is",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 683.02615
+      },
+      "score": 279.724715179641,
+      "percentile": 33.2,
+      "points": {
+        "gc": {
+          "percentile": 33.2,
+          "ranking": 279.724715179641
+        },
+        "sprint": {
+          "percentile": 16.2,
+          "ranking": 94.6957873884062
+        },
+        "climb": {
+          "percentile": 8.3,
+          "ranking": 37.327018447675
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 824.53,
+        "wkg5": 10.06,
+        "w15": 782.12,
+        "wkg15": 9.54,
+        "w30": 641.08,
+        "wkg30": 7.82,
+        "w60": 467.69,
+        "wkg60": 5.7,
+        "w120": 409.99,
+        "wkg120": 5,
+        "w300": 358.91,
+        "wkg300": 4.38,
+        "w1200": 303.32,
+        "wkg1200": 3.7,
+        "ftp": 329,
+        "wkgFtp": 4.01
+      },
+      "age": "Vet",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 7,
+        "wins": 4,
+        "podiums": 4,
+        "dnfs": 3
+      }
+    },
+    {
+      "riderId": 1000027,
+      "name": "Test Rider",
+      "imageSrc": "REDACTED",
+      "country": "gb",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 682.556616956607
+      },
+      "score": 379.168032741997,
+      "percentile": 76.2,
+      "points": {
+        "gc": {
+          "percentile": 76.2,
+          "ranking": 379.168032741997
+        },
+        "sprint": {
+          "percentile": 72.3,
+          "ranking": 160.039183865729
+        },
+        "climb": {
+          "percentile": 3.1,
+          "ranking": 29.9715724940885
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 669.75,
+        "wkg5": 10.72,
+        "w15": 588,
+        "wkg15": 9.41,
+        "w30": 498,
+        "wkg30": 7.97,
+        "w60": 391.75,
+        "wkg60": 6.27,
+        "w120": 347,
+        "wkg120": 5.55,
+        "w300": 302.78,
+        "wkg300": 4.84,
+        "w1200": 263.05,
+        "wkg1200": 4.21,
+        "ftp": 247,
+        "wkgFtp": 3.95
+      },
+      "age": "Vet",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 13,
+        "wins": 0,
+        "podiums": 2,
+        "dnfs": 0
+      }
+    },
+    {
+      "riderId": 1000028,
+      "name": "Test Rider",
+      "imageSrc": null,
+      "country": "gb",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 677.25565
+      },
+      "score": null,
+      "percentile": null,
+      "points": {
+        "gc": {
+          "percentile": null,
+          "ranking": null
+        },
+        "sprint": {
+          "percentile": null,
+          "ranking": null
+        },
+        "climb": {
+          "percentile": null,
+          "ranking": null
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 472.83,
+        "wkg5": 6.48,
+        "w15": 437,
+        "wkg15": 5.99,
+        "w30": 387.63,
+        "wkg30": 5.35,
+        "w60": 381.34,
+        "wkg60": 5.26,
+        "w120": 362.57,
+        "wkg120": 5,
+        "w300": 339.64,
+        "wkg300": 4.68,
+        "w1200": 312.08,
+        "wkg1200": 4.3,
+        "ftp": 307,
+        "wkgFtp": 4.23
+      },
+      "age": "50+",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 7,
+        "wins": 0,
+        "podiums": 0,
+        "dnfs": 0
+      }
+    },
+    {
+      "riderId": 1000029,
+      "name": "Test Rider",
+      "imageSrc": "REDACTED",
+      "country": "nl",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 676.5267
+      },
+      "score": null,
+      "percentile": null,
+      "points": {
+        "gc": {
+          "percentile": null,
+          "ranking": null
+        },
+        "sprint": {
+          "percentile": null,
+          "ranking": null
+        },
+        "climb": {
+          "percentile": null,
+          "ranking": null
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 608.4,
+        "wkg5": 9.22,
+        "w15": 561.6,
+        "wkg15": 8.51,
+        "w30": 468.9,
+        "wkg30": 7.1,
+        "w60": 389.58,
+        "wkg60": 5.9,
+        "w120": 332.82,
+        "wkg120": 5.04,
+        "w300": 312.4,
+        "wkg300": 4.66,
+        "w1200": 281.66,
+        "wkg1200": 4.2,
+        "ftp": 277,
+        "wkgFtp": 4.13
+      },
+      "age": "50+",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 2,
+        "wins": 0,
+        "podiums": 0,
+        "dnfs": 0
+      }
+    },
+    {
+      "riderId": 1000030,
+      "name": "Test Rider",
+      "imageSrc": "REDACTED",
+      "country": "se",
+      "male": false,
+      "visibility": "public",
+      "velo": {
+        "race": 660.957251653176
+      },
+      "score": 393.03145957767,
+      "percentile": 80.5,
+      "points": {
+        "gc": {
+          "percentile": 80.5,
+          "ranking": 393.03145957767
+        },
+        "sprint": {
+          "percentile": 88.9,
+          "ranking": 194.256986613483
+        },
+        "climb": {
+          "percentile": 43.1,
+          "ranking": 62.9788592389245
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 704.82,
+        "wkg5": 9.82,
+        "w15": 663.07,
+        "wkg15": 9.23,
+        "w30": 591.39,
+        "wkg30": 8.24,
+        "w60": 502,
+        "wkg60": 6.99,
+        "w120": 370.29,
+        "wkg120": 5.16,
+        "w300": 313.96,
+        "wkg300": 4.37,
+        "w1200": 274.48,
+        "wkg1200": 3.82,
+        "ftp": 259,
+        "wkgFtp": 3.61
+      },
+      "age": "Mas",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 34,
+        "wins": 6,
+        "podiums": 12,
+        "dnfs": 0
+      }
+    },
+    {
+      "riderId": 1000031,
+      "name": "Test Rider",
+      "imageSrc": null,
+      "country": "gb",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 658.703446453648
+      },
+      "score": 394.231039849371,
+      "percentile": 80.9,
+      "points": {
+        "gc": {
+          "percentile": 80.9,
+          "ranking": 394.231039849371
+        },
+        "sprint": {
+          "percentile": 89.2,
+          "ranking": 195.095107731303
+        },
+        "climb": {
+          "percentile": 44.8,
+          "ranking": 64.1516327131486
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 1102.72,
+        "wkg5": 12.97,
+        "w15": 898.81,
+        "wkg15": 10.57,
+        "w30": 670.87,
+        "wkg30": 7.89,
+        "w60": 553.81,
+        "wkg60": 6.52,
+        "w120": 436.49,
+        "wkg120": 5.14,
+        "w300": 360.33,
+        "wkg300": 4.24,
+        "w1200": 309,
+        "wkg1200": 3.64,
+        "ftp": 296,
+        "wkgFtp": 3.48
+      },
+      "age": "Mas",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 16,
+        "wins": 3,
+        "podiums": 8,
+        "dnfs": 0
+      }
+    },
+    {
+      "riderId": 1000032,
+      "name": "Test Rider",
+      "imageSrc": "REDACTED",
+      "country": "nl",
+      "male": true,
+      "visibility": "public",
+      "velo": {
+        "race": 657.97175
+      },
+      "score": null,
+      "percentile": null,
+      "points": {
+        "gc": {
+          "percentile": null,
+          "ranking": null
+        },
+        "sprint": {
+          "percentile": null,
+          "ranking": null
+        },
+        "climb": {
+          "percentile": null,
+          "ranking": null
+        },
+        "tt": {
+          "percentile": null,
+          "ranking": null
+        }
+      },
+      "power": {
+        "w5": 638.1,
+        "wkg5": 8.86,
+        "w15": 557.1,
+        "wkg15": 7.74,
+        "w30": 469.8,
+        "wkg30": 6.53,
+        "w60": 382.7,
+        "wkg60": 5.32,
+        "w120": 336.26,
+        "wkg120": 4.67,
+        "w300": 291.1,
+        "wkg300": 4.04,
+        "w1200": 263.22,
+        "wkg1200": 3.66,
+        "ftp": 317,
+        "wkgFtp": 4.4
+      },
+      "age": "Mas",
+      "height": 175,
+      "weight": 70,
+      "race": {
+        "finishes": 0,
+        "wins": 0,
+        "podiums": 0,
+        "dnfs": 0
+      }
+    }
+  ],
+  "meta": {
+    "page": 0,
+    "pageSize": 50,
+    "total": 443,
+    "totalPages": 9
+  }
+}

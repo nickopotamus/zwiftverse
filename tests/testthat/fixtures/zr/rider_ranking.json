@@ -1,0 +1,487 @@
+{
+  "success": true,
+  "data": {
+    "riderId": 1000001,
+    "days": 90,
+    "scoring": [
+      {
+        "time": 1787679000,
+        "eventId": "5682369",
+        "title": "Test Event",
+        "gc": 52.8,
+        "sprint": 51.3,
+        "climb": 0.4,
+        "tt": null,
+        "awarded": {
+          "gc": true,
+          "sprint": true
+        },
+        "counted": {
+          "sprint": true
+        },
+        "points": {
+          "gc": 76.5196788645301,
+          "sprint": 36.4425917443576
+        }
+      },
+      {
+        "time": 1788544800,
+        "eventId": "5688013",
+        "title": "Test Event",
+        "gc": 82.3,
+        "sprint": 80.3,
+        "climb": 0.4,
+        "tt": null,
+        "awarded": {
+          "gc": true,
+          "sprint": true
+        },
+        "counted": {
+          "sprint": true
+        },
+        "points": {
+          "gc": 78.3092022751295,
+          "sprint": 38.958035195178
+        }
+      },
+      {
+        "time": 1788715801,
+        "eventId": "5610124",
+        "title": "Test Event",
+        "gc": 49.7,
+        "sprint": 67.4,
+        "climb": null,
+        "tt": null,
+        "kind": "expiry"
+      },
+      {
+        "time": 1790053200,
+        "eventId": "5673121",
+        "title": "Test Event",
+        "gc": 49.7,
+        "sprint": 67.4,
+        "climb": null,
+        "tt": null
+      },
+      {
+        "time": 1790272800,
+        "eventId": "5710477",
+        "title": "Test Event",
+        "gc": 80.6,
+        "sprint": 86.5,
+        "climb": 0.1,
+        "tt": null,
+        "awarded": {
+          "gc": true,
+          "sprint": true,
+          "climb": true
+        },
+        "counted": {
+          "climb": true
+        },
+        "points": {
+          "gc": 79.2872445205314,
+          "sprint": 34.4705857484962,
+          "climb": 1.64455551872446
+        }
+      },
+      {
+        "time": 1791262800,
+        "eventId": "5673130",
+        "title": "Test Event",
+        "gc": 80.6,
+        "sprint": 86.5,
+        "climb": 0.1,
+        "tt": null
+      },
+      {
+        "time": 1791568800,
+        "eventId": "5729167",
+        "title": "Test Event",
+        "gc": 82.9,
+        "sprint": 88.6,
+        "climb": 0.1,
+        "tt": null,
+        "awarded": {
+          "gc": true,
+          "sprint": true
+        },
+        "counted": {
+          "gc": true,
+          "sprint": true
+        },
+        "points": {
+          "gc": 85.6054373407833,
+          "sprint": 40.479593121948
+        }
+      },
+      {
+        "time": 1791741601,
+        "eventId": "5638930",
+        "title": "Test Event",
+        "gc": 81.9,
+        "sprint": 87.4,
+        "climb": 0.1,
+        "tt": null,
+        "kind": "expiry"
+      },
+      {
+        "time": 1792472400,
+        "eventId": "5673132",
+        "title": "Test Event",
+        "gc": 81.9,
+        "sprint": 87.4,
+        "climb": 0.1,
+        "tt": null,
+        "awarded": {
+          "gc": true,
+          "sprint": true,
+          "climb": true
+        },
+        "counted": {
+          "climb": true
+        },
+        "points": {
+          "gc": 76.2277740331623,
+          "sprint": 31.5254655624836,
+          "climb": 2.68393277274426
+        }
+      },
+      {
+        "time": 1792778400,
+        "eventId": "5749562",
+        "title": "Test Event",
+        "gc": 84.6,
+        "sprint": 87.4,
+        "climb": 0.1,
+        "tt": null,
+        "awarded": {
+          "gc": true,
+          "sprint": true,
+          "climb": true
+        },
+        "counted": {
+          "gc": true,
+          "climb": true
+        },
+        "points": {
+          "gc": 88.0106200061831,
+          "sprint": 28.7297681590139,
+          "climb": 5.69654134169921
+        }
+      },
+      {
+        "time": 1793080800,
+        "eventId": "5673134",
+        "title": "Test Event",
+        "gc": 84.6,
+        "sprint": 87.4,
+        "climb": 0.1,
+        "tt": null
+      },
+      {
+        "time": 1793251800,
+        "eventId": "5757841",
+        "title": "Test Event",
+        "gc": 84.6,
+        "sprint": 87.4,
+        "climb": 0.1,
+        "tt": null
+      },
+      {
+        "time": 1793854800,
+        "eventId": "5769142",
+        "title": "Test Event",
+        "gc": 84.6,
+        "sprint": 87.4,
+        "climb": 0.1,
+        "tt": null
+      },
+      {
+        "time": 1794337380,
+        "eventId": "5786503",
+        "title": "Test Event",
+        "gc": 85.4,
+        "sprint": 88.2,
+        "climb": 0.1,
+        "tt": null,
+        "awarded": {
+          "gc": true,
+          "sprint": true,
+          "climb": true
+        },
+        "counted": {
+          "gc": true,
+          "sprint": true,
+          "climb": true
+        },
+        "points": {
+          "gc": 81.8473056531761,
+          "sprint": 36.8286895727852,
+          "climb": 3.50977580229513
+        }
+      },
+      {
+        "time": 1794420001,
+        "eventId": "5667780",
+        "title": "Test Event",
+        "gc": 85.4,
+        "sprint": 86.5,
+        "climb": 0.1,
+        "tt": null,
+        "kind": "expiry"
+      },
+      {
+        "time": 1795030200,
+        "eventId": "5795672",
+        "title": "Test Event",
+        "gc": 87,
+        "sprint": 86.5,
+        "climb": 0.7,
+        "tt": null,
+        "awarded": {
+          "gc": true,
+          "sprint": true,
+          "climb": true
+        },
+        "counted": {
+          "gc": true,
+          "climb": true
+        },
+        "points": {
+          "gc": 87.193714293551,
+          "sprint": 25.4630998316416,
+          "climb": 8.93064915403873
+        }
+      },
+      {
+        "time": 1795116600,
+        "eventId": "5800908",
+        "title": "Test Event",
+        "gc": 87.6,
+        "sprint": 89.1,
+        "climb": 0.7,
+        "tt": null,
+        "awarded": {
+          "gc": true,
+          "sprint": true
+        },
+        "counted": {
+          "gc": true,
+          "sprint": true
+        },
+        "points": {
+          "gc": 82.9078879356196,
+          "sprint": 42.1147029629165
+        }
+      }
+    ],
+    "competitions": {
+      "gc": {
+        "places": {
+          "overall": {
+            "rank": 2530,
+            "total": 18292
+          },
+          "category": {
+            "rank": 221,
+            "total": 2545
+          },
+          "age": {
+            "rank": 927,
+            "total": 5800
+          },
+          "gender": {
+            "rank": 2519,
+            "total": 17449
+          }
+        },
+        "contributors": [
+          {
+            "eventId": "5749562",
+            "title": "Test Event",
+            "time": 1792778400,
+            "award": 88.0106200061831,
+            "position": 1,
+            "finishers": 8,
+            "penLabel": "SEE LADDER SITE"
+          },
+          {
+            "eventId": "5795672",
+            "title": "Test Event",
+            "time": 1795030200,
+            "award": 87.193714293551,
+            "position": 3,
+            "finishers": 46,
+            "penLabel": "C"
+          },
+          {
+            "eventId": "5729167",
+            "title": "Test Event",
+            "time": 1791568800,
+            "award": 85.6054373407833,
+            "position": 1,
+            "finishers": 10,
+            "penLabel": "SEE LADDER SITE"
+          },
+          {
+            "eventId": "5800908",
+            "title": "Test Event",
+            "time": 1795116600,
+            "award": 82.9078879356196,
+            "position": 2,
+            "finishers": 8,
+            "penLabel": "SEE LADDER SITE"
+          },
+          {
+            "eventId": "5786503",
+            "title": "Test Event",
+            "time": 1794337380,
+            "award": 81.8473056531761,
+            "position": 3,
+            "finishers": 10,
+            "penLabel": "SEE LADDER SITE"
+          }
+        ]
+      },
+      "sprint": {
+        "places": {
+          "overall": {
+            "rank": 2104,
+            "total": 18254
+          },
+          "category": {
+            "rank": 405,
+            "total": 2543
+          },
+          "age": {
+            "rank": 774,
+            "total": 5794
+          },
+          "gender": {
+            "rank": 2087,
+            "total": 17414
+          }
+        },
+        "contributors": [
+          {
+            "eventId": "5800908",
+            "title": "Test Event",
+            "time": 1795116600,
+            "award": 42.1147029629165,
+            "position": 2,
+            "finishers": 8,
+            "penLabel": "SEE LADDER SITE"
+          },
+          {
+            "eventId": "5729167",
+            "title": "Test Event",
+            "time": 1791568800,
+            "award": 40.479593121948,
+            "position": 1,
+            "finishers": 10,
+            "penLabel": "SEE LADDER SITE"
+          },
+          {
+            "eventId": "5688013",
+            "title": "Test Event",
+            "time": 1788544800,
+            "award": 38.958035195178,
+            "position": 1,
+            "finishers": 6,
+            "penLabel": "SEE LADDER SITE"
+          },
+          {
+            "eventId": "5786503",
+            "title": "Test Event",
+            "time": 1794337380,
+            "award": 36.8286895727852,
+            "position": 3,
+            "finishers": 10,
+            "penLabel": "SEE LADDER SITE"
+          },
+          {
+            "eventId": "5682369",
+            "title": "Test Event",
+            "time": 1787679000,
+            "award": 36.4425917443576,
+            "position": 4,
+            "finishers": 8,
+            "penLabel": "SEE LADDER SITE"
+          }
+        ]
+      },
+      "climb": {
+        "places": {
+          "overall": {
+            "rank": 15339,
+            "total": 18006
+          },
+          "category": {
+            "rank": 2280,
+            "total": 2525
+          },
+          "age": {
+            "rank": 4965,
+            "total": 5724
+          },
+          "gender": {
+            "rank": 14757,
+            "total": 17189
+          }
+        },
+        "contributors": [
+          {
+            "eventId": "5795672",
+            "title": "Test Event",
+            "time": 1795030200,
+            "award": 8.93064915403873,
+            "position": 3,
+            "finishers": 46,
+            "penLabel": "C"
+          },
+          {
+            "eventId": "5749562",
+            "title": "Test Event",
+            "time": 1792778400,
+            "award": 5.69654134169921,
+            "position": 1,
+            "finishers": 8,
+            "penLabel": "SEE LADDER SITE"
+          },
+          {
+            "eventId": "5786503",
+            "title": "Test Event",
+            "time": 1794337380,
+            "award": 3.50977580229513,
+            "position": 3,
+            "finishers": 10,
+            "penLabel": "SEE LADDER SITE"
+          },
+          {
+            "eventId": "5673132",
+            "title": "Test Event",
+            "time": 1792472400,
+            "award": 2.68393277274426,
+            "position": 19,
+            "finishers": 40,
+            "penLabel": "B"
+          },
+          {
+            "eventId": "5710477",
+            "title": "Test Event",
+            "time": 1790272800,
+            "award": 1.64455551872446,
+            "position": 2,
+            "finishers": 8,
+            "penLabel": "E"
+          }
+        ]
+      },
+      "tt": {
+        "places": null,
+        "contributors": []
+      }
+    }
+  }
+}

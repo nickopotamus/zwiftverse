@@ -1,0 +1,126 @@
+{
+  "success": true,
+  "data": {
+    "riderId": 1000001,
+    "name": "Test Rider",
+    "imageSrc": "REDACTED",
+    "country": "gb",
+    "male": true,
+    "age": "Vet",
+    "height": 175,
+    "weight": 70,
+    "visibility": "public",
+    "banned": false,
+    "optOut": false,
+    "club": {
+      "clubId": 9976,
+      "name": "Test Rider",
+      "backgroundColor": "0073b7",
+      "textColor": "ffffff",
+      "borderColor": "ff4500"
+    },
+    "velo": {
+      "race": 715.23210431096,
+      "factors": {
+        "endurance": 631.936141242592,
+        "pursuit": 708,
+        "sprint": 832.75,
+        "punch": 813.766042239305,
+        "climb": 695.34022636152,
+        "timeTrial": 669
+      },
+      "skill": {
+        "endurance": 1.93614124259216,
+        "pursuit": 0,
+        "sprint": 0,
+        "punch": 0.216042239305011,
+        "climb": 0.340226361520422,
+        "timeTrial": 0
+      }
+    },
+    "seed": {
+      "race": 714.4615,
+      "factors": {
+        "endurance": 630,
+        "pursuit": 708,
+        "sprint": 832.75,
+        "punch": 813.55,
+        "climb": 695,
+        "timeTrial": 669
+      }
+    },
+    "points": {
+      "updatedAt": 1795406628,
+      "gc": {
+        "ranking": 425.564965229313,
+        "total": 735.908864922666,
+        "events": [
+          "5749562",
+          "5795672",
+          "5729167",
+          "5800908",
+          "5786503"
+        ],
+        "percentile": 87.6
+      },
+      "sprint": {
+        "ranking": 194.823612597185,
+        "total": 315.012531898821,
+        "events": [
+          "5800908",
+          "5729167",
+          "5688013",
+          "5786503",
+          "5682369"
+        ],
+        "percentile": 89.1
+      },
+      "climb": {
+        "ranking": 22.4654545895018,
+        "total": 22.4654545895018,
+        "events": [
+          "5795672",
+          "5749562",
+          "5786503",
+          "5673132",
+          "5710477"
+        ],
+        "percentile": 0.7
+      },
+      "tt": null
+    },
+    "power": {
+      "wkg5": 11.974358974359,
+      "wkg15": 11.2179487179487,
+      "wkg30": 8.7051282051282,
+      "wkg60": 6.83333333333333,
+      "wkg120": 5.62820512820513,
+      "wkg300": 4.67948717948718,
+      "wkg1200": 4.01282051282051
+    },
+    "race": {
+      "finishes": 13,
+      "wins": 3,
+      "podiums": 7,
+      "dnfs": 1
+    },
+    "phenotype": {
+      "version": 4,
+      "label": "sprinter",
+      "confidence": 1
+    },
+    "gcSummary": {
+      "points": 735.908864922666,
+      "ranking": 87,
+      "categoryPlace": {
+        "rank": 221,
+        "total": 2545,
+        "category": "Sapphire"
+      },
+      "overallPlace": {
+        "rank": 2530,
+        "total": 18292
+      }
+    }
+  }
+}

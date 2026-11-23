@@ -3,20 +3,23 @@
 #
 # Credentials (put these in ~/.Renviron or a project .Renviron - both gitignored;
 # never commit them):
-#   ZR_AUTH            ZwiftRacing.app key (raw Authorization value)
+#   ZR_AUTH            ZwiftRacing.app key (sent as the x-api-key header)
 #   ZWIFT_USERNAME     Zwift login
 #   ZWIFT_PASSWORD     Zwift password
 #   ZP_SID             phpbb3_lswlk_sid cookie copied from zwiftpower.com
 #
-# Test targets (any you leave unset are skipped):
+# Test targets - put these in dev/local.env (gitignored, KEY=value lines; read
+# automatically below) or in ~/.Renviron. Any you leave unset are skipped:
 #   ZV_RIDER_ID        a Zwift rider id (yours is fine). If unset and Zwift
 #                      creds work, taken from zwift_profile("me").
-#   ZV_RIDER_IDS       extra comma-separated rider ids for the ZR batch call
+#   ZV_RIDER_IDS       extra comma-separated rider ids for zr_riders()
 #   ZV_ZP_RACE_ID      a *completed* ZwiftPower event id
 #   ZV_ZP_TEAM_ID      a ZwiftPower team id
 #   ZV_ZR_RACE_ID      a ZwiftRacing.app event id (often same as the ZP/Zwift id)
 #   ZV_ZR_CLUB_ID      a ZwiftRacing.app club id
 #   ZV_ZWIFT_EVENT_ID  a Zwift event id
+
+if (file.exists("dev/local.env")) readRenviron("dev/local.env")
 
 suppressPackageStartupMessages({
   if (requireNamespace("devtools", quietly = TRUE) && file.exists("DESCRIPTION")) {
@@ -34,17 +37,27 @@ suppressPackageStartupMessages({
 zv_dev_specs <- function() {
   rider <- function(h) h$rider_id
   list(
-    # ---- ZwiftRacing.app ----
-    list(api = "zr", name = "rider",      needs = "rider",
+    # ---- ZwiftRacing.app (v2) ----
+    list(api = "zr", name = "rider",          needs = "rider",
          call = function(h) zr_rider(h$zr, rider(h), parse = "resp")),
-    list(api = "zr", name = "riders",     needs = "rider",
-         call = function(h) zr_riders(h$zr, c(rider(h), .ids("ZV_RIDER_IDS")), parse = "resp")),
-    list(api = "zr", name = "result",     needs = "ZV_ZR_RACE_ID",
-         call = function(h) zr_result(h$zr, .env("ZV_ZR_RACE_ID"), parse = "resp")),
-    list(api = "zr", name = "club",       needs = "ZV_ZR_CLUB_ID",
+    list(api = "zr", name = "rider_overview", needs = "rider",
+         call = function(h) zr_rider_overview(h$zr, rider(h), parse = "resp")),
+    list(api = "zr", name = "rider_results",  needs = "rider",
+         call = function(h) zr_rider_results(h$zr, rider(h), parse = "resp")),
+    list(api = "zr", name = "rider_ranking",  needs = "rider",
+         call = function(h) zr_rider_ranking(h$zr, rider(h), parse = "resp")),
+    list(api = "zr", name = "rider_velo",     needs = "rider",
+         call = function(h) zr_rider_velo(h$zr, rider(h), parse = "resp")),
+    list(api = "zr", name = "rider_power",    needs = "rider",
+         call = function(h) zr_rider_power(h$zr, rider(h), parse = "resp")),
+    list(api = "zr", name = "event",          needs = "ZV_ZR_RACE_ID",
+         call = function(h) zr_event(h$zr, .env("ZV_ZR_RACE_ID"), parse = "resp")),
+    list(api = "zr", name = "club",           needs = "ZV_ZR_CLUB_ID",
          call = function(h) zr_club(h$zr, .env("ZV_ZR_CLUB_ID"), parse = "resp")),
-    list(api = "zr", name = "categories", needs = character(),
-         call = function(h) zr_categories(h$zr, parse = "resp")),
+    list(api = "zr", name = "club_riders",    needs = "ZV_ZR_CLUB_ID",
+         call = function(h) zr_club_riders(h$zr, .env("ZV_ZR_CLUB_ID"), page = 0, parse = "resp")),
+    list(api = "zr", name = "routes",         needs = character(),
+         call = function(h) zr_routes(h$zr, parse = "resp")),
     # ---- Zwift game API ----
     list(api = "zwift", name = "profile",    needs = character(),
          call = function(h) zwift_profile(h$zwift, "me", parse = "resp")),

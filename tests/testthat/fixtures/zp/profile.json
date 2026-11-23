@@ -1,0 +1,4204 @@
+{
+  "data": [
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "5",
+      "zid": "1000041",
+      "pos": 8,
+      "position_in_cat": 4,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000041.8",
+      "lag": 0,
+      "uid": "1000042",
+      "time": [
+        2219.159,
+        0
+      ],
+      "time_gun": 2219.159,
+      "gap": 231.516,
+      "vtta": 0,
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "E",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        170,
+        0
+      ],
+      "max_hr": [
+        181,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "89.0",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": "568.09",
+      "skill_b": 0,
+      "skill_gain": "6.38",
+      "np": [
+        256,
+        0
+      ],
+      "hrr": [
+        "1.50",
+        0
+      ],
+      "hreff": [
+        "59",
+        0
+      ],
+      "avg_power": [
+        255,
+        0
+      ],
+      "avg_wkg": [
+        "2.9",
+        0
+      ],
+      "wkg_ftp": [
+        "2.7",
+        0
+      ],
+      "wftp": [
+        245,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "2.9",
+        0
+      ],
+      "wkg300": [
+        "3.0",
+        0
+      ],
+      "wkg120": [
+        "3.1",
+        0
+      ],
+      "wkg60": [
+        "3.3",
+        0
+      ],
+      "wkg30": [
+        "3.5",
+        0
+      ],
+      "wkg15": [
+        "3.6",
+        0
+      ],
+      "wkg5": [
+        "3.8",
+        0
+      ],
+      "w1200": [
+        "258",
+        0
+      ],
+      "w300": [
+        "267",
+        0
+      ],
+      "w120": [
+        "277",
+        0
+      ],
+      "w60": [
+        "292",
+        0
+      ],
+      "w30": [
+        "308",
+        0
+      ],
+      "w15": [
+        "316",
+        0
+      ],
+      "w5": [
+        "339",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 0,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_RACE TYPE_RACE ",
+      "distance": 23,
+      "event_date": 1578664800,
+      "rt": "604330868",
+      "laps": "1",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "3",
+      "zid": "1000043",
+      "pos": 3,
+      "position_in_cat": 1,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000043.3",
+      "lag": 0,
+      "uid": "1000044",
+      "time": [
+        1044.255,
+        0
+      ],
+      "time_gun": 1044.255,
+      "gap": 0,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "C",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        161,
+        0
+      ],
+      "max_hr": [
+        172,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "87.0",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": 0,
+      "skill_b": 0,
+      "skill_gain": 0,
+      "np": [
+        213,
+        0
+      ],
+      "hrr": [
+        "1.29",
+        0
+      ],
+      "hreff": [
+        "67",
+        0
+      ],
+      "avg_power": [
+        207,
+        0
+      ],
+      "avg_wkg": [
+        "2.4",
+        0
+      ],
+      "wkg_ftp": [
+        "2.1",
+        0
+      ],
+      "wftp": [
+        0,
+        0
+      ],
+      "wkg_guess": 1,
+      "wkg1200": [
+        "",
+        0
+      ],
+      "wkg300": [
+        "2.7",
+        0
+      ],
+      "wkg120": [
+        "2.9",
+        0
+      ],
+      "wkg60": [
+        "3.0",
+        0
+      ],
+      "wkg30": [
+        "3.4",
+        0
+      ],
+      "wkg15": [
+        "4.0",
+        0
+      ],
+      "wkg5": [
+        "4.4",
+        0
+      ],
+      "w1200": [
+        "",
+        0
+      ],
+      "w300": [
+        "236",
+        0
+      ],
+      "w120": [
+        "248",
+        0
+      ],
+      "w60": [
+        "264",
+        0
+      ],
+      "w30": [
+        "293",
+        0
+      ],
+      "w15": [
+        "352",
+        0
+      ],
+      "w5": [
+        "384",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 0,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_RACE TYPE_RACE ",
+      "distance": 9,
+      "event_date": 1574747700,
+      "rt": "352245150",
+      "laps": "1",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "2",
+      "zid": "1000045",
+      "pos": 146,
+      "position_in_cat": 60,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000045.146",
+      "lag": 33,
+      "uid": "1000046",
+      "time": [
+        86399.999,
+        0
+      ],
+      "time_gun": 86400.059,
+      "gap": 83780.384,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "B",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        117,
+        0
+      ],
+      "max_hr": [
+        169,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "83.0",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 10,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": 0,
+      "skill_b": 0,
+      "skill_gain": 0,
+      "np": [
+        171,
+        0
+      ],
+      "hrr": [
+        "1.23",
+        0
+      ],
+      "hreff": [
+        "67",
+        0
+      ],
+      "avg_power": [
+        144,
+        0
+      ],
+      "avg_wkg": [
+        "1.7",
+        0
+      ],
+      "wkg_ftp": [
+        "2.0",
+        0
+      ],
+      "wftp": [
+        168,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "2.1",
+        0
+      ],
+      "wkg300": [
+        "2.4",
+        0
+      ],
+      "wkg120": [
+        "2.8",
+        0
+      ],
+      "wkg60": [
+        "3.1",
+        0
+      ],
+      "wkg30": [
+        "4.3",
+        0
+      ],
+      "wkg15": [
+        "5.8",
+        0
+      ],
+      "wkg5": [
+        "5.8",
+        0
+      ],
+      "w1200": [
+        "177",
+        0
+      ],
+      "w300": [
+        "197",
+        0
+      ],
+      "w120": [
+        "229",
+        0
+      ],
+      "w60": [
+        "254",
+        0
+      ],
+      "w30": [
+        "360",
+        0
+      ],
+      "w15": [
+        "482",
+        0
+      ],
+      "w5": [
+        "482",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 0,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_RIDE",
+      "distance": 43,
+      "event_date": 1584421200,
+      "rt": "604330868",
+      "laps": "2",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "2",
+      "zid": "1000047",
+      "pos": 130,
+      "position_in_cat": 67,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000047.130",
+      "lag": 33,
+      "uid": "1000048",
+      "time": [
+        86399.999,
+        0
+      ],
+      "time_gun": 86400.059,
+      "gap": 83819.908,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "B",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        121,
+        0
+      ],
+      "max_hr": [
+        161,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "83.0",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 10,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": 0,
+      "skill_b": 0,
+      "skill_gain": 0,
+      "np": [
+        141,
+        0
+      ],
+      "hrr": [
+        "1.07",
+        0
+      ],
+      "hreff": [
+        "77",
+        0
+      ],
+      "avg_power": [
+        130,
+        0
+      ],
+      "avg_wkg": [
+        "1.6",
+        0
+      ],
+      "wkg_ftp": [
+        "1.7",
+        0
+      ],
+      "wftp": [
+        148,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "1.9",
+        0
+      ],
+      "wkg300": [
+        "2.1",
+        0
+      ],
+      "wkg120": [
+        "2.4",
+        0
+      ],
+      "wkg60": [
+        "3.0",
+        0
+      ],
+      "wkg30": [
+        "3.1",
+        0
+      ],
+      "wkg15": [
+        "3.1",
+        0
+      ],
+      "wkg5": [
+        "3.1",
+        0
+      ],
+      "w1200": [
+        "156",
+        0
+      ],
+      "w300": [
+        "176",
+        0
+      ],
+      "w120": [
+        "203",
+        0
+      ],
+      "w60": [
+        "248",
+        0
+      ],
+      "w30": [
+        "259",
+        0
+      ],
+      "w15": [
+        "259",
+        0
+      ],
+      "w5": [
+        "259",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 0,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_RIDE",
+      "distance": 53,
+      "event_date": 1583902800,
+      "rt": "1064303857",
+      "laps": "2",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "5",
+      "zid": "1000049",
+      "pos": 20,
+      "position_in_cat": 20,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000049.20",
+      "lag": 0,
+      "uid": "1000050",
+      "time": [
+        3825.012,
+        0
+      ],
+      "time_gun": 3825.012,
+      "gap": 0.502,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "E",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        132,
+        0
+      ],
+      "max_hr": [
+        160,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "83.0",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": 0,
+      "skill_b": 0,
+      "skill_gain": 0,
+      "np": [
+        178,
+        0
+      ],
+      "hrr": [
+        "1.05",
+        0
+      ],
+      "hreff": [
+        "79",
+        0
+      ],
+      "avg_power": [
+        138,
+        0
+      ],
+      "avg_wkg": [
+        "1.7",
+        0
+      ],
+      "wkg_ftp": [
+        "1.7",
+        0
+      ],
+      "wftp": [
+        143,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "1.8",
+        0
+      ],
+      "wkg300": [
+        "2.2",
+        0
+      ],
+      "wkg120": [
+        "3.0",
+        0
+      ],
+      "wkg60": [
+        "4.9",
+        0
+      ],
+      "wkg30": [
+        "6.3",
+        0
+      ],
+      "wkg15": [
+        "6.9",
+        0
+      ],
+      "wkg5": [
+        "7.3",
+        0
+      ],
+      "w1200": [
+        "151",
+        0
+      ],
+      "w300": [
+        "184",
+        0
+      ],
+      "w120": [
+        "253",
+        0
+      ],
+      "w60": [
+        "408",
+        0
+      ],
+      "w30": [
+        "521",
+        0
+      ],
+      "w15": [
+        "570",
+        0
+      ],
+      "w5": [
+        "602",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 0,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_WORKOUT TYPE_WORKOUT",
+      "distance": 0,
+      "event_date": 1603425600,
+      "rt": "1638640398",
+      "laps": "",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "1",
+      "zid": "1000051",
+      "pos": 13,
+      "position_in_cat": 13,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000051.13",
+      "lag": 0,
+      "uid": "1000052",
+      "time": [
+        3599.115,
+        0
+      ],
+      "time_gun": 2909.851,
+      "gap": 0.334,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "A",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        144,
+        0
+      ],
+      "max_hr": [
+        179,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "79.0",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": 0,
+      "skill_b": 0,
+      "skill_gain": 0,
+      "np": [
+        207,
+        0
+      ],
+      "hrr": [
+        "1.22",
+        0
+      ],
+      "hreff": [
+        "65",
+        0
+      ],
+      "avg_power": [
+        175,
+        0
+      ],
+      "avg_wkg": [
+        "2.2",
+        0
+      ],
+      "wkg_ftp": [
+        "2.3",
+        0
+      ],
+      "wftp": [
+        181,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "2.4",
+        0
+      ],
+      "wkg300": [
+        "2.9",
+        0
+      ],
+      "wkg120": [
+        "3.6",
+        0
+      ],
+      "wkg60": [
+        "3.7",
+        0
+      ],
+      "wkg30": [
+        "3.9",
+        0
+      ],
+      "wkg15": [
+        "4.0",
+        0
+      ],
+      "wkg5": [
+        "4.2",
+        0
+      ],
+      "w1200": [
+        "191",
+        0
+      ],
+      "w300": [
+        "227",
+        0
+      ],
+      "w120": [
+        "288",
+        0
+      ],
+      "w60": [
+        "291",
+        0
+      ],
+      "w30": [
+        "312",
+        0
+      ],
+      "w15": [
+        "319",
+        0
+      ],
+      "w5": [
+        "328",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 0,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_WORKOUT TYPE_WORKOUT",
+      "distance": 0,
+      "event_date": 1665032400,
+      "rt": "3366225080",
+      "laps": "",
+      "dur": "3600"
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "1",
+      "zid": "1000053",
+      "pos": 206,
+      "position_in_cat": 81,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000053.206",
+      "lag": 0,
+      "uid": "1000054",
+      "time": [
+        2854.632,
+        0
+      ],
+      "time_gun": 2854.632,
+      "gap": 248.764,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "L",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        148,
+        0
+      ],
+      "max_hr": [
+        175,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "79.0",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": 0,
+      "skill_b": 0,
+      "skill_gain": 0,
+      "np": [
+        228,
+        0
+      ],
+      "hrr": [
+        "1.48",
+        0
+      ],
+      "hreff": [
+        "53",
+        0
+      ],
+      "avg_power": [
+        219,
+        0
+      ],
+      "avg_wkg": [
+        "2.8",
+        0
+      ],
+      "wkg_ftp": [
+        "2.7",
+        0
+      ],
+      "wftp": [
+        218,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "2.9",
+        0
+      ],
+      "wkg300": [
+        "3.2",
+        0
+      ],
+      "wkg120": [
+        "3.6",
+        0
+      ],
+      "wkg60": [
+        "3.7",
+        0
+      ],
+      "wkg30": [
+        "4.4",
+        0
+      ],
+      "wkg15": [
+        "5.3",
+        0
+      ],
+      "wkg5": [
+        "6.4",
+        0
+      ],
+      "w1200": [
+        "230",
+        0
+      ],
+      "w300": [
+        "252",
+        0
+      ],
+      "w120": [
+        "282",
+        0
+      ],
+      "w60": [
+        "293",
+        0
+      ],
+      "w30": [
+        "351",
+        0
+      ],
+      "w15": [
+        "421",
+        0
+      ],
+      "w5": [
+        "503",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 1,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_TEAM_TIME_TRIAL TYPE_RACE ",
+      "distance": 31,
+      "event_date": 1665079200,
+      "rt": "3395698268",
+      "laps": "3",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "3",
+      "zid": "1000055",
+      "pos": 39,
+      "position_in_cat": 13,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000055.39",
+      "lag": 0,
+      "uid": "1000056",
+      "time": [
+        2724.592,
+        0
+      ],
+      "time_gun": 2724.712,
+      "gap": 162.114,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "C",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        159,
+        0
+      ],
+      "max_hr": [
+        194,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "79.0",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": "370.21",
+      "skill_b": "456.35",
+      "skill_gain": "45.96",
+      "np": [
+        264,
+        0
+      ],
+      "hrr": [
+        "1.52",
+        0
+      ],
+      "hreff": [
+        "52",
+        0
+      ],
+      "avg_power": [
+        241,
+        0
+      ],
+      "avg_wkg": [
+        "3.1",
+        0
+      ],
+      "wkg_ftp": [
+        "3.0",
+        0
+      ],
+      "wftp": [
+        241,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "3.2",
+        0
+      ],
+      "wkg300": [
+        "3.7",
+        0
+      ],
+      "wkg120": [
+        "4.4",
+        0
+      ],
+      "wkg60": [
+        "5.1",
+        0
+      ],
+      "wkg30": [
+        "6.1",
+        0
+      ],
+      "wkg15": [
+        "7.2",
+        0
+      ],
+      "wkg5": [
+        "7.7",
+        0
+      ],
+      "w1200": [
+        "254",
+        0
+      ],
+      "w300": [
+        "295",
+        0
+      ],
+      "w120": [
+        "350",
+        0
+      ],
+      "w60": [
+        "406",
+        0
+      ],
+      "w30": [
+        "479",
+        0
+      ],
+      "w15": [
+        "566",
+        0
+      ],
+      "w5": [
+        "607",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 0,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_RACE TYPE_RACE ",
+      "distance": 29,
+      "event_date": 1668162600,
+      "rt": "947394567",
+      "laps": "15",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "5",
+      "zid": "1000057",
+      "pos": 2,
+      "position_in_cat": 2,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000057.2",
+      "lag": 0,
+      "uid": "1000058",
+      "time": [
+        901.627,
+        0
+      ],
+      "time_gun": 901.627,
+      "gap": 11.571,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "E",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        182,
+        0
+      ],
+      "max_hr": [
+        187,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "79.0",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": 0,
+      "skill_b": 0,
+      "skill_gain": 0,
+      "np": [
+        303,
+        0
+      ],
+      "hrr": [
+        "1.66",
+        0
+      ],
+      "hreff": [
+        "47",
+        0
+      ],
+      "avg_power": [
+        302,
+        0
+      ],
+      "avg_wkg": [
+        "3.8",
+        0
+      ],
+      "wkg_ftp": [
+        "3.4",
+        0
+      ],
+      "wftp": [
+        0,
+        0
+      ],
+      "wkg_guess": 1,
+      "wkg1200": [
+        "",
+        0
+      ],
+      "wkg300": [
+        "4.1",
+        0
+      ],
+      "wkg120": [
+        "4.4",
+        0
+      ],
+      "wkg60": [
+        "4.7",
+        0
+      ],
+      "wkg30": [
+        "4.9",
+        0
+      ],
+      "wkg15": [
+        "5.0",
+        0
+      ],
+      "wkg5": [
+        "5.3",
+        0
+      ],
+      "w1200": [
+        "",
+        0
+      ],
+      "w300": [
+        "327",
+        0
+      ],
+      "w120": [
+        "350",
+        0
+      ],
+      "w60": [
+        "372",
+        0
+      ],
+      "w30": [
+        "390",
+        0
+      ],
+      "w15": [
+        "394",
+        0
+      ],
+      "w5": [
+        "422",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 0,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_RIDE",
+      "distance": 11,
+      "event_date": 1670072414,
+      "rt": "2128890027",
+      "laps": "",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "1",
+      "zid": "1000059",
+      "pos": 102,
+      "position_in_cat": 28,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000059.102",
+      "lag": 0,
+      "uid": "1000060",
+      "time": [
+        2298.524,
+        0
+      ],
+      "time_gun": 2298.524,
+      "gap": 80.338,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "L",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        170,
+        0
+      ],
+      "max_hr": [
+        188,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "79.0",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": 0,
+      "skill_b": 0,
+      "skill_gain": 0,
+      "np": [
+        260,
+        0
+      ],
+      "hrr": [
+        "1.45",
+        0
+      ],
+      "hreff": [
+        "54",
+        0
+      ],
+      "avg_power": [
+        246,
+        0
+      ],
+      "avg_wkg": [
+        "3.1",
+        0
+      ],
+      "wkg_ftp": [
+        "2.9",
+        0
+      ],
+      "wftp": [
+        236,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "3.2",
+        0
+      ],
+      "wkg300": [
+        "3.5",
+        0
+      ],
+      "wkg120": [
+        "3.7",
+        0
+      ],
+      "wkg60": [
+        "4.6",
+        0
+      ],
+      "wkg30": [
+        "6.2",
+        0
+      ],
+      "wkg15": [
+        "8.3",
+        0
+      ],
+      "wkg5": [
+        "8.7",
+        0
+      ],
+      "w1200": [
+        "249",
+        0
+      ],
+      "w300": [
+        "273",
+        0
+      ],
+      "w120": [
+        "289",
+        0
+      ],
+      "w60": [
+        "363",
+        0
+      ],
+      "w30": [
+        "491",
+        0
+      ],
+      "w15": [
+        "655",
+        0
+      ],
+      "w5": [
+        "685",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 1,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_TEAM_TIME_TRIAL TYPE_RACE ",
+      "distance": 21,
+      "event_date": 1670526000,
+      "rt": "1086718516",
+      "laps": "2",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "1",
+      "zid": "1000061",
+      "pos": 25,
+      "position_in_cat": 5,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000061.25",
+      "lag": 0,
+      "uid": "1000062",
+      "time": [
+        5389.268,
+        0
+      ],
+      "time_gun": 5389.268,
+      "gap": 1047.079,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "L",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        158,
+        0
+      ],
+      "max_hr": [
+        183,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "80.8",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": 0,
+      "skill_b": 0,
+      "skill_gain": 0,
+      "np": [
+        239,
+        0
+      ],
+      "hrr": [
+        "1.30",
+        0
+      ],
+      "hreff": [
+        "62",
+        0
+      ],
+      "avg_power": [
+        205,
+        0
+      ],
+      "avg_wkg": [
+        "2.5",
+        0
+      ],
+      "wkg_ftp": [
+        "3.0",
+        0
+      ],
+      "wftp": [
+        247,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "3.2",
+        0
+      ],
+      "wkg300": [
+        "3.4",
+        0
+      ],
+      "wkg120": [
+        "3.5",
+        0
+      ],
+      "wkg60": [
+        "3.9",
+        0
+      ],
+      "wkg30": [
+        "6.4",
+        0
+      ],
+      "wkg15": [
+        "6.9",
+        0
+      ],
+      "wkg5": [
+        "7.5",
+        0
+      ],
+      "w1200": [
+        "261",
+        0
+      ],
+      "w300": [
+        "274",
+        0
+      ],
+      "w120": [
+        "284",
+        0
+      ],
+      "w60": [
+        "315",
+        0
+      ],
+      "w30": [
+        "517",
+        0
+      ],
+      "w15": [
+        "555",
+        0
+      ],
+      "w5": [
+        "607",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 1,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_TEAM_TIME_TRIAL TYPE_RACE ",
+      "distance": 31,
+      "event_date": 1672293600,
+      "rt": "2663908549",
+      "laps": "",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "2",
+      "zid": "1000063",
+      "pos": 63,
+      "position_in_cat": 32,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000063.63",
+      "lag": 0,
+      "uid": "1000064",
+      "time": [
+        2402.229,
+        0
+      ],
+      "time_gun": 2402.289,
+      "gap": 69.761,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "B",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        173,
+        0
+      ],
+      "max_hr": [
+        191,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "80.8",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": "346.73",
+      "skill_b": "338.46",
+      "skill_gain": "4.70",
+      "np": [
+        277,
+        0
+      ],
+      "hrr": [
+        "1.50",
+        0
+      ],
+      "hreff": [
+        "53",
+        0
+      ],
+      "avg_power": [
+        260,
+        0
+      ],
+      "avg_wkg": [
+        "3.2",
+        0
+      ],
+      "wkg_ftp": [
+        "3.1",
+        0
+      ],
+      "wftp": [
+        252,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "3.3",
+        0
+      ],
+      "wkg300": [
+        "3.5",
+        0
+      ],
+      "wkg120": [
+        "4.2",
+        0
+      ],
+      "wkg60": [
+        "5.0",
+        0
+      ],
+      "wkg30": [
+        "6.2",
+        0
+      ],
+      "wkg15": [
+        "7.0",
+        0
+      ],
+      "wkg5": [
+        "7.4",
+        0
+      ],
+      "w1200": [
+        "266",
+        0
+      ],
+      "w300": [
+        "282",
+        0
+      ],
+      "w120": [
+        "336",
+        0
+      ],
+      "w60": [
+        "403",
+        0
+      ],
+      "w30": [
+        "502",
+        0
+      ],
+      "w15": [
+        "567",
+        0
+      ],
+      "w5": [
+        "601",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 0,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "49",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_RACE TYPE_RACE ",
+      "distance": 27,
+      "event_date": 1672424100,
+      "rt": "3007266671",
+      "laps": "8",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "2",
+      "zid": "1000065",
+      "pos": 2,
+      "position_in_cat": 1,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000065.2",
+      "lag": 21,
+      "uid": "1000066",
+      "time": [
+        900,
+        0
+      ],
+      "time_gun": 900.06,
+      "gap": 0,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "B",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        163,
+        0
+      ],
+      "max_hr": [
+        174,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "80.8",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 10,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": 0,
+      "skill_b": 0,
+      "skill_gain": 0,
+      "np": [
+        164,
+        0
+      ],
+      "hrr": [
+        "1.01",
+        0
+      ],
+      "hreff": [
+        "80",
+        0
+      ],
+      "avg_power": [
+        164,
+        0
+      ],
+      "avg_wkg": [
+        "2.0",
+        0
+      ],
+      "wkg_ftp": [
+        "1.8",
+        0
+      ],
+      "wftp": [
+        0,
+        0
+      ],
+      "wkg_guess": 1,
+      "wkg1200": [
+        "",
+        0
+      ],
+      "wkg300": [
+        "2.1",
+        0
+      ],
+      "wkg120": [
+        "2.2",
+        0
+      ],
+      "wkg60": [
+        "2.3",
+        0
+      ],
+      "wkg30": [
+        "2.3",
+        0
+      ],
+      "wkg15": [
+        "2.4",
+        0
+      ],
+      "wkg5": [
+        "2.4",
+        0
+      ],
+      "w1200": [
+        "",
+        0
+      ],
+      "w300": [
+        "166",
+        0
+      ],
+      "w120": [
+        "174",
+        0
+      ],
+      "w60": [
+        "182",
+        0
+      ],
+      "w30": [
+        "187",
+        0
+      ],
+      "w15": [
+        "192",
+        0
+      ],
+      "w5": [
+        "194",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 0,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_RACE TYPE_RUN ",
+      "distance": 0,
+      "event_date": 1675230300,
+      "rt": "2708527018",
+      "laps": "",
+      "dur": "900"
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "2",
+      "zid": "1000067",
+      "pos": 35,
+      "position_in_cat": 16,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000067.35",
+      "lag": 0,
+      "uid": "1000068",
+      "time": [
+        2300.979,
+        0
+      ],
+      "time_gun": 2301.039,
+      "gap": 171.118,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "DIV2",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        172,
+        0
+      ],
+      "max_hr": [
+        193,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "80.8",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": "318.92",
+      "skill_b": "297.18",
+      "skill_gain": "4.25",
+      "np": [
+        283,
+        0
+      ],
+      "hrr": [
+        "1.56",
+        0
+      ],
+      "hreff": [
+        "51",
+        0
+      ],
+      "avg_power": [
+        268,
+        0
+      ],
+      "avg_wkg": [
+        "3.3",
+        0
+      ],
+      "wkg_ftp": [
+        "3.1",
+        0
+      ],
+      "wftp": [
+        256,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "3.3",
+        0
+      ],
+      "wkg300": [
+        "3.6",
+        0
+      ],
+      "wkg120": [
+        "4.2",
+        0
+      ],
+      "wkg60": [
+        "5.1",
+        0
+      ],
+      "wkg30": [
+        "6.6",
+        0
+      ],
+      "wkg15": [
+        "8.4",
+        0
+      ],
+      "wkg5": [
+        "10.6",
+        0
+      ],
+      "w1200": [
+        "270",
+        0
+      ],
+      "w300": [
+        "290",
+        0
+      ],
+      "w120": [
+        "337",
+        0
+      ],
+      "w60": [
+        "415",
+        0
+      ],
+      "w30": [
+        "534",
+        0
+      ],
+      "w15": [
+        "678",
+        0
+      ],
+      "w5": [
+        "854",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 0,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "9",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_RACE TYPE_RACE ",
+      "distance": 25,
+      "event_date": 1679148000,
+      "rt": "3914529041",
+      "laps": "1",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "1",
+      "zid": "1000069",
+      "pos": 89,
+      "position_in_cat": 12,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000069.89",
+      "lag": 0,
+      "uid": "1000070",
+      "time": [
+        2725.08,
+        0
+      ],
+      "time_gun": 2725.08,
+      "gap": 30.624,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "L",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        109,
+        0
+      ],
+      "max_hr": [
+        185,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "80.8",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": 0,
+      "skill_b": 0,
+      "skill_gain": 0,
+      "np": [
+        260,
+        0
+      ],
+      "hrr": [
+        "2.23",
+        1
+      ],
+      "hreff": [
+        "36",
+        1
+      ],
+      "avg_power": [
+        243,
+        0
+      ],
+      "avg_wkg": [
+        "3.0",
+        0
+      ],
+      "wkg_ftp": [
+        "2.9",
+        0
+      ],
+      "wftp": [
+        240,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "3.1",
+        0
+      ],
+      "wkg300": [
+        "3.4",
+        0
+      ],
+      "wkg120": [
+        "3.9",
+        0
+      ],
+      "wkg60": [
+        "4.4",
+        0
+      ],
+      "wkg30": [
+        "5.3",
+        0
+      ],
+      "wkg15": [
+        "6.8",
+        0
+      ],
+      "wkg5": [
+        "7.3",
+        0
+      ],
+      "w1200": [
+        "253",
+        0
+      ],
+      "w300": [
+        "276",
+        0
+      ],
+      "w120": [
+        "318",
+        0
+      ],
+      "w60": [
+        "357",
+        0
+      ],
+      "w30": [
+        "427",
+        0
+      ],
+      "w15": [
+        "553",
+        0
+      ],
+      "w5": [
+        "593",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 1,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_TEAM_TIME_TRIAL TYPE_RACE ",
+      "distance": 30,
+      "event_date": 1680803100,
+      "rt": "3382019812",
+      "laps": "1",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "4",
+      "zid": "1000071",
+      "pos": 18,
+      "position_in_cat": 12,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000071.18",
+      "lag": 0,
+      "uid": "1000072",
+      "time": [
+        2942.949,
+        0
+      ],
+      "time_gun": 2943.129,
+      "gap": 323.417,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "F",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        171,
+        0
+      ],
+      "max_hr": [
+        183,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "80.8",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": 0,
+      "skill_b": 0,
+      "skill_gain": 0,
+      "np": [
+        268,
+        0
+      ],
+      "hrr": [
+        "1.51",
+        0
+      ],
+      "hreff": [
+        "53",
+        0
+      ],
+      "avg_power": [
+        259,
+        0
+      ],
+      "avg_wkg": [
+        "3.2",
+        0
+      ],
+      "wkg_ftp": [
+        "3.2",
+        0
+      ],
+      "wftp": [
+        264,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "3.4",
+        0
+      ],
+      "wkg300": [
+        "3.7",
+        0
+      ],
+      "wkg120": [
+        "4.2",
+        0
+      ],
+      "wkg60": [
+        "4.9",
+        0
+      ],
+      "wkg30": [
+        "5.1",
+        0
+      ],
+      "wkg15": [
+        "5.4",
+        0
+      ],
+      "wkg5": [
+        "6.9",
+        0
+      ],
+      "w1200": [
+        "278",
+        0
+      ],
+      "w300": [
+        "300",
+        0
+      ],
+      "w120": [
+        "341",
+        0
+      ],
+      "w60": [
+        "393",
+        0
+      ],
+      "w30": [
+        "409",
+        0
+      ],
+      "w15": [
+        "438",
+        0
+      ],
+      "w5": [
+        "559",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 1,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_TEAM_TIME_TRIAL TYPE_RACE ",
+      "distance": 32,
+      "event_date": 1682568000,
+      "rt": "1039983620",
+      "laps": "2",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "4",
+      "zid": "1000073",
+      "pos": 121,
+      "position_in_cat": 11,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000073.121",
+      "lag": 0,
+      "uid": "1000074",
+      "time": [
+        1866.842,
+        0
+      ],
+      "time_gun": 1867.022,
+      "gap": 93.964,
+      "vtta": 0,
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "D",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        171,
+        0
+      ],
+      "max_hr": [
+        186,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "80.8",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": "187.13",
+      "skill_b": "302.49",
+      "skill_gain": "42.19",
+      "np": [
+        302,
+        0
+      ],
+      "hrr": [
+        "1.73",
+        0
+      ],
+      "hreff": [
+        "46",
+        0
+      ],
+      "avg_power": [
+        295,
+        0
+      ],
+      "avg_wkg": [
+        "3.7",
+        0
+      ],
+      "wkg_ftp": [
+        "3.5",
+        0
+      ],
+      "wftp": [
+        288,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "3.8",
+        0
+      ],
+      "wkg300": [
+        "4.1",
+        0
+      ],
+      "wkg120": [
+        "4.4",
+        0
+      ],
+      "wkg60": [
+        "4.8",
+        0
+      ],
+      "wkg30": [
+        "5.4",
+        0
+      ],
+      "wkg15": [
+        "5.6",
+        0
+      ],
+      "wkg5": [
+        "5.9",
+        0
+      ],
+      "w1200": [
+        "304",
+        0
+      ],
+      "w300": [
+        "332",
+        0
+      ],
+      "w120": [
+        "357",
+        0
+      ],
+      "w60": [
+        "389",
+        0
+      ],
+      "w30": [
+        "433",
+        0
+      ],
+      "w15": [
+        "455",
+        0
+      ],
+      "w5": [
+        "475",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 0,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "80",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_RACE TYPE_RACE ",
+      "distance": 18,
+      "event_date": 1684262700,
+      "rt": "242381847",
+      "laps": "",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "1",
+      "zid": "1000075",
+      "pos": 52,
+      "position_in_cat": 2,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000075.52",
+      "lag": 0,
+      "uid": "1000076",
+      "time": [
+        2408.222,
+        0
+      ],
+      "time_gun": 2408.222,
+      "gap": 0.152,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "L",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        165,
+        0
+      ],
+      "max_hr": [
+        190,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "80.8",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": 0,
+      "skill_b": 0,
+      "skill_gain": 0,
+      "np": [
+        314,
+        0
+      ],
+      "hrr": [
+        "1.73",
+        0
+      ],
+      "hreff": [
+        "46",
+        0
+      ],
+      "avg_power": [
+        285,
+        0
+      ],
+      "avg_wkg": [
+        "3.5",
+        0
+      ],
+      "wkg_ftp": [
+        "3.4",
+        0
+      ],
+      "wftp": [
+        281,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "3.7",
+        0
+      ],
+      "wkg300": [
+        "4.0",
+        0
+      ],
+      "wkg120": [
+        "4.5",
+        0
+      ],
+      "wkg60": [
+        "5.3",
+        0
+      ],
+      "wkg30": [
+        "8.7",
+        0
+      ],
+      "wkg15": [
+        "10.0",
+        0
+      ],
+      "wkg5": [
+        "10.4",
+        0
+      ],
+      "w1200": [
+        "296",
+        0
+      ],
+      "w300": [
+        "327",
+        0
+      ],
+      "w120": [
+        "367",
+        0
+      ],
+      "w60": [
+        "430",
+        0
+      ],
+      "w30": [
+        "705",
+        0
+      ],
+      "w15": [
+        "806",
+        0
+      ],
+      "w5": [
+        "839",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 1,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_TEAM_TIME_TRIAL TYPE_RACE ",
+      "distance": 27,
+      "event_date": 1684431900,
+      "rt": "2737483381",
+      "laps": "3",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "5",
+      "zid": "1000077",
+      "pos": 1,
+      "position_in_cat": 1,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000077.1",
+      "lag": 0,
+      "uid": "1000078",
+      "time": [
+        1886.954,
+        0
+      ],
+      "time_gun": 1886.954,
+      "gap": 0,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "E",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        170,
+        0
+      ],
+      "max_hr": [
+        193,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "80.8",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": 0,
+      "skill_b": 0,
+      "skill_gain": 0,
+      "np": [
+        306,
+        0
+      ],
+      "hrr": [
+        "1.60",
+        0
+      ],
+      "hreff": [
+        "50",
+        0
+      ],
+      "avg_power": [
+        272,
+        0
+      ],
+      "avg_wkg": [
+        "3.4",
+        0
+      ],
+      "wkg_ftp": [
+        "3.2",
+        0
+      ],
+      "wftp": [
+        266,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "3.5",
+        0
+      ],
+      "wkg300": [
+        "4.2",
+        0
+      ],
+      "wkg120": [
+        "4.9",
+        0
+      ],
+      "wkg60": [
+        "6.0",
+        0
+      ],
+      "wkg30": [
+        "7.5",
+        0
+      ],
+      "wkg15": [
+        "9.3",
+        0
+      ],
+      "wkg5": [
+        "10.3",
+        0
+      ],
+      "w1200": [
+        "280",
+        0
+      ],
+      "w300": [
+        "342",
+        0
+      ],
+      "w120": [
+        "399",
+        0
+      ],
+      "w60": [
+        "481",
+        0
+      ],
+      "w30": [
+        "605",
+        0
+      ],
+      "w15": [
+        "755",
+        0
+      ],
+      "w5": [
+        "831",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 0,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_RIDE",
+      "distance": 21,
+      "event_date": 1685468757,
+      "rt": "3007266671",
+      "laps": "6",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "5",
+      "zid": "1000079",
+      "pos": 2,
+      "position_in_cat": 2,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000079.2",
+      "lag": 0,
+      "uid": "1000080",
+      "time": [
+        2243.982,
+        0
+      ],
+      "time_gun": 2243.982,
+      "gap": 0.343,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "E",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        164,
+        0
+      ],
+      "max_hr": [
+        182,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "80.8",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": 0,
+      "skill_b": 0,
+      "skill_gain": 0,
+      "np": [
+        289,
+        0
+      ],
+      "hrr": [
+        "1.64",
+        0
+      ],
+      "hreff": [
+        "49",
+        0
+      ],
+      "avg_power": [
+        269,
+        0
+      ],
+      "avg_wkg": [
+        "3.3",
+        0
+      ],
+      "wkg_ftp": [
+        "3.3",
+        0
+      ],
+      "wftp": [
+        267,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "3.5",
+        0
+      ],
+      "wkg300": [
+        "3.9",
+        0
+      ],
+      "wkg120": [
+        "4.6",
+        0
+      ],
+      "wkg60": [
+        "5.5",
+        0
+      ],
+      "wkg30": [
+        "6.1",
+        0
+      ],
+      "wkg15": [
+        "6.5",
+        0
+      ],
+      "wkg5": [
+        "7.2",
+        0
+      ],
+      "w1200": [
+        "282",
+        0
+      ],
+      "w300": [
+        "315",
+        0
+      ],
+      "w120": [
+        "371",
+        0
+      ],
+      "w60": [
+        "447",
+        0
+      ],
+      "w30": [
+        "495",
+        0
+      ],
+      "w15": [
+        "522",
+        0
+      ],
+      "w5": [
+        "583",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 0,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_RIDE",
+      "distance": 25,
+      "event_date": 1686677443,
+      "rt": "1453570384",
+      "laps": "1",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "5",
+      "zid": "1000081",
+      "pos": 1,
+      "position_in_cat": 1,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000081.1",
+      "lag": 0,
+      "uid": "1000082",
+      "time": [
+        2247.973,
+        0
+      ],
+      "time_gun": 2247.973,
+      "gap": 0,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "E",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        160,
+        0
+      ],
+      "max_hr": [
+        188,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "80.8",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": "227.36",
+      "skill_b": "277.65",
+      "skill_gain": "34.14",
+      "np": [
+        284,
+        0
+      ],
+      "hrr": [
+        "1.63",
+        0
+      ],
+      "hreff": [
+        "49",
+        0
+      ],
+      "avg_power": [
+        260,
+        0
+      ],
+      "avg_wkg": [
+        "3.2",
+        0
+      ],
+      "wkg_ftp": [
+        "3.2",
+        0
+      ],
+      "wftp": [
+        260,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "3.4",
+        0
+      ],
+      "wkg300": [
+        "3.8",
+        0
+      ],
+      "wkg120": [
+        "4.7",
+        0
+      ],
+      "wkg60": [
+        "5.2",
+        0
+      ],
+      "wkg30": [
+        "7.3",
+        0
+      ],
+      "wkg15": [
+        "9.5",
+        0
+      ],
+      "wkg5": [
+        "10.1",
+        0
+      ],
+      "w1200": [
+        "274",
+        0
+      ],
+      "w300": [
+        "310",
+        0
+      ],
+      "w120": [
+        "380",
+        0
+      ],
+      "w60": [
+        "422",
+        0
+      ],
+      "w30": [
+        "591",
+        0
+      ],
+      "w15": [
+        "771",
+        0
+      ],
+      "w5": [
+        "819",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 0,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_RACE TYPE_RACE ",
+      "distance": 25,
+      "event_date": 1687197600,
+      "rt": "1453570384",
+      "laps": "1",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "5",
+      "zid": "1000083",
+      "pos": 1,
+      "position_in_cat": 1,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000083.1",
+      "lag": 0,
+      "uid": "1000084",
+      "time": [
+        1745.057,
+        0
+      ],
+      "time_gun": 1745.057,
+      "gap": 0,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "E",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        174,
+        0
+      ],
+      "max_hr": [
+        187,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "80.8",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": "230.43",
+      "skill_b": "259.49",
+      "skill_gain": "33.53",
+      "np": [
+        290,
+        0
+      ],
+      "hrr": [
+        "1.64",
+        0
+      ],
+      "hreff": [
+        "49",
+        0
+      ],
+      "avg_power": [
+        285,
+        0
+      ],
+      "avg_wkg": [
+        "3.5",
+        0
+      ],
+      "wkg_ftp": [
+        "3.3",
+        0
+      ],
+      "wftp": [
+        273,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "3.6",
+        0
+      ],
+      "wkg300": [
+        "3.8",
+        0
+      ],
+      "wkg120": [
+        "4.1",
+        0
+      ],
+      "wkg60": [
+        "4.4",
+        0
+      ],
+      "wkg30": [
+        "5.6",
+        0
+      ],
+      "wkg15": [
+        "6.3",
+        0
+      ],
+      "wkg5": [
+        "6.7",
+        0
+      ],
+      "w1200": [
+        "288",
+        0
+      ],
+      "w300": [
+        "310",
+        0
+      ],
+      "w120": [
+        "329",
+        0
+      ],
+      "w60": [
+        "358",
+        0
+      ],
+      "w30": [
+        "456",
+        0
+      ],
+      "w15": [
+        "508",
+        0
+      ],
+      "w5": [
+        "540",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 0,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_RACE TYPE_RACE ",
+      "distance": 20,
+      "event_date": 1689616800,
+      "rt": "947394567",
+      "laps": "10",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "5",
+      "zid": "1000085",
+      "pos": 3,
+      "position_in_cat": 3,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000085.3",
+      "lag": 0,
+      "uid": "1000086",
+      "time": [
+        2327.638,
+        0
+      ],
+      "time_gun": 2327.638,
+      "gap": 0.179,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "E",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        154,
+        0
+      ],
+      "max_hr": [
+        195,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "80.8",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": "262.33",
+      "skill_b": "225.96",
+      "skill_gain": "17.09",
+      "np": [
+        297,
+        0
+      ],
+      "hrr": [
+        "1.44",
+        0
+      ],
+      "hreff": [
+        "56",
+        0
+      ],
+      "avg_power": [
+        222,
+        0
+      ],
+      "avg_wkg": [
+        "2.8",
+        0
+      ],
+      "wkg_ftp": [
+        "2.8",
+        0
+      ],
+      "wftp": [
+        226,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "2.9",
+        0
+      ],
+      "wkg300": [
+        "3.7",
+        0
+      ],
+      "wkg120": [
+        "4.9",
+        0
+      ],
+      "wkg60": [
+        "6.8",
+        0
+      ],
+      "wkg30": [
+        "8.2",
+        0
+      ],
+      "wkg15": [
+        "8.8",
+        0
+      ],
+      "wkg5": [
+        "9.2",
+        0
+      ],
+      "w1200": [
+        "238",
+        0
+      ],
+      "w300": [
+        "296",
+        0
+      ],
+      "w120": [
+        "394",
+        0
+      ],
+      "w60": [
+        "547",
+        0
+      ],
+      "w30": [
+        "661",
+        0
+      ],
+      "w15": [
+        "709",
+        0
+      ],
+      "w5": [
+        "740",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 0,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_RACE TYPE_RACE ",
+      "distance": 26,
+      "event_date": 1689788700,
+      "rt": "3866241330",
+      "laps": "5",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "1",
+      "zid": "1000087",
+      "pos": 69,
+      "position_in_cat": 23,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000087.69",
+      "lag": 0,
+      "uid": "1000088",
+      "time": [
+        2568.083,
+        0
+      ],
+      "time_gun": 2568.083,
+      "gap": 484.058,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "L",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        144,
+        0
+      ],
+      "max_hr": [
+        195,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "80.8",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": 0,
+      "skill_b": 0,
+      "skill_gain": 0,
+      "np": [
+        242,
+        0
+      ],
+      "hrr": [
+        "1.26",
+        0
+      ],
+      "hreff": [
+        "63",
+        0
+      ],
+      "avg_power": [
+        182,
+        0
+      ],
+      "avg_wkg": [
+        "2.3",
+        0
+      ],
+      "wkg_ftp": [
+        "2.2",
+        0
+      ],
+      "wftp": [
+        179,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "2.3",
+        0
+      ],
+      "wkg300": [
+        "2.9",
+        0
+      ],
+      "wkg120": [
+        "4.0",
+        0
+      ],
+      "wkg60": [
+        "5.6",
+        0
+      ],
+      "wkg30": [
+        "9.1",
+        0
+      ],
+      "wkg15": [
+        "10.5",
+        0
+      ],
+      "wkg5": [
+        "11.2",
+        0
+      ],
+      "w1200": [
+        "189",
+        0
+      ],
+      "w300": [
+        "238",
+        0
+      ],
+      "w120": [
+        "325",
+        0
+      ],
+      "w60": [
+        "452",
+        0
+      ],
+      "w30": [
+        "732",
+        0
+      ],
+      "w15": [
+        "848",
+        0
+      ],
+      "w5": [
+        "904",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 1,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_TEAM_TIME_TRIAL TYPE_RACE ",
+      "distance": 25,
+      "event_date": 1689875100,
+      "rt": "5745690",
+      "laps": "1",
+      "dur": ""
+    },
+    {
+      "DT_RowId": "",
+      "ftp": "287",
+      "friend": 0,
+      "pt": "",
+      "label": "5",
+      "zid": "1000089",
+      "pos": 1,
+      "position_in_cat": 1,
+      "name": "Test Rider",
+      "cp": 0,
+      "zwid": 1000001,
+      "res_id": "1000089.1",
+      "lag": 0,
+      "uid": "1000090",
+      "time": [
+        2361.087,
+        0
+      ],
+      "time_gun": 2361.087,
+      "gap": 0,
+      "vtta": "",
+      "vttat": 0,
+      "male": 1,
+      "tid": "9976",
+      "topen": "",
+      "tname": "Valhalla",
+      "tc": "ffffff",
+      "tbc": "0073b7",
+      "tbd": "ff4500",
+      "zeff": 0,
+      "category": "E",
+      "height": [
+        175,
+        175
+      ],
+      "flag": "gb",
+      "avg_hr": [
+        164,
+        0
+      ],
+      "max_hr": [
+        185,
+        0
+      ],
+      "hrmax": [
+        0,
+        0
+      ],
+      "hrm": 1,
+      "weight": [
+        "80.8",
+        70
+      ],
+      "power_type": 3,
+      "display_pos": 1,
+      "src": 1,
+      "age": "Mas",
+      "zada": 0,
+      "note": "",
+      "div": 20,
+      "divw": 0,
+      "skill": "238.73",
+      "skill_b": "208.87",
+      "skill_gain": "4.72",
+      "np": [
+        274,
+        0
+      ],
+      "hrr": [
+        "1.51",
+        0
+      ],
+      "hreff": [
+        "53",
+        0
+      ],
+      "avg_power": [
+        247,
+        0
+      ],
+      "avg_wkg": [
+        "3.1",
+        0
+      ],
+      "wkg_ftp": [
+        "3.1",
+        0
+      ],
+      "wftp": [
+        252,
+        0
+      ],
+      "wkg_guess": 0,
+      "wkg1200": [
+        "3.3",
+        0
+      ],
+      "wkg300": [
+        "3.8",
+        0
+      ],
+      "wkg120": [
+        "4.4",
+        0
+      ],
+      "wkg60": [
+        "5.2",
+        0
+      ],
+      "wkg30": [
+        "6.4",
+        0
+      ],
+      "wkg15": [
+        "8.0",
+        0
+      ],
+      "wkg5": [
+        "10.9",
+        0
+      ],
+      "w1200": [
+        "266",
+        0
+      ],
+      "w300": [
+        "308",
+        0
+      ],
+      "w120": [
+        "359",
+        0
+      ],
+      "w60": [
+        "417",
+        0
+      ],
+      "w30": [
+        "518",
+        0
+      ],
+      "w15": [
+        "648",
+        0
+      ],
+      "w5": [
+        "879",
+        0
+      ],
+      "is_guess": 0,
+      "upg": 0,
+      "penalty": "",
+      "reg": 1,
+      "fl": "",
+      "pts": "",
+      "pts_pos": "",
+      "info": 0,
+      "info_notes": [],
+      "strike": -1,
+      "event_title": "Test Event",
+      "f_t": "TYPE_RACE TYPE_RACE ",
+      "distance": 25,
+      "event_date": 1690221600,
+      "rt": "4258943387",
+      "laps": "1",
+      "dur": ""
+    }
+  ]
+}

@@ -55,3 +55,11 @@ test_that("cache key is stable for the same request and differs across urls", {
   expect_equal(zwiftverse:::.zv_key(r1), zwiftverse:::.zv_key(r2))
   expect_false(identical(zwiftverse:::.zv_key(r1), zwiftverse:::.zv_key(r3)))
 })
+
+test_that(".zv_to_tbl unwraps a ZR v2 {success, data: {object}} envelope", {
+  parsed <- list(success = TRUE, data = list(riderId = 7, velo = list(race = 700)))
+  out <- zwiftverse:::.zv_to_tbl(parsed)
+  expect_equal(nrow(out), 1)
+  expect_equal(out$riderId, 7)
+  expect_true(is.list(out$velo))
+})

@@ -1,0 +1,2571 @@
+{
+  "success": true,
+  "data": {
+    "riderId": 1000001,
+    "days": 365,
+    "history": [
+      {
+        "event": {
+          "eventId": "5800908",
+          "time": 1795116600,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 90,
+          "seed": {
+            "before": 717.2095,
+            "after": 717.2095,
+            "eventRating": 755.70280110206,
+            "expectedPosition": 2.39317806485409,
+            "factors": {
+              "endurance": {
+                "before": 635,
+                "after": 635
+              },
+              "pursuit": {
+                "before": 711,
+                "after": 711
+              },
+              "sprint": {
+                "before": 832.75,
+                "after": 832.75
+              },
+              "punch": {
+                "before": 813.55,
+                "after": 813.55
+              },
+              "climb": {
+                "before": 698,
+                "after": 698
+              },
+              "timeTrial": {
+                "before": 672,
+                "after": 672
+              }
+            }
+          },
+          "elo": {
+            "before": 717.98010431096,
+            "after": 717.98010431096,
+            "eventRating": 756.03019278369,
+            "expectedPosition": 2.458,
+            "adjustedChange": 0,
+            "rawChange": 0,
+            "factors": {
+              "endurance": {
+                "before": 636.936141242592,
+                "after": 636.936141242592,
+                "skill": 1.93614124259216,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 711,
+                "after": 711,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 832.75,
+                "after": 832.75,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 813.766042239305,
+                "after": 813.766042239305,
+                "skill": 0.216042239305011,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 698.34022636152,
+                "after": 698.34022636152,
+                "skill": 0.340226361520422,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 672,
+                "after": 672,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 82.9078879356196,
+            "gc": 82.9078879356196,
+            "sprint": 42.1147029629165,
+            "climb": null,
+            "tt": null
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5795672",
+          "time": 1795030200,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 98,
+          "seed": {
+            "before": 704.9522,
+            "after": 717.2095,
+            "eventRating": 704.9522,
+            "expectedPosition": 10.5033696565019,
+            "factors": {
+              "endurance": {
+                "before": 635,
+                "after": 635
+              },
+              "pursuit": {
+                "before": 711,
+                "after": 711
+              },
+              "sprint": {
+                "before": 758.25,
+                "after": 832.75
+              },
+              "punch": {
+                "before": 792.23,
+                "after": 813.55
+              },
+              "climb": {
+                "before": 698,
+                "after": 698
+              },
+              "timeTrial": {
+                "before": 673,
+                "after": 673
+              }
+            }
+          },
+          "elo": {
+            "before": 717.2095,
+            "after": 718.187205165935,
+            "eventRating": 717.2095,
+            "expectedPosition": 8.99833333333333,
+            "adjustedChange": 3.46583850931677,
+            "rawChange": 3.46583850931677,
+            "factors": {
+              "endurance": {
+                "before": 635,
+                "after": 637.076152936022,
+                "skill": 2.07615293602203,
+                "skillDelta": 2.07615293602203
+              },
+              "pursuit": {
+                "before": 711,
+                "after": 711,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 832.75,
+                "after": 832.911534612686,
+                "skill": 0.161534612685728,
+                "skillDelta": 0.161534612685728
+              },
+              "punch": {
+                "before": 813.55,
+                "after": 814.400591005291,
+                "skill": 0.850591005291335,
+                "skillDelta": 0.850591005291335
+              },
+              "climb": {
+                "before": 698,
+                "after": 698.377559955318,
+                "skill": 0.377559955317565,
+                "skillDelta": 0.377559955317565
+              },
+              "timeTrial": {
+                "before": 673,
+                "after": 673,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 87.193714293551,
+            "gc": 87.193714293551,
+            "sprint": 25.4630998316416,
+            "climb": 8.93064915403873,
+            "tt": null
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5786503",
+          "time": 1794337380,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 89,
+          "seed": {
+            "before": 711.1153,
+            "after": 711.1153,
+            "eventRating": 730.124339545518,
+            "expectedPosition": 3.35854899588827,
+            "factors": {
+              "endurance": {
+                "before": 646,
+                "after": 646
+              },
+              "pursuit": {
+                "before": 713,
+                "after": 713
+              },
+              "sprint": {
+                "before": 762.75,
+                "after": 762.75
+              },
+              "punch": {
+                "before": 795.57,
+                "after": 795.57
+              },
+              "climb": {
+                "before": 703.5,
+                "after": 703.5
+              },
+              "timeTrial": {
+                "before": 681,
+                "after": 681
+              }
+            }
+          },
+          "elo": {
+            "before": 711.263239110779,
+            "after": 711.263239110779,
+            "eventRating": 730.196455347359,
+            "expectedPosition": 3.603,
+            "adjustedChange": 0,
+            "rawChange": 0,
+            "factors": {
+              "endurance": {
+                "before": 646.421478948089,
+                "after": 646.421478948089,
+                "skill": 0.421478948089089,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 713,
+                "after": 713,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 762.75,
+                "after": 762.75,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 795.57,
+                "after": 795.57,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 703.5,
+                "after": 703.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 681,
+                "after": 681,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 81.8473056531761,
+            "gc": 81.8473056531761,
+            "sprint": 36.8286895727852,
+            "climb": 3.50977580229513,
+            "tt": null
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5769142",
+          "time": 1793854800,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 81,
+          "seed": {
+            "before": 713.76655,
+            "after": 713.76655,
+            "eventRating": 716.087326387629,
+            "expectedPosition": 6.71685878590258,
+            "factors": {
+              "endurance": {
+                "before": 652,
+                "after": 652
+              },
+              "pursuit": {
+                "before": 713,
+                "after": 713
+              },
+              "sprint": {
+                "before": 765.5,
+                "after": 765.5
+              },
+              "punch": {
+                "before": 795.57,
+                "after": 795.57
+              },
+              "climb": {
+                "before": 705.5,
+                "after": 705.5
+              },
+              "timeTrial": {
+                "before": 684,
+                "after": 684
+              }
+            }
+          },
+          "elo": {
+            "before": 713.914489110779,
+            "after": 713.914489110779,
+            "eventRating": 716.274597725702,
+            "expectedPosition": null,
+            "adjustedChange": null,
+            "rawChange": null,
+            "factors": {
+              "endurance": {
+                "before": 652.421478948089,
+                "after": 652.421478948089,
+                "skill": 0.421478948089089,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 713,
+                "after": 713,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 765.5,
+                "after": 765.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 795.57,
+                "after": 795.57,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 705.5,
+                "after": 705.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 684,
+                "after": 684,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": null
+        }
+      },
+      {
+        "event": {
+          "eventId": "5757841",
+          "time": 1793251800,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 83,
+          "seed": {
+            "before": 715.3288,
+            "after": 715.3288,
+            "eventRating": 713.905249250957,
+            "expectedPosition": 2.94821194898043,
+            "factors": {
+              "endurance": {
+                "before": 654,
+                "after": 654
+              },
+              "pursuit": {
+                "before": 713,
+                "after": 713
+              },
+              "sprint": {
+                "before": 768.5,
+                "after": 768.5
+              },
+              "punch": {
+                "before": 797.22,
+                "after": 797.22
+              },
+              "climb": {
+                "before": 707,
+                "after": 707
+              },
+              "timeTrial": {
+                "before": 687,
+                "after": 687
+              }
+            }
+          },
+          "elo": {
+            "before": 715.476739110779,
+            "after": 715.476739110779,
+            "eventRating": 714.065984486752,
+            "expectedPosition": null,
+            "adjustedChange": null,
+            "rawChange": null,
+            "factors": {
+              "endurance": {
+                "before": 654.421478948089,
+                "after": 654.421478948089,
+                "skill": 0.421478948089089,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 713,
+                "after": 713,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 768.5,
+                "after": 768.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 797.22,
+                "after": 797.22,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 707,
+                "after": 707,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 687,
+                "after": 687,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": null
+        }
+      },
+      {
+        "event": {
+          "eventId": "5673134",
+          "time": 1793080800,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 97,
+          "seed": {
+            "before": 709.6287,
+            "after": 715.8732,
+            "eventRating": 687.59851024719,
+            "expectedPosition": 12.6666629169963,
+            "factors": {
+              "endurance": {
+                "before": 655,
+                "after": 655
+              },
+              "pursuit": {
+                "before": 688,
+                "after": 713
+              },
+              "sprint": {
+                "before": 769,
+                "after": 769
+              },
+              "punch": {
+                "before": 797.88,
+                "after": 797.88
+              },
+              "climb": {
+                "before": 697.5,
+                "after": 707
+              },
+              "timeTrial": {
+                "before": 687,
+                "after": 687
+              }
+            }
+          },
+          "elo": {
+            "before": 716.021139110779,
+            "after": 716.021139110779,
+            "eventRating": 695.367726957588,
+            "expectedPosition": null,
+            "adjustedChange": null,
+            "rawChange": null,
+            "factors": {
+              "endurance": {
+                "before": 655.421478948089,
+                "after": 655.421478948089,
+                "skill": 0.421478948089089,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 713,
+                "after": 713,
+                "skill": 0,
+                "skillDelta": -0.868033416513413
+              },
+              "sprint": {
+                "before": 769,
+                "after": 769,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 797.88,
+                "after": 797.88,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 707,
+                "after": 707,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 687,
+                "after": 687,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": null
+        }
+      },
+      {
+        "event": {
+          "eventId": "5749562",
+          "time": 1792778400,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 97,
+          "seed": {
+            "before": 699.58155,
+            "after": 710.24125,
+            "eventRating": 688.875768670805,
+            "expectedPosition": 3.40684746160594,
+            "factors": {
+              "endurance": {
+                "before": 655,
+                "after": 655
+              },
+              "pursuit": {
+                "before": 689,
+                "after": 689
+              },
+              "sprint": {
+                "before": 770.25,
+                "after": 770.25
+              },
+              "punch": {
+                "before": 749.62,
+                "after": 799.2
+              },
+              "climb": {
+                "before": 697.5,
+                "after": 697.5
+              },
+              "timeTrial": {
+                "before": 687,
+                "after": 687
+              }
+            }
+          },
+          "elo": {
+            "before": 710.562795794082,
+            "after": 710.562795794082,
+            "eventRating": 705.164704531339,
+            "expectedPosition": 2.94666666666667,
+            "adjustedChange": 0,
+            "rawChange": 0,
+            "factors": {
+              "endurance": {
+                "before": 655.421478948089,
+                "after": 655.421478948089,
+                "skill": 0.421478948089089,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 689.868033416513,
+                "after": 689.868033416513,
+                "skill": 0.868033416513413,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 770.25,
+                "after": 770.25,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 799.2,
+                "after": 799.2,
+                "skill": 0,
+                "skillDelta": -1.70230356651427
+              },
+              "climb": {
+                "before": 697.5,
+                "after": 697.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 687,
+                "after": 687,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 88.0106200061831,
+            "gc": 88.0106200061831,
+            "sprint": 28.7297681590139,
+            "climb": 5.69654134169921,
+            "tt": null
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5673132",
+          "time": 1792472400,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 88,
+          "seed": {
+            "before": 700.35115,
+            "after": 700.35115,
+            "eventRating": 705.68354896874,
+            "expectedPosition": 13.0173096490289,
+            "factors": {
+              "endurance": {
+                "before": 655,
+                "after": 655
+              },
+              "pursuit": {
+                "before": 689,
+                "after": 689
+              },
+              "sprint": {
+                "before": 770.75,
+                "after": 770.75
+              },
+              "punch": {
+                "before": 752.96,
+                "after": 752.96
+              },
+              "climb": {
+                "before": 697.5,
+                "after": 697.5
+              },
+              "timeTrial": {
+                "before": 687,
+                "after": 687
+              }
+            }
+          },
+          "elo": {
+            "before": 701.251562821457,
+            "after": 701.038691060882,
+            "eventRating": 706.521206164715,
+            "expectedPosition": 13.9713333333333,
+            "adjustedChange": -0.996923076923077,
+            "rawChange": -0.996923076923077,
+            "factors": {
+              "endurance": {
+                "before": 655.834863748726,
+                "after": 655.421478948089,
+                "skill": 0.421478948089089,
+                "skillDelta": -0.413384800637004
+              },
+              "pursuit": {
+                "before": 690.001941340654,
+                "after": 689.868033416513,
+                "skill": 0.868033416513413,
+                "skillDelta": -0.133907924140544
+              },
+              "sprint": {
+                "before": 770.756636607123,
+                "after": 770.75,
+                "skill": 0,
+                "skillDelta": -0.224815176072752
+              },
+              "punch": {
+                "before": 754.84978514879,
+                "after": 754.662303566514,
+                "skill": 1.70230356651427,
+                "skillDelta": -0.187481582275609
+              },
+              "climb": {
+                "before": 697.5,
+                "after": 697.5,
+                "skill": 0,
+                "skillDelta": -0.0373335937971433
+              },
+              "timeTrial": {
+                "before": 687,
+                "after": 687,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 76.2277740331623,
+            "gc": 76.2277740331623,
+            "sprint": 31.5254655624836,
+            "climb": 2.68393277274426,
+            "tt": null
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5729167",
+          "time": 1791568800,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 98,
+          "seed": {
+            "before": 661.34625,
+            "after": 694.39575,
+            "eventRating": 672.544690704558,
+            "expectedPosition": 4.31548623808865,
+            "factors": {
+              "endurance": {
+                "before": 587,
+                "after": 655
+              },
+              "pursuit": {
+                "before": 667,
+                "after": 689
+              },
+              "sprint": {
+                "before": 770.25,
+                "after": 770.25
+              },
+              "punch": {
+                "before": 725.5,
+                "after": 725.5
+              },
+              "climb": {
+                "before": 661,
+                "after": 697.5
+              },
+              "timeTrial": {
+                "before": 636,
+                "after": 687
+              }
+            }
+          },
+          "elo": {
+            "before": 694.39575,
+            "after": 695.143649840788,
+            "eventRating": 696.916233687793,
+            "expectedPosition": 3.632,
+            "adjustedChange": 3.00627692307692,
+            "rawChange": 3.00627692307692,
+            "factors": {
+              "endurance": {
+                "before": 655,
+                "after": 655.834863748726,
+                "skill": 0.834863748726093,
+                "skillDelta": -0.165136251273907
+              },
+              "pursuit": {
+                "before": 689,
+                "after": 689.749857833495,
+                "skill": 0.749857833495298,
+                "skillDelta": 0.749857833495298
+              },
+              "sprint": {
+                "before": 770.25,
+                "after": 770.256636607123,
+                "skill": 0.0066366071231414,
+                "skillDelta": 0.0066366071231414
+              },
+              "punch": {
+                "before": 725.5,
+                "after": 726.914918733732,
+                "skill": 1.41491873373229,
+                "skillDelta": 1.41491873373229
+              },
+              "climb": {
+                "before": 697.5,
+                "after": 697.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 687,
+                "after": 687,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 85.6054373407833,
+            "gc": 85.6054373407833,
+            "sprint": 40.479593121948,
+            "climb": null,
+            "tt": null
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5673130",
+          "time": 1791262800,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 97,
+          "seed": {
+            "before": 664.91485,
+            "after": 664.91485,
+            "eventRating": 638.275400371901,
+            "expectedPosition": 18.3606359245032,
+            "factors": {
+              "endurance": {
+                "before": 593,
+                "after": 593
+              },
+              "pursuit": {
+                "before": 672,
+                "after": 672
+              },
+              "sprint": {
+                "before": 765.5,
+                "after": 771.75
+              },
+              "punch": {
+                "before": 727.49,
+                "after": 727.49
+              },
+              "climb": {
+                "before": 665,
+                "after": 665
+              },
+              "timeTrial": {
+                "before": 640,
+                "after": 640
+              }
+            }
+          },
+          "elo": {
+            "before": 665.5586,
+            "after": 665.5586,
+            "eventRating": 638.275400371901,
+            "expectedPosition": null,
+            "adjustedChange": null,
+            "rawChange": null,
+            "factors": {
+              "endurance": {
+                "before": 593,
+                "after": 593,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 672,
+                "after": 672,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 771.75,
+                "after": 771.75,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 727.49,
+                "after": 727.49,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 665,
+                "after": 665,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 640,
+                "after": 640,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": null
+        }
+      },
+      {
+        "event": {
+          "eventId": "5710477",
+          "time": 1790272800,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 100,
+          "seed": {
+            "before": 621.93185,
+            "after": 659.21935,
+            "eventRating": 628.526067096533,
+            "expectedPosition": 5.17375531911812,
+            "factors": {
+              "endurance": {
+                "before": 523,
+                "after": 595
+              },
+              "pursuit": {
+                "before": 645,
+                "after": 672
+              },
+              "sprint": {
+                "before": 700.75,
+                "after": 700.75
+              },
+              "punch": {
+                "before": 727.84,
+                "after": 727.84
+              },
+              "climb": {
+                "before": 616,
+                "after": 666.5
+              },
+              "timeTrial": {
+                "before": 581,
+                "after": 642
+              }
+            }
+          },
+          "elo": {
+            "before": 659.21935,
+            "after": 659.21935,
+            "eventRating": 661.148543045969,
+            "expectedPosition": 4.011,
+            "adjustedChange": 0,
+            "rawChange": 0,
+            "factors": {
+              "endurance": {
+                "before": 595,
+                "after": 595,
+                "skill": 0,
+                "skillDelta": -1.29548842830252
+              },
+              "pursuit": {
+                "before": 672,
+                "after": 672,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 700.75,
+                "after": 700.75,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 727.84,
+                "after": 727.84,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 666.5,
+                "after": 666.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 642,
+                "after": 642,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 79.2872445205314,
+            "gc": 79.2872445205314,
+            "sprint": 34.4705857484962,
+            "climb": 1.64455551872446,
+            "tt": null
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5673121",
+          "time": 1790053200,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": null,
+          "seed": {
+            "before": 628.94665,
+            "after": 628.94665,
+            "eventRating": 633.994944506853,
+            "expectedPosition": null,
+            "factors": {
+              "endurance": {
+                "before": 524,
+                "after": 524
+              },
+              "pursuit": {
+                "before": 659,
+                "after": 659
+              },
+              "sprint": {
+                "before": 702,
+                "after": 702
+              },
+              "punch": {
+                "before": 738.51,
+                "after": 738.51
+              },
+              "climb": {
+                "before": 627,
+                "after": 627
+              },
+              "timeTrial": {
+                "before": 582,
+                "after": 582
+              }
+            }
+          },
+          "elo": {
+            "before": 629.401366438334,
+            "after": 629.401366438334,
+            "eventRating": 634.479815541934,
+            "expectedPosition": null,
+            "adjustedChange": null,
+            "rawChange": null,
+            "factors": {
+              "endurance": {
+                "before": 525.295488428303,
+                "after": 525.295488428303,
+                "skill": 1.29548842830252,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 659,
+                "after": 659,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 702,
+                "after": 702,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 738.51,
+                "after": 738.51,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 627,
+                "after": 627,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 582,
+                "after": 582,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": null
+        }
+      },
+      {
+        "event": {
+          "eventId": "5688013",
+          "time": 1788544800,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 100,
+          "seed": {
+            "before": 610.7322,
+            "after": 644.5056,
+            "eventRating": 637.251679990812,
+            "expectedPosition": 3.2374520238526,
+            "factors": {
+              "endurance": {
+                "before": 540,
+                "after": 540
+              },
+              "pursuit": {
+                "before": 600,
+                "after": 680
+              },
+              "sprint": {
+                "before": 692.75,
+                "after": 703.5
+              },
+              "punch": {
+                "before": 696.43,
+                "after": 753.84
+              },
+              "climb": {
+                "before": 611.5,
+                "after": 644.5
+              },
+              "timeTrial": {
+                "before": 597,
+                "after": 597
+              }
+            }
+          },
+          "elo": {
+            "before": 644.960316438334,
+            "after": 644.960316438334,
+            "eventRating": 681.54415223031,
+            "expectedPosition": 2.38266666666667,
+            "adjustedChange": 0,
+            "rawChange": 0,
+            "factors": {
+              "endurance": {
+                "before": 541.295488428303,
+                "after": 541.295488428303,
+                "skill": 1.29548842830252,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 680,
+                "after": 680,
+                "skill": 0,
+                "skillDelta": -1.76182927184232
+              },
+              "sprint": {
+                "before": 703.5,
+                "after": 703.5,
+                "skill": 0,
+                "skillDelta": -2.50753341166706
+              },
+              "punch": {
+                "before": 753.84,
+                "after": 753.84,
+                "skill": 0,
+                "skillDelta": -1.77903452154203
+              },
+              "climb": {
+                "before": 644.5,
+                "after": 644.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 597,
+                "after": 597,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 78.3092022751295,
+            "gc": 78.3092022751295,
+            "sprint": 38.958035195178,
+            "climb": null,
+            "tt": null
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5682369",
+          "time": 1787679000,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 98,
+          "seed": {
+            "before": 633.11215,
+            "after": 612.7492,
+            "eventRating": 642.570047776597,
+            "expectedPosition": 5.20480968804797,
+            "factors": {
+              "endurance": {
+                "before": 629,
+                "after": 545
+              },
+              "pursuit": {
+                "before": 578,
+                "after": 600
+              },
+              "sprint": {
+                "before": 692.75,
+                "after": 692.75
+              },
+              "punch": {
+                "before": 680.26,
+                "after": 696.43
+              },
+              "climb": {
+                "before": 604,
+                "after": 613.5
+              },
+              "timeTrial": {
+                "before": 669,
+                "after": 602
+              }
+            }
+          },
+          "elo": {
+            "before": 612.865332187093,
+            "after": 614.350967441063,
+            "eventRating": 631.10118750476,
+            "expectedPosition": 5.57266666666667,
+            "adjustedChange": 6.67462590506838,
+            "rawChange": 6.67462590506838,
+            "factors": {
+              "endurance": {
+                "before": 545,
+                "after": 546.733997786784,
+                "skill": 1.73399778678356,
+                "skillDelta": 1.73399778678356
+              },
+              "pursuit": {
+                "before": 600,
+                "after": 601.761829271842,
+                "skill": 1.76182927184232,
+                "skillDelta": 0.803759308999815
+              },
+              "sprint": {
+                "before": 693.877496962066,
+                "after": 695.257533411667,
+                "skill": 2.50753341166706,
+                "skillDelta": 1.38003644960134
+              },
+              "punch": {
+                "before": 696.43,
+                "after": 698.209034521542,
+                "skill": 1.77903452154203,
+                "skillDelta": 1.6193521706133
+              },
+              "climb": {
+                "before": 613.5,
+                "after": 613.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 602,
+                "after": 602,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 76.5196788645301,
+            "gc": 76.5196788645301,
+            "sprint": 36.4425917443576,
+            "climb": null,
+            "tt": null
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5667780",
+          "time": 1786644000,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 95,
+          "seed": {
+            "before": 640.8666,
+            "after": 643.7486,
+            "eventRating": 654.340859719219,
+            "expectedPosition": 6.09466740541205,
+            "factors": {
+              "endurance": {
+                "before": 629,
+                "after": 629
+              },
+              "pursuit": {
+                "before": 611,
+                "after": 611
+              },
+              "sprint": {
+                "before": 693.5,
+                "after": 693.5
+              },
+              "punch": {
+                "before": 689.84,
+                "after": 689.84
+              },
+              "climb": {
+                "before": 596.5,
+                "after": 618.5
+              },
+              "timeTrial": {
+                "before": 669,
+                "after": 669
+              }
+            }
+          },
+          "elo": {
+            "before": 643.7486,
+            "after": 644.440274080953,
+            "eventRating": 654.340859719219,
+            "expectedPosition": 6.117,
+            "adjustedChange": 3.53368983957219,
+            "rawChange": 3.53368983957219,
+            "factors": {
+              "endurance": {
+                "before": 629,
+                "after": 629.561490641519,
+                "skill": 0.561490641518958,
+                "skillDelta": 0.561490641518958
+              },
+              "pursuit": {
+                "before": 611,
+                "after": 612.210153470001,
+                "skill": 1.21015347000116,
+                "skillDelta": 1.21015347000116
+              },
+              "sprint": {
+                "before": 693.5,
+                "after": 694.627496962066,
+                "skill": 1.12749696206572,
+                "skillDelta": 1.12749696206572
+              },
+              "punch": {
+                "before": 689.84,
+                "after": 690.474548765986,
+                "skill": 0.634548765986324,
+                "skillDelta": 0.634548765986324
+              },
+              "climb": {
+                "before": 618.5,
+                "after": 618.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 669,
+                "after": 669,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 78.5044781641011,
+            "gc": 78.5044781641011,
+            "sprint": 39.1456202049578,
+            "climb": null,
+            "tt": null
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5641038",
+          "time": 1784174400,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 88,
+          "seed": {
+            "before": 677.72735,
+            "after": 677.72735,
+            "eventRating": 668.723646980693,
+            "expectedPosition": 1.37425882140038,
+            "factors": {
+              "endurance": {
+                "before": 638,
+                "after": 631
+              },
+              "pursuit": {
+                "before": 693,
+                "after": 693
+              },
+              "sprint": {
+                "before": 695.25,
+                "after": 695.25
+              },
+              "punch": {
+                "before": 734.44,
+                "after": 734.44
+              },
+              "climb": {
+                "before": 654,
+                "after": 654
+              },
+              "timeTrial": {
+                "before": 676,
+                "after": 670
+              }
+            }
+          },
+          "elo": {
+            "before": 676.450638772732,
+            "after": 676.450638772732,
+            "eventRating": 666.590525843496,
+            "expectedPosition": null,
+            "adjustedChange": null,
+            "rawChange": null,
+            "factors": {
+              "endurance": {
+                "before": 633.856560660747,
+                "after": 633.856560660747,
+                "skill": 2.85656066074728,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 693,
+                "after": 693,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 696.974621172915,
+                "after": 696.974621172915,
+                "skill": 1.72462117291465,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 734.44,
+                "after": 734.44,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 654,
+                "after": 654,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 670,
+                "after": 670,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": null
+        }
+      },
+      {
+        "event": {
+          "eventId": "5638930",
+          "time": 1783965600,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 100,
+          "seed": {
+            "before": 645.1536,
+            "after": 677.77885,
+            "eventRating": 653.570260606927,
+            "expectedPosition": 2.79509297634491,
+            "factors": {
+              "endurance": {
+                "before": 638,
+                "after": 638
+              },
+              "pursuit": {
+                "before": 602,
+                "after": 693
+              },
+              "sprint": {
+                "before": 695.75,
+                "after": 695.75
+              },
+              "punch": {
+                "before": 689.89,
+                "after": 734.44
+              },
+              "climb": {
+                "before": 617,
+                "after": 654
+              },
+              "timeTrial": {
+                "before": 676,
+                "after": 676
+              }
+            }
+          },
+          "elo": {
+            "before": 678.959138772733,
+            "after": 678.959138772733,
+            "eventRating": 698.033222746122,
+            "expectedPosition": 2.022,
+            "adjustedChange": 0,
+            "rawChange": 0,
+            "factors": {
+              "endurance": {
+                "before": 640.856560660747,
+                "after": 640.856560660747,
+                "skill": 2.85656066074728,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 693,
+                "after": 693,
+                "skill": 0,
+                "skillDelta": -0.252083507158659
+              },
+              "sprint": {
+                "before": 697.474621172915,
+                "after": 697.474621172915,
+                "skill": 1.72462117291465,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 734.44,
+                "after": 734.44,
+                "skill": 0,
+                "skillDelta": -0.474866415057591
+              },
+              "climb": {
+                "before": 654,
+                "after": 654,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 676,
+                "after": 676,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 80.8362952236658,
+            "gc": 80.8362952236658,
+            "sprint": 38.2244451028666,
+            "climb": null,
+            "tt": null
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5634293",
+          "time": 1783569600,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 88,
+          "seed": {
+            "before": 646.1667,
+            "after": 646.1667,
+            "eventRating": 656.282201341253,
+            "expectedPosition": 6.30349296827566,
+            "factors": {
+              "endurance": {
+                "before": 637,
+                "after": 638
+              },
+              "pursuit": {
+                "before": 609,
+                "after": 609
+              },
+              "sprint": {
+                "before": 696.25,
+                "after": 696.25
+              },
+              "punch": {
+                "before": 692.53,
+                "after": 692.53
+              },
+              "climb": {
+                "before": 612,
+                "after": 620
+              },
+              "timeTrial": {
+                "before": 675,
+                "after": 676
+              }
+            }
+          },
+          "elo": {
+            "before": 648.898501753402,
+            "after": 648.898501753402,
+            "eventRating": 657.643377509487,
+            "expectedPosition": null,
+            "adjustedChange": null,
+            "rawChange": null,
+            "factors": {
+              "endurance": {
+                "before": 640.856560660747,
+                "after": 640.856560660747,
+                "skill": 2.85656066074728,
+                "skillDelta": -1
+              },
+              "pursuit": {
+                "before": 609.252083507159,
+                "after": 609.252083507159,
+                "skill": 0.252083507158659,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 697.974621172915,
+                "after": 697.974621172915,
+                "skill": 1.72462117291465,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 693.004866415058,
+                "after": 693.004866415058,
+                "skill": 0.474866415057591,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 620,
+                "after": 620,
+                "skill": 0,
+                "skillDelta": -0.78349739041812
+              },
+              "timeTrial": {
+                "before": 676,
+                "after": 676,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": null
+        }
+      },
+      {
+        "event": {
+          "eventId": "5626415",
+          "time": 1782964800,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 86,
+          "seed": {
+            "before": 652.43745,
+            "after": 652.43745,
+            "eventRating": 663.291688758471,
+            "expectedPosition": 6.75033059416042,
+            "factors": {
+              "endurance": {
+                "before": 638,
+                "after": 638
+              },
+              "pursuit": {
+                "before": 624,
+                "after": 624
+              },
+              "sprint": {
+                "before": 697,
+                "after": 697
+              },
+              "punch": {
+                "before": 697.83,
+                "after": 697.83
+              },
+              "climb": {
+                "before": 625,
+                "after": 625
+              },
+              "timeTrial": {
+                "before": 676,
+                "after": 676
+              }
+            }
+          },
+          "elo": {
+            "before": 654.223889911546,
+            "after": 654.223889911546,
+            "eventRating": 665.782491086858,
+            "expectedPosition": null,
+            "adjustedChange": null,
+            "rawChange": null,
+            "factors": {
+              "endurance": {
+                "before": 641.856560660747,
+                "after": 641.856560660747,
+                "skill": 3.85656066074728,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 624.252083507159,
+                "after": 624.252083507159,
+                "skill": 0.252083507158659,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 698.724621172915,
+                "after": 698.724621172915,
+                "skill": 1.72462117291465,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 698.304866415058,
+                "after": 698.304866415058,
+                "skill": 0.474866415057591,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 625.783497390418,
+                "after": 625.783497390418,
+                "skill": 0.78349739041812,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 676,
+                "after": 676,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": null
+        }
+      },
+      {
+        "event": {
+          "eventId": "5610124",
+          "time": 1780939800,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 92,
+          "seed": {
+            "before": 692.0252,
+            "after": 692.0252,
+            "eventRating": 692.508920749303,
+            "expectedPosition": 1.81776532294211,
+            "factors": {
+              "endurance": {
+                "before": 636,
+                "after": 636
+              },
+              "pursuit": {
+                "before": 712,
+                "after": 712
+              },
+              "sprint": {
+                "before": 700.75,
+                "after": 700.75
+              },
+              "punch": {
+                "before": 759.83,
+                "after": 759.83
+              },
+              "climb": {
+                "before": 693.5,
+                "after": 693.5
+              },
+              "timeTrial": {
+                "before": 675,
+                "after": 675
+              }
+            }
+          },
+          "elo": {
+            "before": 692.089911893728,
+            "after": 692.089911893728,
+            "eventRating": 692.508920749303,
+            "expectedPosition": 1.98766666666667,
+            "adjustedChange": 0,
+            "rawChange": 0,
+            "factors": {
+              "endurance": {
+                "before": 636,
+                "after": 636,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 712,
+                "after": 712,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 701.378270812888,
+                "after": 701.378270812888,
+                "skill": 0.628270812888418,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 759.83,
+                "after": 759.83,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 693.5,
+                "after": 693.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 675,
+                "after": 675,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 85.4547617584812,
+            "gc": 85.4547617584812,
+            "sprint": 20.2694679282466,
+            "climb": 19.0665761368149,
+            "tt": null
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5588595",
+          "time": 1779471000,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 89,
+          "seed": {
+            "before": 722.8191,
+            "after": 722.8191,
+            "eventRating": 728.174265714393,
+            "expectedPosition": 2.9733383434325,
+            "factors": {
+              "endurance": {
+                "before": 667,
+                "after": 667
+              },
+              "pursuit": {
+                "before": 755,
+                "after": 755
+              },
+              "sprint": {
+                "before": 705.25,
+                "after": 705.25
+              },
+              "punch": {
+                "before": 790.49,
+                "after": 790.49
+              },
+              "climb": {
+                "before": 726,
+                "after": 726
+              },
+              "timeTrial": {
+                "before": 697,
+                "after": 697
+              }
+            }
+          },
+          "elo": {
+            "before": 722.958834742591,
+            "after": 722.958834742591,
+            "eventRating": 728.557493790428,
+            "expectedPosition": 3.12366666666667,
+            "adjustedChange": 0,
+            "rawChange": 0,
+            "factors": {
+              "endurance": {
+                "before": 667,
+                "after": 667,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 755,
+                "after": 755,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 706.60664798632,
+                "after": 706.60664798632,
+                "skill": 1.35664798632021,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 790.49,
+                "after": 790.49,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 726,
+                "after": 726,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 697,
+                "after": 697,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 91.2921876706264,
+            "gc": 91.2921876706264,
+            "sprint": 44.1000816526913,
+            "climb": null,
+            "tt": null
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5586452",
+          "time": 1779125400,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 100,
+          "seed": {
+            "before": 658.282,
+            "after": 722.94785,
+            "eventRating": 663.318083135597,
+            "expectedPosition": 3.3536014133796,
+            "factors": {
+              "endurance": {
+                "before": 641,
+                "after": 667
+              },
+              "pursuit": {
+                "before": 602,
+                "after": 755
+              },
+              "sprint": {
+                "before": 706.5,
+                "after": 706.5
+              },
+              "punch": {
+                "before": 727.5,
+                "after": 790.49
+              },
+              "climb": {
+                "before": 639,
+                "after": 726
+              },
+              "timeTrial": {
+                "before": 678,
+                "after": 697
+              }
+            }
+          },
+          "elo": {
+            "before": 723.087584742591,
+            "after": 723.087584742591,
+            "eventRating": 732.785767909434,
+            "expectedPosition": 1.94466666666667,
+            "adjustedChange": 0,
+            "rawChange": 0,
+            "factors": {
+              "endurance": {
+                "before": 667,
+                "after": 667,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 755,
+                "after": 755,
+                "skill": 0,
+                "skillDelta": -1.33495859501428
+              },
+              "sprint": {
+                "before": 707.85664798632,
+                "after": 707.85664798632,
+                "skill": 1.35664798632021,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 790.49,
+                "after": 790.49,
+                "skill": 0,
+                "skillDelta": -0.354128678479128
+              },
+              "climb": {
+                "before": 726,
+                "after": 726,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 697,
+                "after": 697,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 83.1065365987882,
+            "gc": 83.1065365987882,
+            "sprint": 42.0827482638487,
+            "climb": null,
+            "tt": null
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5575176",
+          "time": 1778261400,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 94,
+          "seed": {
+            "before": 658.3735,
+            "after": 660.6439,
+            "eventRating": 664.67678928048,
+            "expectedPosition": 4.40948469084182,
+            "factors": {
+              "endurance": {
+                "before": 641,
+                "after": 641
+              },
+              "pursuit": {
+                "before": 602,
+                "after": 602
+              },
+              "sprint": {
+                "before": 711.25,
+                "after": 711.25
+              },
+              "punch": {
+                "before": 725.65,
+                "after": 736.21
+              },
+              "climb": {
+                "before": 639,
+                "after": 639
+              },
+              "timeTrial": {
+                "before": 678,
+                "after": 678
+              }
+            }
+          },
+          "elo": {
+            "before": 660.752533593955,
+            "after": 661.295285965498,
+            "eventRating": 666.606352321093,
+            "expectedPosition": 4.38633333333333,
+            "adjustedChange": 2.89014084507042,
+            "rawChange": 2.89014084507042,
+            "factors": {
+              "endurance": {
+                "before": 641,
+                "after": 641.37589250098,
+                "skill": 0.375892500979717,
+                "skillDelta": 0.375892500979717
+              },
+              "pursuit": {
+                "before": 602.358439548893,
+                "after": 603.404496152636,
+                "skill": 1.40449615263637,
+                "skillDelta": 1.04605660374372
+              },
+              "sprint": {
+                "before": 711.608695962879,
+                "after": 712.609385501182,
+                "skill": 1.35938550118223,
+                "skillDelta": 1.00068953830291
+              },
+              "punch": {
+                "before": 736.21,
+                "after": 736.668287258161,
+                "skill": 0.458287258161135,
+                "skillDelta": -0.851718141604124
+              },
+              "climb": {
+                "before": 639,
+                "after": 639,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 678,
+                "after": 678,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 86.4371047744144,
+            "gc": 86.4371047744144,
+            "sprint": 43.7692517309238,
+            "climb": null,
+            "tt": null
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5571868",
+          "time": 1777915800,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 98,
+          "seed": {
+            "before": 645.12335,
+            "after": 659.58785,
+            "eventRating": 656.56700796877,
+            "expectedPosition": 2.42478600339595,
+            "factors": {
+              "endurance": {
+                "before": 640,
+                "after": 641
+              },
+              "pursuit": {
+                "before": 565,
+                "after": 602
+              },
+              "sprint": {
+                "before": 713.25,
+                "after": 713.25
+              },
+              "punch": {
+                "before": 720.44,
+                "after": 730.34
+              },
+              "climb": {
+                "before": 604,
+                "after": 639
+              },
+              "timeTrial": {
+                "before": 677,
+                "after": 678
+              }
+            }
+          },
+          "elo": {
+            "before": 659.58785,
+            "after": 661.456318085829,
+            "eventRating": 665.937398207149,
+            "expectedPosition": 2.234,
+            "adjustedChange": 7.20979591836735,
+            "rawChange": 7.20979591836735,
+            "factors": {
+              "endurance": {
+                "before": 641,
+                "after": 644.480668159768,
+                "skill": 3.48066815976756,
+                "skillDelta": 3.48066815976756
+              },
+              "pursuit": {
+                "before": 602,
+                "after": 602.540985498429,
+                "skill": 0.540985498429222,
+                "skillDelta": 0.540985498429222
+              },
+              "sprint": {
+                "before": 713.25,
+                "after": 713.973931634612,
+                "skill": 0.723931634611745,
+                "skillDelta": 0.723931634611745
+              },
+              "punch": {
+                "before": 730.34,
+                "after": 732.020713235141,
+                "skill": 1.68071323514084,
+                "skillDelta": 1.68071323514084
+              },
+              "climb": {
+                "before": 639,
+                "after": 639.783497390418,
+                "skill": 0.78349739041812,
+                "skillDelta": 0.78349739041812
+              },
+              "timeTrial": {
+                "before": 678,
+                "after": 678,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 88.264392535325,
+            "gc": 88.264392535325,
+            "sprint": 29.4383531926601,
+            "climb": 9.5918001010385,
+            "tt": null
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5563600",
+          "time": 1777521600,
+          "title": "Test Event"
+        },
+        "velo": {
+          "intensity": 85,
+          "seed": {
+            "before": 649.3313,
+            "after": 649.3313,
+            "eventRating": 666.828384992216,
+            "expectedPosition": 9.63240074017215,
+            "factors": {
+              "endurance": {
+                "before": 640,
+                "after": 640
+              },
+              "pursuit": {
+                "before": 573,
+                "after": 573
+              },
+              "sprint": {
+                "before": 716,
+                "after": 716
+              },
+              "punch": {
+                "before": 729.12,
+                "after": 729.12
+              },
+              "climb": {
+                "before": 607.5,
+                "after": 607.5
+              },
+              "timeTrial": {
+                "before": 677,
+                "after": 677
+              }
+            }
+          },
+          "elo": {
+            "before": 649.3313,
+            "after": 649.3313,
+            "eventRating": 666.828384992216,
+            "expectedPosition": null,
+            "adjustedChange": null,
+            "rawChange": null,
+            "factors": {
+              "endurance": {
+                "before": 640,
+                "after": 640,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 573,
+                "after": 573,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 716,
+                "after": 716,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 729.12,
+                "after": 729.12,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 607.5,
+                "after": 607.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 677,
+                "after": 677,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": null
+        }
+      }
+    ],
+    "ratings": {
+      "live": 715.23210431096,
+      "max30": 718.187205165935,
+      "max90": 718.187205165935,
+      "max30Expires": 1797622200,
+      "max90Expires": 1802806200
+    },
+    "legacyRatings": {
+      "live": 1780.18917611567,
+      "max30": 1780.18917611567,
+      "max90": 1780.18917611567,
+      "max30Expires": 1797708600,
+      "max90Expires": 1802892600
+    },
+    "legacyHistory": [
+      {
+        "event": {
+          "eventId": "5800908",
+          "time": 1795116600,
+          "title": "Test Event"
+        },
+        "rating": 1780.18917611567,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5795672",
+          "time": 1795030200,
+          "title": "Test Event"
+        },
+        "rating": 1773.74964277087,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5786503",
+          "time": 1794337380,
+          "title": "Test Event"
+        },
+        "rating": 1761.22429790872,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5769142",
+          "time": 1793854800,
+          "title": "Test Event"
+        },
+        "rating": 1758.04315724685,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5757841",
+          "time": 1793251800,
+          "title": "Test Event"
+        },
+        "rating": 1758.04315724685,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5673134",
+          "time": 1793080800,
+          "title": "Test Event"
+        },
+        "rating": 1758.04315724685,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5749562",
+          "time": 1792778400,
+          "title": "Test Event"
+        },
+        "rating": 1758.04315724685,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5673132",
+          "time": 1792472400,
+          "title": "Test Event"
+        },
+        "rating": 1750.52498943527,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5729167",
+          "time": 1791568800,
+          "title": "Test Event"
+        },
+        "rating": 1759.14904074114,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5673130",
+          "time": 1791262800,
+          "title": "Test Event"
+        },
+        "rating": 1750.2433084617,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5710477",
+          "time": 1790272800,
+          "title": "Test Event"
+        },
+        "rating": 1750.2433084617,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5673121",
+          "time": 1790053200,
+          "title": "Test Event"
+        },
+        "rating": 1750.2433084617,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5688013",
+          "time": 1788544800,
+          "title": "Test Event"
+        },
+        "rating": 1750.2433084617,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5682369",
+          "time": 1787679000,
+          "title": "Test Event"
+        },
+        "rating": 1743.11083400851,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5667780",
+          "time": 1786644000,
+          "title": "Test Event"
+        },
+        "rating": 1743.11083400851,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5641038",
+          "time": 1784174400,
+          "title": "Test Event"
+        },
+        "rating": 1739.35635948361,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5638930",
+          "time": 1783965600,
+          "title": "Test Event"
+        },
+        "rating": 1739.35635948361,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5634293",
+          "time": 1783569600,
+          "title": "Test Event"
+        },
+        "rating": 1722.83043640689,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5626415",
+          "time": 1782964800,
+          "title": "Test Event"
+        },
+        "rating": 1722.83043640689,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5610124",
+          "time": 1780939800,
+          "title": "Test Event"
+        },
+        "rating": 1722.83043640689,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5588595",
+          "time": 1779471000,
+          "title": "Test Event"
+        },
+        "rating": 1712.77719981346,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5586452",
+          "time": 1779125400,
+          "title": "Test Event"
+        },
+        "rating": 1704.99882887273,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5575176",
+          "time": 1778261400,
+          "title": "Test Event"
+        },
+        "rating": 1649.19650911215,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5571868",
+          "time": 1777915800,
+          "title": "Test Event"
+        },
+        "rating": 1639.7977789511,
+        "archived": false
+      },
+      {
+        "event": {
+          "eventId": "5563600",
+          "time": 1777521600,
+          "title": "Test Event"
+        },
+        "rating": 1630.15173280796,
+        "archived": false
+      }
+    ]
+  }
+}

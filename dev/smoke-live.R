@@ -40,7 +40,7 @@ cat(sprintf("Credentials: ZR=%s  Zwift=%s  ZP=%s  rider_id=%s\n\n",
 
 dir.create("dev/output", showWarnings = FALSE, recursive = TRUE)
 rep_path <- file.path("dev/output", format(Sys.time(), "smoke-%Y%m%d-%H%M%S.md"))
-rep <- c("# zwiftverse live smoke test", format(Sys.time()), "")
+R <- new.env(); R$lines <- c("# zwiftverse live smoke test", format(Sys.time()), "")
 results <- list()
 
 for (s in zv_dev_specs()) {
@@ -53,16 +53,16 @@ for (s in zv_dev_specs()) {
   out <- tryCatch({
     resp <- s$call(h)
     ms <- round(as.numeric(difftime(Sys.time(), t0, units = "secs")) * 1000)
-    raw <- httr2::resp_body_json(resp, simplifyVector = FALSE)
+    raw <- httr2::resp_body_json(resp, check_type = FALSE, simplifyVector = FALSE)
     sh <- .shape(raw)
-    parsed <- httr2::resp_body_json(resp, simplifyVector = TRUE, simplifyDataFrame = TRUE, flatten = TRUE)
+    parsed <- httr2::resp_body_json(resp, check_type = FALSE, simplifyVector = TRUE, simplifyDataFrame = TRUE, flatten = TRUE, bigint_as_char = TRUE)
     tbl <- zwiftverse:::.zv_to_tbl(parsed)
     listcols <- names(tbl)[vapply(tbl, is.list, logical(1))]
     obj <- if (sh$kind == "object") raw else if (is.null(names(raw)) && length(raw)) raw[[1]] else
       if (!is.null(raw$data) && length(raw$data)) raw$data[[1]] else NULL
     cat(label, sprintf(" OK    HTTP %d  %5d ms  %-22s tbl %d x %d\n",
                        httr2::resp_status(resp), ms, sh$kind, nrow(tbl), ncol(tbl)), sep = "")
-    rep <<- c(rep, sprintf("## %s / %s", s$api, s$name), "",
+    R$lines <- c(R$lines, sprintf("## %s / %s", s$api, s$name), "",
               sprintf("- HTTP %d, %d ms, `%s`", httr2::resp_status(resp), ms,
                       httr2::resp_content_type(resp)),
               sprintf("- JSON: %s", sh$kind),
@@ -76,13 +76,13 @@ for (s in zv_dev_specs()) {
   }, error = function(e) {
     msg <- gsub("[\r\n]+", " ", substr(conditionMessage(e), 1, 200))
     cat(label, " FAIL  ", msg, "\n", sep = "")
-    rep <<- c(rep, sprintf("## %s / %s", s$api, s$name), "", paste("**FAIL:**", msg), "")
+    R$lines <- c(R$lines, sprintf("## %s / %s", s$api, s$name), "", paste("**FAIL:**", msg), "")
     data.frame(api = s$api, endpoint = s$name, status = "FAIL", note = msg)
   })
   results[[length(results) + 1]] <- out
 }
 
 res <- do.call(rbind, results)
-writeLines(rep, rep_path)
+writeLines(R$lines, rep_path)
 cat(sprintf("\n%d OK, %d FAIL, %d SKIP.  Field report: %s\n",
             sum(res$status == "OK"), sum(res$status == "FAIL"), sum(res$status == "SKIP"), rep_path))

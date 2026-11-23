@@ -3,28 +3,57 @@
 \name{zr_get}
 \alias{zr_get}
 \alias{zr_rider}
+\alias{zr_rider_overview}
+\alias{zr_rider_results}
+\alias{zr_rider_ranking}
+\alias{zr_rider_velo}
+\alias{zr_rider_power}
 \alias{zr_riders}
+\alias{zr_event}
 \alias{zr_result}
 \alias{zr_club}
-\alias{zr_categories}
+\alias{zr_club_riders}
+\alias{zr_routes}
 \title{Low-level ZwiftRacing.app GET}
 \usage{
-zr_get(client, path, parse = "tbl", ttl = .zv_ttl("zr"))
+zr_get(client, path, query = list(), parse = "tbl", ttl = .zv_ttl("zr"))
 
-zr_rider(client, zwift_id, epoch = NULL, ...)
+zr_rider(client, zwift_id, ...)
 
-zr_riders(client, ids, epoch = NULL, ...)
+zr_rider_overview(client, zwift_id, ...)
 
-zr_result(client, race_id, ...)
+zr_rider_results(
+  client,
+  zwift_id,
+  days = 365,
+  parse = "tbl",
+  ttl = .zv_ttl("zr")
+)
 
-zr_club(client, team_id, offset = 0, ...)
+zr_rider_ranking(client, zwift_id, days = 90, ...)
 
-zr_categories(client, ...)
+zr_rider_velo(client, zwift_id, days = 365, ...)
+
+zr_rider_power(client, zwift_id, ...)
+
+zr_riders(client, ids, ...)
+
+zr_event(client, event_id, ...)
+
+zr_result(client, event_id, parse = "tbl", ttl = .zv_ttl("zr"))
+
+zr_club(client, club_id, ...)
+
+zr_club_riders(client, club_id, page = NULL, ...)
+
+zr_routes(client, ...)
 }
 \arguments{
 \item{client}{A \code{\link[=zr_client]{zr_client()}}.}
 
-\item{path}{Endpoint path, e.g. \code{"/public/riders/123"}.}
+\item{path}{Endpoint path under \verb{/api/v2}, e.g. \code{"/riders/123"}.}
+
+\item{query}{Named list of query parameters.}
 
 \item{parse}{One of \code{"tbl"}, \code{"json"}, \code{"resp"}.}
 
@@ -32,17 +61,17 @@ zr_categories(client, ...)
 
 \item{zwift_id}{Zwift rider id.}
 
-\item{epoch}{Optional unix timestamp for a historical snapshot.}
-
 \item{...}{For the typed wrappers, further arguments forwarded to \code{zr_get()}.}
 
-\item{ids}{Integer vector of Zwift rider ids (<= 1000).}
+\item{days}{Look-back window in days.}
 
-\item{race_id}{ZwiftRacing event id.}
+\item{ids}{Vector of Zwift rider ids.}
 
-\item{team_id}{Club id.}
+\item{event_id}{Zwift event id.}
 
-\item{offset}{Starting rider index (0 = first page).}
+\item{club_id}{Club id.}
+
+\item{page}{Page number (0-based), or \code{NULL} for all pages.}
 }
 \value{
 A tibble, parsed list, or httr2 response.
@@ -52,15 +81,39 @@ Low-level ZwiftRacing.app GET
 }
 \section{Functions}{
 \itemize{
-\item \code{zr_rider()}: A single rider's rating. \code{epoch} (unix seconds) returns an
-immutable historical snapshot - safe to cache with \code{ttl = Inf}.
+\item \code{zr_rider()}: A rider's current profile: vELO rating (\code{velo$race},
+with \code{velo$factors}), race counts (\code{race$finishes/wins/podiums/dnfs}),
+power, points, phenotype and club.
 
-\item \code{zr_riders()}: Batch rider fetch via POST (up to 1000 ids, one request).
+\item \code{zr_rider_overview()}: Rider overview, including the legacy ZwiftRacing ratings
+(\code{legacyRatings$live/max30/max90}) and rating history.
 
-\item \code{zr_result()}: Race results for an event id.
+\item \code{zr_rider_results()}: A rider's race results over the last \code{days} days. One row
+per race (nested \code{event}, \code{place}, \code{race}, \code{velo}, \code{legacy} objects,
+flattened to dotted column names).
 
-\item \code{zr_club()}: Club / team roster. \code{offset} is the starting rider index.
+\item \code{zr_rider_ranking()}: A rider's ranking / points over the last \code{days} days.
 
-\item \code{zr_categories()}: Category definitions (v2 endpoint).
+\item \code{zr_rider_velo()}: A rider's vELO rating history over the last \code{days} days.
+
+\item \code{zr_rider_power()}: A rider's power curve, efforts and FTP estimate.
+
+\item \code{zr_riders()}: Several riders' profiles, one row each. API v2 has no
+batch endpoint, so this makes one (throttled, cached) request per rider;
+riders that error (e.g. not found / opted out) are dropped with a warning.
+
+\item \code{zr_event()}: Event metadata (route, distance, pens with summary stats).
+
+\item \code{zr_result()}: Race results for an event: one row per rider across all
+pens, with a \code{pen} column. Includes \code{position}, \code{category}, \code{time},
+power (\verb{wkg*}), and ratings (\code{ratingBefore}, \code{rating}, \code{ratingDelta},
+\code{riderVelo.race}).
+
+\item \code{zr_club()}: Club summary (name, colours, rider counts).
+
+\item \code{zr_club_riders()}: Club members with ratings. Pages hold 50 riders and are
+0-indexed; \code{page = NULL} (default) fetches every page and binds them.
+
+\item \code{zr_routes()}: Route catalogue.
 
 }}

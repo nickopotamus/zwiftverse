@@ -4,6 +4,9 @@
 #   (a) zp_set_cookie(s, "<sid>")  - paste the cookie from browser devtools. Robust.
 #   (b) zp_login(s, user, pass)    - programmatic SSO (needs rvest+xml2; brittle).
 # Endpoints: cache3/*.json (static) and api3.php?do=* (dynamic).
+# cache3/ is served from CloudFront and needs signed cookies (CloudFront-Policy,
+# -Signature, -Key-Pair-Id) that zwiftpower.com sets when a logged-in session
+# loads an HTML page. zp_get() "primes" the cookie jar for that automatically.
 
 .ZP_BASE  <- "https://zwiftpower.com"
 .ZP_LOGIN <- "https://zwiftpower.com/ucp.php?mode=login&login=external&oauth_service=oauthzpsso"
@@ -15,7 +18,38 @@
 #' @return An object of class `zp_session`.
 #' @export
 zp_session <- function(cookie_file = tempfile(fileext = ".cookies"), sid = NULL) {
-  structure(list(cookie_file = cookie_file, sid = sid), class = "zp_session")
+  st <- new.env(parent = emptyenv()); st$primed_at <- 0
+  structure(list(cookie_file = cookie_file, sid = sid, .state = st), class = "zp_session")
+}
+
+.ZP_PRIME_TTL <- 1800   # re-fetch CloudFront cookies every 30 min
+
+.zp_base_req <- function(s, url) {
+  req <- request(url) |>
+    req_user_agent(.ZWIFT_UA) |>
+    req_cookie_preserve(s$cookie_file)
+  if (!is.null(s$sid)) req <- req_headers(req, Cookie = paste0("phpbb3_lswlk_sid=", s$sid))
+  req
+}
+
+# Load a logged-in HTML page so CloudFront signed cookies land in the jar.
+.zp_prime <- function(s, force = FALSE) {
+  st <- s$.state
+  if (!is.environment(st)) return(invisible(s))
+  if (!force && as.numeric(Sys.time()) - st$primed_at < .ZP_PRIME_TTL) return(invisible(s))
+  resp <- .zp_base_req(s, paste0(.ZP_BASE, "/events.php")) |>
+    req_error(is_error = function(resp) FALSE) |>
+    req_perform()
+  ck <- unlist(resp_headers(resp)[tolower(names(resp_headers(resp))) == "set-cookie"])
+  if (!any(grepl("^CloudFront-Signature=", ck)) && !.zp_jar_has_cf(s$cookie_file))
+    warning("ZwiftPower did not issue CloudFront cookies; cache3/ endpoints will ",
+            "likely return 403. Is the session cookie still valid?", call. = FALSE)
+  st$primed_at <- as.numeric(Sys.time())
+  invisible(s)
+}
+
+.zp_jar_has_cf <- function(cf) {
+  file.exists(cf) && any(grepl("CloudFront-Signature", readLines(cf, warn = FALSE), fixed = TRUE))
 }
 
 #' Set the ZwiftPower session cookie directly
@@ -27,7 +61,11 @@ zp_session <- function(cookie_file = tempfile(fileext = ".cookies"), sid = NULL)
 #' @param sid The `phpbb3_lswlk_sid` cookie value.
 #' @return The updated session.
 #' @export
-zp_set_cookie <- function(s, sid) { s$sid <- sid; s }
+zp_set_cookie <- function(s, sid) {
+  s$sid <- sid
+  if (is.environment(s$.state)) s$.state$primed_at <- 0
+  s
+}
 
 #' Log in to ZwiftPower via Zwift SSO (best effort)
 #'
@@ -66,6 +104,7 @@ zp_login <- function(s, username = Sys.getenv("ZWIFT_USERNAME"),
     resp_body_string()
   if (!grepl("Profile", ok, fixed = TRUE))
     warning("Login may have failed (no 'Profile' marker). Try zp_set_cookie().")
+  if (is.environment(s$.state)) s$.state$primed_at <- 0
   invisible(s)
 }
 
@@ -81,13 +120,11 @@ zp_login <- function(s, username = Sys.getenv("ZWIFT_USERNAME"),
 zp_get <- function(s, url, parse = "tbl", ttl = .zv_ttl("zp")) {
   stopifnot(inherits(s, "zp_session"))
   if (!grepl("^https?://", url)) url <- paste0(.ZP_BASE, url)
-  req <- request(url) |>
-    req_user_agent(.ZWIFT_UA) |>
+  if (grepl("/cache3/", url, fixed = TRUE) && !.zv_cache_fresh(url, ttl)) .zp_prime(s)
+  req <- .zp_base_req(s, url) |>
     req_headers(Accept = "application/json") |>
     req_retry(max_tries = 3) |>
     req_error(body = function(resp) resp_body_string(resp))
-  if (!is.null(s$sid)) req <- req_headers(req, Cookie = paste0("phpbb3_lswlk_sid=", s$sid))
-  else                 req <- req_cookie_preserve(req, s$cookie_file)
   .zv_fetch(req, parse, ttl)
 }
 
@@ -163,3 +200,31 @@ zp_league_results <- function(s, id, ...)
 #' @export
 zp_league_team_standings <- function(s, id, ...)
   zp_get(s, sprintf("/api3.php?do=league_team_event_standings&id=%s", id), ...)
+
+#' Unwrap ZwiftPower `[value, flag]` columns
+#'
+#' Many ZwiftPower numeric fields (`avg_wkg`, `avg_power`, `time`, `weight`,
+#' `wkg1200`, ...) arrive as two-element `[value, flag]` arrays, which become
+#' list-columns in the returned tibble. `zp_unflag()` replaces every such
+#' column with its first element, converted to number where possible. The
+#' flag (an upload/verification marker) is dropped.
+#'
+#' @param tbl A tibble returned by a `zp_*()` function.
+#' @return `tbl` with `[value, flag]` list-columns replaced by atomic columns.
+#' @export
+#' @examples
+#' x <- tibble::tibble(zwid = 1:2, avg_wkg = list(c("3.8", "0"), c("4.1", "0")))
+#' zp_unflag(x)
+zp_unflag <- function(tbl) {
+  is_pair <- function(col) {
+    is.list(col) && length(col) > 0 &&
+      all(vapply(col, function(v) is.null(v) || (is.atomic(v) && length(v) %in% c(0, 2)), logical(1)))
+  }
+  for (n in names(tbl)[vapply(tbl, is_pair, logical(1))]) {
+    first <- vapply(tbl[[n]], function(v) if (length(v)) as.character(v[[1]]) else NA_character_,
+                    character(1))
+    first[first == ""] <- NA_character_
+    tbl[[n]] <- utils::type.convert(first, as.is = TRUE)
+  }
+  tbl
+}

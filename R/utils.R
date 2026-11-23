@@ -31,10 +31,13 @@
 
 .zv_to_tbl <- function(parsed) {
   if (inherits(parsed, "data.frame")) return(tibble::as_tibble(parsed))
-  if (is.list(parsed) && !is.null(parsed[["data"]])) {
+  # {"data": ...} envelopes: ZwiftPower cache3 ({data: [...]}) and
+  # ZwiftRacing v2 ({success: true, data: [...] | {...}}).
+  if (is.list(parsed) && !inherits(parsed, "data.frame") && !is.null(parsed[["data"]])) {
     d <- parsed[["data"]]
     if (inherits(d, "data.frame")) return(tibble::as_tibble(d))
     if (is.list(d) && is.null(names(d))) return(.zv_rows(d))
+    if (!is.null(parsed[["success"]]) && is.list(d)) return(.zv_one_row(d))
   }
   if (is.list(parsed) && is.null(names(parsed)) && length(parsed)) return(.zv_rows(parsed))
   .zv_one_row(parsed)

@@ -17,12 +17,12 @@ reference:
   - zp_set_cookie
   - zp_login
   - zp_get
+  - zp_unflag
 - title: ZwiftRacing.app
   desc: Key-authenticated rider ratings, results and club rosters.
   contents:
   - zr_client
   - zr_get
-  - zr_post
 - title: Caching
   desc: On-disk TTL cache controls.
   contents:

@@ -26,7 +26,7 @@ library(zwiftverse)
 library(dplyr)
 
 Sys.setenv(ZWIFT_USERNAME = "you@example.com", ZWIFT_PASSWORD = "…")
-Sys.setenv(ZR_AUTH = "your-zwiftracing-key")   # raw Authorization value, no "Bearer"
+Sys.setenv(ZR_AUTH = "your-zwiftracing-key")   # sent as the x-api-key header
 ```
 
 The field names returned by each API are not stable or documented, so the first
@@ -40,15 +40,19 @@ res <- zp_result(zp, race_id)
 dplyr::glimpse(res)        # confirm the id / position / category column names
 ```
 
-Adjust the column names below to match what `glimpse()` shows for your race.
+The ZwiftPower columns used below (`zwid`, `name`, `position_in_cat`,
+`category`, `avg_wkg`) are confirmed against live data.
 
 ## 1. Finishers from ZwiftPower
 
-`zp_result()` returns one row per finisher. Pull the rider id, finishing
-position and in-game category, and keep the power numbers for later.
+`zp_result()` returns one row per finisher. ZwiftPower ships most numbers as
+`[value, flag]` pairs (they arrive as list-columns), so run `zp_unflag()`
+first, then pull the rider id, finishing position and category. Column names
+below were verified against live responses (2026-11).
 
 ```{r finishers}
 finishers <- res |>
+  zp_unflag() |>
   transmute(
     zwid     = as.integer(zwid),          # ZwiftPower rider id
     name,
@@ -61,32 +65,38 @@ finishers <- res |>
 finishers
 ```
 
-## 2. Ratings from ZwiftRacing.app (one batch call)
+## 2. Ratings from ZwiftRacing.app (one call)
 
-Rather than one request per finisher, hand the whole id vector to the batch POST
-endpoint — up to 1000 riders in a single call. Ratings change slowly, so the
-default TTL cache means a re-run of this vignette is free.
+ZwiftRacing.app scores the same race, so its event endpoint already carries
+every finisher's rating *going into* the race — no per-rider lookups needed.
+`zr_result()` flattens all pens into one row per rider. ZwiftRacing keys events
+on the Zwift event id, which is usually the same number as the ZwiftPower id.
 
 ```{r ratings}
 zr <- zr_client()
 
-ratings <- zr_riders(zr, finishers$zwid)
-dplyr::glimpse(ratings)     # nested rating fields may arrive as list-columns
+ratings <- zr_result(zr, race_id) |>
+  transmute(
+    zwid       = as.integer(riderId),
+    zr_current = ratingBefore,          # ZR rating before the race
+    zr_after   = rating,                # ...and after it
+    zr_velo    = riderVelo.race         # vELO rating
+  )
 
-# ZR nests current / max30 / max90 under `race`; flatten what you need:
-library(tidyr)
-ratings_flat <- ratings |>
-  hoist(race,
-        zr_current = c("current", "rating"),
-        zr_max30   = c("max30",   "rating"),
-        zr_cat     = c("current", "mixed", "category")) |>
-  transmute(zwid = as.integer(riderId), zr_current, zr_max30, zr_cat)
-
-ratings_flat
+ratings
 ```
 
-`hoist()` paths are illustrative — confirm them against your `glimpse()` output,
-since the exact nesting shifts as the site evolves.
+These column names were verified against the live v2 API (2026-11). For
+riders outside a single race, `zr_rider()` returns the current profile (vELO
+rating under `velo$race`), and `zr_rider_overview()` the legacy
+`live` / `max30` / `max90` ratings:
+
+```{r rider-ratings}
+library(tidyr)
+zr_riders(zr, finishers$zwid[1:5]) |>      # one request per rider (no v2 batch)
+  hoist(velo, zr_velo = "race") |>
+  select(riderId, zr_velo)
+```
 
 ## 3. Join and analyse
 
@@ -153,18 +163,18 @@ zv_cache_info()                       # what's stored, how big, how old
 
 # Completed races never change — cache the heavy pulls permanently:
 zp_result(zp, race_id,        ttl = Inf)
-zr_riders(zr, finishers$zwid, ttl = Inf)
+zr_result(zr, race_id,        ttl = Inf)
 
 # Force-refresh a single call, or wipe everything:
 zr_rider(zr, winner, ttl = 0)
 zv_cache_clear()
 ```
 
-For a historical rating snapshot (immutable, so safe to cache forever) pass an
-`epoch`:
+A rider's rating history (no snapshot endpoint in v2) comes from
+`zr_rider_velo()`:
 
-```{r epoch}
-zr_rider(zr, winner, epoch = 1704067200, ttl = Inf)   # rating as of 2024-01-01
+```{r history}
+zr_rider_velo(zr, winner, days = 365, parse = "json")$data$history
 ```
 
 ## Caveats

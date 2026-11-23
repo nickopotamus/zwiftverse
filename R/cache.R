@@ -4,7 +4,7 @@
 #
 # TTL semantics (seconds):
 #   0    -> do not cache (always fetch fresh, store nothing)
-#   Inf  -> cache permanently (immutable data: completed results, historical epochs)
+#   Inf  -> cache permanently (immutable data: completed results)
 #   n    -> serve from cache if the entry is younger than n seconds
 #
 # Controlled by options():
@@ -40,6 +40,11 @@ zv_cache_dir <- function() {
   ))
 }
 
+.zv_cache_fresh <- function(url, ttl) {
+  if (!zv_cache_enabled() || identical(ttl, 0)) return(FALSE)
+  !is.null(.zv_cache_get(.zv_key(request(url)), ttl))
+}
+
 .zv_cache_path <- function(key) file.path(zv_cache_dir(), paste0(key, ".rds"))
 
 .zv_cache_get <- function(key, ttl) {
@@ -73,8 +78,11 @@ zv_cache_dir <- function() {
     if (!is.null(hit)) return(if (parse == "json") hit else .zv_to_tbl(hit))
   }
 
-  parsed <- resp_body_json(req_perform(req), simplifyVector = TRUE,
-                           simplifyDataFrame = TRUE, flatten = TRUE)
+  # check_type = FALSE: ZwiftPower api3.php serves JSON as text/html.
+  # bigint_as_char: Zwift activity ids exceed 2^53 and would lose precision.
+  parsed <- resp_body_json(req_perform(req), check_type = FALSE,
+                           simplifyVector = TRUE, simplifyDataFrame = TRUE,
+                           flatten = TRUE, bigint_as_char = TRUE)
   if (do_cache) .zv_cache_set(key, parsed)
   if (parse == "json") parsed else .zv_to_tbl(parsed)
 }

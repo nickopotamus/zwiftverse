@@ -69,7 +69,7 @@ the real field names**, then confirm the tibble shape with `parse = "tbl"`.
 | 1 | ZP result/`_view.json` fields: `zwid`, `position_in_cat`, `category`, `avg_wkg` | inferred | `zp_result(zp, id, parse="json")` then `str()` |
 | 2 | ZR rider nests ratings under `race` (`current`/`max30`/`max90`, `rating`, `mixed$category`) | inferred from zpdatafetch | `zr_rider(zr, id, parse="json")` |
 | 3 | ZR id field is `riderId` | inferred | same |
-| 4 | ZR auth = raw key in `Authorization` (no `Bearer`) | puckdoug/zpdatafetch source | first live ZR call |
+| 4 | ZR auth = raw key in `Authorization` (no `Bearer`) — **superseded, see results** | puckdoug/zpdatafetch source | first live ZR call |
 | 5 | ZR base `https://api.zwiftracing.app/api` | puckdoug/zpdatafetch source | first live ZR call |
 | 6 | ZR batch POST body = bare JSON array of ints, ≤1000 | source | `zr_riders()` live |
 | 7 | Zwift auth: `secure.zwift.com/auth/realms/zwift/tokens/access/codes`, `client_id=Zwift_Mobile_Link`, password grant | well-established community value | `zwift_auth()` live (Zwift has migrated auth before — this is the single most likely breakage) |
@@ -78,6 +78,36 @@ the real field names**, then confirm the tibble shape with `parse = "tbl"`.
 
 Rule of thumb: anything marked "inferred" above must be confirmed before the
 vignette or downstream analysis is trusted.
+
+### Live verification results (2026-11-23)
+
+| # | Result |
+|---|---|
+| 1 | ✅ **Confirmed.** `zwid`, `position_in_cat`, `category`, `avg_wkg`, `name` all present. Numbers come as `[value, flag]` pairs (value sometimes a string) → new `zp_unflag()`; vignette updated. |
+| 2 | ❌ **Wrong — API moved to v2.** `race` now holds counts (`finishes/wins/podiums/dnfs`); the rating is `velo$race` (+ `velo$factors`). Legacy `live/max30/max90` ratings are under `/riders/{id}/overview` → `legacyRatings`. |
+| 3 | ✅ `riderId`. |
+| 4 | ❌ **Wrong.** Key goes in an `x-api-key` header (not `Authorization`, with or without `Bearer`). |
+| 5 | ❌ v1 `/api/public/*` routes return 401 for this key; everything is `/api/v2/*`. Responses wrap as `{success, data}`. |
+| 6 | ❌ No batch endpoint in v2 → `zr_riders()` loops (throttled, cached). |
+| 7 | ✅ Legacy `tokens/access/codes` + `Zwift_Mobile_Link` still works. OIDC fallback kept. |
+| 8 | ⚠️ Partly. `phpbb3_lswlk_sid` works for `api3.php`, but `cache3/*.json` is now behind **CloudFront signed cookies** (403 `MissingKey`). Fixed: `zp_get()` loads a logged-in page to obtain them (re-primed every 30 min). |
+
+Other live findings, all fixed:
+- Zwift accepts `"me"` only on `/api/profiles/me`; sub-resources (activities,
+  followers, followees, rideons) 404 → wrappers now resolve `"me"` to the id.
+- Zwift activity ids exceed 2^53 → parsed with `bigint_as_char = TRUE`.
+- ZwiftPower `api3.php` serves JSON as `text/html` → parse with `check_type = FALSE`.
+
+ZwiftRacing client rewritten for v2: `zr_rider`, `zr_rider_overview`,
+`zr_rider_results`, `zr_rider_ranking`, `zr_rider_velo`, `zr_rider_power`,
+`zr_riders`, `zr_event`, `zr_result` (event pens → one row per rider, incl.
+`ratingBefore`/`rating`/`riderVelo.race`), `zr_club`, `zr_club_riders`
+(0-based `?page=`, 50/page, auto-pages), `zr_routes`. Removed: `zr_post`,
+`zr_categories`, `epoch` (v2 has no snapshot endpoint; use `zr_rider_velo()`).
+
+Fixtures recorded for all 21 endpoints (scrubbed, arrays ≤25 at any depth,
+~770 KB). 65 tests pass, 0 skip. Vignette pipeline (sections 1–3) run live
+end-to-end on 2026-11-23.
 
 ---
 
@@ -105,10 +135,10 @@ green CI badge meaningful.
 - [x] `devtools::document()` — `man/` generated; NAMESPACE now roxygen-owned
       (export list identical to the hand-written one). *Commit pending: not yet
       a git repo.*
-- [ ] Pin real field names (Risks 1–3); update vignette `transmute`/`hoist`.
+- [x] Pin real field names — Risks 1–3 verified; vignette rewritten + run live.
       → run `dev/smoke-live.R` + `dev/capture-fixtures.R`; `tests/testthat/test-fixtures.R`
       asserts the assumed names and will fail loudly where reality differs.
-- [ ] Confirm auth Risks 4,5,7,8 against live endpoints (`dev/smoke-live.R`).
+- [x] Confirm auth — 7 ✅, 8 ✅ (CloudFront fix), 4/5 fixed (v2 + `x-api-key`).
 - [x] Fixture harness + offline parsing tests. **Deviation:** uses httr2's
       native `local_mocked_responses()` instead of httptest2 — httptest2 keys
       mocks on URL + POST-body hash, which breaks once rider ids in URLs/bodies
@@ -135,15 +165,14 @@ Rscript -e 'devtools::test()'   # fixture tests now run instead of skipping
 ```
 
 **P1 — completeness & robustness**
-- [ ] Swap `req_throttle(rate=)` → `capacity`/`fill_time_s`; honour ZR
-      `Retry-After` on 429 explicitly.
+- [x] Swap `req_throttle(rate=)` → `capacity`/`fill_time_s` (httr2's
+      `req_retry` already honours `Retry-After`).
 - [ ] Pagination helpers: auto-page `zwift_activities`/`followers`/`followees`
       (loop `start`/`limit` until exhausted, return one tibble).
 - [ ] Zwift event results surface: `/api/events/{id}` subgroups →
       entrants/results endpoints (not yet wrapped; see
       strukturunion-mmw/zwift-api-documentation).
-- [ ] Cache key for `zr_riders` should sort ids so `{1,2}` and `{2,1}` hit one
-      entry (currently body-hash is order-sensitive).
+- [x] ~~Cache key for `zr_riders`~~ — moot in v2 (per-rider requests).
 
 **P2 — polish**
 - [ ] Token-refresh edge cases (clock skew, refresh-expiry races) in `zwift_auth`.

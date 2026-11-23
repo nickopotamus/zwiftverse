@@ -1,0 +1,5847 @@
+{
+  "success": true,
+  "data": {
+    "riderId": 1000001,
+    "days": 365,
+    "results": [
+      {
+        "event": {
+          "eventId": "5800908",
+          "time": 1795116600,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Ladder",
+          "imageUrl": "https://example.invalid/redacted",
+          "subgroupId": "SEE LADDER SITE",
+          "distance": 18.069,
+          "elevation": 0,
+          "numLaps": 0,
+          "routeName": "Scotland Smash",
+          "scoringEnabled": true,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 2,
+          "penTotal": 8,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 1599.489,
+          "gap": null,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "-",
+          "distance": null,
+          "wkgAvg": null,
+          "wkg5": 9.76923076923077,
+          "wkg15": 8.0991452991453,
+          "wkg30": 7.21709401709402,
+          "wkg60": 5.91816239316239,
+          "wkg120": 5.04925213675214,
+          "wkg300": 4.39282051282051,
+          "wkg1200": 3.90577991452991
+        },
+        "sensor": null,
+        "velo": {
+          "intensity": 90,
+          "seed": {
+            "before": 717.2095,
+            "after": 717.2095,
+            "eventRating": 755.70280110206,
+            "expectedPosition": 2.39317806485409,
+            "factors": {
+              "endurance": {
+                "before": 635,
+                "after": 635
+              },
+              "pursuit": {
+                "before": 711,
+                "after": 711
+              },
+              "sprint": {
+                "before": 832.75,
+                "after": 832.75
+              },
+              "punch": {
+                "before": 813.55,
+                "after": 813.55
+              },
+              "climb": {
+                "before": 698,
+                "after": 698
+              },
+              "timeTrial": {
+                "before": 672,
+                "after": 672
+              }
+            }
+          },
+          "elo": {
+            "before": 717.98010431096,
+            "after": 717.98010431096,
+            "eventRating": 756.03019278369,
+            "expectedPosition": 2.458,
+            "adjustedChange": 0,
+            "rawChange": 0,
+            "factors": {
+              "endurance": {
+                "before": 636.936141242592,
+                "after": 636.936141242592,
+                "skill": 1.93614124259216,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 711,
+                "after": 711,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 832.75,
+                "after": 832.75,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 813.766042239305,
+                "after": 813.766042239305,
+                "skill": 0.216042239305011,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 698.34022636152,
+                "after": 698.34022636152,
+                "skill": 0.340226361520422,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 672,
+                "after": 672,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 82.9078879356196,
+            "gc": 82.9078879356196,
+            "sprint": 42.1147029629165,
+            "climb": null,
+            "tt": null
+          }
+        },
+        "legacy": {
+          "rating": 1780.18917611567,
+          "ratingBefore": 1773.74964277087,
+          "ratingDelta": 6.43953334479236,
+          "eventRating": 1756.74858923336,
+          "places": [
+            {
+              "place": 1,
+              "probability": 0.014
+            },
+            {
+              "place": 2,
+              "probability": 0.274666666666667
+            },
+            {
+              "place": 3,
+              "probability": 0.247
+            },
+            {
+              "place": 4,
+              "probability": 0.226
+            },
+            {
+              "place": 5,
+              "probability": 0.156
+            },
+            {
+              "place": 6,
+              "probability": 0.0673333333333333
+            },
+            {
+              "place": 7,
+              "probability": 0.0143333333333333
+            },
+            {
+              "place": 8,
+              "probability": 0.000666666666666667
+            }
+          ],
+          "expectedPosition": 3
+        },
+        "pointsStatus": "awarded",
+        "effort": 93,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.09
+          },
+          {
+            "place": 2,
+            "probability": 0.492
+          },
+          {
+            "place": 3,
+            "probability": 0.323
+          },
+          {
+            "place": 4,
+            "probability": 0.08
+          },
+          {
+            "place": 5,
+            "probability": 0.0133333333333333
+          },
+          {
+            "place": 6,
+            "probability": 0.00166666666666667
+          },
+          {
+            "place": 7,
+            "probability": 0
+          },
+          {
+            "place": 8,
+            "probability": 0
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 2,
+          "high": 3
+        },
+        "expectedRank": 2,
+        "classement": {
+          "gc": {
+            "percentile": 87.6,
+            "previous": 87,
+            "score": 425.564965229313,
+            "floorScore": 421.617585473396,
+            "nextScore": 427.563168524829
+          },
+          "sprint": {
+            "percentile": 89.1,
+            "previous": 86.5,
+            "score": 194.823612597185,
+            "floorScore": 194.318173811707,
+            "nextScore": 197.67430932831
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5795672",
+          "time": 1795030200,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Points",
+          "imageUrl": null,
+          "subgroupId": "C",
+          "distance": 27.7339,
+          "elevation": 491,
+          "numLaps": 1,
+          "routeName": "Royal Pump Room 8",
+          "scoringEnabled": true,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 3,
+          "penTotal": 46,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 2570.267,
+          "gap": 0.226,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": null,
+          "wkgAvg": 3.47435897435897,
+          "wkg5": 11.974358974359,
+          "wkg15": 11.2179487179487,
+          "wkg30": 8.7051282051282,
+          "wkg60": 6.83333333333333,
+          "wkg120": 5.62820512820513,
+          "wkg300": 4.43589743589744,
+          "wkg1200": 3.80769230769231
+        },
+        "sensor": {
+          "powerType": "POWER_METER",
+          "steering": null,
+          "trainerDifficulty": null,
+          "heartRateMonitor": true
+        },
+        "velo": {
+          "intensity": 98,
+          "seed": {
+            "before": 704.9522,
+            "after": 717.2095,
+            "eventRating": 704.9522,
+            "expectedPosition": 10.5033696565019,
+            "factors": {
+              "endurance": {
+                "before": 635,
+                "after": 635
+              },
+              "pursuit": {
+                "before": 711,
+                "after": 711
+              },
+              "sprint": {
+                "before": 758.25,
+                "after": 832.75
+              },
+              "punch": {
+                "before": 792.23,
+                "after": 813.55
+              },
+              "climb": {
+                "before": 698,
+                "after": 698
+              },
+              "timeTrial": {
+                "before": 673,
+                "after": 673
+              }
+            }
+          },
+          "elo": {
+            "before": 717.2095,
+            "after": 718.187205165935,
+            "eventRating": 717.2095,
+            "expectedPosition": 8.99833333333333,
+            "adjustedChange": 3.46583850931677,
+            "rawChange": 3.46583850931677,
+            "factors": {
+              "endurance": {
+                "before": 635,
+                "after": 637.076152936022,
+                "skill": 2.07615293602203,
+                "skillDelta": 2.07615293602203
+              },
+              "pursuit": {
+                "before": 711,
+                "after": 711,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 832.75,
+                "after": 832.911534612686,
+                "skill": 0.161534612685728,
+                "skillDelta": 0.161534612685728
+              },
+              "punch": {
+                "before": 813.55,
+                "after": 814.400591005291,
+                "skill": 0.850591005291335,
+                "skillDelta": 0.850591005291335
+              },
+              "climb": {
+                "before": 698,
+                "after": 698.377559955318,
+                "skill": 0.377559955317565,
+                "skillDelta": 0.377559955317565
+              },
+              "timeTrial": {
+                "before": 673,
+                "after": 673,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 87.193714293551,
+            "gc": 87.193714293551,
+            "sprint": 25.4630998316416,
+            "climb": 8.93064915403873,
+            "tt": null
+          }
+        },
+        "legacy": {
+          "rating": 1773.74964277087,
+          "ratingBefore": 1761.22429790872,
+          "ratingDelta": 12.5253448621582,
+          "eventRating": 1761.22429790872,
+          "places": [
+            {
+              "place": 1,
+              "probability": 0.029
+            },
+            {
+              "place": 2,
+              "probability": 0.038
+            },
+            {
+              "place": 3,
+              "probability": 0.0466666666666667
+            },
+            {
+              "place": 4,
+              "probability": 0.0533333333333333
+            },
+            {
+              "place": 5,
+              "probability": 0.0663333333333333
+            },
+            {
+              "place": 6,
+              "probability": 0.0716666666666667
+            },
+            {
+              "place": 7,
+              "probability": 0.0833333333333333
+            },
+            {
+              "place": 8,
+              "probability": 0.072
+            },
+            {
+              "place": 9,
+              "probability": 0.0813333333333333
+            },
+            {
+              "place": 10,
+              "probability": 0.072
+            },
+            {
+              "place": 11,
+              "probability": 0.0646666666666667
+            },
+            {
+              "place": 12,
+              "probability": 0.0566666666666667
+            },
+            {
+              "place": 13,
+              "probability": 0.0476666666666667
+            },
+            {
+              "place": 14,
+              "probability": 0.0476666666666667
+            },
+            {
+              "place": 15,
+              "probability": 0.0346666666666667
+            },
+            {
+              "place": 16,
+              "probability": 0.03
+            },
+            {
+              "place": 17,
+              "probability": 0.0233333333333333
+            },
+            {
+              "place": 18,
+              "probability": 0.0216666666666667
+            },
+            {
+              "place": 19,
+              "probability": 0.016
+            },
+            {
+              "place": 20,
+              "probability": 0.0126666666666667
+            },
+            {
+              "place": 21,
+              "probability": 0.0103333333333333
+            },
+            {
+              "place": 22,
+              "probability": 0.00933333333333333
+            },
+            {
+              "place": 23,
+              "probability": 0.003
+            },
+            {
+              "place": 24,
+              "probability": 0.00233333333333333
+            },
+            {
+              "place": 25,
+              "probability": 0.00233333333333333
+            }
+          ],
+          "expectedPosition": 6
+        },
+        "pointsStatus": "awarded",
+        "effort": 94,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.0833333333333333
+          },
+          {
+            "place": 2,
+            "probability": 0.082
+          },
+          {
+            "place": 3,
+            "probability": 0.0616666666666667
+          },
+          {
+            "place": 4,
+            "probability": 0.0683333333333333
+          },
+          {
+            "place": 5,
+            "probability": 0.0673333333333333
+          },
+          {
+            "place": 6,
+            "probability": 0.063
+          },
+          {
+            "place": 7,
+            "probability": 0.0646666666666667
+          },
+          {
+            "place": 8,
+            "probability": 0.0496666666666667
+          },
+          {
+            "place": 9,
+            "probability": 0.05
+          },
+          {
+            "place": 10,
+            "probability": 0.0453333333333333
+          },
+          {
+            "place": 11,
+            "probability": 0.041
+          },
+          {
+            "place": 12,
+            "probability": 0.0443333333333333
+          },
+          {
+            "place": 13,
+            "probability": 0.0386666666666667
+          },
+          {
+            "place": 14,
+            "probability": 0.0343333333333333
+          },
+          {
+            "place": 15,
+            "probability": 0.0323333333333333
+          },
+          {
+            "place": 16,
+            "probability": 0.0253333333333333
+          },
+          {
+            "place": 17,
+            "probability": 0.0243333333333333
+          },
+          {
+            "place": 18,
+            "probability": 0.024
+          },
+          {
+            "place": 19,
+            "probability": 0.018
+          },
+          {
+            "place": 20,
+            "probability": 0.0173333333333333
+          },
+          {
+            "place": 21,
+            "probability": 0.0123333333333333
+          },
+          {
+            "place": 22,
+            "probability": 0.009
+          },
+          {
+            "place": 23,
+            "probability": 0.009
+          },
+          {
+            "place": 24,
+            "probability": 0.00833333333333333
+          },
+          {
+            "place": 25,
+            "probability": 0.006
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 4,
+          "high": 13
+        },
+        "expectedRank": 1,
+        "classement": {
+          "gc": {
+            "percentile": 87,
+            "previous": 85.4,
+            "score": 421.944321814225,
+            "floorScore": 421.617585473396,
+            "nextScore": 427.563168524829
+          },
+          "sprint": {
+            "percentile": 86.5,
+            "previous": 86.5,
+            "score": 187.179495382765,
+            "floorScore": 185.914750769447,
+            "nextScore": 188.33537594588
+          },
+          "climb": {
+            "percentile": 0.7,
+            "previous": 0.1,
+            "score": 22.4654545895018,
+            "floorScore": 23.5356086582867,
+            "nextScore": 27.2183239735652
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5786503",
+          "time": 1794337380,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Ladder",
+          "imageUrl": null,
+          "subgroupId": "SEE LADDER SITE",
+          "distance": 21.1555322265625,
+          "elevation": 106,
+          "numLaps": 1,
+          "routeName": "California Dreamin'",
+          "scoringEnabled": true,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 3,
+          "penTotal": 10,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 1902.328,
+          "gap": 0,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": null,
+          "wkgAvg": 3.46153846153846,
+          "wkg5": 9.11538461538461,
+          "wkg15": 8.58974358974359,
+          "wkg30": 7.62820512820513,
+          "wkg60": 5.93589743589744,
+          "wkg120": 5.47435897435897,
+          "wkg300": 4.19230769230769,
+          "wkg1200": 3.51282051282051
+        },
+        "sensor": {
+          "powerType": "POWER_METER",
+          "steering": null,
+          "trainerDifficulty": null,
+          "heartRateMonitor": true
+        },
+        "velo": {
+          "intensity": 89,
+          "seed": {
+            "before": 711.1153,
+            "after": 711.1153,
+            "eventRating": 730.124339545518,
+            "expectedPosition": 3.35854899588827,
+            "factors": {
+              "endurance": {
+                "before": 646,
+                "after": 646
+              },
+              "pursuit": {
+                "before": 713,
+                "after": 713
+              },
+              "sprint": {
+                "before": 762.75,
+                "after": 762.75
+              },
+              "punch": {
+                "before": 795.57,
+                "after": 795.57
+              },
+              "climb": {
+                "before": 703.5,
+                "after": 703.5
+              },
+              "timeTrial": {
+                "before": 681,
+                "after": 681
+              }
+            }
+          },
+          "elo": {
+            "before": 711.263239110779,
+            "after": 711.263239110779,
+            "eventRating": 730.196455347359,
+            "expectedPosition": 3.603,
+            "adjustedChange": 0,
+            "rawChange": 0,
+            "factors": {
+              "endurance": {
+                "before": 646.421478948089,
+                "after": 646.421478948089,
+                "skill": 0.421478948089089,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 713,
+                "after": 713,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 762.75,
+                "after": 762.75,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 795.57,
+                "after": 795.57,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 703.5,
+                "after": 703.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 681,
+                "after": 681,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 81.8473056531761,
+            "gc": 81.8473056531761,
+            "sprint": 36.8286895727852,
+            "climb": 3.50977580229513,
+            "tt": null
+          }
+        },
+        "legacy": {
+          "rating": 1761.22429790872,
+          "ratingBefore": 1758.04315724685,
+          "ratingDelta": 3.1811406618687,
+          "eventRating": 1758.04315724685,
+          "places": [
+            {
+              "place": 1,
+              "probability": 0.129333333333333
+            },
+            {
+              "place": 2,
+              "probability": 0.137
+            },
+            {
+              "place": 3,
+              "probability": 0.160666666666667
+            },
+            {
+              "place": 4,
+              "probability": 0.148666666666667
+            },
+            {
+              "place": 5,
+              "probability": 0.138333333333333
+            },
+            {
+              "place": 6,
+              "probability": 0.121
+            },
+            {
+              "place": 7,
+              "probability": 0.0923333333333333
+            },
+            {
+              "place": 8,
+              "probability": 0.0543333333333333
+            },
+            {
+              "place": 9,
+              "probability": 0.016
+            },
+            {
+              "place": 10,
+              "probability": 0.00233333333333333
+            }
+          ],
+          "expectedPosition": 3
+        },
+        "pointsStatus": "awarded",
+        "effort": 93,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.0556666666666667
+          },
+          {
+            "place": 2,
+            "probability": 0.190333333333333
+          },
+          {
+            "place": 3,
+            "probability": 0.259666666666667
+          },
+          {
+            "place": 4,
+            "probability": 0.228333333333333
+          },
+          {
+            "place": 5,
+            "probability": 0.144333333333333
+          },
+          {
+            "place": 6,
+            "probability": 0.0776666666666667
+          },
+          {
+            "place": 7,
+            "probability": 0.0336666666666667
+          },
+          {
+            "place": 8,
+            "probability": 0.00733333333333333
+          },
+          {
+            "place": 9,
+            "probability": 0.003
+          },
+          {
+            "place": 10,
+            "probability": 0
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 3,
+          "high": 5
+        },
+        "expectedRank": 3,
+        "classement": {
+          "gc": {
+            "percentile": 85.4,
+            "previous": 84.6,
+            "score": 413.255085684775,
+            "floorScore": 411.393681184997,
+            "nextScore": 415.810919435653
+          },
+          "sprint": {
+            "percentile": 88.2,
+            "previous": 87.4,
+            "score": 191.854529839227,
+            "floorScore": 191.216758820442,
+            "nextScore": 194.318173811707
+          },
+          "climb": {
+            "percentile": 0.1,
+            "previous": 0.1,
+            "score": 13.5348054354631,
+            "floorScore": 23.5356086582867,
+            "nextScore": 27.2183239735652
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5769142",
+          "time": 1793854800,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Team Time Trial",
+          "imageUrl": null,
+          "subgroupId": "D",
+          "distance": 30.8804382019043,
+          "elevation": 144,
+          "numLaps": 1,
+          "routeName": "Waisted 8",
+          "scoringEnabled": false,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 11,
+          "penTotal": 20,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 2547.874,
+          "gap": 210.97,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": null,
+          "wkgAvg": 3.6025641025641,
+          "wkg5": 7.08974358974359,
+          "wkg15": 5.41025641025641,
+          "wkg30": 5.11538461538461,
+          "wkg60": 4.92307692307692,
+          "wkg120": 4.47435897435897,
+          "wkg300": 4.12820512820513,
+          "wkg1200": 3.75641025641026
+        },
+        "sensor": {
+          "powerType": "POWER_METER",
+          "steering": null,
+          "trainerDifficulty": null,
+          "heartRateMonitor": true
+        },
+        "velo": {
+          "intensity": 81,
+          "seed": {
+            "before": 713.76655,
+            "after": 713.76655,
+            "eventRating": 716.087326387629,
+            "expectedPosition": 6.71685878590258,
+            "factors": {
+              "endurance": {
+                "before": 652,
+                "after": 652
+              },
+              "pursuit": {
+                "before": 713,
+                "after": 713
+              },
+              "sprint": {
+                "before": 765.5,
+                "after": 765.5
+              },
+              "punch": {
+                "before": 795.57,
+                "after": 795.57
+              },
+              "climb": {
+                "before": 705.5,
+                "after": 705.5
+              },
+              "timeTrial": {
+                "before": 684,
+                "after": 684
+              }
+            }
+          },
+          "elo": {
+            "before": 713.914489110779,
+            "after": 713.914489110779,
+            "eventRating": 716.274597725702,
+            "expectedPosition": null,
+            "adjustedChange": null,
+            "rawChange": null,
+            "factors": {
+              "endurance": {
+                "before": 652.421478948089,
+                "after": 652.421478948089,
+                "skill": 0.421478948089089,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 713,
+                "after": 713,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 765.5,
+                "after": 765.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 795.57,
+                "after": 795.57,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 705.5,
+                "after": 705.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 684,
+                "after": 684,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": null
+        },
+        "legacy": {
+          "rating": 1758.04315724685,
+          "ratingBefore": 1758.04315724685,
+          "ratingDelta": null,
+          "eventRating": null
+        },
+        "pointsStatus": "notScored",
+        "effort": 89,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.034
+          },
+          {
+            "place": 2,
+            "probability": 0.0456666666666667
+          },
+          {
+            "place": 3,
+            "probability": 0.0633333333333333
+          },
+          {
+            "place": 4,
+            "probability": 0.0843333333333333
+          },
+          {
+            "place": 5,
+            "probability": 0.111333333333333
+          },
+          {
+            "place": 6,
+            "probability": 0.122
+          },
+          {
+            "place": 7,
+            "probability": 0.122666666666667
+          },
+          {
+            "place": 8,
+            "probability": 0.143666666666667
+          },
+          {
+            "place": 9,
+            "probability": 0.119333333333333
+          },
+          {
+            "place": 10,
+            "probability": 0.0956666666666667
+          },
+          {
+            "place": 11,
+            "probability": 0.042
+          },
+          {
+            "place": 12,
+            "probability": 0.014
+          },
+          {
+            "place": 13,
+            "probability": 0.002
+          },
+          {
+            "place": 14,
+            "probability": 0
+          },
+          {
+            "place": 15,
+            "probability": 0
+          },
+          {
+            "place": 16,
+            "probability": 0
+          },
+          {
+            "place": 17,
+            "probability": 0
+          },
+          {
+            "place": 18,
+            "probability": 0
+          },
+          {
+            "place": 19,
+            "probability": 0
+          },
+          {
+            "place": 20,
+            "probability": 0
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 5,
+          "high": 9
+        }
+      },
+      {
+        "event": {
+          "eventId": "5757841",
+          "time": 1793251800,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Team Time Trial",
+          "imageUrl": null,
+          "subgroupId": "D",
+          "distance": 23.6622611083984,
+          "elevation": 282,
+          "numLaps": 1,
+          "routeName": "The Muckle Yin",
+          "scoringEnabled": false,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 7,
+          "penTotal": 10,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 2324.458,
+          "gap": 196.226,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": null,
+          "wkgAvg": 2.8974358974359,
+          "wkg5": 10.3974358974359,
+          "wkg15": 9.34615384615385,
+          "wkg30": 6.55128205128205,
+          "wkg60": 5.35897435897436,
+          "wkg120": 4.75641025641026,
+          "wkg300": 4.21794871794872,
+          "wkg1200": 3.11538461538462
+        },
+        "sensor": {
+          "powerType": "POWER_METER",
+          "steering": null,
+          "trainerDifficulty": null,
+          "heartRateMonitor": true
+        },
+        "velo": {
+          "intensity": 83,
+          "seed": {
+            "before": 715.3288,
+            "after": 715.3288,
+            "eventRating": 713.905249250957,
+            "expectedPosition": 2.94821194898043,
+            "factors": {
+              "endurance": {
+                "before": 654,
+                "after": 654
+              },
+              "pursuit": {
+                "before": 713,
+                "after": 713
+              },
+              "sprint": {
+                "before": 768.5,
+                "after": 768.5
+              },
+              "punch": {
+                "before": 797.22,
+                "after": 797.22
+              },
+              "climb": {
+                "before": 707,
+                "after": 707
+              },
+              "timeTrial": {
+                "before": 687,
+                "after": 687
+              }
+            }
+          },
+          "elo": {
+            "before": 715.476739110779,
+            "after": 715.476739110779,
+            "eventRating": 714.065984486752,
+            "expectedPosition": null,
+            "adjustedChange": null,
+            "rawChange": null,
+            "factors": {
+              "endurance": {
+                "before": 654.421478948089,
+                "after": 654.421478948089,
+                "skill": 0.421478948089089,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 713,
+                "after": 713,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 768.5,
+                "after": 768.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 797.22,
+                "after": 797.22,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 707,
+                "after": 707,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 687,
+                "after": 687,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": null
+        },
+        "legacy": {
+          "rating": 1758.04315724685,
+          "ratingBefore": 1758.04315724685,
+          "ratingDelta": null,
+          "eventRating": null
+        },
+        "pointsStatus": "notScored",
+        "effort": 83,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.211333333333333
+          },
+          {
+            "place": 2,
+            "probability": 0.208
+          },
+          {
+            "place": 3,
+            "probability": 0.218666666666667
+          },
+          {
+            "place": 4,
+            "probability": 0.177333333333333
+          },
+          {
+            "place": 5,
+            "probability": 0.119333333333333
+          },
+          {
+            "place": 6,
+            "probability": 0.0496666666666667
+          },
+          {
+            "place": 7,
+            "probability": 0.0143333333333333
+          },
+          {
+            "place": 8,
+            "probability": 0.00133333333333333
+          },
+          {
+            "place": 9,
+            "probability": 0
+          },
+          {
+            "place": 10,
+            "probability": 0
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 2,
+          "high": 4
+        }
+      },
+      {
+        "event": {
+          "eventId": "5673134",
+          "time": 1793080800,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Scratch",
+          "imageUrl": "https://example.invalid/redacted",
+          "subgroupId": "B",
+          "distance": 24.0199033660889,
+          "elevation": 284,
+          "numLaps": 1,
+          "routeName": "Spiral Summit",
+          "scoringEnabled": false,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 17,
+          "penTotal": 40,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 2149.089,
+          "gap": 29.19,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": 24.021,
+          "wkgAvg": 3.55128205128205,
+          "wkg5": 11,
+          "wkg15": 9.66666666666667,
+          "wkg30": 7.83333333333333,
+          "wkg60": 5.69230769230769,
+          "wkg120": 5.52564102564103,
+          "wkg300": 4.67948717948718,
+          "wkg1200": 3.82051282051282
+        },
+        "sensor": {
+          "powerType": "POWER_METER",
+          "steering": true,
+          "trainerDifficulty": 0,
+          "heartRateMonitor": true
+        },
+        "velo": {
+          "intensity": 97,
+          "seed": {
+            "before": 709.6287,
+            "after": 715.8732,
+            "eventRating": 687.59851024719,
+            "expectedPosition": 12.6666629169963,
+            "factors": {
+              "endurance": {
+                "before": 655,
+                "after": 655
+              },
+              "pursuit": {
+                "before": 688,
+                "after": 713
+              },
+              "sprint": {
+                "before": 769,
+                "after": 769
+              },
+              "punch": {
+                "before": 797.88,
+                "after": 797.88
+              },
+              "climb": {
+                "before": 697.5,
+                "after": 707
+              },
+              "timeTrial": {
+                "before": 687,
+                "after": 687
+              }
+            }
+          },
+          "elo": {
+            "before": 716.021139110779,
+            "after": 716.021139110779,
+            "eventRating": 695.367726957588,
+            "expectedPosition": null,
+            "adjustedChange": null,
+            "rawChange": null,
+            "factors": {
+              "endurance": {
+                "before": 655.421478948089,
+                "after": 655.421478948089,
+                "skill": 0.421478948089089,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 713,
+                "after": 713,
+                "skill": 0,
+                "skillDelta": -0.868033416513413
+              },
+              "sprint": {
+                "before": 769,
+                "after": 769,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 797.88,
+                "after": 797.88,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 707,
+                "after": 707,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 687,
+                "after": 687,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": null
+        },
+        "legacy": {
+          "rating": 1758.04315724685,
+          "ratingBefore": 1758.04315724685,
+          "ratingDelta": null,
+          "eventRating": null
+        },
+        "pointsStatus": "notScored",
+        "effort": 89,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.035
+          },
+          {
+            "place": 2,
+            "probability": 0.0413333333333333
+          },
+          {
+            "place": 3,
+            "probability": 0.038
+          },
+          {
+            "place": 4,
+            "probability": 0.0406666666666667
+          },
+          {
+            "place": 5,
+            "probability": 0.04
+          },
+          {
+            "place": 6,
+            "probability": 0.0413333333333333
+          },
+          {
+            "place": 7,
+            "probability": 0.0386666666666667
+          },
+          {
+            "place": 8,
+            "probability": 0.0433333333333333
+          },
+          {
+            "place": 9,
+            "probability": 0.0416666666666667
+          },
+          {
+            "place": 10,
+            "probability": 0.05
+          },
+          {
+            "place": 11,
+            "probability": 0.0496666666666667
+          },
+          {
+            "place": 12,
+            "probability": 0.049
+          },
+          {
+            "place": 13,
+            "probability": 0.0453333333333333
+          },
+          {
+            "place": 14,
+            "probability": 0.047
+          },
+          {
+            "place": 15,
+            "probability": 0.047
+          },
+          {
+            "place": 16,
+            "probability": 0.0456666666666667
+          },
+          {
+            "place": 17,
+            "probability": 0.039
+          },
+          {
+            "place": 18,
+            "probability": 0.048
+          },
+          {
+            "place": 19,
+            "probability": 0.0363333333333333
+          },
+          {
+            "place": 20,
+            "probability": 0.04
+          },
+          {
+            "place": 21,
+            "probability": 0.03
+          },
+          {
+            "place": 22,
+            "probability": 0.033
+          },
+          {
+            "place": 23,
+            "probability": 0.0253333333333333
+          },
+          {
+            "place": 24,
+            "probability": 0.02
+          },
+          {
+            "place": 25,
+            "probability": 0.0156666666666667
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 7,
+          "high": 18
+        }
+      },
+      {
+        "event": {
+          "eventId": "5749562",
+          "time": 1792778400,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Ladder",
+          "imageUrl": null,
+          "subgroupId": "SEE LADDER SITE",
+          "distance": 27.779,
+          "elevation": 492,
+          "numLaps": 2,
+          "routeName": "Yorkshire Circuit",
+          "scoringEnabled": true,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 1,
+          "penTotal": 8,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 2643.811,
+          "gap": 0,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": 27.775,
+          "wkgAvg": 3.56410256410256,
+          "wkg5": 9.85897435897436,
+          "wkg15": 8.80769230769231,
+          "wkg30": 7.43589743589744,
+          "wkg60": 6.74358974358974,
+          "wkg120": 5.01282051282051,
+          "wkg300": 4.48717948717949,
+          "wkg1200": 3.79487179487179
+        },
+        "sensor": {
+          "powerType": "POWER_METER",
+          "steering": null,
+          "trainerDifficulty": null,
+          "heartRateMonitor": true
+        },
+        "velo": {
+          "intensity": 97,
+          "seed": {
+            "before": 699.58155,
+            "after": 710.24125,
+            "eventRating": 688.875768670805,
+            "expectedPosition": 3.40684746160594,
+            "factors": {
+              "endurance": {
+                "before": 655,
+                "after": 655
+              },
+              "pursuit": {
+                "before": 689,
+                "after": 689
+              },
+              "sprint": {
+                "before": 770.25,
+                "after": 770.25
+              },
+              "punch": {
+                "before": 749.62,
+                "after": 799.2
+              },
+              "climb": {
+                "before": 697.5,
+                "after": 697.5
+              },
+              "timeTrial": {
+                "before": 687,
+                "after": 687
+              }
+            }
+          },
+          "elo": {
+            "before": 710.562795794082,
+            "after": 710.562795794082,
+            "eventRating": 705.164704531339,
+            "expectedPosition": 2.94666666666667,
+            "adjustedChange": 0,
+            "rawChange": 0,
+            "factors": {
+              "endurance": {
+                "before": 655.421478948089,
+                "after": 655.421478948089,
+                "skill": 0.421478948089089,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 689.868033416513,
+                "after": 689.868033416513,
+                "skill": 0.868033416513413,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 770.25,
+                "after": 770.25,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 799.2,
+                "after": 799.2,
+                "skill": 0,
+                "skillDelta": -1.70230356651427
+              },
+              "climb": {
+                "before": 697.5,
+                "after": 697.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 687,
+                "after": 687,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 88.0106200061831,
+            "gc": 88.0106200061831,
+            "sprint": 28.7297681590139,
+            "climb": 5.69654134169921,
+            "tt": null
+          }
+        },
+        "legacy": {
+          "rating": 1758.04315724685,
+          "ratingBefore": 1750.52498943527,
+          "ratingDelta": 7.51816781157772,
+          "eventRating": 1722.91406528997,
+          "places": [
+            {
+              "place": 1,
+              "probability": 0.367333333333333
+            },
+            {
+              "place": 2,
+              "probability": 0.288666666666667
+            },
+            {
+              "place": 3,
+              "probability": 0.188333333333333
+            },
+            {
+              "place": 4,
+              "probability": 0.0953333333333333
+            },
+            {
+              "place": 5,
+              "probability": 0.0413333333333333
+            },
+            {
+              "place": 6,
+              "probability": 0.0133333333333333
+            },
+            {
+              "place": 7,
+              "probability": 0.005
+            },
+            {
+              "place": 8,
+              "probability": 0.000666666666666667
+            }
+          ],
+          "expectedPosition": 1
+        },
+        "pointsStatus": "awarded",
+        "effort": 92,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.23
+          },
+          {
+            "place": 2,
+            "probability": 0.224666666666667
+          },
+          {
+            "place": 3,
+            "probability": 0.200333333333333
+          },
+          {
+            "place": 4,
+            "probability": 0.166
+          },
+          {
+            "place": 5,
+            "probability": 0.103
+          },
+          {
+            "place": 6,
+            "probability": 0.0516666666666667
+          },
+          {
+            "place": 7,
+            "probability": 0.02
+          },
+          {
+            "place": 8,
+            "probability": 0.00433333333333333
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 2,
+          "high": 4
+        },
+        "expectedRank": 2,
+        "classement": {
+          "gc": {
+            "percentile": 84.6,
+            "previous": 81.9,
+            "score": 409.716982306729,
+            "floorScore": 406.875524154586,
+            "nextScore": 411.393681184997
+          },
+          "sprint": {
+            "percentile": 87.4,
+            "previous": 87.4,
+            "score": 189.496426014938,
+            "floorScore": 188.33537594588,
+            "nextScore": 191.216758820442
+          },
+          "climb": {
+            "percentile": 0.1,
+            "previous": 0.1,
+            "score": 10.0250296331679,
+            "floorScore": 23.5356086582867,
+            "nextScore": 27.2183239735652
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5673132",
+          "time": 1792472400,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Scratch",
+          "imageUrl": "https://example.invalid/redacted",
+          "subgroupId": "B",
+          "distance": 28.659541633606,
+          "elevation": 212,
+          "numLaps": 1,
+          "routeName": "Green to Screen",
+          "scoringEnabled": true,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 19,
+          "penTotal": 40,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 2458.668,
+          "gap": 47.636,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": 28.661,
+          "wkgAvg": 3.38461538461538,
+          "wkg5": 9.78205128205128,
+          "wkg15": 7.71794871794872,
+          "wkg30": 7.06410256410256,
+          "wkg60": 6.02564102564103,
+          "wkg120": 5.3974358974359,
+          "wkg300": 4.47435897435897,
+          "wkg1200": 3.44871794871795
+        },
+        "sensor": {
+          "powerType": "POWER_METER",
+          "steering": true,
+          "trainerDifficulty": 0,
+          "heartRateMonitor": true
+        },
+        "velo": {
+          "intensity": 88,
+          "seed": {
+            "before": 700.35115,
+            "after": 700.35115,
+            "eventRating": 705.68354896874,
+            "expectedPosition": 13.0173096490289,
+            "factors": {
+              "endurance": {
+                "before": 655,
+                "after": 655
+              },
+              "pursuit": {
+                "before": 689,
+                "after": 689
+              },
+              "sprint": {
+                "before": 770.75,
+                "after": 770.75
+              },
+              "punch": {
+                "before": 752.96,
+                "after": 752.96
+              },
+              "climb": {
+                "before": 697.5,
+                "after": 697.5
+              },
+              "timeTrial": {
+                "before": 687,
+                "after": 687
+              }
+            }
+          },
+          "elo": {
+            "before": 701.251562821457,
+            "after": 701.038691060882,
+            "eventRating": 706.521206164715,
+            "expectedPosition": 13.9713333333333,
+            "adjustedChange": -0.996923076923077,
+            "rawChange": -0.996923076923077,
+            "factors": {
+              "endurance": {
+                "before": 655.834863748726,
+                "after": 655.421478948089,
+                "skill": 0.421478948089089,
+                "skillDelta": -0.413384800637004
+              },
+              "pursuit": {
+                "before": 690.001941340654,
+                "after": 689.868033416513,
+                "skill": 0.868033416513413,
+                "skillDelta": -0.133907924140544
+              },
+              "sprint": {
+                "before": 770.756636607123,
+                "after": 770.75,
+                "skill": 0,
+                "skillDelta": -0.224815176072752
+              },
+              "punch": {
+                "before": 754.84978514879,
+                "after": 754.662303566514,
+                "skill": 1.70230356651427,
+                "skillDelta": -0.187481582275609
+              },
+              "climb": {
+                "before": 697.5,
+                "after": 697.5,
+                "skill": 0,
+                "skillDelta": -0.0373335937971433
+              },
+              "timeTrial": {
+                "before": 687,
+                "after": 687,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 76.2277740331623,
+            "gc": 76.2277740331623,
+            "sprint": 31.5254655624836,
+            "climb": 2.68393277274426,
+            "tt": null
+          }
+        },
+        "legacy": {
+          "rating": 1750.52498943527,
+          "ratingBefore": 1759.14904074114,
+          "ratingDelta": -8.62405130587211,
+          "eventRating": 1752.34086766422,
+          "places": [
+            {
+              "place": 1,
+              "probability": 0.004
+            },
+            {
+              "place": 2,
+              "probability": 0.00633333333333333
+            },
+            {
+              "place": 3,
+              "probability": 0.00833333333333333
+            },
+            {
+              "place": 4,
+              "probability": 0.0173333333333333
+            },
+            {
+              "place": 5,
+              "probability": 0.0253333333333333
+            },
+            {
+              "place": 6,
+              "probability": 0.03
+            },
+            {
+              "place": 7,
+              "probability": 0.0373333333333333
+            },
+            {
+              "place": 8,
+              "probability": 0.045
+            },
+            {
+              "place": 9,
+              "probability": 0.057
+            },
+            {
+              "place": 10,
+              "probability": 0.0603333333333333
+            },
+            {
+              "place": 11,
+              "probability": 0.0616666666666667
+            },
+            {
+              "place": 12,
+              "probability": 0.0756666666666667
+            },
+            {
+              "place": 13,
+              "probability": 0.0763333333333333
+            },
+            {
+              "place": 14,
+              "probability": 0.075
+            },
+            {
+              "place": 15,
+              "probability": 0.08
+            },
+            {
+              "place": 16,
+              "probability": 0.076
+            },
+            {
+              "place": 17,
+              "probability": 0.0723333333333333
+            },
+            {
+              "place": 18,
+              "probability": 0.059
+            },
+            {
+              "place": 19,
+              "probability": 0.0433333333333333
+            },
+            {
+              "place": 20,
+              "probability": 0.0346666666666667
+            },
+            {
+              "place": 21,
+              "probability": 0.0236666666666667
+            },
+            {
+              "place": 22,
+              "probability": 0.0153333333333333
+            },
+            {
+              "place": 23,
+              "probability": 0.00866666666666667
+            },
+            {
+              "place": 24,
+              "probability": 0.00266666666666667
+            },
+            {
+              "place": 25,
+              "probability": 0.003
+            }
+          ],
+          "expectedPosition": 13
+        },
+        "pointsStatus": "awarded",
+        "effort": 89,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.0123333333333333
+          },
+          {
+            "place": 2,
+            "probability": 0.0146666666666667
+          },
+          {
+            "place": 3,
+            "probability": 0.0173333333333333
+          },
+          {
+            "place": 4,
+            "probability": 0.0203333333333333
+          },
+          {
+            "place": 5,
+            "probability": 0.0283333333333333
+          },
+          {
+            "place": 6,
+            "probability": 0.0326666666666667
+          },
+          {
+            "place": 7,
+            "probability": 0.0316666666666667
+          },
+          {
+            "place": 8,
+            "probability": 0.0466666666666667
+          },
+          {
+            "place": 9,
+            "probability": 0.0463333333333333
+          },
+          {
+            "place": 10,
+            "probability": 0.054
+          },
+          {
+            "place": 11,
+            "probability": 0.06
+          },
+          {
+            "place": 12,
+            "probability": 0.0606666666666667
+          },
+          {
+            "place": 13,
+            "probability": 0.052
+          },
+          {
+            "place": 14,
+            "probability": 0.0616666666666667
+          },
+          {
+            "place": 15,
+            "probability": 0.0543333333333333
+          },
+          {
+            "place": 16,
+            "probability": 0.054
+          },
+          {
+            "place": 17,
+            "probability": 0.052
+          },
+          {
+            "place": 18,
+            "probability": 0.0523333333333333
+          },
+          {
+            "place": 19,
+            "probability": 0.047
+          },
+          {
+            "place": 20,
+            "probability": 0.0486666666666667
+          },
+          {
+            "place": 21,
+            "probability": 0.041
+          },
+          {
+            "place": 22,
+            "probability": 0.0386666666666667
+          },
+          {
+            "place": 23,
+            "probability": 0.0203333333333333
+          },
+          {
+            "place": 24,
+            "probability": 0.02
+          },
+          {
+            "place": 25,
+            "probability": 0.0123333333333333
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 9,
+          "high": 18
+        },
+        "expectedRank": 11,
+        "classement": {
+          "gc": {
+            "percentile": 81.9,
+            "previous": 81.9,
+            "score": 398.226041165075,
+            "floorScore": 394.449489765308,
+            "nextScore": 398.283481309857
+          },
+          "sprint": {
+            "percentile": 87.4,
+            "previous": 87.4,
+            "score": 189.496426014938,
+            "floorScore": 188.33537594588,
+            "nextScore": 191.216758820442
+          },
+          "climb": {
+            "percentile": 0.1,
+            "previous": 0.1,
+            "score": 4.32848829146872,
+            "floorScore": 23.5356086582867,
+            "nextScore": 27.2183239735652
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5729167",
+          "time": 1791568800,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Ladder",
+          "imageUrl": null,
+          "subgroupId": "SEE LADDER SITE",
+          "distance": 23.0494506835938,
+          "elevation": 183,
+          "numLaps": 2,
+          "routeName": "Rolling Highlands",
+          "scoringEnabled": true,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 1,
+          "penTotal": 10,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 1972.956,
+          "gap": 0,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": 23.05,
+          "wkgAvg": 3.87179487179487,
+          "wkg5": 9.33333333333333,
+          "wkg15": 8.14102564102564,
+          "wkg30": 5.98717948717949,
+          "wkg60": 5.51282051282051,
+          "wkg120": 5.06410256410256,
+          "wkg300": 4.57692307692308,
+          "wkg1200": 4.01282051282051
+        },
+        "sensor": {
+          "powerType": "POWER_METER",
+          "steering": true,
+          "trainerDifficulty": 0,
+          "heartRateMonitor": true
+        },
+        "velo": {
+          "intensity": 98,
+          "seed": {
+            "before": 661.34625,
+            "after": 694.39575,
+            "eventRating": 672.544690704558,
+            "expectedPosition": 4.31548623808865,
+            "factors": {
+              "endurance": {
+                "before": 587,
+                "after": 655
+              },
+              "pursuit": {
+                "before": 667,
+                "after": 689
+              },
+              "sprint": {
+                "before": 770.25,
+                "after": 770.25
+              },
+              "punch": {
+                "before": 725.5,
+                "after": 725.5
+              },
+              "climb": {
+                "before": 661,
+                "after": 697.5
+              },
+              "timeTrial": {
+                "before": 636,
+                "after": 687
+              }
+            }
+          },
+          "elo": {
+            "before": 694.39575,
+            "after": 695.143649840788,
+            "eventRating": 696.916233687793,
+            "expectedPosition": 3.632,
+            "adjustedChange": 3.00627692307692,
+            "rawChange": 3.00627692307692,
+            "factors": {
+              "endurance": {
+                "before": 655,
+                "after": 655.834863748726,
+                "skill": 0.834863748726093,
+                "skillDelta": -0.165136251273907
+              },
+              "pursuit": {
+                "before": 689,
+                "after": 689.749857833495,
+                "skill": 0.749857833495298,
+                "skillDelta": 0.749857833495298
+              },
+              "sprint": {
+                "before": 770.25,
+                "after": 770.256636607123,
+                "skill": 0.0066366071231414,
+                "skillDelta": 0.0066366071231414
+              },
+              "punch": {
+                "before": 725.5,
+                "after": 726.914918733732,
+                "skill": 1.41491873373229,
+                "skillDelta": 1.41491873373229
+              },
+              "climb": {
+                "before": 697.5,
+                "after": 697.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 687,
+                "after": 687,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 85.6054373407833,
+            "gc": 85.6054373407833,
+            "sprint": 40.479593121948,
+            "climb": null,
+            "tt": null
+          }
+        },
+        "legacy": {
+          "rating": 1759.14904074114,
+          "ratingBefore": 1750.2433084617,
+          "ratingDelta": 8.90573227944325,
+          "eventRating": 1747.95682901757,
+          "places": [
+            {
+              "place": 1,
+              "probability": 0.282
+            },
+            {
+              "place": 2,
+              "probability": 0.290666666666667
+            },
+            {
+              "place": 3,
+              "probability": 0.195666666666667
+            },
+            {
+              "place": 4,
+              "probability": 0.13
+            },
+            {
+              "place": 5,
+              "probability": 0.068
+            },
+            {
+              "place": 6,
+              "probability": 0.021
+            },
+            {
+              "place": 7,
+              "probability": 0.00933333333333333
+            },
+            {
+              "place": 8,
+              "probability": 0.00333333333333333
+            },
+            {
+              "place": 9,
+              "probability": 0
+            },
+            {
+              "place": 10,
+              "probability": 0
+            }
+          ],
+          "expectedPosition": 2
+        },
+        "pointsStatus": "awarded",
+        "effort": 91,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.143333333333333
+          },
+          {
+            "place": 2,
+            "probability": 0.199666666666667
+          },
+          {
+            "place": 3,
+            "probability": 0.190333333333333
+          },
+          {
+            "place": 4,
+            "probability": 0.179333333333333
+          },
+          {
+            "place": 5,
+            "probability": 0.135333333333333
+          },
+          {
+            "place": 6,
+            "probability": 0.0836666666666667
+          },
+          {
+            "place": 7,
+            "probability": 0.0403333333333333
+          },
+          {
+            "place": 8,
+            "probability": 0.0213333333333333
+          },
+          {
+            "place": 9,
+            "probability": 0.00533333333333333
+          },
+          {
+            "place": 10,
+            "probability": 0.00133333333333333
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 2,
+          "high": 5
+        },
+        "expectedRank": 3,
+        "classement": {
+          "gc": {
+            "percentile": 82.9,
+            "previous": 80.6,
+            "score": 402.542657524211,
+            "floorScore": 398.283481309857,
+            "nextScore": 402.561803274356
+          },
+          "sprint": {
+            "percentile": 88.6,
+            "previous": 86.5,
+            "score": 193.250285369308,
+            "floorScore": 191.216758820442,
+            "nextScore": 194.318173811707
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5673130",
+          "time": 1791262800,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Scratch",
+          "imageUrl": "https://example.invalid/redacted",
+          "subgroupId": "B",
+          "distance": 26.7809614257812,
+          "elevation": 201,
+          "numLaps": 1,
+          "routeName": "Urumaze",
+          "scoringEnabled": false,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 21,
+          "penTotal": 39,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 3597.974,
+          "gap": 58.636,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": 40.256,
+          "wkgAvg": 3.32051282051282,
+          "wkg5": 11.3205128205128,
+          "wkg15": 9.56410256410256,
+          "wkg30": 8.19230769230769,
+          "wkg60": 6.02564102564103,
+          "wkg120": 5.24358974358974,
+          "wkg300": 4.11538461538461,
+          "wkg1200": 3.66666666666667
+        },
+        "sensor": {
+          "powerType": "POWER_METER",
+          "steering": true,
+          "trainerDifficulty": 0,
+          "heartRateMonitor": true
+        },
+        "velo": {
+          "intensity": 97,
+          "seed": {
+            "before": 664.91485,
+            "after": 664.91485,
+            "eventRating": 638.275400371901,
+            "expectedPosition": 18.3606359245032,
+            "factors": {
+              "endurance": {
+                "before": 593,
+                "after": 593
+              },
+              "pursuit": {
+                "before": 672,
+                "after": 672
+              },
+              "sprint": {
+                "before": 765.5,
+                "after": 771.75
+              },
+              "punch": {
+                "before": 727.49,
+                "after": 727.49
+              },
+              "climb": {
+                "before": 665,
+                "after": 665
+              },
+              "timeTrial": {
+                "before": 640,
+                "after": 640
+              }
+            }
+          },
+          "elo": {
+            "before": 665.5586,
+            "after": 665.5586,
+            "eventRating": 638.275400371901,
+            "expectedPosition": null,
+            "adjustedChange": null,
+            "rawChange": null,
+            "factors": {
+              "endurance": {
+                "before": 593,
+                "after": 593,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 672,
+                "after": 672,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 771.75,
+                "after": 771.75,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 727.49,
+                "after": 727.49,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 665,
+                "after": 665,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 640,
+                "after": 640,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": null
+        },
+        "legacy": {
+          "rating": 1750.2433084617,
+          "ratingBefore": 1750.2433084617,
+          "ratingDelta": null,
+          "eventRating": null
+        },
+        "pointsStatus": "notScored",
+        "effort": 90,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.00466666666666667
+          },
+          {
+            "place": 2,
+            "probability": 0.00733333333333333
+          },
+          {
+            "place": 3,
+            "probability": 0.008
+          },
+          {
+            "place": 4,
+            "probability": 0.00833333333333333
+          },
+          {
+            "place": 5,
+            "probability": 0.01
+          },
+          {
+            "place": 6,
+            "probability": 0.0106666666666667
+          },
+          {
+            "place": 7,
+            "probability": 0.0143333333333333
+          },
+          {
+            "place": 8,
+            "probability": 0.018
+          },
+          {
+            "place": 9,
+            "probability": 0.0166666666666667
+          },
+          {
+            "place": 10,
+            "probability": 0.0243333333333333
+          },
+          {
+            "place": 11,
+            "probability": 0.0253333333333333
+          },
+          {
+            "place": 12,
+            "probability": 0.03
+          },
+          {
+            "place": 13,
+            "probability": 0.03
+          },
+          {
+            "place": 14,
+            "probability": 0.036
+          },
+          {
+            "place": 15,
+            "probability": 0.0396666666666667
+          },
+          {
+            "place": 16,
+            "probability": 0.0413333333333333
+          },
+          {
+            "place": 17,
+            "probability": 0.0553333333333333
+          },
+          {
+            "place": 18,
+            "probability": 0.062
+          },
+          {
+            "place": 19,
+            "probability": 0.057
+          },
+          {
+            "place": 20,
+            "probability": 0.0626666666666667
+          },
+          {
+            "place": 21,
+            "probability": 0.0636666666666667
+          },
+          {
+            "place": 22,
+            "probability": 0.0686666666666667
+          },
+          {
+            "place": 23,
+            "probability": 0.0643333333333333
+          },
+          {
+            "place": 24,
+            "probability": 0.063
+          },
+          {
+            "place": 25,
+            "probability": 0.0526666666666667
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 15,
+          "high": 23
+        }
+      },
+      {
+        "event": {
+          "eventId": "5710477",
+          "time": 1790272800,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Ladder",
+          "imageUrl": null,
+          "subgroupId": "E",
+          "distance": 27.5655124511719,
+          "elevation": 199,
+          "numLaps": 1,
+          "routeName": "Montmartre Mixer",
+          "scoringEnabled": true,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 2,
+          "penTotal": 8,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 2493.309,
+          "gap": 12.765,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": null,
+          "distance": 27.559,
+          "wkgAvg": 3.65384615384615,
+          "wkg5": 10.9487179487179,
+          "wkg15": 10.4487179487179,
+          "wkg30": 7.46153846153846,
+          "wkg60": 6.12820512820513,
+          "wkg120": 5.6025641025641,
+          "wkg300": 4.51282051282051,
+          "wkg1200": 3.78205128205128
+        },
+        "sensor": {
+          "powerType": "POWER_METER",
+          "steering": true,
+          "trainerDifficulty": 0,
+          "heartRateMonitor": true
+        },
+        "velo": {
+          "intensity": 100,
+          "seed": {
+            "before": 621.93185,
+            "after": 659.21935,
+            "eventRating": 628.526067096533,
+            "expectedPosition": 5.17375531911812,
+            "factors": {
+              "endurance": {
+                "before": 523,
+                "after": 595
+              },
+              "pursuit": {
+                "before": 645,
+                "after": 672
+              },
+              "sprint": {
+                "before": 700.75,
+                "after": 700.75
+              },
+              "punch": {
+                "before": 727.84,
+                "after": 727.84
+              },
+              "climb": {
+                "before": 616,
+                "after": 666.5
+              },
+              "timeTrial": {
+                "before": 581,
+                "after": 642
+              }
+            }
+          },
+          "elo": {
+            "before": 659.21935,
+            "after": 659.21935,
+            "eventRating": 661.148543045969,
+            "expectedPosition": 4.011,
+            "adjustedChange": 0,
+            "rawChange": 0,
+            "factors": {
+              "endurance": {
+                "before": 595,
+                "after": 595,
+                "skill": 0,
+                "skillDelta": -1.29548842830252
+              },
+              "pursuit": {
+                "before": 672,
+                "after": 672,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 700.75,
+                "after": 700.75,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 727.84,
+                "after": 727.84,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 666.5,
+                "after": 666.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 642,
+                "after": 642,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 79.2872445205314,
+            "gc": 79.2872445205314,
+            "sprint": 34.4705857484962,
+            "climb": 1.64455551872446,
+            "tt": null
+          }
+        },
+        "legacy": {
+          "rating": 1750.2433084617,
+          "ratingBefore": 1750.2433084617,
+          "ratingDelta": 0,
+          "eventRating": 1765.1054248485,
+          "places": [
+            {
+              "place": 1,
+              "probability": 0.333
+            },
+            {
+              "place": 2,
+              "probability": 0.268666666666667
+            },
+            {
+              "place": 3,
+              "probability": 0.193666666666667
+            },
+            {
+              "place": 4,
+              "probability": 0.116666666666667
+            },
+            {
+              "place": 5,
+              "probability": 0.067
+            },
+            {
+              "place": 6,
+              "probability": 0.019
+            },
+            {
+              "place": 7,
+              "probability": 0.002
+            },
+            {
+              "place": 8,
+              "probability": 0
+            }
+          ],
+          "expectedPosition": 1
+        },
+        "pointsStatus": "awarded",
+        "effort": null,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.137
+          },
+          {
+            "place": 2,
+            "probability": 0.150666666666667
+          },
+          {
+            "place": 3,
+            "probability": 0.161
+          },
+          {
+            "place": 4,
+            "probability": 0.139666666666667
+          },
+          {
+            "place": 5,
+            "probability": 0.145666666666667
+          },
+          {
+            "place": 6,
+            "probability": 0.119666666666667
+          },
+          {
+            "place": 7,
+            "probability": 0.0956666666666667
+          },
+          {
+            "place": 8,
+            "probability": 0.0506666666666667
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 2,
+          "high": 6
+        },
+        "expectedRank": 4,
+        "classement": {
+          "gc": {
+            "percentile": 80.6,
+            "previous": 49.7,
+            "score": 393.456899047958,
+            "floorScore": 391.338324342898,
+            "nextScore": 394.449489765308
+          },
+          "sprint": {
+            "percentile": 86.5,
+            "previous": 67.4,
+            "score": 187.241277995856,
+            "floorScore": 185.914750769447,
+            "nextScore": 188.33537594588
+          },
+          "climb": {
+            "percentile": 0.1,
+            "previous": null,
+            "score": 1.64455551872446,
+            "floorScore": 23.5356086582867,
+            "nextScore": 27.2183239735652
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5673121",
+          "time": 1790053200,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Scratch",
+          "imageUrl": "https://example.invalid/redacted",
+          "subgroupId": "B",
+          "distance": 27.5655124511719,
+          "elevation": 199,
+          "numLaps": 1,
+          "routeName": "Montmartre Mixer",
+          "scoringEnabled": false,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 36,
+          "penTotal": 35,
+          "didNotFinish": true,
+          "disqualified": false
+        },
+        "race": {
+          "time": 107,
+          "gap": null,
+          "source": "LIVE",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": 1.174,
+          "wkgAvg": null,
+          "wkg5": null,
+          "wkg15": null,
+          "wkg30": null,
+          "wkg60": null,
+          "wkg120": null,
+          "wkg300": null,
+          "wkg1200": null
+        },
+        "sensor": null,
+        "velo": {
+          "intensity": null,
+          "seed": {
+            "before": 628.94665,
+            "after": 628.94665,
+            "eventRating": 633.994944506853,
+            "expectedPosition": null,
+            "factors": {
+              "endurance": {
+                "before": 524,
+                "after": 524
+              },
+              "pursuit": {
+                "before": 659,
+                "after": 659
+              },
+              "sprint": {
+                "before": 702,
+                "after": 702
+              },
+              "punch": {
+                "before": 738.51,
+                "after": 738.51
+              },
+              "climb": {
+                "before": 627,
+                "after": 627
+              },
+              "timeTrial": {
+                "before": 582,
+                "after": 582
+              }
+            }
+          },
+          "elo": {
+            "before": 629.401366438334,
+            "after": 629.401366438334,
+            "eventRating": 634.479815541934,
+            "expectedPosition": null,
+            "adjustedChange": null,
+            "rawChange": null,
+            "factors": {
+              "endurance": {
+                "before": 525.295488428303,
+                "after": 525.295488428303,
+                "skill": 1.29548842830252,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 659,
+                "after": 659,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 702,
+                "after": 702,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 738.51,
+                "after": 738.51,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 627,
+                "after": 627,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 582,
+                "after": 582,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": null
+        },
+        "legacy": {
+          "rating": 1750.2433084617,
+          "ratingBefore": 1750.2433084617,
+          "ratingDelta": null,
+          "eventRating": null
+        },
+        "pointsStatus": "notScored",
+        "effort": null
+      },
+      {
+        "event": {
+          "eventId": "5688013",
+          "time": 1788544800,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Ladder",
+          "imageUrl": null,
+          "subgroupId": "SEE LADDER SITE",
+          "distance": 20.3659279785156,
+          "elevation": 121,
+          "numLaps": 1,
+          "routeName": "Mech Isle Mayhem",
+          "scoringEnabled": true,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 1,
+          "penTotal": 6,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 1841.376,
+          "gap": 0,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": 20.368,
+          "wkgAvg": 3.5796178343949,
+          "wkg5": 10.9808917197452,
+          "wkg15": 7.93630573248408,
+          "wkg30": 7.43949044585987,
+          "wkg60": 6.45859872611465,
+          "wkg120": 5.37579617834395,
+          "wkg300": 4.53503184713376,
+          "wkg1200": 3.55414012738854
+        },
+        "sensor": {
+          "powerType": "POWER_METER",
+          "steering": true,
+          "trainerDifficulty": 0.3,
+          "heartRateMonitor": true
+        },
+        "velo": {
+          "intensity": 100,
+          "seed": {
+            "before": 610.7322,
+            "after": 644.5056,
+            "eventRating": 637.251679990812,
+            "expectedPosition": 3.2374520238526,
+            "factors": {
+              "endurance": {
+                "before": 540,
+                "after": 540
+              },
+              "pursuit": {
+                "before": 600,
+                "after": 680
+              },
+              "sprint": {
+                "before": 692.75,
+                "after": 703.5
+              },
+              "punch": {
+                "before": 696.43,
+                "after": 753.84
+              },
+              "climb": {
+                "before": 611.5,
+                "after": 644.5
+              },
+              "timeTrial": {
+                "before": 597,
+                "after": 597
+              }
+            }
+          },
+          "elo": {
+            "before": 644.960316438334,
+            "after": 644.960316438334,
+            "eventRating": 681.54415223031,
+            "expectedPosition": 2.38266666666667,
+            "adjustedChange": 0,
+            "rawChange": 0,
+            "factors": {
+              "endurance": {
+                "before": 541.295488428303,
+                "after": 541.295488428303,
+                "skill": 1.29548842830252,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 680,
+                "after": 680,
+                "skill": 0,
+                "skillDelta": -1.76182927184232
+              },
+              "sprint": {
+                "before": 703.5,
+                "after": 703.5,
+                "skill": 0,
+                "skillDelta": -2.50753341166706
+              },
+              "punch": {
+                "before": 753.84,
+                "after": 753.84,
+                "skill": 0,
+                "skillDelta": -1.77903452154203
+              },
+              "climb": {
+                "before": 644.5,
+                "after": 644.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 597,
+                "after": 597,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 78.3092022751295,
+            "gc": 78.3092022751295,
+            "sprint": 38.958035195178,
+            "climb": null,
+            "tt": null
+          }
+        },
+        "legacy": {
+          "rating": 1750.2433084617,
+          "ratingBefore": 1743.11083400851,
+          "ratingDelta": 7.13247445319202,
+          "eventRating": 1742.12002624939,
+          "places": [
+            {
+              "place": 1,
+              "probability": 0.455333333333333
+            },
+            {
+              "place": 2,
+              "probability": 0.321
+            },
+            {
+              "place": 3,
+              "probability": 0.149666666666667
+            },
+            {
+              "place": 4,
+              "probability": 0.059
+            },
+            {
+              "place": 5,
+              "probability": 0.0143333333333333
+            },
+            {
+              "place": 6,
+              "probability": 0.000666666666666667
+            }
+          ],
+          "expectedPosition": 1
+        },
+        "pointsStatus": "awarded",
+        "effort": 91,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.346333333333333
+          },
+          {
+            "place": 2,
+            "probability": 0.276666666666667
+          },
+          {
+            "place": 3,
+            "probability": 0.18
+          },
+          {
+            "place": 4,
+            "probability": 0.116333333333333
+          },
+          {
+            "place": 5,
+            "probability": 0.0603333333333333
+          },
+          {
+            "place": 6,
+            "probability": 0.0203333333333333
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 1,
+          "high": 3
+        },
+        "expectedRank": 1,
+        "classement": {
+          "gc": {
+            "percentile": 82.3,
+            "previous": 52.8,
+            "score": 399.624416285908,
+            "floorScore": 398.283481309857,
+            "nextScore": 402.561803274356
+          },
+          "sprint": {
+            "percentile": 80.3,
+            "previous": 51.3,
+            "score": 173.040160175607,
+            "floorScore": 172.470428270518,
+            "nextScore": 174.391056438123
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5682369",
+          "time": 1787679000,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Ladder",
+          "imageUrl": null,
+          "subgroupId": "SEE LADDER SITE",
+          "distance": 24.9291324615479,
+          "elevation": 135,
+          "numLaps": 2,
+          "routeName": "Sprinter's Playground",
+          "scoringEnabled": true,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 4,
+          "penTotal": 8,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 2221.334,
+          "gap": 0,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": 24.929,
+          "wkgAvg": 3.5031847133758,
+          "wkg5": 9.54140127388535,
+          "wkg15": 8.26751592356688,
+          "wkg30": 6.92993630573248,
+          "wkg60": 5.93630573248408,
+          "wkg120": 5.17197452229299,
+          "wkg300": 4.19108280254777,
+          "wkg1200": 3.56687898089172
+        },
+        "sensor": {
+          "powerType": "POWER_METER",
+          "steering": true,
+          "trainerDifficulty": 0,
+          "heartRateMonitor": true
+        },
+        "velo": {
+          "intensity": 98,
+          "seed": {
+            "before": 633.11215,
+            "after": 612.7492,
+            "eventRating": 642.570047776597,
+            "expectedPosition": 5.20480968804797,
+            "factors": {
+              "endurance": {
+                "before": 629,
+                "after": 545
+              },
+              "pursuit": {
+                "before": 578,
+                "after": 600
+              },
+              "sprint": {
+                "before": 692.75,
+                "after": 692.75
+              },
+              "punch": {
+                "before": 680.26,
+                "after": 696.43
+              },
+              "climb": {
+                "before": 604,
+                "after": 613.5
+              },
+              "timeTrial": {
+                "before": 669,
+                "after": 602
+              }
+            }
+          },
+          "elo": {
+            "before": 612.865332187093,
+            "after": 614.350967441063,
+            "eventRating": 631.10118750476,
+            "expectedPosition": 5.57266666666667,
+            "adjustedChange": 6.67462590506838,
+            "rawChange": 6.67462590506838,
+            "factors": {
+              "endurance": {
+                "before": 545,
+                "after": 546.733997786784,
+                "skill": 1.73399778678356,
+                "skillDelta": 1.73399778678356
+              },
+              "pursuit": {
+                "before": 600,
+                "after": 601.761829271842,
+                "skill": 1.76182927184232,
+                "skillDelta": 0.803759308999815
+              },
+              "sprint": {
+                "before": 693.877496962066,
+                "after": 695.257533411667,
+                "skill": 2.50753341166706,
+                "skillDelta": 1.38003644960134
+              },
+              "punch": {
+                "before": 696.43,
+                "after": 698.209034521542,
+                "skill": 1.77903452154203,
+                "skillDelta": 1.6193521706133
+              },
+              "climb": {
+                "before": 613.5,
+                "after": 613.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 602,
+                "after": 602,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 76.5196788645301,
+            "gc": 76.5196788645301,
+            "sprint": 36.4425917443576,
+            "climb": null,
+            "tt": null
+          }
+        },
+        "legacy": {
+          "rating": 1743.11083400851,
+          "ratingBefore": 1743.11083400851,
+          "ratingDelta": 0,
+          "eventRating": 1716.35902451227,
+          "places": [
+            {
+              "place": 1,
+              "probability": 0.064
+            },
+            {
+              "place": 2,
+              "probability": 0.093
+            },
+            {
+              "place": 3,
+              "probability": 0.139333333333333
+            },
+            {
+              "place": 4,
+              "probability": 0.212
+            },
+            {
+              "place": 5,
+              "probability": 0.227666666666667
+            },
+            {
+              "place": 6,
+              "probability": 0.158
+            },
+            {
+              "place": 7,
+              "probability": 0.0856666666666667
+            },
+            {
+              "place": 8,
+              "probability": 0.0203333333333333
+            }
+          ],
+          "expectedPosition": 4
+        },
+        "pointsStatus": "awarded",
+        "effort": 90,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.008
+          },
+          {
+            "place": 2,
+            "probability": 0.0136666666666667
+          },
+          {
+            "place": 3,
+            "probability": 0.057
+          },
+          {
+            "place": 4,
+            "probability": 0.105
+          },
+          {
+            "place": 5,
+            "probability": 0.252333333333333
+          },
+          {
+            "place": 6,
+            "probability": 0.295333333333333
+          },
+          {
+            "place": 7,
+            "probability": 0.23
+          },
+          {
+            "place": 8,
+            "probability": 0.0386666666666667
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 5,
+          "high": 7
+        },
+        "expectedRank": 5,
+        "classement": {
+          "gc": {
+            "percentile": 52.8,
+            "previous": 17.7,
+            "score": 321.315214010778,
+            "floorScore": 319.460022837629,
+            "nextScore": 321.720215010434
+          },
+          "sprint": {
+            "percentile": 51.3,
+            "previous": 18.2,
+            "score": 134.082124980429,
+            "floorScore": 133.684388312685,
+            "nextScore": 134.826566342303
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5667780",
+          "time": 1786644000,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Ladder",
+          "imageUrl": null,
+          "subgroupId": "SEE LADDER SITE",
+          "distance": 19.6888,
+          "elevation": 170,
+          "numLaps": 10,
+          "routeName": "Downtown Dolphin",
+          "scoringEnabled": true,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 5,
+          "penTotal": 8,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 1702.789,
+          "gap": 0,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": 19.656,
+          "wkgAvg": 3.60509554140127,
+          "wkg5": 9.31210191082802,
+          "wkg15": 8.77707006369427,
+          "wkg30": 7.09554140127389,
+          "wkg60": 5.52866242038217,
+          "wkg120": 4.62420382165605,
+          "wkg300": 4.02547770700637,
+          "wkg1200": 3.59235668789809
+        },
+        "sensor": {
+          "powerType": "POWER_METER",
+          "steering": true,
+          "trainerDifficulty": 0,
+          "heartRateMonitor": true
+        },
+        "velo": {
+          "intensity": 95,
+          "seed": {
+            "before": 640.8666,
+            "after": 643.7486,
+            "eventRating": 654.340859719219,
+            "expectedPosition": 6.09466740541205,
+            "factors": {
+              "endurance": {
+                "before": 629,
+                "after": 629
+              },
+              "pursuit": {
+                "before": 611,
+                "after": 611
+              },
+              "sprint": {
+                "before": 693.5,
+                "after": 693.5
+              },
+              "punch": {
+                "before": 689.84,
+                "after": 689.84
+              },
+              "climb": {
+                "before": 596.5,
+                "after": 618.5
+              },
+              "timeTrial": {
+                "before": 669,
+                "after": 669
+              }
+            }
+          },
+          "elo": {
+            "before": 643.7486,
+            "after": 644.440274080953,
+            "eventRating": 654.340859719219,
+            "expectedPosition": 6.117,
+            "adjustedChange": 3.53368983957219,
+            "rawChange": 3.53368983957219,
+            "factors": {
+              "endurance": {
+                "before": 629,
+                "after": 629.561490641519,
+                "skill": 0.561490641518958,
+                "skillDelta": 0.561490641518958
+              },
+              "pursuit": {
+                "before": 611,
+                "after": 612.210153470001,
+                "skill": 1.21015347000116,
+                "skillDelta": 1.21015347000116
+              },
+              "sprint": {
+                "before": 693.5,
+                "after": 694.627496962066,
+                "skill": 1.12749696206572,
+                "skillDelta": 1.12749696206572
+              },
+              "punch": {
+                "before": 689.84,
+                "after": 690.474548765986,
+                "skill": 0.634548765986324,
+                "skillDelta": 0.634548765986324
+              },
+              "climb": {
+                "before": 618.5,
+                "after": 618.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 669,
+                "after": 669,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 78.5044781641011,
+            "gc": 78.5044781641011,
+            "sprint": 39.1456202049578,
+            "climb": null,
+            "tt": null
+          }
+        },
+        "legacy": {
+          "rating": 1743.11083400851,
+          "ratingBefore": 1739.35635948361,
+          "ratingDelta": 3.75447452489429,
+          "eventRating": 1674.47774049114,
+          "places": [
+            {
+              "place": 1,
+              "probability": 0.0313333333333333
+            },
+            {
+              "place": 2,
+              "probability": 0.0343333333333333
+            },
+            {
+              "place": 3,
+              "probability": 0.0473333333333333
+            },
+            {
+              "place": 4,
+              "probability": 0.0793333333333333
+            },
+            {
+              "place": 5,
+              "probability": 0.123666666666667
+            },
+            {
+              "place": 6,
+              "probability": 0.264333333333333
+            },
+            {
+              "place": 7,
+              "probability": 0.272
+            },
+            {
+              "place": 8,
+              "probability": 0.147666666666667
+            }
+          ],
+          "expectedPosition": 6
+        },
+        "pointsStatus": "awarded",
+        "effort": 90,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.006
+          },
+          {
+            "place": 2,
+            "probability": 0.009
+          },
+          {
+            "place": 3,
+            "probability": 0.0143333333333333
+          },
+          {
+            "place": 4,
+            "probability": 0.0323333333333333
+          },
+          {
+            "place": 5,
+            "probability": 0.213666666666667
+          },
+          {
+            "place": 6,
+            "probability": 0.341333333333333
+          },
+          {
+            "place": 7,
+            "probability": 0.263333333333333
+          },
+          {
+            "place": 8,
+            "probability": 0.12
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 5,
+          "high": 7
+        },
+        "expectedRank": 6,
+        "classement": {
+          "gc": {
+            "percentile": 86.6,
+            "previous": 61.8,
+            "score": 419.194259415663,
+            "floorScore": 415.810919435653,
+            "nextScore": 421.617585473396
+          },
+          "sprint": {
+            "percentile": 85.2,
+            "previous": 61.1,
+            "score": 183.822363152611,
+            "floorScore": 183.401722925759,
+            "nextScore": 185.914750769447
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5641038",
+          "time": 1784174400,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Team Time Trial",
+          "imageUrl": null,
+          "subgroupId": "D",
+          "distance": 28.0813364257813,
+          "elevation": 327,
+          "numLaps": 3,
+          "routeName": "Hilly Route",
+          "scoringEnabled": false,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 1,
+          "penTotal": 4,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 2574.537,
+          "gap": 0,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": null,
+          "wkgAvg": 3.28662420382166,
+          "wkg5": 7.79617834394904,
+          "wkg15": 7.04458598726115,
+          "wkg30": 5.64331210191083,
+          "wkg60": 4.53503184713376,
+          "wkg120": 4.3312101910828,
+          "wkg300": 3.75796178343949,
+          "wkg1200": 3.46496815286624
+        },
+        "sensor": null,
+        "velo": {
+          "intensity": 88,
+          "seed": {
+            "before": 677.72735,
+            "after": 677.72735,
+            "eventRating": 668.723646980693,
+            "expectedPosition": 1.37425882140038,
+            "factors": {
+              "endurance": {
+                "before": 638,
+                "after": 631
+              },
+              "pursuit": {
+                "before": 693,
+                "after": 693
+              },
+              "sprint": {
+                "before": 695.25,
+                "after": 695.25
+              },
+              "punch": {
+                "before": 734.44,
+                "after": 734.44
+              },
+              "climb": {
+                "before": 654,
+                "after": 654
+              },
+              "timeTrial": {
+                "before": 676,
+                "after": 670
+              }
+            }
+          },
+          "elo": {
+            "before": 676.450638772732,
+            "after": 676.450638772732,
+            "eventRating": 666.590525843496,
+            "expectedPosition": null,
+            "adjustedChange": null,
+            "rawChange": null,
+            "factors": {
+              "endurance": {
+                "before": 633.856560660747,
+                "after": 633.856560660747,
+                "skill": 2.85656066074728,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 693,
+                "after": 693,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 696.974621172915,
+                "after": 696.974621172915,
+                "skill": 1.72462117291465,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 734.44,
+                "after": 734.44,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 654,
+                "after": 654,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 670,
+                "after": 670,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": null
+        },
+        "legacy": {
+          "rating": 1739.35635948361,
+          "ratingBefore": 1739.35635948361,
+          "ratingDelta": null,
+          "eventRating": null
+        },
+        "pointsStatus": "notScored",
+        "effort": 83,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.640333333333333
+          },
+          {
+            "place": 2,
+            "probability": 0.281666666666667
+          },
+          {
+            "place": 3,
+            "probability": 0.067
+          },
+          {
+            "place": 4,
+            "probability": 0.011
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 1,
+          "high": 2
+        }
+      },
+      {
+        "event": {
+          "eventId": "5638930",
+          "time": 1783965600,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Ladder",
+          "imageUrl": null,
+          "subgroupId": "SEE LADDER SITE",
+          "distance": 23.0494506835938,
+          "elevation": 183,
+          "numLaps": 2,
+          "routeName": "Rolling Highlands",
+          "scoringEnabled": true,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 1,
+          "penTotal": 8,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 2010.647,
+          "gap": 0,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": 23.05,
+          "wkgAvg": 3.63057324840764,
+          "wkg5": 8.22929936305733,
+          "wkg15": 7.31210191082803,
+          "wkg30": 6.77707006369427,
+          "wkg60": 6.30573248407643,
+          "wkg120": 5.35031847133758,
+          "wkg300": 4.5859872611465,
+          "wkg1200": 3.60509554140127
+        },
+        "sensor": {
+          "powerType": "POWER_METER",
+          "steering": true,
+          "trainerDifficulty": 0.3,
+          "heartRateMonitor": true
+        },
+        "velo": {
+          "intensity": 100,
+          "seed": {
+            "before": 645.1536,
+            "after": 677.77885,
+            "eventRating": 653.570260606927,
+            "expectedPosition": 2.79509297634491,
+            "factors": {
+              "endurance": {
+                "before": 638,
+                "after": 638
+              },
+              "pursuit": {
+                "before": 602,
+                "after": 693
+              },
+              "sprint": {
+                "before": 695.75,
+                "after": 695.75
+              },
+              "punch": {
+                "before": 689.89,
+                "after": 734.44
+              },
+              "climb": {
+                "before": 617,
+                "after": 654
+              },
+              "timeTrial": {
+                "before": 676,
+                "after": 676
+              }
+            }
+          },
+          "elo": {
+            "before": 678.959138772733,
+            "after": 678.959138772733,
+            "eventRating": 698.033222746122,
+            "expectedPosition": 2.022,
+            "adjustedChange": 0,
+            "rawChange": 0,
+            "factors": {
+              "endurance": {
+                "before": 640.856560660747,
+                "after": 640.856560660747,
+                "skill": 2.85656066074728,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 693,
+                "after": 693,
+                "skill": 0,
+                "skillDelta": -0.252083507158659
+              },
+              "sprint": {
+                "before": 697.474621172915,
+                "after": 697.474621172915,
+                "skill": 1.72462117291465,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 734.44,
+                "after": 734.44,
+                "skill": 0,
+                "skillDelta": -0.474866415057591
+              },
+              "climb": {
+                "before": 654,
+                "after": 654,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 676,
+                "after": 676,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 80.8362952236658,
+            "gc": 80.8362952236658,
+            "sprint": 38.2244451028666,
+            "climb": null,
+            "tt": null
+          }
+        },
+        "legacy": {
+          "rating": 1739.35635948361,
+          "ratingBefore": 1722.83043640689,
+          "ratingDelta": 16.5259230767163,
+          "eventRating": 1744.90954758234,
+          "places": [
+            {
+              "place": 1,
+              "probability": 0.192666666666667
+            },
+            {
+              "place": 2,
+              "probability": 0.388333333333333
+            },
+            {
+              "place": 3,
+              "probability": 0.261
+            },
+            {
+              "place": 4,
+              "probability": 0.105666666666667
+            },
+            {
+              "place": 5,
+              "probability": 0.0386666666666667
+            },
+            {
+              "place": 6,
+              "probability": 0.013
+            },
+            {
+              "place": 7,
+              "probability": 0.000666666666666667
+            },
+            {
+              "place": 8,
+              "probability": 0
+            }
+          ],
+          "expectedPosition": 2
+        },
+        "pointsStatus": "awarded",
+        "effort": 91,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.441333333333333
+          },
+          {
+            "place": 2,
+            "probability": 0.271333333333333
+          },
+          {
+            "place": 3,
+            "probability": 0.171333333333333
+          },
+          {
+            "place": 4,
+            "probability": 0.0856666666666667
+          },
+          {
+            "place": 5,
+            "probability": 0.0226666666666667
+          },
+          {
+            "place": 6,
+            "probability": 0.00666666666666667
+          },
+          {
+            "place": 7,
+            "probability": 0.001
+          },
+          {
+            "place": 8,
+            "probability": 0
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 1,
+          "high": 3
+        },
+        "expectedRank": 1,
+        "classement": {
+          "gc": {
+            "percentile": 89.1,
+            "previous": 89.1,
+            "score": 434.554983337635,
+            "floorScore": 433.351949645766,
+            "nextScore": 439.537954238846
+          },
+          "sprint": {
+            "percentile": 89.9,
+            "previous": 83.4,
+            "score": 197.61487994299,
+            "floorScore": 194.318173811707,
+            "nextScore": 197.67430932831
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5634293",
+          "time": 1783569600,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Team Time Trial",
+          "imageUrl": null,
+          "subgroupId": "D",
+          "distance": 23.0494506835938,
+          "elevation": 183,
+          "numLaps": 2,
+          "routeName": "Rolling Highlands",
+          "scoringEnabled": false,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 12,
+          "penTotal": 13,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 1965.293,
+          "gap": 222.373,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": null,
+          "wkgAvg": 3.35031847133758,
+          "wkg5": 7.0828025477707,
+          "wkg15": 4.92993630573248,
+          "wkg30": 4.6624203821656,
+          "wkg60": 4.52229299363057,
+          "wkg120": 4.43312101910828,
+          "wkg300": 3.85987261146497,
+          "wkg1200": 3.60509554140127
+        },
+        "sensor": null,
+        "velo": {
+          "intensity": 88,
+          "seed": {
+            "before": 646.1667,
+            "after": 646.1667,
+            "eventRating": 656.282201341253,
+            "expectedPosition": 6.30349296827566,
+            "factors": {
+              "endurance": {
+                "before": 637,
+                "after": 638
+              },
+              "pursuit": {
+                "before": 609,
+                "after": 609
+              },
+              "sprint": {
+                "before": 696.25,
+                "after": 696.25
+              },
+              "punch": {
+                "before": 692.53,
+                "after": 692.53
+              },
+              "climb": {
+                "before": 612,
+                "after": 620
+              },
+              "timeTrial": {
+                "before": 675,
+                "after": 676
+              }
+            }
+          },
+          "elo": {
+            "before": 648.898501753402,
+            "after": 648.898501753402,
+            "eventRating": 657.643377509487,
+            "expectedPosition": null,
+            "adjustedChange": null,
+            "rawChange": null,
+            "factors": {
+              "endurance": {
+                "before": 640.856560660747,
+                "after": 640.856560660747,
+                "skill": 2.85656066074728,
+                "skillDelta": -1
+              },
+              "pursuit": {
+                "before": 609.252083507159,
+                "after": 609.252083507159,
+                "skill": 0.252083507158659,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 697.974621172915,
+                "after": 697.974621172915,
+                "skill": 1.72462117291465,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 693.004866415058,
+                "after": 693.004866415058,
+                "skill": 0.474866415057591,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 620,
+                "after": 620,
+                "skill": 0,
+                "skillDelta": -0.78349739041812
+              },
+              "timeTrial": {
+                "before": 676,
+                "after": 676,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": null
+        },
+        "legacy": {
+          "rating": 1722.83043640689,
+          "ratingBefore": 1722.83043640689,
+          "ratingDelta": null,
+          "eventRating": null
+        },
+        "pointsStatus": "notScored",
+        "effort": 87,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.004
+          },
+          {
+            "place": 2,
+            "probability": 0.0163333333333333
+          },
+          {
+            "place": 3,
+            "probability": 0.02
+          },
+          {
+            "place": 4,
+            "probability": 0.0456666666666667
+          },
+          {
+            "place": 5,
+            "probability": 0.19
+          },
+          {
+            "place": 6,
+            "probability": 0.216666666666667
+          },
+          {
+            "place": 7,
+            "probability": 0.192666666666667
+          },
+          {
+            "place": 8,
+            "probability": 0.142
+          },
+          {
+            "place": 9,
+            "probability": 0.0886666666666667
+          },
+          {
+            "place": 10,
+            "probability": 0.0516666666666667
+          },
+          {
+            "place": 11,
+            "probability": 0.0243333333333333
+          },
+          {
+            "place": 12,
+            "probability": 0.00766666666666667
+          },
+          {
+            "place": 13,
+            "probability": 0.000333333333333333
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 5,
+          "high": 8
+        }
+      },
+      {
+        "event": {
+          "eventId": "5626415",
+          "time": 1782964800,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Team Time Trial",
+          "imageUrl": null,
+          "subgroupId": "D",
+          "distance": 31.2632,
+          "elevation": 184,
+          "numLaps": 3,
+          "routeName": "Flat Route",
+          "scoringEnabled": false,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 11,
+          "penTotal": 11,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 2598.046,
+          "gap": 264.426,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": null,
+          "wkgAvg": 3.46496815286624,
+          "wkg5": 7.82165605095541,
+          "wkg15": 5.97452229299363,
+          "wkg30": 5.37579617834395,
+          "wkg60": 4.5859872611465,
+          "wkg120": 4.25477707006369,
+          "wkg300": 3.80891719745223,
+          "wkg1200": 3.54140127388535
+        },
+        "sensor": null,
+        "velo": {
+          "intensity": 86,
+          "seed": {
+            "before": 652.43745,
+            "after": 652.43745,
+            "eventRating": 663.291688758471,
+            "expectedPosition": 6.75033059416042,
+            "factors": {
+              "endurance": {
+                "before": 638,
+                "after": 638
+              },
+              "pursuit": {
+                "before": 624,
+                "after": 624
+              },
+              "sprint": {
+                "before": 697,
+                "after": 697
+              },
+              "punch": {
+                "before": 697.83,
+                "after": 697.83
+              },
+              "climb": {
+                "before": 625,
+                "after": 625
+              },
+              "timeTrial": {
+                "before": 676,
+                "after": 676
+              }
+            }
+          },
+          "elo": {
+            "before": 654.223889911546,
+            "after": 654.223889911546,
+            "eventRating": 665.782491086858,
+            "expectedPosition": null,
+            "adjustedChange": null,
+            "rawChange": null,
+            "factors": {
+              "endurance": {
+                "before": 641.856560660747,
+                "after": 641.856560660747,
+                "skill": 3.85656066074728,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 624.252083507159,
+                "after": 624.252083507159,
+                "skill": 0.252083507158659,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 698.724621172915,
+                "after": 698.724621172915,
+                "skill": 1.72462117291465,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 698.304866415058,
+                "after": 698.304866415058,
+                "skill": 0.474866415057591,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 625.783497390418,
+                "after": 625.783497390418,
+                "skill": 0.78349739041812,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 676,
+                "after": 676,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": null
+        },
+        "legacy": {
+          "rating": 1722.83043640689,
+          "ratingBefore": 1722.83043640689,
+          "ratingDelta": null,
+          "eventRating": null
+        },
+        "pointsStatus": "notScored",
+        "effort": 87,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.002
+          },
+          {
+            "place": 2,
+            "probability": 0.0106666666666667
+          },
+          {
+            "place": 3,
+            "probability": 0.0153333333333333
+          },
+          {
+            "place": 4,
+            "probability": 0.0266666666666667
+          },
+          {
+            "place": 5,
+            "probability": 0.06
+          },
+          {
+            "place": 6,
+            "probability": 0.426666666666667
+          },
+          {
+            "place": 7,
+            "probability": 0.298
+          },
+          {
+            "place": 8,
+            "probability": 0.123666666666667
+          },
+          {
+            "place": 9,
+            "probability": 0.0326666666666667
+          },
+          {
+            "place": 10,
+            "probability": 0.004
+          },
+          {
+            "place": 11,
+            "probability": 0.000333333333333333
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 6,
+          "high": 7
+        }
+      },
+      {
+        "event": {
+          "eventId": "5610124",
+          "time": 1780939800,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Ladder",
+          "imageUrl": null,
+          "subgroupId": "SEE LADDER SITE",
+          "distance": 21.1964,
+          "elevation": 379,
+          "numLaps": 1,
+          "routeName": "Rising Empire",
+          "scoringEnabled": true,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 1,
+          "penTotal": 10,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 2048.222,
+          "gap": 0,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": null,
+          "wkgAvg": 3.46496815286624,
+          "wkg5": 9.12101910828025,
+          "wkg15": 6.84076433121019,
+          "wkg30": 6.12738853503185,
+          "wkg60": 5.07006369426752,
+          "wkg120": 4.86624203821656,
+          "wkg300": 4.44585987261147,
+          "wkg1200": 3.69426751592357
+        },
+        "sensor": null,
+        "velo": {
+          "intensity": 92,
+          "seed": {
+            "before": 692.0252,
+            "after": 692.0252,
+            "eventRating": 692.508920749303,
+            "expectedPosition": 1.81776532294211,
+            "factors": {
+              "endurance": {
+                "before": 636,
+                "after": 636
+              },
+              "pursuit": {
+                "before": 712,
+                "after": 712
+              },
+              "sprint": {
+                "before": 700.75,
+                "after": 700.75
+              },
+              "punch": {
+                "before": 759.83,
+                "after": 759.83
+              },
+              "climb": {
+                "before": 693.5,
+                "after": 693.5
+              },
+              "timeTrial": {
+                "before": 675,
+                "after": 675
+              }
+            }
+          },
+          "elo": {
+            "before": 692.089911893728,
+            "after": 692.089911893728,
+            "eventRating": 692.508920749303,
+            "expectedPosition": 1.98766666666667,
+            "adjustedChange": 0,
+            "rawChange": 0,
+            "factors": {
+              "endurance": {
+                "before": 636,
+                "after": 636,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 712,
+                "after": 712,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 701.378270812888,
+                "after": 701.378270812888,
+                "skill": 0.628270812888418,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 759.83,
+                "after": 759.83,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 693.5,
+                "after": 693.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 675,
+                "after": 675,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 85.4547617584812,
+            "gc": 85.4547617584812,
+            "sprint": 20.2694679282466,
+            "climb": 19.0665761368149,
+            "tt": null
+          }
+        },
+        "legacy": {
+          "rating": 1722.83043640689,
+          "ratingBefore": 1712.77719981346,
+          "ratingDelta": 10.0532365934373,
+          "eventRating": 1693.67027668086,
+          "places": [
+            {
+              "place": 1,
+              "probability": 0.371666666666667
+            },
+            {
+              "place": 2,
+              "probability": 0.315666666666667
+            },
+            {
+              "place": 3,
+              "probability": 0.196333333333333
+            },
+            {
+              "place": 4,
+              "probability": 0.0926666666666667
+            },
+            {
+              "place": 5,
+              "probability": 0.0216666666666667
+            },
+            {
+              "place": 6,
+              "probability": 0.00133333333333333
+            },
+            {
+              "place": 7,
+              "probability": 0.000666666666666667
+            },
+            {
+              "place": 8,
+              "probability": 0
+            },
+            {
+              "place": 9,
+              "probability": 0
+            },
+            {
+              "place": 10,
+              "probability": 0
+            }
+          ],
+          "expectedPosition": 1
+        },
+        "pointsStatus": "awarded",
+        "effort": 87,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.387666666666667
+          },
+          {
+            "place": 2,
+            "probability": 0.333666666666667
+          },
+          {
+            "place": 3,
+            "probability": 0.189666666666667
+          },
+          {
+            "place": 4,
+            "probability": 0.0666666666666667
+          },
+          {
+            "place": 5,
+            "probability": 0.0176666666666667
+          },
+          {
+            "place": 6,
+            "probability": 0.004
+          },
+          {
+            "place": 7,
+            "probability": 0.000333333333333333
+          },
+          {
+            "place": 8,
+            "probability": 0.000333333333333333
+          },
+          {
+            "place": 9,
+            "probability": 0
+          },
+          {
+            "place": 10,
+            "probability": 0
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 1,
+          "high": 3
+        },
+        "expectedRank": 1,
+        "classement": {
+          "gc": {
+            "percentile": 89.1,
+            "previous": 88,
+            "score": 434.554983337635,
+            "floorScore": 433.351949645766,
+            "nextScore": 439.537954238846
+          },
+          "sprint": {
+            "percentile": 87.8,
+            "previous": 87.8,
+            "score": 190.740615880919,
+            "floorScore": 188.33537594588,
+            "nextScore": 191.216758820442
+          },
+          "climb": {
+            "percentile": 40.2,
+            "previous": 13.2,
+            "score": 61.0807192498119,
+            "floorScore": 60.9134413927336,
+            "nextScore": 61.5944479202467
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5588595",
+          "time": 1779471000,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Ladder",
+          "imageUrl": null,
+          "subgroupId": "SEE LADDER SITE",
+          "distance": 24.07,
+          "elevation": 123,
+          "numLaps": 6,
+          "routeName": "Neokyo Crit Course",
+          "scoringEnabled": true,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 2,
+          "penTotal": 10,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 2108.275,
+          "gap": 0,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": null,
+          "wkgAvg": 3.69426751592357,
+          "wkg5": 9.64331210191083,
+          "wkg15": 7.93630573248408,
+          "wkg30": 6.82802547770701,
+          "wkg60": 5.78343949044586,
+          "wkg120": 4.96815286624204,
+          "wkg300": 4.3312101910828,
+          "wkg1200": 3.79617834394904
+        },
+        "sensor": null,
+        "velo": {
+          "intensity": 89,
+          "seed": {
+            "before": 722.8191,
+            "after": 722.8191,
+            "eventRating": 728.174265714393,
+            "expectedPosition": 2.9733383434325,
+            "factors": {
+              "endurance": {
+                "before": 667,
+                "after": 667
+              },
+              "pursuit": {
+                "before": 755,
+                "after": 755
+              },
+              "sprint": {
+                "before": 705.25,
+                "after": 705.25
+              },
+              "punch": {
+                "before": 790.49,
+                "after": 790.49
+              },
+              "climb": {
+                "before": 726,
+                "after": 726
+              },
+              "timeTrial": {
+                "before": 697,
+                "after": 697
+              }
+            }
+          },
+          "elo": {
+            "before": 722.958834742591,
+            "after": 722.958834742591,
+            "eventRating": 728.557493790428,
+            "expectedPosition": 3.12366666666667,
+            "adjustedChange": 0,
+            "rawChange": 0,
+            "factors": {
+              "endurance": {
+                "before": 667,
+                "after": 667,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 755,
+                "after": 755,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 706.60664798632,
+                "after": 706.60664798632,
+                "skill": 1.35664798632021,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 790.49,
+                "after": 790.49,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 726,
+                "after": 726,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 697,
+                "after": 697,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 91.2921876706264,
+            "gc": 91.2921876706264,
+            "sprint": 44.1000816526913,
+            "climb": null,
+            "tt": null
+          }
+        },
+        "legacy": {
+          "rating": 1712.77719981346,
+          "ratingBefore": 1704.99882887273,
+          "ratingDelta": 7.77837094073214,
+          "eventRating": 1707.63133828211,
+          "places": [
+            {
+              "place": 1,
+              "probability": 0.240666666666667
+            },
+            {
+              "place": 2,
+              "probability": 0.247666666666667
+            },
+            {
+              "place": 3,
+              "probability": 0.179333333333333
+            },
+            {
+              "place": 4,
+              "probability": 0.151333333333333
+            },
+            {
+              "place": 5,
+              "probability": 0.0926666666666667
+            },
+            {
+              "place": 6,
+              "probability": 0.0476666666666667
+            },
+            {
+              "place": 7,
+              "probability": 0.028
+            },
+            {
+              "place": 8,
+              "probability": 0.009
+            },
+            {
+              "place": 9,
+              "probability": 0.00333333333333333
+            },
+            {
+              "place": 10,
+              "probability": 0.000333333333333333
+            }
+          ],
+          "expectedPosition": 1
+        },
+        "pointsStatus": "awarded",
+        "effort": 94,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.182
+          },
+          {
+            "place": 2,
+            "probability": 0.241333333333333
+          },
+          {
+            "place": 3,
+            "probability": 0.207666666666667
+          },
+          {
+            "place": 4,
+            "probability": 0.171666666666667
+          },
+          {
+            "place": 5,
+            "probability": 0.105
+          },
+          {
+            "place": 6,
+            "probability": 0.0573333333333333
+          },
+          {
+            "place": 7,
+            "probability": 0.023
+          },
+          {
+            "place": 8,
+            "probability": 0.011
+          },
+          {
+            "place": 9,
+            "probability": 0.001
+          },
+          {
+            "place": 10,
+            "probability": 0
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 2,
+          "high": 4
+        },
+        "expectedRank": 2,
+        "classement": {
+          "gc": {
+            "percentile": 91.4,
+            "previous": 89.4,
+            "score": 448.550190789781,
+            "floorScore": 445.508968383588,
+            "nextScore": 453.311033558154
+          },
+          "sprint": {
+            "percentile": 87.8,
+            "previous": 81.1,
+            "score": 190.740615880919,
+            "floorScore": 188.33537594588,
+            "nextScore": 191.216758820442
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5586452",
+          "time": 1779125400,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Ladder",
+          "imageUrl": "https://example.invalid/redacted",
+          "subgroupId": "SEE LADDER SITE",
+          "distance": 18.3189,
+          "elevation": 199,
+          "numLaps": 6,
+          "routeName": "Glasgow Crit Circuit",
+          "scoringEnabled": true,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 1,
+          "penTotal": 10,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 1589.598,
+          "gap": 0,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": null,
+          "wkgAvg": 3.92356687898089,
+          "wkg5": 9.75796178343949,
+          "wkg15": 7.92356687898089,
+          "wkg30": 7.17197452229299,
+          "wkg60": 6.6624203821656,
+          "wkg120": 5.56687898089172,
+          "wkg300": 4.84076433121019,
+          "wkg1200": 4.05095541401274
+        },
+        "sensor": null,
+        "velo": {
+          "intensity": 100,
+          "seed": {
+            "before": 658.282,
+            "after": 722.94785,
+            "eventRating": 663.318083135597,
+            "expectedPosition": 3.3536014133796,
+            "factors": {
+              "endurance": {
+                "before": 641,
+                "after": 667
+              },
+              "pursuit": {
+                "before": 602,
+                "after": 755
+              },
+              "sprint": {
+                "before": 706.5,
+                "after": 706.5
+              },
+              "punch": {
+                "before": 727.5,
+                "after": 790.49
+              },
+              "climb": {
+                "before": 639,
+                "after": 726
+              },
+              "timeTrial": {
+                "before": 678,
+                "after": 697
+              }
+            }
+          },
+          "elo": {
+            "before": 723.087584742591,
+            "after": 723.087584742591,
+            "eventRating": 732.785767909434,
+            "expectedPosition": 1.94466666666667,
+            "adjustedChange": 0,
+            "rawChange": 0,
+            "factors": {
+              "endurance": {
+                "before": 667,
+                "after": 667,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 755,
+                "after": 755,
+                "skill": 0,
+                "skillDelta": -1.33495859501428
+              },
+              "sprint": {
+                "before": 707.85664798632,
+                "after": 707.85664798632,
+                "skill": 1.35664798632021,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 790.49,
+                "after": 790.49,
+                "skill": 0,
+                "skillDelta": -0.354128678479128
+              },
+              "climb": {
+                "before": 726,
+                "after": 726,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 697,
+                "after": 697,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 83.1065365987882,
+            "gc": 83.1065365987882,
+            "sprint": 42.0827482638487,
+            "climb": null,
+            "tt": null
+          }
+        },
+        "legacy": {
+          "rating": 1704.99882887273,
+          "ratingBefore": 1698.39316734221,
+          "ratingDelta": 6.60566153051324,
+          "eventRating": 1678.86164591778,
+          "places": [
+            {
+              "place": 1,
+              "probability": 0.603666666666667
+            },
+            {
+              "place": 2,
+              "probability": 0.272
+            },
+            {
+              "place": 3,
+              "probability": 0.097
+            },
+            {
+              "place": 4,
+              "probability": 0.022
+            },
+            {
+              "place": 5,
+              "probability": 0.004
+            },
+            {
+              "place": 6,
+              "probability": 0.00133333333333333
+            },
+            {
+              "place": 7,
+              "probability": 0
+            },
+            {
+              "place": 8,
+              "probability": 0
+            },
+            {
+              "place": 9,
+              "probability": 0
+            },
+            {
+              "place": 10,
+              "probability": 0
+            }
+          ],
+          "expectedPosition": 1
+        },
+        "pointsStatus": "awarded",
+        "effort": 92,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.365333333333333
+          },
+          {
+            "place": 2,
+            "probability": 0.409666666666667
+          },
+          {
+            "place": 3,
+            "probability": 0.173
+          },
+          {
+            "place": 4,
+            "probability": 0.0446666666666667
+          },
+          {
+            "place": 5,
+            "probability": 0.00633333333333333
+          },
+          {
+            "place": 6,
+            "probability": 0.001
+          },
+          {
+            "place": 7,
+            "probability": 0
+          },
+          {
+            "place": 8,
+            "probability": 0
+          },
+          {
+            "place": 9,
+            "probability": 0
+          },
+          {
+            "place": 10,
+            "probability": 0
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 1,
+          "high": 2
+        },
+        "expectedRank": 2,
+        "classement": {
+          "gc": {
+            "percentile": 89.4,
+            "previous": 88.4,
+            "score": 435.765571509677,
+            "floorScore": 433.351949645766,
+            "nextScore": 439.537954238846
+          },
+          "sprint": {
+            "percentile": 81.1,
+            "previous": 50.9,
+            "score": 174.628187307513,
+            "floorScore": 174.391056438123,
+            "nextScore": 176.292618034657
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5575176",
+          "time": 1778261400,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Ladder",
+          "imageUrl": "https://example.invalid/redacted",
+          "subgroupId": "SEE LADDER SITE",
+          "distance": 18.3189,
+          "elevation": 199,
+          "numLaps": 6,
+          "routeName": "Glasgow Crit Circuit",
+          "scoringEnabled": true,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 1,
+          "penTotal": 10,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 1626.107,
+          "gap": 0,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": null,
+          "wkgAvg": 3.52866242038217,
+          "wkg5": 9.68152866242038,
+          "wkg15": 8.59872611464968,
+          "wkg30": 6.90445859872611,
+          "wkg60": 5.84713375796178,
+          "wkg120": 5.26114649681529,
+          "wkg300": 4.11464968152866,
+          "wkg1200": 3.51592356687898
+        },
+        "sensor": null,
+        "velo": {
+          "intensity": 94,
+          "seed": {
+            "before": 658.3735,
+            "after": 660.6439,
+            "eventRating": 664.67678928048,
+            "expectedPosition": 4.40948469084182,
+            "factors": {
+              "endurance": {
+                "before": 641,
+                "after": 641
+              },
+              "pursuit": {
+                "before": 602,
+                "after": 602
+              },
+              "sprint": {
+                "before": 711.25,
+                "after": 711.25
+              },
+              "punch": {
+                "before": 725.65,
+                "after": 736.21
+              },
+              "climb": {
+                "before": 639,
+                "after": 639
+              },
+              "timeTrial": {
+                "before": 678,
+                "after": 678
+              }
+            }
+          },
+          "elo": {
+            "before": 660.752533593955,
+            "after": 661.295285965498,
+            "eventRating": 666.606352321093,
+            "expectedPosition": 4.38633333333333,
+            "adjustedChange": 2.89014084507042,
+            "rawChange": 2.89014084507042,
+            "factors": {
+              "endurance": {
+                "before": 641,
+                "after": 641.37589250098,
+                "skill": 0.375892500979717,
+                "skillDelta": 0.375892500979717
+              },
+              "pursuit": {
+                "before": 602.358439548893,
+                "after": 603.404496152636,
+                "skill": 1.40449615263637,
+                "skillDelta": 1.04605660374372
+              },
+              "sprint": {
+                "before": 711.608695962879,
+                "after": 712.609385501182,
+                "skill": 1.35938550118223,
+                "skillDelta": 1.00068953830291
+              },
+              "punch": {
+                "before": 736.21,
+                "after": 736.668287258161,
+                "skill": 0.458287258161135,
+                "skillDelta": -0.851718141604124
+              },
+              "climb": {
+                "before": 639,
+                "after": 639,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 678,
+                "after": 678,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 86.4371047744144,
+            "gc": 86.4371047744144,
+            "sprint": 43.7692517309238,
+            "climb": null,
+            "tt": null
+          }
+        },
+        "legacy": {
+          "rating": 1649.19650911215,
+          "ratingBefore": 1639.7977789511,
+          "ratingDelta": 9.39873016105306,
+          "eventRating": 1635.62915584202,
+          "places": [
+            {
+              "place": 1,
+              "probability": 0.440666666666667
+            },
+            {
+              "place": 2,
+              "probability": 0.328666666666667
+            },
+            {
+              "place": 3,
+              "probability": 0.162333333333333
+            },
+            {
+              "place": 4,
+              "probability": 0.0506666666666667
+            },
+            {
+              "place": 5,
+              "probability": 0.0133333333333333
+            },
+            {
+              "place": 6,
+              "probability": 0.004
+            },
+            {
+              "place": 7,
+              "probability": 0.000333333333333333
+            },
+            {
+              "place": 8,
+              "probability": 0
+            },
+            {
+              "place": 9,
+              "probability": 0
+            },
+            {
+              "place": 10,
+              "probability": 0
+            }
+          ],
+          "expectedPosition": 1
+        },
+        "pointsStatus": "awarded",
+        "effort": 90,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.112
+          },
+          {
+            "place": 2,
+            "probability": 0.121666666666667
+          },
+          {
+            "place": 3,
+            "probability": 0.132666666666667
+          },
+          {
+            "place": 4,
+            "probability": 0.153666666666667
+          },
+          {
+            "place": 5,
+            "probability": 0.156333333333333
+          },
+          {
+            "place": 6,
+            "probability": 0.138666666666667
+          },
+          {
+            "place": 7,
+            "probability": 0.116333333333333
+          },
+          {
+            "place": 8,
+            "probability": 0.0623333333333333
+          },
+          {
+            "place": 9,
+            "probability": 0.006
+          },
+          {
+            "place": 10,
+            "probability": 0.000333333333333333
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 3,
+          "high": 6
+        },
+        "expectedRank": 4,
+        "classement": {
+          "gc": {
+            "percentile": 88.4,
+            "previous": 81.9,
+            "score": 429.760730669504,
+            "floorScore": 427.563168524829,
+            "nextScore": 433.351949645766
+          },
+          "sprint": {
+            "percentile": 51.8,
+            "previous": 14.3,
+            "score": 134.74131618887,
+            "floorScore": 133.684388312685,
+            "nextScore": 134.826566342303
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5571868",
+          "time": 1777915800,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Ladder",
+          "imageUrl": "https://example.invalid/redacted",
+          "subgroupId": "SEE LADDER SITE",
+          "distance": 25.02624,
+          "elevation": 289,
+          "numLaps": 2,
+          "routeName": "Loop de Loop",
+          "scoringEnabled": true,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 1,
+          "penTotal": 9,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 2303.447,
+          "gap": 0,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": null,
+          "wkgAvg": 3.68152866242038,
+          "wkg5": 7.27388535031847,
+          "wkg15": 6.50955414012739,
+          "wkg30": 6,
+          "wkg60": 5.31210191082803,
+          "wkg120": 5.09554140127389,
+          "wkg300": 4.20382165605096,
+          "wkg1200": 3.80891719745223
+        },
+        "sensor": null,
+        "velo": {
+          "intensity": 98,
+          "seed": {
+            "before": 645.12335,
+            "after": 659.58785,
+            "eventRating": 656.56700796877,
+            "expectedPosition": 2.42478600339595,
+            "factors": {
+              "endurance": {
+                "before": 640,
+                "after": 641
+              },
+              "pursuit": {
+                "before": 565,
+                "after": 602
+              },
+              "sprint": {
+                "before": 713.25,
+                "after": 713.25
+              },
+              "punch": {
+                "before": 720.44,
+                "after": 730.34
+              },
+              "climb": {
+                "before": 604,
+                "after": 639
+              },
+              "timeTrial": {
+                "before": 677,
+                "after": 678
+              }
+            }
+          },
+          "elo": {
+            "before": 659.58785,
+            "after": 661.456318085829,
+            "eventRating": 665.937398207149,
+            "expectedPosition": 2.234,
+            "adjustedChange": 7.20979591836735,
+            "rawChange": 7.20979591836735,
+            "factors": {
+              "endurance": {
+                "before": 641,
+                "after": 644.480668159768,
+                "skill": 3.48066815976756,
+                "skillDelta": 3.48066815976756
+              },
+              "pursuit": {
+                "before": 602,
+                "after": 602.540985498429,
+                "skill": 0.540985498429222,
+                "skillDelta": 0.540985498429222
+              },
+              "sprint": {
+                "before": 713.25,
+                "after": 713.973931634612,
+                "skill": 0.723931634611745,
+                "skillDelta": 0.723931634611745
+              },
+              "punch": {
+                "before": 730.34,
+                "after": 732.020713235141,
+                "skill": 1.68071323514084,
+                "skillDelta": 1.68071323514084
+              },
+              "climb": {
+                "before": 639,
+                "after": 639.783497390418,
+                "skill": 0.78349739041812,
+                "skillDelta": 0.78349739041812
+              },
+              "timeTrial": {
+                "before": 678,
+                "after": 678,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": {
+            "value": 88.264392535325,
+            "gc": 88.264392535325,
+            "sprint": 29.4383531926601,
+            "climb": 9.5918001010385,
+            "tt": null
+          }
+        },
+        "legacy": {
+          "rating": 1639.7977789511,
+          "ratingBefore": 1630.15173280796,
+          "ratingDelta": 9.64604614313965,
+          "eventRating": 1618.02482921792,
+          "places": [
+            {
+              "place": 1,
+              "probability": 0.38
+            },
+            {
+              "place": 2,
+              "probability": 0.436666666666667
+            },
+            {
+              "place": 3,
+              "probability": 0.14
+            },
+            {
+              "place": 4,
+              "probability": 0.037
+            },
+            {
+              "place": 5,
+              "probability": 0.006
+            },
+            {
+              "place": 6,
+              "probability": 0.000333333333333333
+            },
+            {
+              "place": 7,
+              "probability": 0
+            },
+            {
+              "place": 8,
+              "probability": 0
+            },
+            {
+              "place": 9,
+              "probability": 0
+            }
+          ],
+          "expectedPosition": 2
+        },
+        "pointsStatus": "awarded",
+        "effort": 92,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.194
+          },
+          {
+            "place": 2,
+            "probability": 0.507666666666667
+          },
+          {
+            "place": 3,
+            "probability": 0.206333333333333
+          },
+          {
+            "place": 4,
+            "probability": 0.0756666666666667
+          },
+          {
+            "place": 5,
+            "probability": 0.0126666666666667
+          },
+          {
+            "place": 6,
+            "probability": 0.003
+          },
+          {
+            "place": 7,
+            "probability": 0.000333333333333333
+          },
+          {
+            "place": 8,
+            "probability": 0.000333333333333333
+          },
+          {
+            "place": 9,
+            "probability": 0
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 2,
+          "high": 3
+        },
+        "expectedRank": 2,
+        "classement": {
+          "gc": {
+            "percentile": 84.2,
+            "previous": 74.7,
+            "score": 407.908189373145,
+            "floorScore": 406.875524154586,
+            "nextScore": 411.393681184997
+          },
+          "sprint": {
+            "percentile": 31.2,
+            "previous": 9.4,
+            "score": 112.623598010255,
+            "floorScore": 112.375309614239,
+            "nextScore": 113.440835558042
+          },
+          "climb": {
+            "percentile": 73.3,
+            "previous": 62.9,
+            "score": 87.0106645276975,
+            "floorScore": 86.7070785883398,
+            "nextScore": 87.7645882138056
+          }
+        }
+      },
+      {
+        "event": {
+          "eventId": "5563600",
+          "time": 1777521600,
+          "title": "Test Event",
+          "type": "Race",
+          "subType": "Team Time Trial",
+          "imageUrl": null,
+          "subgroupId": "D",
+          "distance": 26.6182,
+          "elevation": 232,
+          "numLaps": 3,
+          "routeName": "Innsbruckring",
+          "scoringEnabled": false,
+          "resultsFinalized": true
+        },
+        "place": {
+          "positionInCategory": 9,
+          "penTotal": 17,
+          "didNotFinish": false,
+          "disqualified": false
+        },
+        "race": {
+          "time": 2226.601,
+          "gap": 205.49,
+          "source": "Fit",
+          "weight": 70,
+          "height": 175,
+          "age": "Vet",
+          "distance": null,
+          "wkgAvg": 3.38853503184713,
+          "wkg5": 7.0828025477707,
+          "wkg15": 5.94904458598726,
+          "wkg30": 4.90445859872611,
+          "wkg60": 4.62420382165605,
+          "wkg120": 4.22929936305732,
+          "wkg300": 3.77070063694268,
+          "wkg1200": 3.49044585987261
+        },
+        "sensor": null,
+        "velo": {
+          "intensity": 85,
+          "seed": {
+            "before": 649.3313,
+            "after": 649.3313,
+            "eventRating": 666.828384992216,
+            "expectedPosition": 9.63240074017215,
+            "factors": {
+              "endurance": {
+                "before": 640,
+                "after": 640
+              },
+              "pursuit": {
+                "before": 573,
+                "after": 573
+              },
+              "sprint": {
+                "before": 716,
+                "after": 716
+              },
+              "punch": {
+                "before": 729.12,
+                "after": 729.12
+              },
+              "climb": {
+                "before": 607.5,
+                "after": 607.5
+              },
+              "timeTrial": {
+                "before": 677,
+                "after": 677
+              }
+            }
+          },
+          "elo": {
+            "before": 649.3313,
+            "after": 649.3313,
+            "eventRating": 666.828384992216,
+            "expectedPosition": null,
+            "adjustedChange": null,
+            "rawChange": null,
+            "factors": {
+              "endurance": {
+                "before": 640,
+                "after": 640,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "pursuit": {
+                "before": 573,
+                "after": 573,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "sprint": {
+                "before": 716,
+                "after": 716,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "punch": {
+                "before": 729.12,
+                "after": 729.12,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "climb": {
+                "before": 607.5,
+                "after": 607.5,
+                "skill": 0,
+                "skillDelta": 0
+              },
+              "timeTrial": {
+                "before": 677,
+                "after": 677,
+                "skill": 0,
+                "skillDelta": 0
+              }
+            }
+          },
+          "points": null
+        },
+        "legacy": {
+          "rating": 1630.15173280796,
+          "ratingBefore": 1630.15173280796,
+          "ratingDelta": null,
+          "eventRating": null
+        },
+        "pointsStatus": "notScored",
+        "effort": null,
+        "places": [
+          {
+            "place": 1,
+            "probability": 0.00433333333333333
+          },
+          {
+            "place": 2,
+            "probability": 0.00633333333333333
+          },
+          {
+            "place": 3,
+            "probability": 0.013
+          },
+          {
+            "place": 4,
+            "probability": 0.0156666666666667
+          },
+          {
+            "place": 5,
+            "probability": 0.0266666666666667
+          },
+          {
+            "place": 6,
+            "probability": 0.0353333333333333
+          },
+          {
+            "place": 7,
+            "probability": 0.0513333333333333
+          },
+          {
+            "place": 8,
+            "probability": 0.073
+          },
+          {
+            "place": 9,
+            "probability": 0.126
+          },
+          {
+            "place": 10,
+            "probability": 0.142
+          },
+          {
+            "place": 11,
+            "probability": 0.172666666666667
+          },
+          {
+            "place": 12,
+            "probability": 0.145666666666667
+          },
+          {
+            "place": 13,
+            "probability": 0.116333333333333
+          },
+          {
+            "place": 14,
+            "probability": 0.0583333333333333
+          },
+          {
+            "place": 15,
+            "probability": 0.012
+          },
+          {
+            "place": 16,
+            "probability": 0.00133333333333333
+          },
+          {
+            "place": 17,
+            "probability": 0
+          }
+        ],
+        "expectedPlaceRange": {
+          "low": 9,
+          "high": 12
+        }
+      }
+    ]
+  }
+}

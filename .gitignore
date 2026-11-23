@@ -6,3 +6,4 @@ docs/
 dev/output/
 *.Rcheck/
 zwiftverse_*.tar.gz
+dev/local.env

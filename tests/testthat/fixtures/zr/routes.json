@@ -1,0 +1,154 @@
+{
+  "routes": [
+    {
+      "_id": "61284748d4b60c00169f37d2",
+      "world": "Bologna",
+      "routeId": "2843604888",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "61284748d4b60c00169f37d4",
+      "world": "Crit City",
+      "routeId": "947394567",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "61284748d4b60c00169f37d3",
+      "world": "Crit City",
+      "routeId": "2875658892",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "67f72c2a2fe7c4b3af8de7e0",
+      "world": "France",
+      "routeId": "2143464829",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "61284748d4b60c00169f37d5",
+      "world": "France",
+      "routeId": "3919912289",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "6910b7165ea321b48cbc8965",
+      "routeId": "4149936043",
+      "world": "France",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "67f72c2a2fe7c4b3af8de7de",
+      "world": "France",
+      "routeId": "1600198346",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "61284748d4b60c00169f37d6",
+      "world": "France",
+      "routeId": "986252325",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "6484a50b2163900cf3c52272",
+      "world": "France",
+      "routeId": "2136907048",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "67f72c2a2fe7c4b3af8de7dd",
+      "world": "France",
+      "routeId": "1538375239",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "67f72c2a2fe7c4b3af8de7df",
+      "world": "France",
+      "routeId": "1793712753",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "67f72c2a2fe7c4b3af8de7e1",
+      "world": "France",
+      "routeId": "3974965857",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "61284748d4b60c00169f37d7",
+      "world": "France",
+      "routeId": "1433431343",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "67f72c2a2fe7c4b3af8de7dc",
+      "world": "France",
+      "routeId": "573843083",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "69322081d5f23da1452f36d5",
+      "routeId": "941280950",
+      "world": "France",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "61284748d4b60c00169f37d8",
+      "world": "France",
+      "routeId": "2852153296",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "673abf58994bb84b3510d7a8",
+      "world": "France",
+      "routeId": "4159356920",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "61284748d4b60c00169f37d9",
+      "world": "France",
+      "routeId": "1776635757",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "61284748d4b60c00169f37da",
+      "world": "France",
+      "routeId": "872351836",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "67f72c2a2fe7c4b3af8de7d9",
+      "world": "France",
+      "routeId": "136140280",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "67f72c2a2fe7c4b3af8de7da",
+      "world": "France",
+      "routeId": "319138658",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "61284748d4b60c00169f37db",
+      "world": "France",
+      "routeId": "2413440572",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "67f72c2a2fe7c4b3af8de7db",
+      "world": "France",
+      "routeId": "358794394",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "61284748d4b60c00169f37dc",
+      "world": "France",
+      "routeId": "2573468147",
+      "name": "Test Rider"
+    },
+    {
+      "_id": "663adc5856623f28fc7c17e5",
+      "world": "Gravel Mountain",
+      "routeId": "2956533021",
+      "name": "Test Rider"
+    }
+  ]
+}

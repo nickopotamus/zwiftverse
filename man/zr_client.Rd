@@ -7,8 +7,8 @@
 zr_client(auth = Sys.getenv("ZR_AUTH"), rate = 2)
 }
 \arguments{
-\item{auth}{Your ZwiftRacing.app API key (the raw \code{Authorization} header
-value). Defaults to the environment variable \code{ZR_AUTH}.}
+\item{auth}{Your ZwiftRacing.app API key, sent as the \code{x-api-key} header.
+Defaults to the environment variable \code{ZR_AUTH}.}
 
 \item{rate}{Throttle in requests per second (default 2; tune to your quota).}
 }

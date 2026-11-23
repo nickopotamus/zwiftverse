@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "data": {
+    "clubId": 9976,
+    "name": "Test Rider",
+    "backgroundColor": "0073b7",
+    "textColor": "ffffff",
+    "borderColor": "ff4500",
+    "riderCount": 443,
+    "rankedRiderCount": 39,
+    "bestGcPlace": {
+      "riderId": 1000009,
+      "name": "Test Rider",
+      "rank": 821,
+      "total": 18292
+    }
+  }
+}

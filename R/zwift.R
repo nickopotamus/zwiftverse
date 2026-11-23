@@ -73,6 +73,17 @@ zwift_auth <- function(username = Sys.getenv("ZWIFT_USERNAME"),
             class = "zwift_auth")
 }
 
+# Only /api/profiles/me accepts the "me" alias; sub-resources
+# (/activities, /followers, ...) need the numeric id. Resolve once per handle.
+.zwift_rid <- function(auth, rider_id) {
+  if (!identical(as.character(rider_id), "me")) return(rider_id)
+  st <- auth$.state
+  if (is.environment(st) && !is.null(st$me_id)) return(st$me_id)
+  id <- zwift_get(auth, "/api/profiles/me", parse = "json", ttl = 0)$id
+  if (is.environment(st)) st$me_id <- id
+  id
+}
+
 #' Low-level Zwift GET
 #'
 #' @param auth A [zwift_auth()] handle.
@@ -120,7 +131,7 @@ zwift_profile <- function(auth, rider_id = "me", ...)
 #' @param start,limit Paging offset and page size.
 #' @export
 zwift_activities <- function(auth, rider_id = "me", start = 0, limit = 20, ...)
-  zwift_get(auth, sprintf("/api/profiles/%s/activities/", rider_id),
+  zwift_get(auth, sprintf("/api/profiles/%s/activities/", .zwift_rid(auth, rider_id)),
             query = list(start = start, limit = limit), ...)
 
 #' @describeIn zwift_get A single activity by id.
@@ -132,19 +143,19 @@ zwift_activity <- function(auth, activity_id, ...)
 #' @describeIn zwift_get A rider's followers.
 #' @export
 zwift_followers <- function(auth, rider_id = "me", start = 0, limit = 200, ...)
-  zwift_get(auth, sprintf("/api/profiles/%s/followers", rider_id),
+  zwift_get(auth, sprintf("/api/profiles/%s/followers", .zwift_rid(auth, rider_id)),
             query = list(start = start, limit = limit), ...)
 
 #' @describeIn zwift_get A rider's followees.
 #' @export
 zwift_followees <- function(auth, rider_id = "me", start = 0, limit = 200, ...)
-  zwift_get(auth, sprintf("/api/profiles/%s/followees", rider_id),
+  zwift_get(auth, sprintf("/api/profiles/%s/followees", .zwift_rid(auth, rider_id)),
             query = list(start = start, limit = limit), ...)
 
 #' @describeIn zwift_get Ride Ons on an activity.
 #' @export
 zwift_rideons <- function(auth, rider_id, activity_id, ...)
-  zwift_get(auth, sprintf("/api/profiles/%s/activities/%s/rideon", rider_id, activity_id), ...)
+  zwift_get(auth, sprintf("/api/profiles/%s/activities/%s/rideon", .zwift_rid(auth, rider_id), activity_id), ...)
 
 #' @describeIn zwift_get Give a Ride On (POST). Returns the raw response.
 #' @export

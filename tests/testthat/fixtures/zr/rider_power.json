@@ -1,0 +1,1966 @@
+{
+  "success": true,
+  "data": {
+    "riderId": 1000001,
+    "source": "powerV2",
+    "curve": [
+      {
+        "id": "w5",
+        "label": "5s",
+        "durationSec": 5,
+        "live": {
+          "w": 934,
+          "wkg": 11.97,
+          "achievedAt": 1795030200,
+          "eventId": "5795672",
+          "title": "Test Event"
+        },
+        "d90": {
+          "w": 934,
+          "wkg": 11.97,
+          "achievedAt": 1795030200,
+          "eventId": "5795672",
+          "title": "Test Event"
+        }
+      },
+      {
+        "id": "w15",
+        "label": "15s",
+        "durationSec": 15,
+        "live": {
+          "w": 875,
+          "wkg": 11.22,
+          "achievedAt": 1795030200,
+          "eventId": "5795672",
+          "title": "Test Event"
+        },
+        "d90": {
+          "w": 875,
+          "wkg": 11.22,
+          "achievedAt": 1795030200,
+          "eventId": "5795672",
+          "title": "Test Event"
+        }
+      },
+      {
+        "id": "w30",
+        "label": "30s",
+        "durationSec": 30,
+        "live": {
+          "w": 679,
+          "wkg": 8.71,
+          "achievedAt": 1795030200,
+          "eventId": "5795672",
+          "title": "Test Event"
+        },
+        "d90": {
+          "w": 679,
+          "wkg": 8.71,
+          "achievedAt": 1795030200,
+          "eventId": "5795672",
+          "title": "Test Event"
+        }
+      },
+      {
+        "id": "w60",
+        "label": "1m",
+        "durationSec": 60,
+        "live": {
+          "w": 533,
+          "wkg": 6.83,
+          "achievedAt": 1795030200,
+          "eventId": "5795672",
+          "title": "Test Event"
+        },
+        "d90": {
+          "w": 533,
+          "wkg": 6.83,
+          "achievedAt": 1795030200,
+          "eventId": "5795672",
+          "title": "Test Event"
+        }
+      },
+      {
+        "id": "w120",
+        "label": "2m",
+        "durationSec": 120,
+        "live": {
+          "w": 439,
+          "wkg": 5.63,
+          "achievedAt": 1795030200,
+          "eventId": "5795672",
+          "title": "Test Event"
+        },
+        "d90": {
+          "w": 439,
+          "wkg": 5.63,
+          "achievedAt": 1795030200,
+          "eventId": "5795672",
+          "title": "Test Event"
+        }
+      },
+      {
+        "id": "w300",
+        "label": "5m",
+        "durationSec": 300,
+        "live": {
+          "w": 363.17,
+          "wkg": 4.66,
+          "achievedAt": 1793080800,
+          "eventId": "5673134",
+          "title": "Test Event"
+        },
+        "d90": {
+          "w": 365,
+          "wkg": 4.68,
+          "achievedAt": 1793080800,
+          "eventId": "5673134",
+          "title": "Test Event"
+        }
+      },
+      {
+        "id": "w1200",
+        "label": "20m",
+        "durationSec": 1200,
+        "live": {
+          "w": 305.47,
+          "wkg": 3.92,
+          "achievedAt": 1791568800,
+          "eventId": "5729167",
+          "title": "Test Event"
+        },
+        "d90": {
+          "w": 313,
+          "wkg": 4.01,
+          "achievedAt": 1791568800,
+          "eventId": "5729167",
+          "title": "Test Event"
+        }
+      }
+    ],
+    "efforts": [
+      {
+        "eventId": "5800908",
+        "title": "Test Event",
+        "achievedAt": 1795116600,
+        "slots": {
+          "w5": {
+            "w": 762,
+            "wkg": 9.77
+          },
+          "w15": {
+            "w": 631.733333333333,
+            "wkg": 8.1
+          },
+          "w30": {
+            "w": 562.933333333333,
+            "wkg": 7.22
+          },
+          "w60": {
+            "w": 461.616666666667,
+            "wkg": 5.92
+          },
+          "w120": {
+            "w": 393.841666666667,
+            "wkg": 5.05
+          },
+          "w300": {
+            "w": 342.64,
+            "wkg": 4.39
+          },
+          "w1200": {
+            "w": 304.650833333333,
+            "wkg": 3.91
+          }
+        }
+      },
+      {
+        "eventId": "5795672",
+        "title": "Test Event",
+        "achievedAt": 1795030200,
+        "slots": {
+          "w5": {
+            "w": 934,
+            "wkg": 11.97
+          },
+          "w15": {
+            "w": 875,
+            "wkg": 11.22
+          },
+          "w30": {
+            "w": 679,
+            "wkg": 8.71
+          },
+          "w60": {
+            "w": 533,
+            "wkg": 6.83
+          },
+          "w120": {
+            "w": 439,
+            "wkg": 5.63
+          },
+          "w300": {
+            "w": 346,
+            "wkg": 4.44
+          },
+          "w1200": {
+            "w": 297,
+            "wkg": 3.81
+          }
+        }
+      },
+      {
+        "eventId": "5786503",
+        "title": "Test Event",
+        "achievedAt": 1794337380,
+        "slots": {
+          "w5": {
+            "w": 711,
+            "wkg": 9.12
+          },
+          "w15": {
+            "w": 670,
+            "wkg": 8.59
+          },
+          "w30": {
+            "w": 595,
+            "wkg": 7.63
+          },
+          "w60": {
+            "w": 463,
+            "wkg": 5.94
+          },
+          "w120": {
+            "w": 427,
+            "wkg": 5.47
+          },
+          "w300": {
+            "w": 327,
+            "wkg": 4.19
+          },
+          "w1200": {
+            "w": 274,
+            "wkg": 3.51
+          }
+        }
+      },
+      {
+        "eventId": "5769142",
+        "title": "Test Event",
+        "achievedAt": 1793854800,
+        "slots": {
+          "w5": {
+            "w": 553,
+            "wkg": 7.09
+          },
+          "w15": {
+            "w": 422,
+            "wkg": 5.41
+          },
+          "w30": {
+            "w": 399,
+            "wkg": 5.12
+          },
+          "w60": {
+            "w": 384,
+            "wkg": 4.92
+          },
+          "w120": {
+            "w": 349,
+            "wkg": 4.47
+          },
+          "w300": {
+            "w": 322,
+            "wkg": 4.13
+          },
+          "w1200": {
+            "w": 293,
+            "wkg": 3.76
+          }
+        }
+      },
+      {
+        "eventId": "5757841",
+        "title": "Test Event",
+        "achievedAt": 1793251800,
+        "slots": {
+          "w5": {
+            "w": 811,
+            "wkg": 10.4
+          },
+          "w15": {
+            "w": 729,
+            "wkg": 9.35
+          },
+          "w30": {
+            "w": 511,
+            "wkg": 6.55
+          },
+          "w60": {
+            "w": 418,
+            "wkg": 5.36
+          },
+          "w120": {
+            "w": 371,
+            "wkg": 4.76
+          },
+          "w300": {
+            "w": 329,
+            "wkg": 4.22
+          },
+          "w1200": {
+            "w": 243,
+            "wkg": 3.12
+          }
+        }
+      }
+    ],
+    "durationBests": {
+      "w5": [
+        {
+          "w": 934,
+          "wkg": 11.97,
+          "decayedW": 934,
+          "decayedWkg": 11.97,
+          "achievedAt": 1795030200,
+          "eventId": "5795672",
+          "title": "Test Event"
+        },
+        {
+          "w": 883,
+          "wkg": 11.32,
+          "decayedW": 868.65,
+          "decayedWkg": 11.14,
+          "achievedAt": 1791262800,
+          "eventId": "5673130",
+          "title": "Test Event"
+        },
+        {
+          "w": 858,
+          "wkg": 11,
+          "decayedW": 855.61,
+          "decayedWkg": 10.97,
+          "achievedAt": 1793080800,
+          "eventId": "5673134",
+          "title": "Test Event"
+        },
+        {
+          "w": 854,
+          "wkg": 10.95,
+          "decayedW": 831.05,
+          "decayedWkg": 10.65,
+          "achievedAt": 1790272800,
+          "eventId": "5710477",
+          "title": "Test Event"
+        },
+        {
+          "w": 862,
+          "wkg": 10.98,
+          "decayedW": 820.38,
+          "decayedWkg": 10.45,
+          "achievedAt": 1788544800,
+          "eventId": "5688013",
+          "title": "Test Event"
+        },
+        {
+          "w": 811,
+          "wkg": 10.4,
+          "decayedW": 809.34,
+          "decayedWkg": 10.38,
+          "achievedAt": 1793251800,
+          "eventId": "5757841",
+          "title": "Test Event"
+        },
+        {
+          "w": 769,
+          "wkg": 9.86,
+          "decayedW": 765.66,
+          "decayedWkg": 9.82,
+          "achievedAt": 1792778400,
+          "eventId": "5749562",
+          "title": "Test Event"
+        },
+        {
+          "w": 850,
+          "wkg": 10.83,
+          "decayedW": 765,
+          "decayedWkg": 9.75,
+          "achievedAt": 1768111200,
+          "eventId": "5233718",
+          "title": "Test Event"
+        },
+        {
+          "w": 848,
+          "wkg": 10.8,
+          "decayedW": 763.2,
+          "decayedWkg": 9.72,
+          "achievedAt": 1768024800,
+          "eventId": "5233706",
+          "title": "Test Event"
+        },
+        {
+          "w": 762,
+          "wkg": 9.77,
+          "decayedW": 762,
+          "decayedWkg": 9.77,
+          "achievedAt": 1795116600,
+          "eventId": "5800908",
+          "title": "Test Event"
+        },
+        {
+          "w": 846,
+          "wkg": 10.78,
+          "decayedW": 761.4,
+          "decayedWkg": 9.7,
+          "achievedAt": 1767897000,
+          "eventId": "5233655",
+          "title": "Test Event"
+        },
+        {
+          "w": 763,
+          "wkg": 9.78,
+          "decayedW": 758.26,
+          "decayedWkg": 9.72,
+          "achievedAt": 1792472400,
+          "eventId": "5673132",
+          "title": "Test Event"
+        },
+        {
+          "w": 834,
+          "wkg": 10.62,
+          "decayedW": 750.6,
+          "decayedWkg": 9.56,
+          "achievedAt": 1773775800,
+          "eventId": "5508007",
+          "title": "Test Event"
+        },
+        {
+          "w": 827,
+          "wkg": 10.54,
+          "decayedW": 744.3,
+          "decayedWkg": 9.48,
+          "achievedAt": 1772566200,
+          "eventId": "5473555",
+          "title": "Test Event"
+        },
+        {
+          "w": 815,
+          "wkg": 10.38,
+          "decayedW": 733.5,
+          "decayedWkg": 9.34,
+          "achievedAt": 1767781800,
+          "eventId": "5233637",
+          "title": "Test Event"
+        },
+        {
+          "w": 809,
+          "wkg": 10.31,
+          "decayedW": 728.1,
+          "decayedWkg": 9.28,
+          "achievedAt": 1768935780,
+          "eventId": "5366854",
+          "title": "Test Event"
+        },
+        {
+          "w": 728,
+          "wkg": 9.33,
+          "decayedW": 718.27,
+          "decayedWkg": 9.21,
+          "achievedAt": 1791568800,
+          "eventId": "5729167",
+          "title": "Test Event"
+        },
+        {
+          "w": 711,
+          "wkg": 9.12,
+          "decayedW": 711,
+          "decayedWkg": 9.12,
+          "achievedAt": 1794337380,
+          "eventId": "5786503",
+          "title": "Test Event"
+        },
+        {
+          "w": 749,
+          "wkg": 9.54,
+          "decayedW": 704.53,
+          "decayedWkg": 8.97,
+          "achievedAt": 1787679000,
+          "eventId": "5682369",
+          "title": "Test Event"
+        },
+        {
+          "w": 778,
+          "wkg": 9.91,
+          "decayedW": 700.2,
+          "decayedWkg": 8.92,
+          "achievedAt": 1767506400,
+          "eventId": "5233612",
+          "title": "Test Event"
+        },
+        {
+          "w": 766,
+          "wkg": 9.76,
+          "decayedW": 689.4,
+          "decayedWkg": 8.78,
+          "achievedAt": 1779125400,
+          "eventId": "5586452",
+          "title": "Test Event"
+        },
+        {
+          "w": 763,
+          "wkg": 9.72,
+          "decayedW": 686.7,
+          "decayedWkg": 8.75,
+          "achievedAt": 1774380600,
+          "eventId": "5508038",
+          "title": "Test Event"
+        },
+        {
+          "w": 760,
+          "wkg": 9.68,
+          "decayedW": 684,
+          "decayedWkg": 8.71,
+          "achievedAt": 1778261400,
+          "eventId": "5575176",
+          "title": "Test Event"
+        },
+        {
+          "w": 757,
+          "wkg": 9.64,
+          "decayedW": 681.3,
+          "decayedWkg": 8.68,
+          "achievedAt": 1779471000,
+          "eventId": "5588595",
+          "title": "Test Event"
+        },
+        {
+          "w": 731,
+          "wkg": 9.31,
+          "decayedW": 678.34,
+          "decayedWkg": 8.64,
+          "achievedAt": 1786644000,
+          "eventId": "5667780",
+          "title": "Test Event"
+        }
+      ],
+      "w15": [
+        {
+          "w": 875,
+          "wkg": 11.22,
+          "decayedW": 875,
+          "decayedWkg": 11.22,
+          "achievedAt": 1795030200,
+          "eventId": "5795672",
+          "title": "Test Event"
+        },
+        {
+          "w": 815,
+          "wkg": 10.45,
+          "decayedW": 793.09,
+          "decayedWkg": 10.17,
+          "achievedAt": 1790272800,
+          "eventId": "5710477",
+          "title": "Test Event"
+        },
+        {
+          "w": 754,
+          "wkg": 9.67,
+          "decayedW": 751.9,
+          "decayedWkg": 9.64,
+          "achievedAt": 1793080800,
+          "eventId": "5673134",
+          "title": "Test Event"
+        },
+        {
+          "w": 746,
+          "wkg": 9.56,
+          "decayedW": 733.87,
+          "decayedWkg": 9.41,
+          "achievedAt": 1791262800,
+          "eventId": "5673130",
+          "title": "Test Event"
+        },
+        {
+          "w": 729,
+          "wkg": 9.35,
+          "decayedW": 727.51,
+          "decayedWkg": 9.33,
+          "achievedAt": 1793251800,
+          "eventId": "5757841",
+          "title": "Test Event"
+        },
+        {
+          "w": 790,
+          "wkg": 10.06,
+          "decayedW": 711,
+          "decayedWkg": 9.06,
+          "achievedAt": 1773775800,
+          "eventId": "5508007",
+          "title": "Test Event"
+        },
+        {
+          "w": 776,
+          "wkg": 9.89,
+          "decayedW": 698.4,
+          "decayedWkg": 8.9,
+          "achievedAt": 1768024800,
+          "eventId": "5233706",
+          "title": "Test Event"
+        },
+        {
+          "w": 771,
+          "wkg": 9.82,
+          "decayedW": 693.9,
+          "decayedWkg": 8.84,
+          "achievedAt": 1772566200,
+          "eventId": "5473555",
+          "title": "Test Event"
+        },
+        {
+          "w": 771,
+          "wkg": 9.82,
+          "decayedW": 693.9,
+          "decayedWkg": 8.84,
+          "achievedAt": 1767781800,
+          "eventId": "5233637",
+          "title": "Test Event"
+        },
+        {
+          "w": 765,
+          "wkg": 9.75,
+          "decayedW": 688.5,
+          "decayedWkg": 8.77,
+          "achievedAt": 1767897000,
+          "eventId": "5233655",
+          "title": "Test Event"
+        },
+        {
+          "w": 687,
+          "wkg": 8.81,
+          "decayedW": 684.02,
+          "decayedWkg": 8.77,
+          "achievedAt": 1792778400,
+          "eventId": "5749562",
+          "title": "Test Event"
+        },
+        {
+          "w": 758,
+          "wkg": 9.66,
+          "decayedW": 682.2,
+          "decayedWkg": 8.69,
+          "achievedAt": 1768111200,
+          "eventId": "5233718",
+          "title": "Test Event"
+        },
+        {
+          "w": 754,
+          "wkg": 9.61,
+          "decayedW": 678.6,
+          "decayedWkg": 8.64,
+          "achievedAt": 1767506400,
+          "eventId": "5233612",
+          "title": "Test Event"
+        },
+        {
+          "w": 670,
+          "wkg": 8.59,
+          "decayedW": 670,
+          "decayedWkg": 8.59,
+          "achievedAt": 1794337380,
+          "eventId": "5786503",
+          "title": "Test Event"
+        },
+        {
+          "w": 689,
+          "wkg": 8.78,
+          "decayedW": 639.37,
+          "decayedWkg": 8.14,
+          "achievedAt": 1786644000,
+          "eventId": "5667780",
+          "title": "Test Event"
+        },
+        {
+          "w": 631.733333333333,
+          "wkg": 8.1,
+          "decayedW": 631.73,
+          "decayedWkg": 8.1,
+          "achievedAt": 1795116600,
+          "eventId": "5800908",
+          "title": "Test Event"
+        },
+        {
+          "w": 701,
+          "wkg": 8.93,
+          "decayedW": 630.9,
+          "decayedWkg": 8.04,
+          "achievedAt": 1774380600,
+          "eventId": "5508038",
+          "title": "Test Event"
+        },
+        {
+          "w": 635,
+          "wkg": 8.14,
+          "decayedW": 626.51,
+          "decayedWkg": 8.03,
+          "achievedAt": 1791568800,
+          "eventId": "5729167",
+          "title": "Test Event"
+        },
+        {
+          "w": 684,
+          "wkg": 8.71,
+          "decayedW": 615.6,
+          "decayedWkg": 7.84,
+          "achievedAt": 1768935780,
+          "eventId": "5366854",
+          "title": "Test Event"
+        },
+        {
+          "w": 649,
+          "wkg": 8.27,
+          "decayedW": 610.47,
+          "decayedWkg": 7.78,
+          "achievedAt": 1787679000,
+          "eventId": "5682369",
+          "title": "Test Event"
+        },
+        {
+          "w": 678,
+          "wkg": 8.64,
+          "decayedW": 610.2,
+          "decayedWkg": 7.77,
+          "achievedAt": 1776916800,
+          "eventId": "5555845",
+          "title": "Test Event"
+        },
+        {
+          "w": 675,
+          "wkg": 8.6,
+          "decayedW": 607.5,
+          "decayedWkg": 7.74,
+          "achievedAt": 1778261400,
+          "eventId": "5575176",
+          "title": "Test Event"
+        },
+        {
+          "w": 602,
+          "wkg": 7.72,
+          "decayedW": 598.26,
+          "decayedWkg": 7.67,
+          "achievedAt": 1792472400,
+          "eventId": "5673132",
+          "title": "Test Event"
+        },
+        {
+          "w": 623,
+          "wkg": 7.94,
+          "decayedW": 592.92,
+          "decayedWkg": 7.55,
+          "achievedAt": 1788544800,
+          "eventId": "5688013",
+          "title": "Test Event"
+        },
+        {
+          "w": 647,
+          "wkg": 8.24,
+          "decayedW": 582.3,
+          "decayedWkg": 7.42,
+          "achievedAt": 1768330980,
+          "eventId": "5348740",
+          "title": "Test Event"
+        }
+      ],
+      "w30": [
+        {
+          "w": 679,
+          "wkg": 8.71,
+          "decayedW": 679,
+          "decayedWkg": 8.71,
+          "achievedAt": 1795030200,
+          "eventId": "5795672",
+          "title": "Test Event"
+        },
+        {
+          "w": 731,
+          "wkg": 9.31,
+          "decayedW": 657.9,
+          "decayedWkg": 8.38,
+          "achievedAt": 1768111200,
+          "eventId": "5233718",
+          "title": "Test Event"
+        },
+        {
+          "w": 719,
+          "wkg": 9.16,
+          "decayedW": 647.1,
+          "decayedWkg": 8.24,
+          "achievedAt": 1768024800,
+          "eventId": "5233706",
+          "title": "Test Event"
+        },
+        {
+          "w": 706,
+          "wkg": 8.99,
+          "decayedW": 635.4,
+          "decayedWkg": 8.09,
+          "achievedAt": 1767897000,
+          "eventId": "5233655",
+          "title": "Test Event"
+        },
+        {
+          "w": 699,
+          "wkg": 8.9,
+          "decayedW": 629.1,
+          "decayedWkg": 8.01,
+          "achievedAt": 1767506400,
+          "eventId": "5233612",
+          "title": "Test Event"
+        },
+        {
+          "w": 639,
+          "wkg": 8.19,
+          "decayedW": 628.61,
+          "decayedWkg": 8.06,
+          "achievedAt": 1791262800,
+          "eventId": "5673130",
+          "title": "Test Event"
+        },
+        {
+          "w": 611,
+          "wkg": 7.83,
+          "decayedW": 609.3,
+          "decayedWkg": 7.81,
+          "achievedAt": 1793080800,
+          "eventId": "5673134",
+          "title": "Test Event"
+        },
+        {
+          "w": 672,
+          "wkg": 8.56,
+          "decayedW": 604.8,
+          "decayedWkg": 7.7,
+          "achievedAt": 1772566200,
+          "eventId": "5473555",
+          "title": "Test Event"
+        },
+        {
+          "w": 595,
+          "wkg": 7.63,
+          "decayedW": 595,
+          "decayedWkg": 7.63,
+          "achievedAt": 1794337380,
+          "eventId": "5786503",
+          "title": "Test Event"
+        },
+        {
+          "w": 650,
+          "wkg": 8.28,
+          "decayedW": 585,
+          "decayedWkg": 7.45,
+          "achievedAt": 1773775800,
+          "eventId": "5508007",
+          "title": "Test Event"
+        },
+        {
+          "w": 580,
+          "wkg": 7.44,
+          "decayedW": 577.48,
+          "decayedWkg": 7.4,
+          "achievedAt": 1792778400,
+          "eventId": "5749562",
+          "title": "Test Event"
+        },
+        {
+          "w": 582,
+          "wkg": 7.46,
+          "decayedW": 566.36,
+          "decayedWkg": 7.26,
+          "achievedAt": 1790272800,
+          "eventId": "5710477",
+          "title": "Test Event"
+        },
+        {
+          "w": 562.933333333333,
+          "wkg": 7.22,
+          "decayedW": 562.93,
+          "decayedWkg": 7.22,
+          "achievedAt": 1795116600,
+          "eventId": "5800908",
+          "title": "Test Event"
+        },
+        {
+          "w": 584,
+          "wkg": 7.44,
+          "decayedW": 555.8,
+          "decayedWkg": 7.08,
+          "achievedAt": 1788544800,
+          "eventId": "5688013",
+          "title": "Test Event"
+        },
+        {
+          "w": 551,
+          "wkg": 7.06,
+          "decayedW": 547.57,
+          "decayedWkg": 7.02,
+          "achievedAt": 1792472400,
+          "eventId": "5673132",
+          "title": "Test Event"
+        },
+        {
+          "w": 591,
+          "wkg": 7.53,
+          "decayedW": 531.9,
+          "decayedWkg": 6.78,
+          "achievedAt": 1768935780,
+          "eventId": "5366854",
+          "title": "Test Event"
+        },
+        {
+          "w": 557,
+          "wkg": 7.1,
+          "decayedW": 516.88,
+          "decayedWkg": 6.58,
+          "achievedAt": 1786644000,
+          "eventId": "5667780",
+          "title": "Test Event"
+        },
+        {
+          "w": 544,
+          "wkg": 6.93,
+          "decayedW": 511.7,
+          "decayedWkg": 6.52,
+          "achievedAt": 1787679000,
+          "eventId": "5682369",
+          "title": "Test Event"
+        },
+        {
+          "w": 568,
+          "wkg": 7.24,
+          "decayedW": 511.2,
+          "decayedWkg": 6.51,
+          "achievedAt": 1768330980,
+          "eventId": "5348740",
+          "title": "Test Event"
+        },
+        {
+          "w": 511,
+          "wkg": 6.55,
+          "decayedW": 509.95,
+          "decayedWkg": 6.54,
+          "achievedAt": 1793251800,
+          "eventId": "5757841",
+          "title": "Test Event"
+        },
+        {
+          "w": 565,
+          "wkg": 7.2,
+          "decayedW": 508.5,
+          "decayedWkg": 6.48,
+          "achievedAt": 1770750180,
+          "eventId": "5427707",
+          "title": "Test Event"
+        },
+        {
+          "w": 563,
+          "wkg": 7.17,
+          "decayedW": 506.7,
+          "decayedWkg": 6.45,
+          "achievedAt": 1779125400,
+          "eventId": "5586452",
+          "title": "Test Event"
+        },
+        {
+          "w": 542,
+          "wkg": 6.9,
+          "decayedW": 487.8,
+          "decayedWkg": 6.21,
+          "achievedAt": 1778261400,
+          "eventId": "5575176",
+          "title": "Test Event"
+        },
+        {
+          "w": 539,
+          "wkg": 6.87,
+          "decayedW": 485.1,
+          "decayedWkg": 6.18,
+          "achievedAt": 1767781800,
+          "eventId": "5233637",
+          "title": "Test Event"
+        },
+        {
+          "w": 536,
+          "wkg": 6.83,
+          "decayedW": 482.4,
+          "decayedWkg": 6.15,
+          "achievedAt": 1779471000,
+          "eventId": "5588595",
+          "title": "Test Event"
+        }
+      ],
+      "w60": [
+        {
+          "w": 533,
+          "wkg": 6.83,
+          "decayedW": 533,
+          "decayedWkg": 6.83,
+          "achievedAt": 1795030200,
+          "eventId": "5795672",
+          "title": "Test Event"
+        },
+        {
+          "w": 526,
+          "wkg": 6.74,
+          "decayedW": 522.81,
+          "decayedWkg": 6.7,
+          "achievedAt": 1792778400,
+          "eventId": "5749562",
+          "title": "Test Event"
+        },
+        {
+          "w": 553,
+          "wkg": 7.04,
+          "decayedW": 475.58,
+          "decayedWkg": 6.06,
+          "achievedAt": 1773775800,
+          "eventId": "5508007",
+          "title": "Test Event"
+        },
+        {
+          "w": 507,
+          "wkg": 6.46,
+          "decayedW": 472.72,
+          "decayedWkg": 6.02,
+          "achievedAt": 1788544800,
+          "eventId": "5688013",
+          "title": "Test Event"
+        },
+        {
+          "w": 470,
+          "wkg": 6.03,
+          "decayedW": 465.91,
+          "decayedWkg": 5.97,
+          "achievedAt": 1792472400,
+          "eventId": "5673132",
+          "title": "Test Event"
+        },
+        {
+          "w": 463,
+          "wkg": 5.94,
+          "decayedW": 463,
+          "decayedWkg": 5.94,
+          "achievedAt": 1794337380,
+          "eventId": "5786503",
+          "title": "Test Event"
+        },
+        {
+          "w": 461.616666666667,
+          "wkg": 5.92,
+          "decayedW": 461.62,
+          "decayedWkg": 5.92,
+          "achievedAt": 1795116600,
+          "eventId": "5800908",
+          "title": "Test Event"
+        },
+        {
+          "w": 478,
+          "wkg": 6.13,
+          "decayedW": 460.01,
+          "decayedWkg": 5.9,
+          "achievedAt": 1790272800,
+          "eventId": "5710477",
+          "title": "Test Event"
+        },
+        {
+          "w": 470,
+          "wkg": 6.03,
+          "decayedW": 459.3,
+          "decayedWkg": 5.89,
+          "achievedAt": 1791262800,
+          "eventId": "5673130",
+          "title": "Test Event"
+        },
+        {
+          "w": 523,
+          "wkg": 6.66,
+          "decayedW": 449.78,
+          "decayedWkg": 5.73,
+          "achievedAt": 1779125400,
+          "eventId": "5586452",
+          "title": "Test Event"
+        },
+        {
+          "w": 444,
+          "wkg": 5.69,
+          "decayedW": 442.27,
+          "decayedWkg": 5.67,
+          "achievedAt": 1793080800,
+          "eventId": "5673134",
+          "title": "Test Event"
+        },
+        {
+          "w": 509,
+          "wkg": 6.48,
+          "decayedW": 437.74,
+          "decayedWkg": 5.58,
+          "achievedAt": 1768111200,
+          "eventId": "5233718",
+          "title": "Test Event"
+        },
+        {
+          "w": 495,
+          "wkg": 6.31,
+          "decayedW": 428.4,
+          "decayedWkg": 5.46,
+          "achievedAt": 1783965600,
+          "eventId": "5638930",
+          "title": "Test Event"
+        },
+        {
+          "w": 466,
+          "wkg": 5.94,
+          "decayedW": 427.26,
+          "decayedWkg": 5.44,
+          "achievedAt": 1787679000,
+          "eventId": "5682369",
+          "title": "Test Event"
+        },
+        {
+          "w": 430,
+          "wkg": 5.51,
+          "decayedW": 421.95,
+          "decayedWkg": 5.41,
+          "achievedAt": 1791568800,
+          "eventId": "5729167",
+          "title": "Test Event"
+        },
+        {
+          "w": 486,
+          "wkg": 6.19,
+          "decayedW": 417.96,
+          "decayedWkg": 5.32,
+          "achievedAt": 1772566200,
+          "eventId": "5473555",
+          "title": "Test Event"
+        },
+        {
+          "w": 486,
+          "wkg": 6.19,
+          "decayedW": 417.96,
+          "decayedWkg": 5.32,
+          "achievedAt": 1768330980,
+          "eventId": "5348740",
+          "title": "Test Event"
+        },
+        {
+          "w": 418,
+          "wkg": 5.36,
+          "decayedW": 416.8,
+          "decayedWkg": 5.34,
+          "achievedAt": 1793251800,
+          "eventId": "5757841",
+          "title": "Test Event"
+        },
+        {
+          "w": 459,
+          "wkg": 5.85,
+          "decayedW": 394.74,
+          "decayedWkg": 5.03,
+          "achievedAt": 1778261400,
+          "eventId": "5575176",
+          "title": "Test Event"
+        },
+        {
+          "w": 459,
+          "wkg": 5.85,
+          "decayedW": 394.74,
+          "decayedWkg": 5.03,
+          "achievedAt": 1767897000,
+          "eventId": "5233655",
+          "title": "Test Event"
+        },
+        {
+          "w": 454,
+          "wkg": 5.78,
+          "decayedW": 390.44,
+          "decayedWkg": 4.97,
+          "achievedAt": 1779471000,
+          "eventId": "5588595",
+          "title": "Test Event"
+        },
+        {
+          "w": 434,
+          "wkg": 5.53,
+          "decayedW": 390.23,
+          "decayedWkg": 4.97,
+          "achievedAt": 1786644000,
+          "eventId": "5667780",
+          "title": "Test Event"
+        },
+        {
+          "w": 452,
+          "wkg": 5.76,
+          "decayedW": 388.72,
+          "decayedWkg": 4.95,
+          "achievedAt": 1768024800,
+          "eventId": "5233706",
+          "title": "Test Event"
+        },
+        {
+          "w": 452,
+          "wkg": 5.76,
+          "decayedW": 388.72,
+          "decayedWkg": 4.95,
+          "achievedAt": 1767506400,
+          "eventId": "5233612",
+          "title": "Test Event"
+        },
+        {
+          "w": 384,
+          "wkg": 4.92,
+          "decayedW": 383.82,
+          "decayedWkg": 4.92,
+          "achievedAt": 1793854800,
+          "eventId": "5769142",
+          "title": "Test Event"
+        }
+      ],
+      "w120": [
+        {
+          "w": 439,
+          "wkg": 5.63,
+          "decayedW": 439,
+          "decayedWkg": 5.63,
+          "achievedAt": 1795030200,
+          "eventId": "5795672",
+          "title": "Test Event"
+        },
+        {
+          "w": 431,
+          "wkg": 5.53,
+          "decayedW": 429.32,
+          "decayedWkg": 5.5,
+          "achievedAt": 1793080800,
+          "eventId": "5673134",
+          "title": "Test Event"
+        },
+        {
+          "w": 427,
+          "wkg": 5.47,
+          "decayedW": 427,
+          "decayedWkg": 5.47,
+          "achievedAt": 1794337380,
+          "eventId": "5786503",
+          "title": "Test Event"
+        },
+        {
+          "w": 437,
+          "wkg": 5.6,
+          "decayedW": 420.56,
+          "decayedWkg": 5.39,
+          "achievedAt": 1790272800,
+          "eventId": "5710477",
+          "title": "Test Event"
+        },
+        {
+          "w": 421,
+          "wkg": 5.4,
+          "decayedW": 417.34,
+          "decayedWkg": 5.35,
+          "achievedAt": 1792472400,
+          "eventId": "5673132",
+          "title": "Test Event"
+        },
+        {
+          "w": 409,
+          "wkg": 5.24,
+          "decayedW": 399.69,
+          "decayedWkg": 5.12,
+          "achievedAt": 1791262800,
+          "eventId": "5673130",
+          "title": "Test Event"
+        },
+        {
+          "w": 393.841666666667,
+          "wkg": 5.05,
+          "decayedW": 393.84,
+          "decayedWkg": 5.05,
+          "achievedAt": 1795116600,
+          "eventId": "5800908",
+          "title": "Test Event"
+        },
+        {
+          "w": 422,
+          "wkg": 5.38,
+          "decayedW": 393.47,
+          "decayedWkg": 5.01,
+          "achievedAt": 1788544800,
+          "eventId": "5688013",
+          "title": "Test Event"
+        },
+        {
+          "w": 391,
+          "wkg": 5.01,
+          "decayedW": 388.63,
+          "decayedWkg": 4.98,
+          "achievedAt": 1792778400,
+          "eventId": "5749562",
+          "title": "Test Event"
+        },
+        {
+          "w": 395,
+          "wkg": 5.06,
+          "decayedW": 387.61,
+          "decayedWkg": 4.97,
+          "achievedAt": 1791568800,
+          "eventId": "5729167",
+          "title": "Test Event"
+        },
+        {
+          "w": 437,
+          "wkg": 5.57,
+          "decayedW": 375.82,
+          "decayedWkg": 4.79,
+          "achievedAt": 1779125400,
+          "eventId": "5586452",
+          "title": "Test Event"
+        },
+        {
+          "w": 434,
+          "wkg": 5.53,
+          "decayedW": 373.24,
+          "decayedWkg": 4.75,
+          "achievedAt": 1772566200,
+          "eventId": "5473555",
+          "title": "Test Event"
+        },
+        {
+          "w": 406,
+          "wkg": 5.17,
+          "decayedW": 372.25,
+          "decayedWkg": 4.74,
+          "achievedAt": 1787679000,
+          "eventId": "5682369",
+          "title": "Test Event"
+        },
+        {
+          "w": 371,
+          "wkg": 4.76,
+          "decayedW": 369.94,
+          "decayedWkg": 4.74,
+          "achievedAt": 1793251800,
+          "eventId": "5757841",
+          "title": "Test Event"
+        },
+        {
+          "w": 420,
+          "wkg": 5.35,
+          "decayedW": 363.49,
+          "decayedWkg": 4.63,
+          "achievedAt": 1783965600,
+          "eventId": "5638930",
+          "title": "Test Event"
+        },
+        {
+          "w": 417,
+          "wkg": 5.31,
+          "decayedW": 358.62,
+          "decayedWkg": 4.57,
+          "achievedAt": 1773775800,
+          "eventId": "5508007",
+          "title": "Test Event"
+        },
+        {
+          "w": 413,
+          "wkg": 5.26,
+          "decayedW": 355.18,
+          "decayedWkg": 4.52,
+          "achievedAt": 1778261400,
+          "eventId": "5575176",
+          "title": "Test Event"
+        },
+        {
+          "w": 349,
+          "wkg": 4.47,
+          "decayedW": 348.84,
+          "decayedWkg": 4.47,
+          "achievedAt": 1793854800,
+          "eventId": "5769142",
+          "title": "Test Event"
+        },
+        {
+          "w": 401,
+          "wkg": 5.11,
+          "decayedW": 344.86,
+          "decayedWkg": 4.39,
+          "achievedAt": 1767781800,
+          "eventId": "5233637",
+          "title": "Test Event"
+        },
+        {
+          "w": 400,
+          "wkg": 5.1,
+          "decayedW": 344,
+          "decayedWkg": 4.38,
+          "achievedAt": 1777915800,
+          "eventId": "5571868",
+          "title": "Test Event"
+        },
+        {
+          "w": 390,
+          "wkg": 4.97,
+          "decayedW": 335.4,
+          "decayedWkg": 4.27,
+          "achievedAt": 1779471000,
+          "eventId": "5588595",
+          "title": "Test Event"
+        },
+        {
+          "w": 389,
+          "wkg": 4.96,
+          "decayedW": 334.54,
+          "decayedWkg": 4.26,
+          "achievedAt": 1768330980,
+          "eventId": "5348740",
+          "title": "Test Event"
+        },
+        {
+          "w": 382,
+          "wkg": 4.87,
+          "decayedW": 328.52,
+          "decayedWkg": 4.18,
+          "achievedAt": 1780939800,
+          "eventId": "5610124",
+          "title": "Test Event"
+        },
+        {
+          "w": 363,
+          "wkg": 4.62,
+          "decayedW": 326.39,
+          "decayedWkg": 4.16,
+          "achievedAt": 1786644000,
+          "eventId": "5667780",
+          "title": "Test Event"
+        },
+        {
+          "w": 377,
+          "wkg": 4.8,
+          "decayedW": 324.22,
+          "decayedWkg": 4.13,
+          "achievedAt": 1767897000,
+          "eventId": "5233655",
+          "title": "Test Event"
+        }
+      ],
+      "w300": [
+        {
+          "w": 365,
+          "wkg": 4.68,
+          "decayedW": 363.17,
+          "decayedWkg": 4.66,
+          "achievedAt": 1793080800,
+          "eventId": "5673134",
+          "title": "Test Event"
+        },
+        {
+          "w": 357,
+          "wkg": 4.58,
+          "decayedW": 348.41,
+          "decayedWkg": 4.47,
+          "achievedAt": 1791568800,
+          "eventId": "5729167",
+          "title": "Test Event"
+        },
+        {
+          "w": 350,
+          "wkg": 4.49,
+          "decayedW": 347.27,
+          "decayedWkg": 4.45,
+          "achievedAt": 1792778400,
+          "eventId": "5749562",
+          "title": "Test Event"
+        },
+        {
+          "w": 346,
+          "wkg": 4.44,
+          "decayedW": 346,
+          "decayedWkg": 4.44,
+          "achievedAt": 1795030200,
+          "eventId": "5795672",
+          "title": "Test Event"
+        },
+        {
+          "w": 349,
+          "wkg": 4.47,
+          "decayedW": 345.09,
+          "decayedWkg": 4.42,
+          "achievedAt": 1792472400,
+          "eventId": "5673132",
+          "title": "Test Event"
+        },
+        {
+          "w": 342.64,
+          "wkg": 4.39,
+          "decayedW": 342.64,
+          "decayedWkg": 4.39,
+          "achievedAt": 1795116600,
+          "eventId": "5800908",
+          "title": "Test Event"
+        },
+        {
+          "w": 352,
+          "wkg": 4.51,
+          "decayedW": 334.97,
+          "decayedWkg": 4.29,
+          "achievedAt": 1790272800,
+          "eventId": "5710477",
+          "title": "Test Event"
+        },
+        {
+          "w": 329,
+          "wkg": 4.22,
+          "decayedW": 327.79,
+          "decayedWkg": 4.2,
+          "achievedAt": 1793251800,
+          "eventId": "5757841",
+          "title": "Test Event"
+        },
+        {
+          "w": 327,
+          "wkg": 4.19,
+          "decayedW": 327,
+          "decayedWkg": 4.19,
+          "achievedAt": 1794337380,
+          "eventId": "5786503",
+          "title": "Test Event"
+        },
+        {
+          "w": 356,
+          "wkg": 4.54,
+          "decayedW": 325.06,
+          "decayedWkg": 4.14,
+          "achievedAt": 1788544800,
+          "eventId": "5688013",
+          "title": "Test Event"
+        },
+        {
+          "w": 322,
+          "wkg": 4.13,
+          "decayedW": 321.81,
+          "decayedWkg": 4.13,
+          "achievedAt": 1793854800,
+          "eventId": "5769142",
+          "title": "Test Event"
+        },
+        {
+          "w": 321,
+          "wkg": 4.12,
+          "decayedW": 311.61,
+          "decayedWkg": 4,
+          "achievedAt": 1791262800,
+          "eventId": "5673130",
+          "title": "Test Event"
+        },
+        {
+          "w": 380,
+          "wkg": 4.84,
+          "decayedW": 311.6,
+          "decayedWkg": 3.97,
+          "achievedAt": 1779125400,
+          "eventId": "5586452",
+          "title": "Test Event"
+        },
+        {
+          "w": 360,
+          "wkg": 4.59,
+          "decayedW": 297.73,
+          "decayedWkg": 3.79,
+          "achievedAt": 1783965600,
+          "eventId": "5638930",
+          "title": "Test Event"
+        },
+        {
+          "w": 359,
+          "wkg": 4.57,
+          "decayedW": 294.38,
+          "decayedWkg": 3.75,
+          "achievedAt": 1773775800,
+          "eventId": "5508007",
+          "title": "Test Event"
+        },
+        {
+          "w": 329,
+          "wkg": 4.19,
+          "decayedW": 293.84,
+          "decayedWkg": 3.74,
+          "achievedAt": 1787679000,
+          "eventId": "5682369",
+          "title": "Test Event"
+        },
+        {
+          "w": 349,
+          "wkg": 4.45,
+          "decayedW": 286.18,
+          "decayedWkg": 3.65,
+          "achievedAt": 1780939800,
+          "eventId": "5610124",
+          "title": "Test Event"
+        },
+        {
+          "w": 349,
+          "wkg": 4.45,
+          "decayedW": 286.18,
+          "decayedWkg": 3.65,
+          "achievedAt": 1767420000,
+          "eventId": "5233599",
+          "title": "Test Event"
+        },
+        {
+          "w": 348,
+          "wkg": 4.43,
+          "decayedW": 285.36,
+          "decayedWkg": 3.64,
+          "achievedAt": 1770318000,
+          "eventId": "5412003",
+          "title": "Test Event"
+        },
+        {
+          "w": 346,
+          "wkg": 4.41,
+          "decayedW": 283.72,
+          "decayedWkg": 3.61,
+          "achievedAt": 1768935780,
+          "eventId": "5366854",
+          "title": "Test Event"
+        },
+        {
+          "w": 342,
+          "wkg": 4.36,
+          "decayedW": 280.44,
+          "decayedWkg": 3.57,
+          "achievedAt": 1772566200,
+          "eventId": "5473555",
+          "title": "Test Event"
+        },
+        {
+          "w": 340,
+          "wkg": 4.33,
+          "decayedW": 278.8,
+          "decayedWkg": 3.55,
+          "achievedAt": 1779471000,
+          "eventId": "5588595",
+          "title": "Test Event"
+        },
+        {
+          "w": 337,
+          "wkg": 4.29,
+          "decayedW": 276.34,
+          "decayedWkg": 3.52,
+          "achievedAt": 1774380600,
+          "eventId": "5508038",
+          "title": "Test Event"
+        },
+        {
+          "w": 316,
+          "wkg": 4.03,
+          "decayedW": 275.03,
+          "decayedWkg": 3.5,
+          "achievedAt": 1786644000,
+          "eventId": "5667780",
+          "title": "Test Event"
+        },
+        {
+          "w": 334,
+          "wkg": 4.25,
+          "decayedW": 273.88,
+          "decayedWkg": 3.49,
+          "achievedAt": 1767781800,
+          "eventId": "5233637",
+          "title": "Test Event"
+        }
+      ],
+      "w1200": [
+        {
+          "w": 313,
+          "wkg": 4.01,
+          "decayedW": 305.47,
+          "decayedWkg": 3.92,
+          "achievedAt": 1791568800,
+          "eventId": "5729167",
+          "title": "Test Event"
+        },
+        {
+          "w": 304.650833333333,
+          "wkg": 3.91,
+          "decayedW": 304.65,
+          "decayedWkg": 3.91,
+          "achievedAt": 1795116600,
+          "eventId": "5800908",
+          "title": "Test Event"
+        },
+        {
+          "w": 297,
+          "wkg": 3.81,
+          "decayedW": 297,
+          "decayedWkg": 3.81,
+          "achievedAt": 1795030200,
+          "eventId": "5795672",
+          "title": "Test Event"
+        },
+        {
+          "w": 298,
+          "wkg": 3.82,
+          "decayedW": 296.51,
+          "decayedWkg": 3.8,
+          "achievedAt": 1793080800,
+          "eventId": "5673134",
+          "title": "Test Event"
+        },
+        {
+          "w": 296,
+          "wkg": 3.79,
+          "decayedW": 293.69,
+          "decayedWkg": 3.77,
+          "achievedAt": 1792778400,
+          "eventId": "5749562",
+          "title": "Test Event"
+        },
+        {
+          "w": 293,
+          "wkg": 3.76,
+          "decayedW": 292.83,
+          "decayedWkg": 3.75,
+          "achievedAt": 1793854800,
+          "eventId": "5769142",
+          "title": "Test Event"
+        },
+        {
+          "w": 295,
+          "wkg": 3.78,
+          "decayedW": 280.73,
+          "decayedWkg": 3.6,
+          "achievedAt": 1790272800,
+          "eventId": "5710477",
+          "title": "Test Event"
+        },
+        {
+          "w": 286,
+          "wkg": 3.67,
+          "decayedW": 277.63,
+          "decayedWkg": 3.56,
+          "achievedAt": 1791262800,
+          "eventId": "5673130",
+          "title": "Test Event"
+        },
+        {
+          "w": 274,
+          "wkg": 3.51,
+          "decayedW": 274,
+          "decayedWkg": 3.51,
+          "achievedAt": 1794337380,
+          "eventId": "5786503",
+          "title": "Test Event"
+        },
+        {
+          "w": 269,
+          "wkg": 3.45,
+          "decayedW": 265.99,
+          "decayedWkg": 3.41,
+          "achievedAt": 1792472400,
+          "eventId": "5673132",
+          "title": "Test Event"
+        },
+        {
+          "w": 318,
+          "wkg": 4.05,
+          "decayedW": 260.76,
+          "decayedWkg": 3.32,
+          "achievedAt": 1779125400,
+          "eventId": "5586452",
+          "title": "Test Event"
+        },
+        {
+          "w": 313,
+          "wkg": 3.99,
+          "decayedW": 256.66,
+          "decayedWkg": 3.27,
+          "achievedAt": 1774380600,
+          "eventId": "5508038",
+          "title": "Test Event"
+        },
+        {
+          "w": 279,
+          "wkg": 3.55,
+          "decayedW": 254.75,
+          "decayedWkg": 3.25,
+          "achievedAt": 1788544800,
+          "eventId": "5688013",
+          "title": "Test Event"
+        },
+        {
+          "w": 280,
+          "wkg": 3.57,
+          "decayedW": 250.08,
+          "decayedWkg": 3.19,
+          "achievedAt": 1787679000,
+          "eventId": "5682369",
+          "title": "Test Event"
+        },
+        {
+          "w": 282,
+          "wkg": 3.59,
+          "decayedW": 245.43,
+          "decayedWkg": 3.13,
+          "achievedAt": 1786644000,
+          "eventId": "5667780",
+          "title": "Test Event"
+        },
+        {
+          "w": 299,
+          "wkg": 3.81,
+          "decayedW": 245.18,
+          "decayedWkg": 3.12,
+          "achievedAt": 1777915800,
+          "eventId": "5571868",
+          "title": "Test Event"
+        },
+        {
+          "w": 298,
+          "wkg": 3.8,
+          "decayedW": 244.36,
+          "decayedWkg": 3.11,
+          "achievedAt": 1779471000,
+          "eventId": "5588595",
+          "title": "Test Event"
+        },
+        {
+          "w": 296,
+          "wkg": 3.77,
+          "decayedW": 242.72,
+          "decayedWkg": 3.09,
+          "achievedAt": 1767987000,
+          "eventId": "5233690",
+          "title": "Test Event"
+        },
+        {
+          "w": 243,
+          "wkg": 3.12,
+          "decayedW": 242.1,
+          "decayedWkg": 3.1,
+          "achievedAt": 1793251800,
+          "eventId": "5757841",
+          "title": "Test Event"
+        },
+        {
+          "w": 295,
+          "wkg": 3.76,
+          "decayedW": 241.9,
+          "decayedWkg": 3.08,
+          "achievedAt": 1767592800,
+          "eventId": "5233622",
+          "title": "Test Event"
+        },
+        {
+          "w": 293,
+          "wkg": 3.73,
+          "decayedW": 240.26,
+          "decayedWkg": 3.06,
+          "achievedAt": 1767897000,
+          "eventId": "5233655",
+          "title": "Test Event"
+        },
+        {
+          "w": 290,
+          "wkg": 3.69,
+          "decayedW": 237.8,
+          "decayedWkg": 3.03,
+          "achievedAt": 1780939800,
+          "eventId": "5610124",
+          "title": "Test Event"
+        },
+        {
+          "w": 287,
+          "wkg": 3.66,
+          "decayedW": 235.34,
+          "decayedWkg": 3,
+          "achievedAt": 1768111200,
+          "eventId": "5233718",
+          "title": "Test Event"
+        },
+        {
+          "w": 286,
+          "wkg": 3.64,
+          "decayedW": 234.52,
+          "decayedWkg": 2.99,
+          "achievedAt": 1776916800,
+          "eventId": "5555845",
+          "title": "Test Event"
+        },
+        {
+          "w": 283,
+          "wkg": 3.61,
+          "decayedW": 234.05,
+          "decayedWkg": 2.98,
+          "achievedAt": 1783965600,
+          "eventId": "5638930",
+          "title": "Test Event"
+        }
+      ]
+    },
+    "metrics": [
+      {
+        "id": "ftp",
+        "label": "zFTP",
+        "durationSec": 0,
+        "live": {
+          "w": 287,
+          "wkg": 3.68,
+          "achievedAt": 1795030200,
+          "eventId": "5795672",
+          "title": "Test Event"
+        },
+        "d90": {
+          "w": 287,
+          "wkg": 3.68,
+          "achievedAt": 1795030200,
+          "eventId": "5795672",
+          "title": "Test Event"
+        }
+      },
+      {
+        "id": "zrcs",
+        "label": "zrCS",
+        "durationSec": 0,
+        "live": {
+          "w": 1568.35,
+          "wkg": null,
+          "achievedAt": 1793080800,
+          "eventId": "5673134",
+          "title": "Test Event"
+        },
+        "d90": {
+          "w": 1581.84,
+          "wkg": null,
+          "achievedAt": 1793080800,
+          "eventId": "5673134",
+          "title": "Test Event"
+        }
+      }
+    ],
+    "ftp": 287,
+    "compoundScore": 1581.49335232669,
+    "phenotype": {
+      "version": 4,
+      "label": "sprinter",
+      "confidence": 1,
+      "scores": {
+        "sprinter": 832.75,
+        "puncheur": 813.55,
+        "pursuiter": 708,
+        "climber": 695,
+        "tt": 669
+      },
+      "windowDays": 365,
+      "method": "seedFactorSurplusV1"
+    }
+  }
+}

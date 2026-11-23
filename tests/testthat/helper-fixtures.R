@@ -28,6 +28,13 @@ fixture_ids <- function() {
 
 `%||%` <- function(a, b) if (is.null(a)) b else a
 
-fake_zwift <- function() structure(list(token = function() "test-token"), class = "zwift_auth")
+fake_zwift <- function() {
+  st <- new.env(); st$me_id <- 1000001          # skip the "me" -> id lookup
+  structure(list(token = function() "test-token", .state = st), class = "zwift_auth")
+}
 fake_zr    <- function() zwiftverse::zr_client(auth = "test-key")
-fake_zp    <- function() zwiftverse::zp_set_cookie(zwiftverse::zp_session(), "test-sid")
+fake_zp    <- function() {
+  s <- zwiftverse::zp_set_cookie(zwiftverse::zp_session(), "test-sid")
+  s$.state$primed_at <- as.numeric(Sys.time())  # skip CloudFront cookie priming
+  s
+}
