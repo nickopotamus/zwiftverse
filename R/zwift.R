@@ -127,12 +127,36 @@ zwift_post <- function(auth, path, body = NULL, parse = "resp") {
 zwift_profile <- function(auth, rider_id = "me", ...)
   zwift_get(auth, sprintf("/api/profiles/%s", rider_id), ...)
 
-#' @describeIn zwift_get A rider's activities (paged).
-#' @param start,limit Paging offset and page size.
+# Page sizes the server accepts (larger -> HTTP 400 "limit.too.large"), 2026-11.
+.ZWIFT_PAGE <- c(activities = 50, follows = 200, results = 50, entrants = 50)
+
+# Shared list fetcher: one request when `limit` fits in a page (any `parse`),
+# otherwise auto-pages and returns one tibble.
+.zwift_list <- function(auth, path, start, limit, page_max, parse, ttl,
+                        query = list(), extract = identity) {
+  if (is.finite(limit) && limit <= page_max) {
+    x <- zwift_get(auth, path, query = c(query, list(start = start, limit = limit)),
+                   parse = if (parse == "tbl") "json" else parse, ttl = ttl)
+    return(if (parse == "tbl") .zv_to_tbl(extract(x) %||% list()) else x)
+  }
+  if (parse != "tbl")
+    stop(sprintf("limit > %d spans several requests; use parse = \"tbl\".", page_max),
+         call. = FALSE)
+  .zv_paged(function(pos, n) zwift_get(auth, path, query = c(query, list(start = pos, limit = n)),
+                                       parse = "json", ttl = ttl),
+            start = start, limit = limit, page_max = page_max, extract = extract)
+}
+
+#' @describeIn zwift_get A rider's activities, newest first. `limit` is the
+#'   total wanted: values above the server's page size (50) are fetched page by
+#'   page and bound; `limit = Inf` fetches the whole history.
+#' @param start,limit Offset of the first record, and how many records to
+#'   return (`Inf` = all). Paging happens automatically.
 #' @export
-zwift_activities <- function(auth, rider_id = "me", start = 0, limit = 20, ...)
-  zwift_get(auth, sprintf("/api/profiles/%s/activities/", .zwift_rid(auth, rider_id)),
-            query = list(start = start, limit = limit), ...)
+zwift_activities <- function(auth, rider_id = "me", start = 0, limit = 20,
+                             parse = "tbl", ttl = .zv_ttl("zwift"))
+  .zwift_list(auth, sprintf("/api/profiles/%s/activities", .zwift_rid(auth, rider_id)),
+              start, limit, .ZWIFT_PAGE[["activities"]], parse, ttl)
 
 #' @describeIn zwift_get A single activity by id.
 #' @param activity_id Zwift activity id.
@@ -140,17 +164,19 @@ zwift_activities <- function(auth, rider_id = "me", start = 0, limit = 20, ...)
 zwift_activity <- function(auth, activity_id, ...)
   zwift_get(auth, sprintf("/api/activities/%s", activity_id), ...)
 
-#' @describeIn zwift_get A rider's followers.
+#' @describeIn zwift_get A rider's followers (auto-paged, 200 per request).
 #' @export
-zwift_followers <- function(auth, rider_id = "me", start = 0, limit = 200, ...)
-  zwift_get(auth, sprintf("/api/profiles/%s/followers", .zwift_rid(auth, rider_id)),
-            query = list(start = start, limit = limit), ...)
+zwift_followers <- function(auth, rider_id = "me", start = 0, limit = Inf,
+                            parse = "tbl", ttl = .zv_ttl("zwift"))
+  .zwift_list(auth, sprintf("/api/profiles/%s/followers", .zwift_rid(auth, rider_id)),
+              start, limit, .ZWIFT_PAGE[["follows"]], parse, ttl)
 
-#' @describeIn zwift_get A rider's followees.
+#' @describeIn zwift_get Riders a rider follows (auto-paged, 200 per request).
 #' @export
-zwift_followees <- function(auth, rider_id = "me", start = 0, limit = 200, ...)
-  zwift_get(auth, sprintf("/api/profiles/%s/followees", .zwift_rid(auth, rider_id)),
-            query = list(start = start, limit = limit), ...)
+zwift_followees <- function(auth, rider_id = "me", start = 0, limit = Inf,
+                            parse = "tbl", ttl = .zv_ttl("zwift"))
+  .zwift_list(auth, sprintf("/api/profiles/%s/followees", .zwift_rid(auth, rider_id)),
+              start, limit, .ZWIFT_PAGE[["follows"]], parse, ttl)
 
 #' @describeIn zwift_get Ride Ons on an activity.
 #' @export
@@ -168,6 +194,64 @@ zwift_give_rideon <- function(auth, rider_id, activity_id)
 #' @export
 zwift_event <- function(auth, event_id, ...)
   zwift_get(auth, sprintf("/api/events/%s", event_id), ...)
+
+#' @describeIn zwift_get An event's subgroups (pens / categories): one row
+#'   each, with `id` (the subgroup id used by the results and entrants
+#'   functions), `subgroupLabel` (A, B, ...), start time and route.
+#' @export
+zwift_event_subgroups <- function(auth, event_id, parse = "tbl", ttl = .zv_ttl("zwift")) {
+  j <- zwift_event(auth, event_id, parse = if (parse == "tbl") "json" else parse, ttl = ttl)
+  if (parse != "tbl") return(j)
+  .zv_to_tbl(j$eventSubgroups %||% list())
+}
+
+#' @describeIn zwift_get Official Zwift race results for one subgroup, in
+#'   finishing order (`rank`), auto-paged (50 per request). Nested objects are
+#'   flattened: `activityData.*`, `criticalP.*`, `sensorData.*`,
+#'   `profileData.*`, `scoreHistory.*`.
+#' @param subgroup_id Event subgroup id (from `zwift_event_subgroups()`).
+#' @export
+zwift_subgroup_results <- function(auth, subgroup_id, start = 0, limit = Inf,
+                                   parse = "tbl", ttl = .zv_ttl("zwift"))
+  .zwift_list(auth, "/api/race-results/entries", start, limit, .ZWIFT_PAGE[["results"]],
+              parse, ttl, query = list(event_subgroup_id = subgroup_id),
+              extract = function(x) x$entries)
+
+#' @describeIn zwift_get Race results for every subgroup of an event, bound
+#'   into one tibble with a leading `subgroup` label column.
+#' @export
+zwift_event_results <- function(auth, event_id, ttl = .zv_ttl("zwift"))
+  .zwift_by_subgroup(auth, event_id, ttl, function(id)
+    zwift_subgroup_results(auth, id, ttl = ttl))
+
+#' @describeIn zwift_get Riders signed up to one subgroup (auto-paged).
+#' @param participation Entrant filter passed to the API; `"signed_up"` is the
+#'   value verified to work.
+#' @export
+zwift_subgroup_entrants <- function(auth, subgroup_id, participation = "signed_up",
+                                    start = 0, limit = Inf, parse = "tbl",
+                                    ttl = .zv_ttl("zwift"))
+  .zwift_list(auth, sprintf("/api/events/subgroups/entrants/%s", subgroup_id), start, limit,
+              .ZWIFT_PAGE[["entrants"]], parse, ttl,
+              query = list(participation = participation, type = "all"))
+
+#' @describeIn zwift_get Sign-ups for every subgroup of an event, with a
+#'   leading `subgroup` label column.
+#' @export
+zwift_event_entrants <- function(auth, event_id, participation = "signed_up",
+                                 ttl = .zv_ttl("zwift"))
+  .zwift_by_subgroup(auth, event_id, ttl, function(id)
+    zwift_subgroup_entrants(auth, id, participation = participation, ttl = ttl))
+
+.zwift_by_subgroup <- function(auth, event_id, ttl, fetch) {
+  sg <- zwift_event_subgroups(auth, event_id, ttl = ttl)
+  if (!NROW(sg)) return(tibble::tibble())
+  .zv_bind(lapply(seq_len(nrow(sg)), function(i) {
+    x <- fetch(sg$id[[i]])
+    if (!NROW(x)) return(NULL)
+    tibble::add_column(x, subgroup = sg$subgroupLabel[[i]], .before = 1)
+  }))
+}
 
 #' @describeIn zwift_get List of active worlds.
 #' @export

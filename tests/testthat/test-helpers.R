@@ -63,3 +63,35 @@ test_that(".zv_to_tbl unwraps a ZR v2 {success, data: {object}} envelope", {
   expect_equal(out$riderId, 7)
   expect_true(is.list(out$velo))
 })
+
+test_that(".zv_paged walks start/limit pages and stops on a short page", {
+  data <- lapply(0:122, function(i) list(id = i))
+  calls <- list()
+  fetch <- function(pos, n) {
+    calls[[length(calls) + 1]] <<- c(pos, n)
+    data[seq_len(n) + pos][!vapply(data[seq_len(n) + pos], is.null, logical(1))]
+  }
+  all <- zwiftverse:::.zv_paged(fetch, page_max = 50)
+  expect_equal(all$id, 0:122)
+  expect_equal(calls, list(c(0, 50), c(50, 50), c(100, 50)))
+
+  calls <- list()
+  some <- zwiftverse:::.zv_paged(fetch, start = 10, limit = 60, page_max = 50)
+  expect_equal(some$id, 10:69)
+  expect_equal(calls, list(c(10, 50), c(60, 10)))
+})
+
+test_that(".zv_paged returns an empty tibble when there is nothing", {
+  out <- zwiftverse:::.zv_paged(function(pos, n) list(), page_max = 50)
+  expect_s3_class(out, "tbl_df")
+  expect_equal(nrow(out), 0)
+})
+
+test_that(".zv_bind reconciles column types that differ between pages", {
+  a <- tibble::tibble(id = 1:2, note = c(NA, NA))          # logical
+  b <- tibble::tibble(id = 3L, note = "x")                  # character
+  c <- tibble::tibble(id = 4L, note = 5L)                   # integer
+  out <- zwiftverse:::.zv_bind(list(a, b, c))
+  expect_equal(nrow(out), 4)
+  expect_equal(out$note, c(NA, NA, "x", "5"))
+})

@@ -67,6 +67,10 @@ zv_dev_specs <- function() {
          call = function(h) zwift_followees(h$zwift, "me", limit = 5, parse = "resp")),
     list(api = "zwift", name = "event",      needs = "ZV_ZWIFT_EVENT_ID",
          call = function(h) zwift_event(h$zwift, .env("ZV_ZWIFT_EVENT_ID"), parse = "resp")),
+    list(api = "zwift", name = "subgroup_results", needs = "ZV_ZP_RACE_ID",
+         call = function(h) zwift_subgroup_results(h$zwift, .zv_dev_sgid(h), limit = 50, parse = "resp")),
+    list(api = "zwift", name = "subgroup_entrants", needs = "ZV_ZP_RACE_ID",
+         call = function(h) zwift_subgroup_entrants(h$zwift, .zv_dev_sgid(h), limit = 50, parse = "resp")),
     list(api = "zwift", name = "worlds",     needs = character(),
          call = function(h) zwift_worlds(h$zwift, parse = "resp")),
     # ---- ZwiftPower ----
@@ -102,6 +106,10 @@ zv_dev_handles <- function() {
   }
   h
 }
+
+# First subgroup of the ZwiftPower race (Zwift and ZP share event ids).
+.zv_dev_sgid <- function(h)
+  zwift_event_subgroups(h$zwift, .env("ZV_ZP_RACE_ID"), ttl = 0)$id[[1]]
 
 zv_dev_runnable <- function(spec, h) {
   if (is.null(h[[spec$api]])) return(paste("no", spec$api, "credentials"))

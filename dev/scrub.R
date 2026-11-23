@@ -12,7 +12,8 @@
 #     less third-party data).
 
 .ZV_ID_KEYS   <- c("zwid", "riderid", "playerid", "profileid", "athleteid",
-                   "userid", "id", "zwiftid", "zid", "uid")
+                   "userid", "id", "zwiftid", "zid", "uid", "activityid",
+                   "followerid", "followeeid")
 .ZV_NAME_KEYS <- c("name", "firstname", "lastname", "fullname", "displayname",
                    "username", "nickname")
 .ZV_TITLE_KEYS <- c("event_title", "title", "eventtitle")
@@ -27,8 +28,10 @@
                    "mixpaneldistinctid", "useragent", "profilepropertychanges",
                    "launchedgameclient", "user")
 # Fixed placeholders, unit-aware: Zwift uses g / mm, ZR/ZP use kg / cm.
+.ZV_WEIGHT_KEYS <- c("weight", "weightingrams")
+.ZV_HEIGHT_KEYS <- c("height", "heightincentimeters", "heightinmillimeters")
 .zv_body <- function(k, v) {
-  if (k == "weight") if (v > 500) 70000 else 70
+  if (k %in% .ZV_WEIGHT_KEYS) if (v > 500) 70000 else 70
   else if (v > 300) 1750 else 175
 }
 
@@ -62,7 +65,7 @@ zv_scrub_new_map <- function() { e <- new.env(); e$map <- character(); e }
   if (k %in% .ZV_ID_KEYS && .zv_idlike(x)) return(.zv_same_type(x, .zv_fake_id(x, m)))
   if (k %in% .ZV_NAME_KEYS && is.character(x)) return("Test Rider")
   if (k %in% .ZV_PII_KEYS) return(if (is.character(x)) "REDACTED" else if (is.logical(x)) FALSE else 0)
-  if (k %in% c("weight", "height") && is.numeric(x)) return(.zv_body(k, x))
+  if (k %in% c(.ZV_WEIGHT_KEYS, .ZV_HEIGHT_KEYS) && is.numeric(x)) return(.zv_body(k, x))
   if (k == "age" && grepl("^[0-9]+$", as.character(x))) return(if (is.numeric(x)) 0 else "-")
   if (grepl("(url|src)$", k) && is.character(x) && nzchar(x)) return("https://example.invalid/redacted")
   if (k %in% .ZV_TITLE_KEYS && is.character(x)) return("Test Event")

@@ -329,7 +329,7 @@
         {
           "w": 883,
           "wkg": 11.32,
-          "decayedW": 868.65,
+          "decayedW": 868.64,
           "decayedWkg": 11.14,
           "achievedAt": 1791262800,
           "eventId": "5673130",
@@ -347,7 +347,7 @@
         {
           "w": 854,
           "wkg": 10.95,
-          "decayedW": 831.05,
+          "decayedW": 831.04,
           "decayedWkg": 10.65,
           "achievedAt": 1790272800,
           "eventId": "5710477",
@@ -356,7 +356,7 @@
         {
           "w": 862,
           "wkg": 10.98,
-          "decayedW": 820.38,
+          "decayedW": 820.37,
           "decayedWkg": 10.45,
           "achievedAt": 1788544800,
           "eventId": "5688013",
@@ -419,7 +419,7 @@
         {
           "w": 763,
           "wkg": 9.78,
-          "decayedW": 758.26,
+          "decayedW": 758.25,
           "decayedWkg": 9.72,
           "achievedAt": 1792472400,
           "eventId": "5673132",
@@ -482,7 +482,7 @@
         {
           "w": 749,
           "wkg": 9.54,
-          "decayedW": 704.53,
+          "decayedW": 704.52,
           "decayedWkg": 8.97,
           "achievedAt": 1787679000,
           "eventId": "5682369",
@@ -673,7 +673,7 @@
         {
           "w": 689,
           "wkg": 8.78,
-          "decayedW": 639.37,
+          "decayedW": 639.36,
           "decayedWkg": 8.14,
           "achievedAt": 1786644000,
           "eventId": "5667780",
@@ -718,7 +718,7 @@
         {
           "w": 649,
           "wkg": 8.27,
-          "decayedW": 610.47,
+          "decayedW": 610.46,
           "decayedWkg": 7.78,
           "achievedAt": 1787679000,
           "eventId": "5682369",
@@ -745,7 +745,7 @@
         {
           "w": 602,
           "wkg": 7.72,
-          "decayedW": 598.26,
+          "decayedW": 598.25,
           "decayedWkg": 7.67,
           "achievedAt": 1792472400,
           "eventId": "5673132",
@@ -754,7 +754,7 @@
         {
           "w": 623,
           "wkg": 7.94,
-          "decayedW": 592.92,
+          "decayedW": 592.91,
           "decayedWkg": 7.55,
           "achievedAt": 1788544800,
           "eventId": "5688013",
@@ -873,7 +873,7 @@
         {
           "w": 582,
           "wkg": 7.46,
-          "decayedW": 566.36,
+          "decayedW": 566.35,
           "decayedWkg": 7.26,
           "achievedAt": 1790272800,
           "eventId": "5710477",
@@ -918,7 +918,7 @@
         {
           "w": 557,
           "wkg": 7.1,
-          "decayedW": 516.88,
+          "decayedW": 516.87,
           "decayedWkg": 6.58,
           "achievedAt": 1786644000,
           "eventId": "5667780",
@@ -1010,7 +1010,7 @@
         {
           "w": 526,
           "wkg": 6.74,
-          "decayedW": 522.81,
+          "decayedW": 522.8,
           "decayedWkg": 6.7,
           "achievedAt": 1792778400,
           "eventId": "5749562",
@@ -1255,7 +1255,7 @@
         {
           "w": 437,
           "wkg": 5.6,
-          "decayedW": 420.56,
+          "decayedW": 420.55,
           "decayedWkg": 5.39,
           "achievedAt": 1790272800,
           "eventId": "5710477",
@@ -1264,7 +1264,7 @@
         {
           "w": 421,
           "wkg": 5.4,
-          "decayedW": 417.34,
+          "decayedW": 417.33,
           "decayedWkg": 5.35,
           "achievedAt": 1792472400,
           "eventId": "5673132",
@@ -1300,7 +1300,7 @@
         {
           "w": 391,
           "wkg": 5.01,
-          "decayedW": 388.63,
+          "decayedW": 388.62,
           "decayedWkg": 4.98,
           "achievedAt": 1792778400,
           "eventId": "5749562",
@@ -1473,7 +1473,7 @@
         {
           "w": 350,
           "wkg": 4.49,
-          "decayedW": 347.27,
+          "decayedW": 347.26,
           "decayedWkg": 4.45,
           "achievedAt": 1792778400,
           "eventId": "5749562",
@@ -1536,7 +1536,7 @@
         {
           "w": 356,
           "wkg": 4.54,
-          "decayedW": 325.06,
+          "decayedW": 325.05,
           "decayedWkg": 4.14,
           "achievedAt": 1788544800,
           "eventId": "5688013",
@@ -1554,8 +1554,8 @@
         {
           "w": 321,
           "wkg": 4.12,
-          "decayedW": 311.61,
-          "decayedWkg": 4,
+          "decayedW": 311.6,
+          "decayedWkg": 3.99,
           "achievedAt": 1791262800,
           "eventId": "5673130",
           "title": "Test Event"
@@ -1590,7 +1590,7 @@
         {
           "w": 329,
           "wkg": 4.19,
-          "decayedW": 293.84,
+          "decayedW": 293.83,
           "decayedWkg": 3.74,
           "achievedAt": 1787679000,
           "eventId": "5682369",
@@ -1662,7 +1662,7 @@
         {
           "w": 316,
           "wkg": 4.03,
-          "decayedW": 275.03,
+          "decayedW": 275.02,
           "decayedWkg": 3.5,
           "achievedAt": 1786644000,
           "eventId": "5667780",
@@ -1736,7 +1736,7 @@
         {
           "w": 295,
           "wkg": 3.78,
-          "decayedW": 280.73,
+          "decayedW": 280.72,
           "decayedWkg": 3.6,
           "achievedAt": 1790272800,
           "eventId": "5710477",
@@ -1799,7 +1799,7 @@
         {
           "w": 280,
           "wkg": 3.57,
-          "decayedW": 250.08,
+          "decayedW": 250.07,
           "decayedWkg": 3.19,
           "achievedAt": 1787679000,
           "eventId": "5682369",

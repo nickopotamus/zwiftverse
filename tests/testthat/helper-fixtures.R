@@ -38,3 +38,19 @@ fake_zp    <- function() {
   s$.state$primed_at <- as.numeric(Sys.time())  # skip CloudFront cookie priming
   s
 }
+
+# Serve different fixtures by URL pattern, for wrappers that hit >1 endpoint.
+# `routes` is a named character vector: regex -> fixture name (within `api`).
+use_fixture_routes <- function(api, routes, env = parent.frame()) {
+  bodies <- lapply(routes, function(name) {
+    p <- fixture_path(api, name)
+    skip_if_not(file.exists(p), sprintf("fixture %s/%s not recorded", api, name))
+    readBin(p, "raw", file.size(p))
+  })
+  httr2::local_mocked_responses(function(req) {
+    hit <- which(vapply(names(routes), grepl, logical(1), x = req$url))[1]
+    if (is.na(hit)) stop("no fixture route for ", req$url)
+    httr2::response(status_code = 200, url = req$url, method = req$method %||% "GET",
+                    headers = list(`Content-Type` = "application/json"), body = bodies[[hit]])
+  }, env = env)
+}

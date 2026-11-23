@@ -106,6 +106,43 @@ test_that("Zwift profile: one row with id", {
   expect_true("id" %in% names(out))
 })
 
+test_that("Zwift event subgroups: one row per pen with id + label", {
+  use_fixture("zwift", "event")
+  out <- zwift_event_subgroups(fake_zwift(), 1)
+  expect_gte(nrow(out), 1)
+  expect_true(all(c("id", "subgroupLabel") %in% names(out)))
+})
+
+test_that("Zwift subgroup results: entries unwrapped, ranked, nested fields flattened", {
+  use_fixture("zwift", "subgroup_results")
+  out <- zwift_subgroup_results(fake_zwift(), 1)
+  expect_gt(nrow(out), 1)
+  expect_true(all(c("rank", "profileId", "activityData.durationInMilliseconds",
+                    "sensorData.avgWatts", "criticalP.criticalP20Minutes") %in% names(out)))
+  expect_false(is.unsorted(out$rank))
+})
+
+test_that("Zwift event results: every subgroup bound with a subgroup column", {
+  use_fixture_routes("zwift", c("race-results" = "subgroup_results", "/api/events/" = "event"))
+  sg <- zwift_event_subgroups(fake_zwift(), 1)
+  out <- zwift_event_results(fake_zwift(), 1)
+  expect_equal(names(out)[1], "subgroup")
+  expect_setequal(unique(out$subgroup), sg$subgroupLabel)
+})
+
+test_that("Zwift subgroup entrants parse to one row per rider", {
+  use_fixture("zwift", "subgroup_entrants")
+  out <- zwift_subgroup_entrants(fake_zwift(), 1)
+  expect_gt(nrow(out), 1)
+  expect_true("id" %in% names(out))
+})
+
+test_that("Zwift activities: limit above a page auto-pages; json refuses to", {
+  use_fixture("zwift", "activities")
+  expect_s3_class(zwift_activities(fake_zwift(), limit = 120), "tbl_df")
+  expect_error(zwift_activities(fake_zwift(), limit = 120, parse = "json"), "parse")
+})
+
 for (ep in c("activities", "followees", "event", "worlds")) local({
   ep <- ep
   test_that(sprintf("Zwift %s parses to a tibble", ep), {

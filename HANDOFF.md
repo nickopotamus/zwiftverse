@@ -167,11 +167,19 @@ Rscript -e 'devtools::test()'   # fixture tests now run instead of skipping
 **P1 — completeness & robustness**
 - [x] Swap `req_throttle(rate=)` → `capacity`/`fill_time_s` (httr2's
       `req_retry` already honours `Retry-After`).
-- [ ] Pagination helpers: auto-page `zwift_activities`/`followers`/`followees`
-      (loop `start`/`limit` until exhausted, return one tibble).
-- [ ] Zwift event results surface: `/api/events/{id}` subgroups →
-      entrants/results endpoints (not yet wrapped; see
-      strukturunion-mmw/zwift-api-documentation).
+- [x] Pagination: `zwift_activities`/`followers`/`followees` take `limit` as
+      the total wanted and page internally at the server maximum (activities
+      50, follows 200; larger → HTTP 400 `limit.too.large`). `limit = Inf` = all.
+      Followers/followees now default to all. Multi-page + `parse = "json"`
+      errors (one response can't represent several). Generic `.zv_paged()` +
+      type-tolerant `.zv_bind()` in `R/utils.R`.
+- [x] Zwift event results: `zwift_event_subgroups()`, `zwift_subgroup_results()`
+      / `zwift_event_results()` (`/api/race-results/entries?event_subgroup_id=`,
+      `{entries}`, paged at 50 — a 200-row page drew a 429),
+      `zwift_subgroup_entrants()` / `zwift_event_entrants()`
+      (`/api/events/subgroups/entrants/{id}?participation=signed_up&type=all`;
+      `joined` is rejected). Verified live: 147 results across A–D matches
+      ZwiftPower's 147 finishers.
 - [x] ~~Cache key for `zr_riders`~~ — moot in v2 (per-rider requests).
 
 **P2 — polish**

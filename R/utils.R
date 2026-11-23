@@ -42,3 +42,42 @@
   if (is.list(parsed) && is.null(names(parsed)) && length(parsed)) return(.zv_rows(parsed))
   .zv_one_row(parsed)
 }
+
+# Row-bind pages whose columns may disagree in type (e.g. a field that is all-NA
+# logical on one page and character on the next). Conflicting atomic columns are
+# coerced to character; anything else becomes a list-column.
+.zv_bind <- function(pieces) {
+  pieces <- Filter(function(p) !is.null(p) && NROW(p) > 0, pieces)
+  if (!length(pieces)) return(tibble::tibble())
+  out <- tryCatch(dplyr::bind_rows(pieces), error = function(e) NULL)
+  if (!is.null(out)) return(out)
+  cols <- unique(unlist(lapply(pieces, names)))
+  for (cn in cols) {
+    cls <- unique(unlist(lapply(pieces, function(p) if (cn %in% names(p)) class(p[[cn]])[1])))
+    if (length(cls) < 2) next
+    all_atomic <- all(vapply(pieces, function(p) !(cn %in% names(p)) || is.atomic(p[[cn]]), logical(1)))
+    pieces <- lapply(pieces, function(p) {
+      if (!cn %in% names(p)) return(p)
+      p[[cn]] <- if (all_atomic) as.character(p[[cn]]) else as.list(p[[cn]])
+      p
+    })
+  }
+  dplyr::bind_rows(pieces)
+}
+
+# Generic start/limit pager. `fetch(start, n)` returns parsed JSON for one page;
+# `extract` pulls the record array out of it. Fetches until `limit` rows are
+# collected or a short page signals the end.
+.zv_paged <- function(fetch, start = 0, limit = Inf, page_max = 50,
+                      extract = identity) {
+  pieces <- list(); got <- 0; pos <- start
+  repeat {
+    n <- min(page_max, limit - got)
+    if (n <= 0) break
+    page <- .zv_to_tbl(extract(fetch(pos, n)) %||% list())
+    if (NROW(page)) pieces[[length(pieces) + 1]] <- page
+    got <- got + NROW(page); pos <- pos + n
+    if (NROW(page) < n) break
+  }
+  .zv_bind(pieces)
+}

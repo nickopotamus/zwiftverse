@@ -10,6 +10,11 @@
 \alias{zwift_rideons}
 \alias{zwift_give_rideon}
 \alias{zwift_event}
+\alias{zwift_event_subgroups}
+\alias{zwift_subgroup_results}
+\alias{zwift_event_results}
+\alias{zwift_subgroup_entrants}
+\alias{zwift_event_entrants}
 \alias{zwift_worlds}
 \alias{zwift_riders_in_world}
 \title{Low-level Zwift GET}
@@ -18,19 +23,70 @@ zwift_get(auth, path, query = list(), parse = "tbl", ttl = .zv_ttl("zwift"))
 
 zwift_profile(auth, rider_id = "me", ...)
 
-zwift_activities(auth, rider_id = "me", start = 0, limit = 20, ...)
+zwift_activities(
+  auth,
+  rider_id = "me",
+  start = 0,
+  limit = 20,
+  parse = "tbl",
+  ttl = .zv_ttl("zwift")
+)
 
 zwift_activity(auth, activity_id, ...)
 
-zwift_followers(auth, rider_id = "me", start = 0, limit = 200, ...)
+zwift_followers(
+  auth,
+  rider_id = "me",
+  start = 0,
+  limit = Inf,
+  parse = "tbl",
+  ttl = .zv_ttl("zwift")
+)
 
-zwift_followees(auth, rider_id = "me", start = 0, limit = 200, ...)
+zwift_followees(
+  auth,
+  rider_id = "me",
+  start = 0,
+  limit = Inf,
+  parse = "tbl",
+  ttl = .zv_ttl("zwift")
+)
 
 zwift_rideons(auth, rider_id, activity_id, ...)
 
 zwift_give_rideon(auth, rider_id, activity_id)
 
 zwift_event(auth, event_id, ...)
+
+zwift_event_subgroups(auth, event_id, parse = "tbl", ttl = .zv_ttl("zwift"))
+
+zwift_subgroup_results(
+  auth,
+  subgroup_id,
+  start = 0,
+  limit = Inf,
+  parse = "tbl",
+  ttl = .zv_ttl("zwift")
+)
+
+zwift_event_results(auth, event_id, ttl = .zv_ttl("zwift"))
+
+zwift_subgroup_entrants(
+  auth,
+  subgroup_id,
+  participation = "signed_up",
+  start = 0,
+  limit = Inf,
+  parse = "tbl",
+  ttl = .zv_ttl("zwift")
+)
+
+zwift_event_entrants(
+  auth,
+  event_id,
+  participation = "signed_up",
+  ttl = .zv_ttl("zwift")
+)
 
 zwift_worlds(auth, ...)
 
@@ -52,11 +108,17 @@ zwift_riders_in_world(auth, world_id = 1, ...)
 \item{...}{For the typed wrappers, further arguments forwarded to
 \code{zwift_get()} (e.g. \code{parse}, \code{ttl}).}
 
-\item{start, limit}{Paging offset and page size.}
+\item{start, limit}{Offset of the first record, and how many records to
+return (\code{Inf} = all). Paging happens automatically.}
 
 \item{activity_id}{Zwift activity id.}
 
 \item{event_id}{Zwift event id.}
+
+\item{subgroup_id}{Event subgroup id (from \code{zwift_event_subgroups()}).}
+
+\item{participation}{Entrant filter passed to the API; \code{"signed_up"} is the
+value verified to work.}
 
 \item{world_id}{World id (1 = Watopia host world).}
 }
@@ -70,19 +132,38 @@ Low-level Zwift GET
 \itemize{
 \item \code{zwift_profile()}: A rider's profile (\code{"me"} or a Zwift id).
 
-\item \code{zwift_activities()}: A rider's activities (paged).
+\item \code{zwift_activities()}: A rider's activities, newest first. \code{limit} is the
+total wanted: values above the server's page size (50) are fetched page by
+page and bound; \code{limit = Inf} fetches the whole history.
 
 \item \code{zwift_activity()}: A single activity by id.
 
-\item \code{zwift_followers()}: A rider's followers.
+\item \code{zwift_followers()}: A rider's followers (auto-paged, 200 per request).
 
-\item \code{zwift_followees()}: A rider's followees.
+\item \code{zwift_followees()}: Riders a rider follows (auto-paged, 200 per request).
 
 \item \code{zwift_rideons()}: Ride Ons on an activity.
 
 \item \code{zwift_give_rideon()}: Give a Ride On (POST). Returns the raw response.
 
 \item \code{zwift_event()}: An event by id.
+
+\item \code{zwift_event_subgroups()}: An event's subgroups (pens / categories): one row
+each, with \code{id} (the subgroup id used by the results and entrants
+functions), \code{subgroupLabel} (A, B, ...), start time and route.
+
+\item \code{zwift_subgroup_results()}: Official Zwift race results for one subgroup, in
+finishing order (\code{rank}), auto-paged (50 per request). Nested objects are
+flattened: \verb{activityData.*}, \verb{criticalP.*}, \verb{sensorData.*},
+\verb{profileData.*}, \verb{scoreHistory.*}.
+
+\item \code{zwift_event_results()}: Race results for every subgroup of an event, bound
+into one tibble with a leading \code{subgroup} label column.
+
+\item \code{zwift_subgroup_entrants()}: Riders signed up to one subgroup (auto-paged).
+
+\item \code{zwift_event_entrants()}: Sign-ups for every subgroup of an event, with a
+leading \code{subgroup} label column.
 
 \item \code{zwift_worlds()}: List of active worlds.
 

@@ -1,0 +1,574 @@
+{
+  "entries": [
+    {
+      "activityData": {
+        "activityId": "1000041",
+        "calories": 667,
+        "durationInMilliseconds": 2531120,
+        "elevationInMeters": 490,
+        "endDate": "2026-11-18T20:12:11.120+0000",
+        "mapId": 7,
+        "segmentDistanceInCentimeters": 2759174,
+        "sport": "CYCLING",
+        "endWorldTime": 381016656723,
+        "segmentDistanceInMeters": 27591,
+        "timePenaltyMs": 0,
+        "worldId": 1
+      },
+      "criticalP": {
+        "criticalP15Seconds": 754,
+        "criticalP1Minute": 475,
+        "criticalP20Minutes": 275,
+        "criticalP5Minutes": 328
+      },
+      "eventId": 5795672,
+      "eventSubgroupId": 7481200,
+      "lateJoin": false,
+      "rank": 1,
+      "rankingValue": 1795032731120,
+      "rankingValueWinnerDifference": 0,
+      "sensorData": {
+        "avgWatts": 258,
+        "heartRateData": {
+          "avgHeartRate": 162,
+          "heartRateMonitor": true
+        },
+        "powerType": "POWER_METER",
+        "pairedSteeringDevice": false,
+        "trainerDifficulty": 0
+      },
+      "bibNumber": 0,
+      "flaggedCheating": false,
+      "flaggedSandbagging": false,
+      "profileData": {
+        "firstName": "Test Rider",
+        "gender": "MALE",
+        "heightInCentimeters": 175,
+        "imageSrc": "REDACTED",
+        "lastName": "Test Rider",
+        "playerType": "NORMAL",
+        "weightInGrams": 70000
+      },
+      "profileId": 1000042,
+      "qualified": true,
+      "scoreHistory": {
+        "newScore": 697.82,
+        "previousScore": 697.82,
+        "scoreChangeType": "NO_CHANGE"
+      }
+    },
+    {
+      "activityData": {
+        "activityId": "1000043",
+        "calories": 822,
+        "durationInMilliseconds": 2531770,
+        "elevationInMeters": 490,
+        "endDate": "2026-11-18T20:12:11.770+0000",
+        "mapId": 7,
+        "segmentDistanceInCentimeters": 2759253,
+        "sport": "CYCLING",
+        "endWorldTime": 381016657373,
+        "segmentDistanceInMeters": 27592,
+        "timePenaltyMs": 0,
+        "worldId": 1
+      },
+      "criticalP": {
+        "criticalP15Seconds": 882,
+        "criticalP1Minute": 556,
+        "criticalP20Minutes": 363,
+        "criticalP5Minutes": 399
+      },
+      "eventId": 5795672,
+      "eventSubgroupId": 7481200,
+      "lateJoin": false,
+      "rank": 2,
+      "rankingValue": 1795032731770,
+      "rankingValueWinnerDifference": 650,
+      "sensorData": {
+        "avgWatts": 334,
+        "heartRateData": {
+          "avgHeartRate": 159,
+          "heartRateMonitor": true
+        },
+        "powerType": "POWER_METER",
+        "pairedSteeringDevice": false,
+        "trainerDifficulty": 1
+      },
+      "bibNumber": 0,
+      "flaggedCheating": false,
+      "flaggedSandbagging": false,
+      "profileData": {
+        "firstName": "Test Rider",
+        "gender": "MALE",
+        "heightInCentimeters": 175,
+        "imageSrc": "REDACTED",
+        "lastName": "Test Rider",
+        "playerType": "NORMAL",
+        "weightInGrams": 70000
+      },
+      "profileId": 1000044,
+      "qualified": true,
+      "scoreHistory": {
+        "newScore": 665.32,
+        "previousScore": 665.32,
+        "scoreChangeType": "NO_CHANGE"
+      }
+    },
+    {
+      "activityData": {
+        "activityId": "1000045",
+        "calories": 664,
+        "durationInMilliseconds": 2533574,
+        "elevationInMeters": 490,
+        "endDate": "2026-11-18T20:12:13.574+0000",
+        "mapId": 7,
+        "segmentDistanceInCentimeters": 2759192,
+        "sport": "CYCLING",
+        "endWorldTime": 381016659177,
+        "segmentDistanceInMeters": 27591,
+        "timePenaltyMs": 0,
+        "worldId": 1
+      },
+      "criticalP": {
+        "criticalP15Seconds": 674,
+        "criticalP1Minute": 486,
+        "criticalP20Minutes": 292,
+        "criticalP5Minutes": 355
+      },
+      "eventId": 5795672,
+      "eventSubgroupId": 7481200,
+      "lateJoin": false,
+      "rank": 3,
+      "rankingValue": 1795032733574,
+      "rankingValueWinnerDifference": 2454,
+      "sensorData": {
+        "avgWatts": 269,
+        "heartRateData": {
+          "avgHeartRate": 143,
+          "heartRateMonitor": true
+        },
+        "powerType": "POWER_METER",
+        "pairedSteeringDevice": false,
+        "trainerDifficulty": 1
+      },
+      "bibNumber": 0,
+      "flaggedCheating": false,
+      "flaggedSandbagging": false,
+      "profileData": {
+        "firstName": "Test Rider",
+        "gender": "MALE",
+        "heightInCentimeters": 175,
+        "imageSrc": "REDACTED",
+        "lastName": "Test Rider",
+        "playerType": "NORMAL",
+        "weightInGrams": 70000
+      },
+      "profileId": 1000046,
+      "qualified": true,
+      "scoreHistory": {
+        "newScore": 616.03,
+        "previousScore": 616.03,
+        "scoreChangeType": "NO_CHANGE"
+      }
+    },
+    {
+      "activityData": {
+        "activityId": "1000047",
+        "calories": 805,
+        "durationInMilliseconds": 2550356,
+        "elevationInMeters": 490,
+        "endDate": "2026-11-18T20:12:30.356+0000",
+        "mapId": 7,
+        "segmentDistanceInCentimeters": 2759248,
+        "sport": "CYCLING",
+        "endWorldTime": 381016675959,
+        "segmentDistanceInMeters": 27592,
+        "timePenaltyMs": 0,
+        "worldId": 1
+      },
+      "criticalP": {
+        "criticalP15Seconds": 875,
+        "criticalP1Minute": 564,
+        "criticalP20Minutes": 308,
+        "criticalP5Minutes": 385
+      },
+      "eventId": 5795672,
+      "eventSubgroupId": 7481200,
+      "lateJoin": false,
+      "rank": 4,
+      "rankingValue": 1795032750356,
+      "rankingValueWinnerDifference": 19236,
+      "sensorData": {
+        "avgWatts": 300,
+        "heartRateData": {
+          "avgHeartRate": 0,
+          "heartRateMonitor": false
+        },
+        "powerType": "POWER_METER",
+        "pairedSteeringDevice": false,
+        "trainerDifficulty": 0
+      },
+      "bibNumber": 0,
+      "flaggedCheating": false,
+      "flaggedSandbagging": false,
+      "profileData": {
+        "firstName": "Test Rider",
+        "gender": "MALE",
+        "heightInCentimeters": 175,
+        "imageSrc": "REDACTED",
+        "lastName": "Test Rider",
+        "playerType": "NORMAL",
+        "weightInGrams": 70000
+      },
+      "profileId": 1000048,
+      "qualified": true,
+      "scoreHistory": {
+        "newScore": 542.97,
+        "previousScore": 542.97,
+        "scoreChangeType": "NO_CHANGE"
+      }
+    },
+    {
+      "activityData": {
+        "activityId": "1000049",
+        "calories": 606,
+        "durationInMilliseconds": 2581479,
+        "elevationInMeters": 490,
+        "endDate": "2026-11-18T20:13:01.479+0000",
+        "mapId": 7,
+        "segmentDistanceInCentimeters": 2759195,
+        "sport": "CYCLING",
+        "endWorldTime": 381016707082,
+        "segmentDistanceInMeters": 27591,
+        "timePenaltyMs": 0,
+        "worldId": 1
+      },
+      "criticalP": {
+        "criticalP15Seconds": 549,
+        "criticalP1Minute": 406,
+        "criticalP20Minutes": 250,
+        "criticalP5Minutes": 308
+      },
+      "eventId": 5795672,
+      "eventSubgroupId": 7481200,
+      "lateJoin": false,
+      "rank": 5,
+      "rankingValue": 1795032781479,
+      "rankingValueWinnerDifference": 50359,
+      "sensorData": {
+        "avgWatts": 237,
+        "heartRateData": {
+          "avgHeartRate": 166,
+          "heartRateMonitor": true
+        },
+        "powerType": "POWER_METER",
+        "pairedSteeringDevice": false,
+        "trainerDifficulty": 0
+      },
+      "bibNumber": 0,
+      "flaggedCheating": false,
+      "flaggedSandbagging": false,
+      "profileData": {
+        "firstName": "Test Rider",
+        "gender": "MALE",
+        "heightInCentimeters": 175,
+        "imageSrc": "REDACTED",
+        "lastName": "Test Rider",
+        "playerType": "NORMAL",
+        "weightInGrams": 70000
+      },
+      "profileId": 1000050,
+      "qualified": true,
+      "scoreHistory": {
+        "newScore": 596.84,
+        "previousScore": 596.84,
+        "scoreChangeType": "NO_CHANGE"
+      }
+    },
+    {
+      "activityData": {
+        "activityId": "1000051",
+        "calories": 758,
+        "durationInMilliseconds": 2594671,
+        "elevationInMeters": 490,
+        "endDate": "2026-11-18T20:13:14.671+0000",
+        "mapId": 7,
+        "segmentDistanceInCentimeters": 2759228,
+        "sport": "CYCLING",
+        "endWorldTime": 381016720274,
+        "segmentDistanceInMeters": 27592,
+        "timePenaltyMs": 0,
+        "worldId": 1
+      },
+      "criticalP": {
+        "criticalP15Seconds": 731,
+        "criticalP1Minute": 435,
+        "criticalP20Minutes": 310,
+        "criticalP5Minutes": 336
+      },
+      "eventId": 5795672,
+      "eventSubgroupId": 7481200,
+      "lateJoin": false,
+      "rank": 6,
+      "rankingValue": 1795032794671,
+      "rankingValueWinnerDifference": 63551,
+      "sensorData": {
+        "avgWatts": 300,
+        "heartRateData": {
+          "avgHeartRate": 158,
+          "heartRateMonitor": true
+        },
+        "powerType": "POWER_METER",
+        "pairedSteeringDevice": false,
+        "trainerDifficulty": 0
+      },
+      "bibNumber": 0,
+      "flaggedCheating": false,
+      "flaggedSandbagging": false,
+      "profileData": {
+        "firstName": "Test Rider",
+        "gender": "MALE",
+        "heightInCentimeters": 175,
+        "imageSrc": "REDACTED",
+        "lastName": "Test Rider",
+        "playerType": "NORMAL",
+        "weightInGrams": 70000
+      },
+      "profileId": 1000052,
+      "qualified": true,
+      "scoreHistory": {
+        "newScore": 542.9,
+        "previousScore": 542.9,
+        "scoreChangeType": "NO_CHANGE"
+      }
+    },
+    {
+      "activityData": {
+        "activityId": "1000053",
+        "calories": 736,
+        "durationInMilliseconds": 2633025,
+        "elevationInMeters": 490,
+        "endDate": "2026-11-18T20:13:53.025+0000",
+        "mapId": 7,
+        "segmentDistanceInCentimeters": 2759186,
+        "sport": "CYCLING",
+        "endWorldTime": 381016758628,
+        "segmentDistanceInMeters": 27591,
+        "timePenaltyMs": 0,
+        "worldId": 1
+      },
+      "criticalP": {
+        "criticalP15Seconds": 802,
+        "criticalP1Minute": 530,
+        "criticalP20Minutes": 306,
+        "criticalP5Minutes": 359
+      },
+      "eventId": 5795672,
+      "eventSubgroupId": 7481200,
+      "lateJoin": false,
+      "rank": 7,
+      "rankingValue": 1795032833025,
+      "rankingValueWinnerDifference": 101905,
+      "sensorData": {
+        "avgWatts": 279,
+        "heartRateData": {
+          "avgHeartRate": 155,
+          "heartRateMonitor": true
+        },
+        "powerType": "POWER_METER",
+        "pairedSteeringDevice": false,
+        "trainerDifficulty": 0
+      },
+      "bibNumber": 0,
+      "flaggedCheating": false,
+      "flaggedSandbagging": false,
+      "profileData": {
+        "firstName": "Test Rider",
+        "gender": "MALE",
+        "heightInCentimeters": 175,
+        "imageSrc": "REDACTED",
+        "lastName": "Test Rider",
+        "playerType": "NORMAL",
+        "weightInGrams": 70000
+      },
+      "profileId": 1000054,
+      "qualified": true,
+      "scoreHistory": {
+        "newScore": 479.73,
+        "previousScore": 479.73,
+        "scoreChangeType": "NO_CHANGE"
+      }
+    },
+    {
+      "activityData": {
+        "activityId": "1000055",
+        "calories": 669,
+        "durationInMilliseconds": 2709846,
+        "elevationInMeters": 490,
+        "endDate": "2026-11-18T20:15:09.846+0000",
+        "mapId": 7,
+        "segmentDistanceInCentimeters": 2759203,
+        "sport": "CYCLING",
+        "endWorldTime": 381016835449,
+        "segmentDistanceInMeters": 27592,
+        "timePenaltyMs": 0,
+        "worldId": 1
+      },
+      "criticalP": {
+        "criticalP15Seconds": 571,
+        "criticalP1Minute": 428,
+        "criticalP20Minutes": 275,
+        "criticalP5Minutes": 315
+      },
+      "eventId": 5795672,
+      "eventSubgroupId": 7481200,
+      "lateJoin": false,
+      "rank": 8,
+      "rankingValue": 1795032909846,
+      "rankingValueWinnerDifference": 178726,
+      "sensorData": {
+        "avgWatts": 252,
+        "heartRateData": {
+          "avgHeartRate": 164,
+          "heartRateMonitor": true
+        },
+        "powerType": "POWER_METER",
+        "pairedSteeringDevice": false,
+        "trainerDifficulty": 1
+      },
+      "bibNumber": 0,
+      "flaggedCheating": false,
+      "flaggedSandbagging": false,
+      "profileData": {
+        "firstName": "Test Rider",
+        "gender": "MALE",
+        "heightInCentimeters": 175,
+        "imageSrc": "REDACTED",
+        "lastName": "Test Rider",
+        "playerType": "NORMAL",
+        "weightInGrams": 70000
+      },
+      "profileId": 1000056,
+      "qualified": true,
+      "scoreHistory": {
+        "newScore": 469.97,
+        "previousScore": 469.97,
+        "scoreChangeType": "NO_CHANGE"
+      }
+    },
+    {
+      "activityData": {
+        "activityId": "1000057",
+        "calories": 776,
+        "durationInMilliseconds": 2743299,
+        "elevationInMeters": 490,
+        "endDate": "2026-11-18T20:15:43.299+0000",
+        "mapId": 7,
+        "segmentDistanceInCentimeters": 2759229,
+        "sport": "CYCLING",
+        "endWorldTime": 381016868902,
+        "segmentDistanceInMeters": 27592,
+        "timePenaltyMs": 0,
+        "worldId": 1
+      },
+      "criticalP": {
+        "criticalP15Seconds": 759,
+        "criticalP1Minute": 537,
+        "criticalP20Minutes": 300,
+        "criticalP5Minutes": 364
+      },
+      "eventId": 5795672,
+      "eventSubgroupId": 7481200,
+      "lateJoin": false,
+      "rank": 9,
+      "rankingValue": 1795032943299,
+      "rankingValueWinnerDifference": 212179,
+      "sensorData": {
+        "avgWatts": 286,
+        "heartRateData": {
+          "avgHeartRate": 150,
+          "heartRateMonitor": true
+        },
+        "powerType": "POWER_METER",
+        "pairedSteeringDevice": false,
+        "trainerDifficulty": 1
+      },
+      "bibNumber": 0,
+      "flaggedCheating": false,
+      "flaggedSandbagging": false,
+      "profileData": {
+        "firstName": "Test Rider",
+        "gender": "MALE",
+        "heightInCentimeters": 175,
+        "imageSrc": "REDACTED",
+        "lastName": "Test Rider",
+        "playerType": "NORMAL",
+        "weightInGrams": 70000
+      },
+      "profileId": 1000058,
+      "qualified": true,
+      "scoreHistory": {
+        "newScore": 415.1,
+        "previousScore": 415.1,
+        "scoreChangeType": "NO_CHANGE"
+      }
+    },
+    {
+      "activityData": {
+        "activityId": "1000059",
+        "calories": 778,
+        "durationInMilliseconds": 3127501,
+        "elevationInMeters": 490,
+        "endDate": "2026-11-18T20:22:07.501+0000",
+        "mapId": 7,
+        "segmentDistanceInCentimeters": 2759227,
+        "sport": "CYCLING",
+        "endWorldTime": 381017253104,
+        "segmentDistanceInMeters": 27592,
+        "timePenaltyMs": 0,
+        "worldId": 1
+      },
+      "criticalP": {
+        "criticalP15Seconds": 608,
+        "criticalP1Minute": 454,
+        "criticalP20Minutes": 272,
+        "criticalP5Minutes": 323
+      },
+      "eventId": 5795672,
+      "eventSubgroupId": 7481200,
+      "lateJoin": false,
+      "rank": 10,
+      "rankingValue": 1795033327501,
+      "rankingValueWinnerDifference": 596381,
+      "sensorData": {
+        "avgWatts": 247,
+        "heartRateData": {
+          "avgHeartRate": 171,
+          "heartRateMonitor": true
+        },
+        "powerType": "POWER_METER",
+        "pairedSteeringDevice": false,
+        "trainerDifficulty": 0
+      },
+      "bibNumber": 0,
+      "flaggedCheating": false,
+      "flaggedSandbagging": false,
+      "profileData": {
+        "firstName": "Test Rider",
+        "gender": "MALE",
+        "heightInCentimeters": 175,
+        "imageSrc": "REDACTED",
+        "lastName": "Test Rider",
+        "playerType": "NORMAL",
+        "weightInGrams": 70000
+      },
+      "profileId": 1000060,
+      "qualified": true,
+      "scoreHistory": {
+        "newScore": 343.6,
+        "previousScore": 343.6,
+        "scoreChangeType": "NO_CHANGE"
+      }
+    }
+  ]
+}
