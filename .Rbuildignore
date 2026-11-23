@@ -1,0 +1,13 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.github$
+^README\.Rmd$
+^LICENSE\.md$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^HANDOFF\.md$
+^dev$
+^\.Renviron$
+^\.gitignore$
+^\.Rhistory$
