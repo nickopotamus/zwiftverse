@@ -23,3 +23,12 @@ zp_session(cookie_file = tempfile(fileext = ".cookies"), sid = NULL)
 ## Value
 
 An object of class `zp_session`.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+zp <- zp_set_cookie(zp_session(), Sys.getenv("ZP_SID"))
+zp_result(zp, 3590800)
+} # }
+```

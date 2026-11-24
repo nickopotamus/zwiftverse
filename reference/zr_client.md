@@ -22,3 +22,12 @@ zr_client(auth = Sys.getenv("ZR_AUTH"), rate = 2)
 ## Value
 
 An object of class `zr_client`.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+zr <- zr_client()                  # key from the ZR_AUTH environment variable
+zr <- zr_client("your-key", rate = 1)
+} # }
+```

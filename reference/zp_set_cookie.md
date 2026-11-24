@@ -25,3 +25,11 @@ zp_set_cookie(s, sid)
 ## Value
 
 The updated session.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+zp <- zp_set_cookie(zp_session(), "PASTE_phpbb3_lswlk_sid")
+} # }
+```

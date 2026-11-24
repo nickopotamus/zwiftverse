@@ -29,3 +29,14 @@ Logical scalar.
 
 - `zwiftverse.ttl_zwift`, `zwiftverse.ttl_zp`, `zwiftverse.ttl_zr` —
   default TTLs (900, 3600, 3600 seconds).
+
+## Examples
+
+``` r
+zv_cache_enabled()
+#> [1] TRUE
+old <- options(zwiftverse.cache = FALSE)   # turn caching off for a while
+zv_cache_enabled()
+#> [1] FALSE
+options(old)
+```

@@ -47,3 +47,13 @@ Token handling:
 
 The handle exposes `token()`, `login()`, `refresh()` and `invalidate()`;
 printing it shows token status only, never the token or credentials.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+za <- zwift_auth()   # credentials from ZWIFT_USERNAME / ZWIFT_PASSWORD
+za                   # token status, never the token itself
+zwift_profile(za)
+} # }
+```

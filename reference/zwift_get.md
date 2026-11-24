@@ -189,3 +189,13 @@ A tibble, parsed list, or httr2 response.
 - `zwift_riders_in_world()`: Roster of riders currently in a world. Live
   position/power is protobuf on `/relay/worlds/{id}/players/{id}`; this
   JSON endpoint returns the roster only.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+za <- zwift_auth()
+zwift_get(za, "/api/profiles/me/activities/", list(limit = 5))
+zwift_get(za, "/api/profiles/me", parse = "json")
+} # }
+```

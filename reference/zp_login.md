@@ -29,3 +29,11 @@ zp_login(
 ## Value
 
 Invisibly, the session.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+zp <- zp_login(zp_session())   # uses ZWIFT_USERNAME / ZWIFT_PASSWORD
+} # }
+```

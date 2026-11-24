@@ -135,3 +135,13 @@ A tibble, parsed list, or httr2 response.
   binds them.
 
 - `zr_routes()`: Route catalogue.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+zr <- zr_client()
+zr_get(zr, "/riders/1234567")
+zr_get(zr, "/riders/1234567", parse = "json", ttl = 0)  # raw list, no cache
+} # }
+```

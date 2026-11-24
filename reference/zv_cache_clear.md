@@ -13,3 +13,11 @@ zv_cache_clear()
 ## Value
 
 Invisibly, the number of cache files removed.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+zv_cache_clear()   # wipes every cached response
+} # }
+```
