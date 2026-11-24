@@ -89,3 +89,7 @@
   if (!resp_has_body(resp)) return(NULL)
   substr(resp_body_string(resp), 1, 500)
 }
+
+# The one user-agent for every request: says what we are and where to find us.
+.zv_ua <- function() sprintf("zwiftverse/%s (+https://github.com/nickopotamus/zwiftverse)",
+                             utils::packageVersion("zwiftverse"))

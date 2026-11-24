@@ -1,5 +1,13 @@
 # zwiftverse (development version)
 
+## Breaking changes
+
+* Requests now identify as zwiftverse with a link to the repo, rather than as
+  the Zwift mobile app.
+* The package is now read-only: `zwift_give_rideon()` and the low-level
+  `zwift_post()` have been removed. `zwift_rideons()` (reading the Ride Ons on
+  an activity) stays.
+
 ## New features
 
 * `zwift_status()` reads Zwift's public status page: overall status,
@@ -26,7 +34,7 @@
 * `zwift_auth()` renews tokens early and times their expiry from when the
   request was sent, falls back to a password login when Zwift rejects a
   refresh token, treats `refresh_expires_in = 0` as non-expiring, and
-  `zwift_get()` / `zwift_post()` retry once with a fresh token after an
+  `zwift_get()` retries once with a fresh token after an
   unexpected 401.
 * Error responses with an empty body now report their HTTP status instead of
   a body-parsing error.

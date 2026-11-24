@@ -2,7 +2,7 @@ Package: zwiftverse
 Title: Tidy httr2 Clients for the Zwift, ZwiftPower and ZwiftRacing.app APIs
 Version: 0.1.0.9000
 Authors@R:
-    person("Nick", "Plummer", , "nick@example.com", role = c("aut", "cre"))
+    person("Nick", "Plummer", , "nickplummer@cantab.net", role = c("aut", "cre"))
 Description: Reverse-engineered, unofficial R clients for three Zwift-ecosystem
     APIs: the Zwift game API (us-or-rly101.zwift.com), ZwiftPower and
     ZwiftRacing.app. Typed wrappers return tibbles; low-level accessors reach

@@ -28,7 +28,7 @@ zr_client <- function(auth = Sys.getenv("ZR_AUTH"), rate = 2) {
 .zr_req <- function(client, path) {
   request(paste0(.ZR_BASE, path)) |>
     req_headers(`x-api-key` = client$auth, Accept = "application/json") |>
-    req_user_agent("zwiftverse-r/0.1") |>
+    req_user_agent(.zv_ua()) |>
     # Token bucket: `rate` req/s averaged over a 60 s window (httr2 >= 1.1 API).
     req_throttle(capacity = max(1L, as.integer(ceiling((client$rate %||% 2) * 60))),
                  fill_time_s = 60) |>

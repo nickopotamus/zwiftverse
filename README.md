@@ -180,7 +180,7 @@ zv_cache_clear()                       # wipe it
 
 ## Endpoint coverage
 
-- **Zwift:** `profile`, `activities`, `activity`, `followers`, `followees` (list endpoints auto-page: `limit` is the total wanted, `Inf` = all), `rideons` (+ `give_rideon`), `event`, `event_subgroups`, `event_results`, `subgroup_results`, `event_entrants`, `subgroup_entrants`, `worlds`, `riders_in_world`, plus `zwift_get`/`zwift_post`. Service status: `zwift_status()` (`status`, `components`, `unresolved`, `incidents`, `maintenance`).
+- **Zwift:** `profile`, `activities`, `activity`, `followers`, `followees` (list endpoints auto-page: `limit` is the total wanted, `Inf` = all), `rideons`, `event`, `event_subgroups`, `event_results`, `subgroup_results`, `event_entrants`, `subgroup_entrants`, `worlds`, `riders_in_world`, plus `zwift_get`. Service status: `zwift_status()` (`status`, `components`, `unresolved`, `incidents`, `maintenance`).
 - **ZwiftPower:** `profile`, `result`, `signups`, `team`, `event_list`, `result_list`, `team_riders`, `team_list`, `sprints`, `primes`, `segment_standings`, `analysis`, `event_analysis`, `league_list`, `league_results`, `league_team_standings`, plus `zp_get`.
 - **ZwiftRacing.app (v2):** `rider`, `rider_overview`, `rider_results`, `rider_ranking`, `rider_velo`, `rider_power`, `riders`, `event`, `result`, `club`, `club_riders`, `routes`, plus `zr_get`.
 

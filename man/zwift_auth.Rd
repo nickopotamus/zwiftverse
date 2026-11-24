@@ -31,7 +31,7 @@ rejects the refresh (expired or revoked server-side), the handle logs in
 again with the password instead of failing.
 \item A \code{refresh_expires_in} of \code{0} (a Keycloak offline token) never expires.
 \item If the API answers \code{401} to a token the handle still thought valid,
-\code{\link[=zwift_get]{zwift_get()}} / \code{\link[=zwift_post]{zwift_post()}} discard it and retry the request once.
+\code{\link[=zwift_get]{zwift_get()}} discards it and retry the request once.
 }
 
 The handle exposes \code{token()}, \code{login()}, \code{refresh()} and \code{invalidate()};

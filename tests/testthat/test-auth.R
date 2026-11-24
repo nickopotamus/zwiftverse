@@ -92,3 +92,26 @@ test_that("print() never shows the token or credentials", {
   expect_match(out, "access token")
   expect_false(grepl("tok1|ref1|secret", out))
 })
+
+test_that("every request identifies as zwiftverse, not the Zwift app", {
+  expect_match(.zv_ua(), "^zwiftverse/[0-9.]+ \\(\\+https://github\\.com/nickopotamus/zwiftverse\\)$")
+  seen <- character()
+  withr::local_options(zwiftverse.zwift_auth_url = "https://auth.test/token",
+                       zwiftverse.cache = FALSE)
+  httr2::local_mocked_responses(function(req) {
+    seen <<- c(seen, req$options$useragent)
+    body <- if (grepl("auth.test", req$url, fixed = TRUE))
+      '{"access_token":"t","refresh_token":"r","expires_in":3600,"refresh_expires_in":1800}'
+    else '{"id": 1, "status": {"indicator": "none"}}'
+    httr2::response(status_code = 200, url = req$url,
+                    headers = list(`Content-Type` = "application/json"),
+                    body = charToRaw(body))
+  })
+  zwift_profile(zwift_auth("u", "p"), parse = "json", ttl = 0)
+  zr_get(zr_client("k"), "/riders/1", parse = "json", ttl = 0)
+  zp_get(zp_session(sid = "s"), "/api3.php?do=x", parse = "json", ttl = 0)
+  zwift_status(parse = "json", ttl = 0)
+  expect_gte(length(seen), 4)
+  expect_true(all(seen == .zv_ua()))
+  expect_false(any(grepl("Zwift/|CFNetwork", seen)))
+})

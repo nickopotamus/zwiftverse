@@ -14,7 +14,6 @@
 )
 .ZWIFT_CLIENT   <- "Zwift_Mobile_Link"
 .ZWIFT_BASE     <- "https://us-or-rly101.zwift.com"
-.ZWIFT_UA       <- "Zwift/115 CFNetwork/758.0.2 Darwin/15.0.0"
 
 #' Authenticate against the Zwift game API
 #'
@@ -31,7 +30,7 @@
 #'   again with the password instead of failing.
 #' * A `refresh_expires_in` of `0` (a Keycloak offline token) never expires.
 #' * If the API answers `401` to a token the handle still thought valid,
-#'   [zwift_get()] / [zwift_post()] discard it and retry the request once.
+#'   [zwift_get()] discards it and retry the request once.
 #'
 #' The handle exposes `token()`, `login()`, `refresh()` and `invalidate()`;
 #' printing it shows token status only, never the token or credentials.
@@ -60,7 +59,7 @@ zwift_auth <- function(username = Sys.getenv("ZWIFT_USERNAME"),
     resp <- NULL
     for (u in urls) {
       resp <- request(u) |>
-        req_user_agent(.ZWIFT_UA) |>
+        req_user_agent(.zv_ua()) |>
         req_body_form(!!!body) |>
         req_retry(max_tries = 3) |>
         req_error(is_error = function(resp) FALSE) |>
@@ -178,7 +177,7 @@ zwift_get <- function(auth, path, query = list(), parse = "tbl", ttl = .zv_ttl("
   build <- function(token) {
     req <- request(paste0(.ZWIFT_BASE, path)) |>
       req_headers(Authorization = paste("Bearer", token), Accept = "application/json") |>
-      req_user_agent(.ZWIFT_UA) |>
+      req_user_agent(.zv_ua()) |>
       req_retry(max_tries = 3,
                 is_transient = function(resp) resp_status(resp) %in% c(429, 500, 502, 503)) |>
       req_error(body = .zv_err_body)
@@ -186,31 +185,6 @@ zwift_get <- function(auth, path, query = list(), parse = "tbl", ttl = .zv_ttl("
     req
   }
   .zwift_send(auth, build, parse, ttl)
-}
-
-#' Low-level Zwift POST
-#' @inheritParams zwift_get
-#' @param body Request body (encoded as JSON). `NULL` (default) sends no body.
-#' @return The httr2 response (or parsed JSON / tibble if `parse` says so).
-#' @examples
-#' \dontrun{
-#' za <- zwift_auth()
-#' # give a ride-on (what zwift_give_rideon() does)
-#' zwift_post(za, "/api/profiles/1234567/activities/987654321/rideon",
-#'            body = list())
-#' }
-#' @export
-zwift_post <- function(auth, path, body = NULL, parse = "resp") {
-  stopifnot(inherits(auth, "zwift_auth"))
-  build <- function(token) {
-    req <- request(paste0(.ZWIFT_BASE, path)) |>
-      req_headers(Authorization = paste("Bearer", token), Accept = "application/json") |>
-      req_user_agent(.ZWIFT_UA) |>
-      req_error(body = .zv_err_body)
-    if (!is.null(body)) req <- req_body_json(req, body)
-    req
-  }
-  .zwift_send(auth, build, parse, ttl = 0)
 }
 
 #' @describeIn zwift_get A rider's profile (`"me"` or a Zwift id).
@@ -274,12 +248,6 @@ zwift_followees <- function(auth, rider_id = "me", start = 0, limit = Inf,
 #' @export
 zwift_rideons <- function(auth, rider_id, activity_id, ...)
   zwift_get(auth, sprintf("/api/profiles/%s/activities/%s/rideon", .zwift_rid(auth, rider_id), activity_id), ...)
-
-#' @describeIn zwift_get Give a Ride On (POST). Returns the raw response.
-#' @export
-zwift_give_rideon <- function(auth, rider_id, activity_id)
-  zwift_post(auth, sprintf("/api/profiles/%s/activities/%s/rideon", rider_id, activity_id),
-             body = list())
 
 #' @describeIn zwift_get An event by id.
 #' @param event_id Zwift event id.

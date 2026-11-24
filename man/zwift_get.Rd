@@ -8,7 +8,6 @@
 \alias{zwift_followers}
 \alias{zwift_followees}
 \alias{zwift_rideons}
-\alias{zwift_give_rideon}
 \alias{zwift_event}
 \alias{zwift_event_subgroups}
 \alias{zwift_subgroup_results}
@@ -53,8 +52,6 @@ zwift_followees(
 )
 
 zwift_rideons(auth, rider_id, activity_id, ...)
-
-zwift_give_rideon(auth, rider_id, activity_id)
 
 zwift_event(auth, event_id, ...)
 
@@ -143,8 +140,6 @@ page and bound; \code{limit = Inf} fetches the whole history.
 \item \code{zwift_followees()}: Riders a rider follows (auto-paged, 200 per request).
 
 \item \code{zwift_rideons()}: Ride Ons on an activity.
-
-\item \code{zwift_give_rideon()}: Give a Ride On (POST). Returns the raw response.
 
 \item \code{zwift_event()}: An event by id.
 

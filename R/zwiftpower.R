@@ -31,7 +31,7 @@ zp_session <- function(cookie_file = tempfile(fileext = ".cookies"), sid = NULL)
 
 .zp_base_req <- function(s, url) {
   req <- request(url) |>
-    req_user_agent(.ZWIFT_UA) |>
+    req_user_agent(.zv_ua()) |>
     req_cookie_preserve(s$cookie_file)
   if (!is.null(s$sid)) req <- req_headers(req, Cookie = paste0("phpbb3_lswlk_sid=", s$sid))
   req
@@ -95,7 +95,7 @@ zp_login <- function(s, username = Sys.getenv("ZWIFT_USERNAME"),
   .zv_need(c("rvest", "xml2"))
   cf <- s$cookie_file
   land <- request(.ZP_LOGIN) |>
-    req_cookie_preserve(cf) |> req_user_agent(.ZWIFT_UA) |>
+    req_cookie_preserve(cf) |> req_user_agent(.zv_ua()) |>
     req_error(body = .zv_err_body) |> req_perform()
   html <- xml2::read_html(resp_body_string(land))
   form <- rvest::html_element(html, "form")
@@ -109,11 +109,11 @@ zp_login <- function(s, username = Sys.getenv("ZWIFT_USERNAME"),
   fields$username <- username; fields$password <- password
   fields <- lapply(fields, function(v) if (is.na(v)) "" else v)
   request(action) |>
-    req_cookie_preserve(cf) |> req_user_agent(.ZWIFT_UA) |>
+    req_cookie_preserve(cf) |> req_user_agent(.zv_ua()) |>
     req_body_form(!!!fields) |>
     req_error(body = .zv_err_body) |> req_perform()
   ok <- request(paste0(.ZP_BASE, "/events.php")) |>
-    req_cookie_preserve(cf) |> req_user_agent(.ZWIFT_UA) |> req_perform() |>
+    req_cookie_preserve(cf) |> req_user_agent(.zv_ua()) |> req_perform() |>
     resp_body_string()
   if (!grepl("Profile", ok, fixed = TRUE))
     warning("Login may have failed (no 'Profile' marker). Try zp_set_cookie().")

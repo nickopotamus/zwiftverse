@@ -43,7 +43,7 @@ zwift_status <- function(what = c("status", "components", "unresolved", "inciden
   what <- match.arg(what)
   spec <- .ZWIFT_STATUS[[what]]
   req <- request(paste0(.ZWIFT_STATUS_BASE, spec[["path"]])) |>
-    req_user_agent("zwiftverse (https://github.com/nickopotamus/zwiftverse)") |>
+    req_user_agent(.zv_ua()) |>
     req_retry(max_tries = 3) |>
     req_error(body = .zv_err_body)
   if (parse != "tbl") return(.zv_fetch(req, parse, ttl))
