@@ -223,6 +223,96 @@ zp_segment_standings <- function(s, segment_id, team_id = NULL, ...)
   zp_get(s, paste0("/api3.php?do=segment_standings&id=", segment_id,
                    if (!is.null(team_id)) paste0("&team_id=", team_id)), ...)
 
+#' Race-report data streams from ZwiftPower
+#'
+#' The data behind ZwiftPower's race report (`racereport.php`): a rider's
+#' second-by-second power, heart rate and altitude through one event, from
+#' `api3.php?do=analysis`.
+#'
+#' `zp_analysis()` fetches one rider. `zp_event_analysis()` fetches every
+#' finisher in an event's results, optionally only one pen or a set of riders,
+#' one request per rider (each cached, so re-runs are cheap).
+#'
+#' @param s A [zp_session()].
+#' @param race_id ZwiftPower (= Zwift) event id.
+#' @param zwift_id Zwift rider id.
+#' @param parse `"tbl"` for the tidy stream tibble, or `"json"` / `"resp"` for
+#'   the raw payload (`zp_analysis()` only).
+#' @param ttl Cache time-to-live in seconds.
+#' @return A tibble with one row per sample: `zwid`, `time` (seconds from the
+#'   rider's start), `distance` (km), then one column per stream ZwiftPower
+#'   holds for the rider — usually `power` (W), `heart_rate` (bpm) and
+#'   `altitude` (m); `cadence` (rpm) and `speed` (km/h) appear when present,
+#'   other streams are named after their unit. A rider with no data gives zero
+#'   rows. `zp_event_analysis()` adds `name` and `category` from the results.
+#' @export
+#' @examples
+#' \dontrun{
+#' zp <- zp_set_cookie(zp_session(), Sys.getenv("ZP_SID"))
+#' winner <- zp_analysis(zp, 5811034, 1366959)
+#' pen_b  <- zp_event_analysis(zp, 5811034, pen = "B")
+#' }
+zp_analysis <- function(s, race_id, zwift_id, parse = "tbl", ttl = .zv_ttl("zp")) {
+  url <- sprintf("/api3.php?do=analysis&zwift_id=%s&zwift_event_id=%s", zwift_id, race_id)
+  if (parse != "tbl") return(zp_get(s, url, parse = parse, ttl = ttl))
+  .zp_analysis_tbl(zp_get(s, url, parse = "json", ttl = ttl), zwift_id)
+}
+
+.ZP_STREAM_NAMES <- c(watts = "power", bpm = "heart_rate", m = "altitude",
+                      rpm = "cadence", kph = "speed", `km/h` = "speed")
+
+.zp_analysis_tbl <- function(j, zwift_id) {
+  empty <- tibble::tibble(zwid = integer(), time = numeric(), distance = numeric())
+  if (!length(j) || !length(j$x2Data)) return(empty)
+  n <- length(j$x2Data)
+  out <- tibble::tibble(zwid = rep(as.integer(zwift_id), n),
+                        time = as.numeric(j$x2Data),
+                        distance = if (length(j$xData) == n) as.numeric(j$xData) else NA_real_)
+  for (ds in j$datasets) {
+    if (length(ds$data) != n) next
+    unit <- ds$unit %||% "value"
+    nm <- if (unit %in% names(.ZP_STREAM_NAMES)) .ZP_STREAM_NAMES[[unit]] else
+      make.names(unit)
+    if (nm %in% names(out)) nm <- make.unique(c(names(out), nm))[ncol(out) + 1]
+    out[[nm]] <- as.numeric(ds$data)
+  }
+  out
+}
+
+#' @rdname zp_analysis
+#' @param pen Optional pen (category) letter(s), e.g. `"B"`.
+#' @param zwift_ids Optional rider ids to restrict to.
+#' @param ... Passed to `zp_analysis()` (e.g. `ttl`).
+#' @param progress Show a progress bar.
+#' @export
+zp_event_analysis <- function(s, race_id, pen = NULL, zwift_ids = NULL, ...,
+                              progress = interactive()) {
+  riders <- zp_result(s, race_id)
+  if (!nrow(riders)) return(.zp_analysis_tbl(list(), NA))
+  riders <- tibble::tibble(zwid = as.integer(riders$zwid), name = riders$name,
+                           category = riders$category)
+  if (!is.null(pen)) riders <- riders[riders$category %in% toupper(pen), ]
+  if (!is.null(zwift_ids)) riders <- riders[riders$zwid %in% as.integer(zwift_ids), ]
+  riders <- riders[!duplicated(riders$zwid), ]
+  if (!nrow(riders)) rlang::abort("No riders in this event match `pen` / `zwift_ids`.")
+
+  if (progress) {
+    pb <- utils::txtProgressBar(max = nrow(riders), style = 3)
+    on.exit(close(pb), add = TRUE)
+  }
+  pieces <- lapply(seq_len(nrow(riders)), function(i) {
+    if (progress) utils::setTxtProgressBar(pb, i)
+    tryCatch(zp_analysis(s, race_id, riders$zwid[i], ...), error = function(e) {
+      rlang::warn(sprintf("Rider %s: %s", riders$zwid[i], conditionMessage(e)))
+      NULL
+    })
+  })
+  streams <- .zv_bind(pieces)
+  if (!NROW(streams)) return(.zp_analysis_tbl(list(), NA))
+  out <- dplyr::left_join(streams, riders, by = "zwid")
+  dplyr::relocate(out, "name", "category", .after = "zwid")
+}
+
 #' @describeIn zp_get List of leagues.
 #' @export
 zp_league_list <- function(s, ...)

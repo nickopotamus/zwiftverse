@@ -80,9 +80,12 @@ zv_cache_dir <- function() {
 
   # check_type = FALSE: ZwiftPower api3.php serves JSON as text/html.
   # bigint_as_char: Zwift activity ids exceed 2^53 and would lose precision.
-  parsed <- resp_body_json(req_perform(req), check_type = FALSE,
-                           simplifyVector = TRUE, simplifyDataFrame = TRUE,
-                           flatten = TRUE, bigint_as_char = TRUE)
+  # An empty body (ZwiftPower's answer when there is no data) parses as list().
+  resp <- req_perform(req)
+  parsed <- if (!resp_has_body(resp)) list() else
+    resp_body_json(resp, check_type = FALSE,
+                   simplifyVector = TRUE, simplifyDataFrame = TRUE,
+                   flatten = TRUE, bigint_as_char = TRUE)
   if (do_cache) .zv_cache_set(key, parsed)
   if (parse == "json") parsed else .zv_to_tbl(parsed)
 }

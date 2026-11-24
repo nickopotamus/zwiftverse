@@ -1,5 +1,6 @@
 # Record PII-scrubbed JSON fixtures for the offline parsing tests.
 #   Rscript dev/capture-fixtures.R            (from the package root)
+#   Rscript dev/capture-fixtures.R zp/analysis   (only the named fixture(s))
 # Uses the same credentials / ids as dev/smoke-live.R. Writes one file per
 # endpoint to tests/testthat/fixtures/<api>/<endpoint>.json. Real rider ids,
 # names, emails etc. are replaced (see dev/scrub.R) - but ALWAYS eyeball the
@@ -13,8 +14,11 @@ h <- zv_dev_handles()
 m <- zv_scrub_new_map()
 zv_scrub_seed(m, c(h$rider_id, .ids("ZV_RIDER_IDS")))
 
+only <- commandArgs(trailingOnly = TRUE)
+
 n <- 0
 for (s in zv_dev_specs()) {
+  if (length(only) && !paste0(s$api, "/", s$name) %in% only) next
   why <- zv_dev_runnable(s, h)
   if (!is.null(why)) { message(sprintf("skip %s/%s (%s)", s$api, s$name, why)); next }
   ok <- tryCatch({
@@ -30,6 +34,8 @@ for (s in zv_dev_specs()) {
 }
 
 # Record which synthetic ids the tests should use (no real ids are written).
+# Skipped for a partial capture, so ids.json keeps matching the other fixtures.
+if (length(only)) quit(save = "no")
 fake_rider <- if (!is.null(h$rider_id)) m$map[[as.character(h$rider_id)]] else NA
 writeLines(jsonlite::toJSON(list(rider_id = fake_rider), auto_unbox = TRUE, pretty = TRUE),
            "tests/testthat/fixtures/ids.json")

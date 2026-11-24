@@ -91,6 +91,34 @@ test_that("ZP segment standings: one row per rider with time and w/kg", {
   expect_true(all(as.numeric(out$elapsed) > 0))
 })
 
+test_that("ZP analysis: race-report streams to one row per sample", {
+  use_fixture("zp", "analysis")
+  out <- zp_analysis(fake_zp(), 1, 42)
+  expect_gt(nrow(out), 1)
+  expect_true(all(c("zwid", "time", "distance", "power", "heart_rate", "altitude") %in% names(out)))
+  expect_true(all(out$zwid == 42L))
+  expect_false(is.unsorted(out$time))
+  expect_type(out$power, "double")
+})
+
+test_that("ZP analysis: a rider with no data (empty body) gives zero rows", {
+  httr2::local_mocked_responses(function(req) httr2::response(status_code = 200, url = req$url))
+  out <- zp_analysis(fake_zp(), 1, 42)
+  expect_equal(nrow(out), 0)
+  expect_true(all(c("zwid", "time", "distance") %in% names(out)))
+})
+
+test_that("ZP event analysis: one stream per finisher in the pen, with name + category", {
+  use_fixture_routes("zp", c("do=analysis" = "analysis", "_view\\.json" = "result"))
+  res <- zp_result(fake_zp(), 1)
+  pen <- res$category[[1]]
+  out <- zp_event_analysis(fake_zp(), 1, pen = pen, progress = FALSE)
+  expect_equal(names(out)[1:3], c("zwid", "name", "category"))
+  expect_true(all(out$category == pen))
+  expect_setequal(unique(out$zwid), unique(as.integer(res$zwid[res$category == pen])))
+  expect_error(zp_event_analysis(fake_zp(), 1, pen = "Z", progress = FALSE), "No riders")
+})
+
 for (ep in c("profile", "signups", "sprints", "primes", "team")) local({
   ep <- ep
   test_that(sprintf("ZP %s parses to a tibble", ep), {

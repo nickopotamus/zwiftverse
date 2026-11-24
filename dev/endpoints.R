@@ -88,6 +88,10 @@ zv_dev_specs <- function() {
     list(api = "zp", name = "segment_standings", needs = "ZV_ZP_TEAM_ID",
          call = function(h) zp_segment_standings(h$zp, .env("ZV_ZP_SEGMENT_ID") %||% 13,
                                                  .env("ZV_ZP_TEAM_ID"), parse = "resp")),
+    list(api = "zp", name = "analysis", needs = "ZV_ZP_RACE_ID",
+         call = function(h) zp_analysis(h$zp, .env("ZV_ZP_RACE_ID"),
+                                        zp_result(h$zp, .env("ZV_ZP_RACE_ID"))$zwid[[1]],
+                                        parse = "resp")),
     list(api = "zp", name = "team",     needs = "ZV_ZP_TEAM_ID",
          call = function(h) zp_team(h$zp, .env("ZV_ZP_TEAM_ID"), parse = "resp"))
   )
