@@ -57,6 +57,7 @@
 </h1></div>
 <!-- badges: start -->
 
+<!-- badges: end -->
 <p>Tidy <a href="https://httr2.r-lib.org" class="external-link">httr2</a> clients for three unofficial <a href="https://www.zwift.com/" class="external-link">Zwift</a>-ecosystem APIs.</p>
 <p>Every endpoint returns a tibble. An on-disk TTL cache keeps you from re-fetching stable data.</p>
 <table class="table">
@@ -88,7 +89,9 @@
 </tr>
 </tbody>
 </table>
-<p>Note that this is entirely <strong>unofficial &amp; reverse-engineered.</strong> None of these are sanctioned APIs. The Zwift and ZwiftPower flows need <em>your own</em> Zwift credentials. Personal data is GDPR-consent-gated — you only see riders who have opted in. Endpoints can change without notice.</p>
+<p>Note that this is entirely <strong>unofficial &amp; reverse-engineered.</strong> None of these are sanctioned APIs. The Zwift and ZwiftPower flows need <em>your own</em> Zwift credentials.</p>
+<p>Personal data is all GDPR-consent-gated - you only see riders who have opted in.</p>
+<p>Note that API endpoints can change without notice! Raise an issue if they stop working.</p>
 <div class="section level2">
 <h2 id="install">Install<a class="anchor" aria-label="anchor" href="#install"></a>
 </h2>
@@ -110,7 +113,7 @@
 <li>
 <strong>ZwiftPower:</strong> log in at zwiftpower.com in a browser, then copy the value of the <code>phpbb3_lswlk_sid</code> cookie (browser dev tools → Storage / Application → Cookies). <code><a href="reference/zp_login.html">zp_login()</a></code> can log in for you instead, but it breaks more often.</li>
 <li>
-<strong>ZwiftRacing.app</strong> needs an API key, and keys aren’t self-serve. There’s no sign-up form or published API docs. Ask the ZwiftRacing.app team through their <a href="https://discord.gg/yxPSpdxYmg" class="external-link">Discord</a> (linked from <a href="https://www.zwiftracing.app" class="external-link">zwiftracing.app</a>), say what you want to use it for. Keys are rate-limited, with a standard tier and a higher tier agreed with them. A standard key works with the v2 endpoints this package uses (<code>/api/v2/...</code>); the older <code>/api/public/...</code> endpoints and <code>/api/v2/public/categories</code> need a different access level and return 401 with one.</li>
+<strong>ZwiftRacing.app</strong> needs an API key. “Hobby” level API access can be accessed <a href="https://zwiftracing.app/support" class="external-link">by supporting ZwiftRacing.app</a>, then flagging this to Tim on <a href="https://discord.gg/yxPSpdxYmg" class="external-link">Discord</a>. A standard key works with the v2 endpoints this package uses (<code>/api/v2/...</code>); the older <code>/api/public/...</code> endpoints and <code>/api/v2/public/categories</code> need a different access level and return 401 with one.</li>
 <li>
 <strong>Zwift’s status page</strong> (<code><a href="reference/zwift_status.html">zwift_status()</a></code>) needs no credentials.</li>
 </ul>
@@ -122,45 +125,215 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/nickopotamus/zwiftverse" class="external-link">zwiftverse</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">## Zwift game API ----------------------------------------------------</span></span>
-<span><span class="va">za</span>  <span class="op">&lt;-</span> <span class="fu"><a href="reference/zwift_auth.html">zwift_auth</a></span><span class="op">(</span><span class="op">)</span>                    <span class="co"># token auto-refreshes</span></span>
-<span><span class="va">me</span>  <span class="op">&lt;-</span> <span class="fu"><a href="reference/zwift_get.html">zwift_profile</a></span><span class="op">(</span><span class="va">za</span><span class="op">)</span>               <span class="co"># your profile (one-row tibble)</span></span>
-<span><span class="va">oth</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zwift_get.html">zwift_profile</a></span><span class="op">(</span><span class="va">za</span>, <span class="fl">1234567</span><span class="op">)</span>      <span class="co"># another rider's public profile</span></span>
+<span><span class="va">za</span>  <span class="op">&lt;-</span> <span class="fu"><a href="reference/zwift_auth.html">zwift_auth</a></span><span class="op">(</span><span class="op">)</span>                        <span class="co"># token auto-refreshes</span></span>
+<span><span class="va">me</span>  <span class="op">&lt;-</span> <span class="fu"><a href="reference/zwift_get.html">zwift_profile</a></span><span class="op">(</span><span class="va">za</span><span class="op">)</span>                   <span class="co"># your profile (one-row tibble)</span></span>
+<span><span class="va">oth</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zwift_get.html">zwift_profile</a></span><span class="op">(</span><span class="va">za</span>, <span class="fl">1234567</span><span class="op">)</span>          <span class="co"># another rider's public profile</span></span>
 <span><span class="va">act</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zwift_get.html">zwift_activities</a></span><span class="op">(</span><span class="va">za</span>, limit <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span>   <span class="co"># whole history, auto-paged</span></span>
-<span><span class="va">fol</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zwift_get.html">zwift_followers</a></span><span class="op">(</span><span class="va">za</span><span class="op">)</span>             <span class="co"># all followers (auto-paged)</span></span>
-<span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zwift_get.html">zwift_event_results</a></span><span class="op">(</span><span class="va">za</span>, <span class="fl">5795672</span><span class="op">)</span>  <span class="co"># official results, all subgroups</span></span>
-<span><span class="va">ent</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zwift_get.html">zwift_event_entrants</a></span><span class="op">(</span><span class="va">za</span>, <span class="fl">5795672</span><span class="op">)</span> <span class="co"># sign-ups, all subgroups</span></span>
-<span><span class="va">wld</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zwift_get.html">zwift_riders_in_world</a></span><span class="op">(</span><span class="va">za</span>, <span class="fl">1</span><span class="op">)</span>    <span class="co"># roster currently in Watopia</span></span>
-<span><span class="va">raw</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zwift_get.html">zwift_get</a></span><span class="op">(</span><span class="va">za</span>, <span class="st">"/api/profiles/me/activities/"</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">5</span><span class="op">)</span><span class="op">)</span>  <span class="co"># escape hatch</span></span>
-<span><span class="fu"><a href="reference/zwift_status.html">zwift_status</a></span><span class="op">(</span><span class="op">)</span>                         <span class="co"># is Zwift up? (no login needed)</span></span>
-<span><span class="fu"><a href="reference/zwift_status.html">zwift_status</a></span><span class="op">(</span><span class="st">"unresolved"</span><span class="op">)</span>             <span class="co"># open incidents, if any</span></span>
+<span><span class="va">fol</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zwift_get.html">zwift_followers</a></span><span class="op">(</span><span class="va">za</span><span class="op">)</span>                 <span class="co"># all followers (auto-paged)</span></span>
+<span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zwift_get.html">zwift_event_results</a></span><span class="op">(</span><span class="va">za</span>, <span class="fl">5795672</span><span class="op">)</span>    <span class="co"># official results, all subgroups</span></span>
+<span><span class="va">ent</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zwift_get.html">zwift_event_entrants</a></span><span class="op">(</span><span class="va">za</span>, <span class="fl">5795672</span><span class="op">)</span>   <span class="co"># sign-ups, all subgroups</span></span>
+<span><span class="va">wld</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zwift_get.html">zwift_riders_in_world</a></span><span class="op">(</span><span class="va">za</span>, <span class="fl">1</span><span class="op">)</span>        <span class="co"># roster currently in Watopia</span></span>
+<span><span class="va">raw</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zwift_get.html">zwift_get</a></span><span class="op">(</span><span class="va">za</span>, <span class="st">"/api/profiles/me/activities/"</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/zwift_status.html">zwift_status</a></span><span class="op">(</span><span class="op">)</span>                             <span class="co"># is Zwift up? (no login needed)</span></span>
+<span><span class="fu"><a href="reference/zwift_status.html">zwift_status</a></span><span class="op">(</span><span class="st">"unresolved"</span><span class="op">)</span>                 <span class="co"># open incidents, if any</span></span>
 <span></span>
 <span><span class="co">## ZwiftPower --------------------------------------------------------</span></span>
 <span><span class="va">zp</span>   <span class="op">&lt;-</span> <span class="fu"><a href="reference/zp_set_cookie.html">zp_set_cookie</a></span><span class="op">(</span><span class="fu"><a href="reference/zp_session.html">zp_session</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"PASTE_phpbb3_lswlk_sid"</span><span class="op">)</span>  <span class="co"># robust path</span></span>
 <span><span class="co"># zp &lt;- zp_login(zp_session())                                 # or SSO (brittle)</span></span>
-<span><span class="va">res</span>  <span class="op">&lt;-</span> <span class="fu"><a href="reference/zp_get.html">zp_result</a></span><span class="op">(</span><span class="va">zp</span>, <span class="fl">3590800</span><span class="op">)</span>         <span class="co"># finishers</span></span>
-<span><span class="va">team</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zp_get.html">zp_team</a></span><span class="op">(</span><span class="va">zp</span>, <span class="fl">456</span><span class="op">)</span></span>
-<span><span class="va">fts</span>  <span class="op">&lt;-</span> <span class="fu"><a href="reference/zp_get.html">zp_sprints</a></span><span class="op">(</span><span class="va">zp</span>, <span class="fl">3590800</span><span class="op">)</span></span>
-<span><span class="va">rr</span>   <span class="op">&lt;-</span> <span class="fu"><a href="reference/zp_analysis.html">zp_analysis</a></span><span class="op">(</span><span class="va">zp</span>, <span class="fl">3590800</span>, <span class="fl">1234567</span><span class="op">)</span>            <span class="co"># race report: per-second power/HR/altitude</span></span>
-<span><span class="va">pen</span>  <span class="op">&lt;-</span> <span class="fu"><a href="reference/zp_analysis.html">zp_event_analysis</a></span><span class="op">(</span><span class="va">zp</span>, <span class="fl">3590800</span>, pen <span class="op">=</span> <span class="st">"B"</span><span class="op">)</span>    <span class="co"># ...for every finisher in pen B</span></span>
+<span><span class="va">res</span>  <span class="op">&lt;-</span> <span class="fu"><a href="reference/zp_get.html">zp_result</a></span><span class="op">(</span><span class="va">zp</span>, <span class="fl">3590800</span><span class="op">)</span>                    <span class="co"># finishers</span></span>
+<span><span class="va">team</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zp_get.html">zp_team</a></span><span class="op">(</span><span class="va">zp</span>, <span class="fl">456</span><span class="op">)</span>                          <span class="co"># team roster with category + recent power</span></span>
+<span><span class="va">fts</span>  <span class="op">&lt;-</span> <span class="fu"><a href="reference/zp_get.html">zp_sprints</a></span><span class="op">(</span><span class="va">zp</span>, <span class="fl">3590800</span><span class="op">)</span>                   <span class="co"># every rider's time + power on each segment</span></span>
+<span><span class="va">rr</span>   <span class="op">&lt;-</span> <span class="fu"><a href="reference/zp_analysis.html">zp_analysis</a></span><span class="op">(</span><span class="va">zp</span>, <span class="fl">3590800</span>, <span class="fl">1234567</span><span class="op">)</span>         <span class="co"># race report: per-second power/HR/altitude</span></span>
+<span><span class="va">pen</span>  <span class="op">&lt;-</span> <span class="fu"><a href="reference/zp_analysis.html">zp_event_analysis</a></span><span class="op">(</span><span class="va">zp</span>, <span class="fl">3590800</span>, pen <span class="op">=</span> <span class="st">"B"</span><span class="op">)</span> <span class="co"># ...for every finisher in pen B</span></span>
 <span></span>
 <span><span class="co">## ZwiftRacing.app ---------------------------------------------------</span></span>
 <span><span class="va">zr</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zr_client.html">zr_client</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="va">r1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zr_get.html">zr_rider</a></span><span class="op">(</span><span class="va">zr</span>, <span class="fl">1234567</span><span class="op">)</span>                  <span class="co"># vELO rating in velo$race</span></span>
-<span><span class="va">lg</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zr_get.html">zr_rider_overview</a></span><span class="op">(</span><span class="va">zr</span>, <span class="fl">1234567</span><span class="op">)</span>         <span class="co"># legacy ratings: live / max30 / max90</span></span>
-<span><span class="va">rr</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zr_get.html">zr_rider_results</a></span><span class="op">(</span><span class="va">zr</span>, <span class="fl">1234567</span>, days <span class="op">=</span> <span class="fl">90</span><span class="op">)</span></span>
-<span><span class="va">ev</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zr_get.html">zr_result</a></span><span class="op">(</span><span class="va">zr</span>, <span class="fl">5800908</span><span class="op">)</span>                 <span class="co"># one row per rider, all pens</span></span>
-<span><span class="va">cm</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zr_get.html">zr_club_riders</a></span><span class="op">(</span><span class="va">zr</span>, <span class="fl">456</span><span class="op">)</span>                <span class="co"># all pages</span></span>
-<span><span class="va">rb</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zr_get.html">zr_riders</a></span><span class="op">(</span><span class="va">zr</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1234567</span>, <span class="fl">2345678</span><span class="op">)</span><span class="op">)</span>     <span class="co"># one request per rider (no v2 batch)</span></span></code></pre></div>
+<span><span class="va">r1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zr_get.html">zr_rider</a></span><span class="op">(</span><span class="va">zr</span>, <span class="fl">1234567</span><span class="op">)</span>                    <span class="co"># vELO rating in velo$race</span></span>
+<span><span class="va">lg</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zr_get.html">zr_rider_overview</a></span><span class="op">(</span><span class="va">zr</span>, <span class="fl">1234567</span><span class="op">)</span>           <span class="co"># legacy ratings: live / max30 / max90</span></span>
+<span><span class="va">rr</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zr_get.html">zr_rider_results</a></span><span class="op">(</span><span class="va">zr</span>, <span class="fl">1234567</span>, days <span class="op">=</span> <span class="fl">90</span><span class="op">)</span> <span class="co"># one row per race, last 90 days</span></span>
+<span><span class="va">ev</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zr_get.html">zr_result</a></span><span class="op">(</span><span class="va">zr</span>, <span class="fl">5800908</span><span class="op">)</span>                   <span class="co"># one row per rider, all pens</span></span>
+<span><span class="va">cm</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zr_get.html">zr_club_riders</a></span><span class="op">(</span><span class="va">zr</span>, <span class="fl">456</span><span class="op">)</span>                  <span class="co"># all pages</span></span>
+<span><span class="va">rb</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zr_get.html">zr_riders</a></span><span class="op">(</span><span class="va">zr</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1234567</span>, <span class="fl">2345678</span><span class="op">)</span><span class="op">)</span>       <span class="co"># one request per rider (no v2 batch)</span></span></code></pre></div>
 <p>Nested JSON arrives as list-columns:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/zr_get.html">zr_rider</a></span><span class="op">(</span><span class="va">zr</span>, <span class="fl">1234567</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/hoist.html" class="external-link">hoist</a></span><span class="op">(</span><span class="va">velo</span>, velo_race <span class="op">=</span> <span class="st">"race"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
+<h2 id="a-closer-look-at-three-functions">A closer look at three functions<a class="anchor" aria-label="anchor" href="#a-closer-look-at-three-functions"></a>
+</h2>
+<div class="section level3">
+<h3 id="zp_team-a-zwiftpower-team-roster">
+<code>zp_team()</code>: a ZwiftPower team roster<a class="anchor" aria-label="anchor" href="#zp_team-a-zwiftpower-team-roster"></a>
+</h3>
+<p>One row per team member (all members, not only recent racers):</p>
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr>
+<th>Column</th>
+<th>Meaning</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<code>zwid</code>, <code>name</code>, <code>flag</code>, <code>age</code>
+</td>
+<td>Zwift id, name, country, age band (e.g. <code>"50+"</code>)</td>
+</tr>
+<tr>
+<td>
+<code>div</code>, <code>divw</code>
+</td>
+<td>ZwiftPower category, open and women’s: <code>5</code> = A+, <code>10</code> = A, <code>20</code> = B, <code>30</code> = C, <code>40</code> = D, <code>0</code> = none</td>
+</tr>
+<tr>
+<td>
+<code>ftp</code>, <code>w</code>
+</td>
+<td>ZwiftPower’s FTP estimate (W) and weight (kg)</td>
+</tr>
+<tr>
+<td>
+<code>h_1200_watts</code>, <code>h_1200_wkg</code>, <code>h_15_watts</code>, <code>h_15_wkg</code>
+</td>
+<td>recent 20-minute and 15-second bests</td>
+</tr>
+<tr>
+<td>
+<code>rank</code>, <code>skill</code>
+</td>
+<td>ZwiftPower ranking points (lower is better, blank without recent races) and skill score</td>
+</tr>
+<tr>
+<td>
+<code>distance</code>, <code>climbed</code>, <code>time</code>, <code>energy</code>
+</td>
+<td>lifetime Zwift totals (distance and climbing in metres)</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>team role, e.g. <code>Owner</code>, <code>Moderator</code> (blank for members)</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/zp_get.html">zp_team</a></span><span class="op">(</span><span class="va">zp</span>, <span class="fl">456</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/zp_unflag.html">zp_unflag</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span>                          <span class="co"># [value, flag] pairs -&gt; numbers</span></span>
+<span>  <span class="fu">count</span><span class="op">(</span><span class="va">div</span><span class="op">)</span>                              <span class="co"># riders per category</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/zp_get.html">zp_team</a></span><span class="op">(</span><span class="va">zp</span>, <span class="fl">456</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/zp_unflag.html">zp_unflag</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">div</span> <span class="op">==</span> <span class="fl">20</span><span class="op">)</span> <span class="op">|&gt;</span>                    <span class="co"># the B riders</span></span>
+<span>  <span class="fu">arrange</span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">h_1200_wkg</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">name</span>, <span class="va">ftp</span>, <span class="va">w</span>, <span class="va">h_1200_wkg</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="zp_sprints-segment-results-for-one-race">
+<code>zp_sprints()</code>: segment results for one race<a class="anchor" aria-label="anchor" href="#zp_sprints-segment-results-for-one-race"></a>
+</h3>
+<p>One row per finisher (all categories). For every timed segment on the route (sprints, KOMs, the finish climb) it gives that rider’s effort, in three column families named by <strong>segment id</strong>:</p>
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr>
+<th>Column</th>
+<th>Meaning</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>msec.&lt;id&gt;</code></td>
+<td>time through the segment, in <strong>seconds</strong> despite the name</td>
+</tr>
+<tr>
+<td>
+<code>watts.&lt;id&gt;</code>, <code>wkg.&lt;id&gt;</code>
+</td>
+<td>average power and w/kg through it</td>
+</tr>
+</tbody>
+</table>
+<p>Look up segment names with <code><a href="reference/zp_get.html">zp_primes()</a></code> (<code>sprint_id</code>, <code>name</code>). A segment that wasn’t on a rider’s route is <code>NA</code>. Each id is also the key for <code><a href="reference/zp_get.html">zp_segment_standings()</a></code>, which lists riders’ best efforts on that segment (a whole team’s, or the global top ~2,000).</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">seg_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zp_get.html">zp_primes</a></span><span class="op">(</span><span class="va">zp</span>, <span class="fl">3590800</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">distinct</span><span class="op">(</span><span class="va">sprint_id</span>, <span class="va">name</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/zp_get.html">zp_sprints</a></span><span class="op">(</span><span class="va">zp</span>, <span class="fl">3590800</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/zp_unflag.html">zp_unflag</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">category</span> <span class="op">==</span> <span class="st">"B"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">transmute</span><span class="op">(</span><span class="va">name</span>, finish_s <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">msec.37</span><span class="op">)</span>, finish_wkg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">wkg.37</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">arrange</span><span class="op">(</span><span class="va">finish_s</span><span class="op">)</span>                       <span class="co"># fastest through segment 37</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="zr_rider_results-a-riders-race-history-on-zwiftracingapp">
+<code>zr_rider_results()</code>: a rider’s race history on ZwiftRacing.app<a class="anchor" aria-label="anchor" href="#zr_rider_results-a-riders-race-history-on-zwiftracingapp"></a>
+</h3>
+<p>One row per race in the last <code>days</code> days (default 365). Nested fields are flattened into dotted column names, in groups:</p>
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr>
+<th>Column group</th>
+<th>What it holds</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>event.*</code></td>
+<td>
+<code>eventId</code>, <code>time</code>, <code>title</code>, <code>type</code>, <code>routeName</code>, <code>distance</code>, <code>elevation</code>
+</td>
+</tr>
+<tr>
+<td><code>place.*</code></td>
+<td>
+<code>positionInCategory</code>, <code>penTotal</code>, <code>didNotFinish</code>, <code>disqualified</code>
+</td>
+</tr>
+<tr>
+<td><code>race.*</code></td>
+<td>the rider’s numbers that day: <code>time</code>, <code>gap</code>, <code>weight</code>, <code>wkgAvg</code>, and best w/kg for 5 s – 20 min (<code>wkg5</code> … <code>wkg1200</code>)</td>
+</tr>
+<tr>
+<td><code>sensor.*</code></td>
+<td>
+<code>powerType</code>, <code>trainerDifficulty</code>, <code>heartRateMonitor</code>
+</td>
+</tr>
+<tr>
+<td><code>velo.elo.*</code></td>
+<td>vELO rating <code>before</code> / <code>after</code>, <code>expectedPosition</code>, and per-ability changes (<code>factors.sprint.*</code>, <code>factors.climb.*</code>, …)</td>
+</tr>
+<tr>
+<td><code>legacy.*</code></td>
+<td>old-style ZwiftRacing rating: <code>ratingBefore</code>, <code>rating</code>, <code>ratingDelta</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>classement.*</code>, <code>timeCut.*</code>
+</td>
+<td>ZwiftRacing league points and time-cut data</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/zr_get.html">zr_rider_results</a></span><span class="op">(</span><span class="va">zr</span>, <span class="fl">1234567</span>, days <span class="op">=</span> <span class="fl">90</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">transmute</span><span class="op">(</span>date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="va">event.time</span>, origin <span class="op">=</span> <span class="st">"1970-01-01"</span><span class="op">)</span>,</span>
+<span>            race <span class="op">=</span> <span class="va">event.title</span>, pos <span class="op">=</span> <span class="va">place.positionInCategory</span>, of <span class="op">=</span> <span class="va">place.penTotal</span>,</span>
+<span>            wkg <span class="op">=</span> <span class="va">race.wkgAvg</span>, velo_change <span class="op">=</span> <span class="va">velo.elo.after</span> <span class="op">-</span> <span class="va">velo.elo.before</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">arrange</span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="va">date</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2">
 <h2 id="caching">Caching<a class="anchor" aria-label="anchor" href="#caching"></a>
 </h2>
 <p>The cache is on by default and keyed on method + URL + body. Entries are stored on disk and, for the rest of the R session, in memory too. TTL (seconds): <code>0</code> = off, <code>Inf</code> = permanent (immutable data such as completed results).</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span></span>
 <span>  zwiftverse.cache     <span class="op">=</span> <span class="cn">TRUE</span>,         <span class="co"># master switch</span></span>
 <span>  zwiftverse.cache_memory <span class="op">=</span> <span class="cn">TRUE</span>,      <span class="co"># in-session memory copy of hits</span></span>

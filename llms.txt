@@ -14,8 +14,13 @@ re-fetching stable data.
 
 Note that this is entirely **unofficial & reverse-engineered.** None of
 these are sanctioned APIs. The Zwift and ZwiftPower flows need *your
-own* Zwift credentials. Personal data is GDPR-consent-gated — you only
-see riders who have opted in. Endpoints can change without notice.
+own* Zwift credentials.
+
+Personal data is all GDPR-consent-gated - you only see riders who have
+opted in.
+
+Note that API endpoints can change without notice! Raise an issue if
+they stop working.
 
 ## Install
 
@@ -40,15 +45,13 @@ Put these in `~/.Renviron` (never in code you commit), then restart R:
   Application → Cookies).
   [`zp_login()`](https://nickopotamus.github.io/zwiftverse/reference/zp_login.md)
   can log in for you instead, but it breaks more often.
-- **ZwiftRacing.app** needs an API key, and keys aren’t self-serve.
-  There’s no sign-up form or published API docs. Ask the ZwiftRacing.app
-  team through their [Discord](https://discord.gg/yxPSpdxYmg) (linked
-  from [zwiftracing.app](https://www.zwiftracing.app)), say what you
-  want to use it for. Keys are rate-limited, with a standard tier and a
-  higher tier agreed with them. A standard key works with the v2
-  endpoints this package uses (`/api/v2/...`); the older
-  `/api/public/...` endpoints and `/api/v2/public/categories` need a
-  different access level and return 401 with one.
+- **ZwiftRacing.app** needs an API key. “Hobby” level API access can be
+  accessed [by supporting
+  ZwiftRacing.app](https://zwiftracing.app/support), then flagging this
+  to Tim on [Discord](https://discord.gg/yxPSpdxYmg). A standard key
+  works with the v2 endpoints this package uses (`/api/v2/...`); the
+  older `/api/public/...` endpoints and `/api/v2/public/categories` need
+  a different access level and return 401 with one.
 - **Zwift’s status page**
   ([`zwift_status()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_status.md))
   needs no credentials.
@@ -60,35 +63,35 @@ Put these in `~/.Renviron` (never in code you commit), then restart R:
 library(zwiftverse)
 
 ## Zwift game API ----------------------------------------------------
-za  <- zwift_auth()                    # token auto-refreshes
-me  <- zwift_profile(za)               # your profile (one-row tibble)
-oth <- zwift_profile(za, 1234567)      # another rider's public profile
+za  <- zwift_auth()                        # token auto-refreshes
+me  <- zwift_profile(za)                   # your profile (one-row tibble)
+oth <- zwift_profile(za, 1234567)          # another rider's public profile
 act <- zwift_activities(za, limit = Inf)   # whole history, auto-paged
-fol <- zwift_followers(za)             # all followers (auto-paged)
-res <- zwift_event_results(za, 5795672)  # official results, all subgroups
-ent <- zwift_event_entrants(za, 5795672) # sign-ups, all subgroups
-wld <- zwift_riders_in_world(za, 1)    # roster currently in Watopia
-raw <- zwift_get(za, "/api/profiles/me/activities/", list(limit = 5))  # escape hatch
-zwift_status()                         # is Zwift up? (no login needed)
-zwift_status("unresolved")             # open incidents, if any
+fol <- zwift_followers(za)                 # all followers (auto-paged)
+res <- zwift_event_results(za, 5795672)    # official results, all subgroups
+ent <- zwift_event_entrants(za, 5795672)   # sign-ups, all subgroups
+wld <- zwift_riders_in_world(za, 1)        # roster currently in Watopia
+raw <- zwift_get(za, "/api/profiles/me/activities/", list(limit = 5))
+zwift_status()                             # is Zwift up? (no login needed)
+zwift_status("unresolved")                 # open incidents, if any
 
 ## ZwiftPower --------------------------------------------------------
 zp   <- zp_set_cookie(zp_session(), "PASTE_phpbb3_lswlk_sid")  # robust path
 # zp <- zp_login(zp_session())                                 # or SSO (brittle)
-res  <- zp_result(zp, 3590800)         # finishers
-team <- zp_team(zp, 456)
-fts  <- zp_sprints(zp, 3590800)
-rr   <- zp_analysis(zp, 3590800, 1234567)            # race report: per-second power/HR/altitude
-pen  <- zp_event_analysis(zp, 3590800, pen = "B")    # ...for every finisher in pen B
+res  <- zp_result(zp, 3590800)                    # finishers
+team <- zp_team(zp, 456)                          # team roster with category + recent power
+fts  <- zp_sprints(zp, 3590800)                   # every rider's time + power on each segment
+rr   <- zp_analysis(zp, 3590800, 1234567)         # race report: per-second power/HR/altitude
+pen  <- zp_event_analysis(zp, 3590800, pen = "B") # ...for every finisher in pen B
 
 ## ZwiftRacing.app ---------------------------------------------------
 zr <- zr_client()
-r1 <- zr_rider(zr, 1234567)                  # vELO rating in velo$race
-lg <- zr_rider_overview(zr, 1234567)         # legacy ratings: live / max30 / max90
-rr <- zr_rider_results(zr, 1234567, days = 90)
-ev <- zr_result(zr, 5800908)                 # one row per rider, all pens
-cm <- zr_club_riders(zr, 456)                # all pages
-rb <- zr_riders(zr, c(1234567, 2345678))     # one request per rider (no v2 batch)
+r1 <- zr_rider(zr, 1234567)                    # vELO rating in velo$race
+lg <- zr_rider_overview(zr, 1234567)           # legacy ratings: live / max30 / max90
+rr <- zr_rider_results(zr, 1234567, days = 90) # one row per race, last 90 days
+ev <- zr_result(zr, 5800908)                   # one row per rider, all pens
+cm <- zr_club_riders(zr, 456)                  # all pages
+rb <- zr_riders(zr, c(1234567, 2345678))       # one request per rider (no v2 batch)
 ```
 
 Nested JSON arrives as list-columns:
@@ -97,6 +100,89 @@ Nested JSON arrives as list-columns:
 
 library(tidyr)
 zr_rider(zr, 1234567) |> hoist(velo, velo_race = "race")
+```
+
+## A closer look at three functions
+
+### `zp_team()`: a ZwiftPower team roster
+
+One row per team member (all members, not only recent racers):
+
+| Column | Meaning |
+|----|----|
+| `zwid`, `name`, `flag`, `age` | Zwift id, name, country, age band (e.g. `"50+"`) |
+| `div`, `divw` | ZwiftPower category, open and women’s: `5` = A+, `10` = A, `20` = B, `30` = C, `40` = D, `0` = none |
+| `ftp`, `w` | ZwiftPower’s FTP estimate (W) and weight (kg) |
+| `h_1200_watts`, `h_1200_wkg`, `h_15_watts`, `h_15_wkg` | recent 20-minute and 15-second bests |
+| `rank`, `skill` | ZwiftPower ranking points (lower is better, blank without recent races) and skill score |
+| `distance`, `climbed`, `time`, `energy` | lifetime Zwift totals (distance and climbing in metres) |
+| `status` | team role, e.g. `Owner`, `Moderator` (blank for members) |
+
+``` r
+
+zp_team(zp, 456) |>
+  zp_unflag() |>                          # [value, flag] pairs -> numbers
+  count(div)                              # riders per category
+
+zp_team(zp, 456) |>
+  zp_unflag() |>
+  filter(div == 20) |>                    # the B riders
+  arrange(desc(as.numeric(h_1200_wkg))) |>
+  select(name, ftp, w, h_1200_wkg)
+```
+
+### `zp_sprints()`: segment results for one race
+
+One row per finisher (all categories). For every timed segment on the
+route (sprints, KOMs, the finish climb) it gives that rider’s effort, in
+three column families named by **segment id**:
+
+| Column | Meaning |
+|----|----|
+| `msec.<id>` | time through the segment, in **seconds** despite the name |
+| `watts.<id>`, `wkg.<id>` | average power and w/kg through it |
+
+Look up segment names with
+[`zp_primes()`](https://nickopotamus.github.io/zwiftverse/reference/zp_get.md)
+(`sprint_id`, `name`). A segment that wasn’t on a rider’s route is `NA`.
+Each id is also the key for
+[`zp_segment_standings()`](https://nickopotamus.github.io/zwiftverse/reference/zp_get.md),
+which lists riders’ best efforts on that segment (a whole team’s, or the
+global top ~2,000).
+
+``` r
+
+seg_names <- zp_primes(zp, 3590800) |> distinct(sprint_id, name)
+
+zp_sprints(zp, 3590800) |>
+  zp_unflag() |>
+  filter(category == "B") |>
+  transmute(name, finish_s = as.numeric(msec.37), finish_wkg = as.numeric(wkg.37)) |>
+  arrange(finish_s)                       # fastest through segment 37
+```
+
+### `zr_rider_results()`: a rider’s race history on ZwiftRacing.app
+
+One row per race in the last `days` days (default 365). Nested fields
+are flattened into dotted column names, in groups:
+
+| Column group | What it holds |
+|----|----|
+| `event.*` | `eventId`, `time`, `title`, `type`, `routeName`, `distance`, `elevation` |
+| `place.*` | `positionInCategory`, `penTotal`, `didNotFinish`, `disqualified` |
+| `race.*` | the rider’s numbers that day: `time`, `gap`, `weight`, `wkgAvg`, and best w/kg for 5 s – 20 min (`wkg5` … `wkg1200`) |
+| `sensor.*` | `powerType`, `trainerDifficulty`, `heartRateMonitor` |
+| `velo.elo.*` | vELO rating `before` / `after`, `expectedPosition`, and per-ability changes (`factors.sprint.*`, `factors.climb.*`, …) |
+| `legacy.*` | old-style ZwiftRacing rating: `ratingBefore`, `rating`, `ratingDelta` |
+| `classement.*`, `timeCut.*` | ZwiftRacing league points and time-cut data |
+
+``` r
+
+zr_rider_results(zr, 1234567, days = 90) |>
+  transmute(date = as.POSIXct(event.time, origin = "1970-01-01"),
+            race = event.title, pos = place.positionInCategory, of = place.penTotal,
+            wkg = race.wkgAvg, velo_change = velo.elo.after - velo.elo.before) |>
+  arrange(desc(date))
 ```
 
 ## Caching
