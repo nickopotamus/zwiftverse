@@ -4,6 +4,10 @@
 
 ### New features
 
+- [`zwift_status()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_status.md)
+  reads Zwift’s public status page: overall status, per-service
+  components, open and recent incidents, upcoming maintenance. No login
+  needed.
 - [`zp_analysis()`](https://nickopotamus.github.io/zwiftverse/reference/zp_analysis.md)
   and
   [`zp_event_analysis()`](https://nickopotamus.github.io/zwiftverse/reference/zp_analysis.md)
@@ -17,6 +21,12 @@
 - [`print()`](https://rdrr.io/r/base/print.html) on a
   [`zwift_auth()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_auth.md)
   handle shows token status without revealing the token or credentials.
+
+### Documentation
+
+- README explains where each credential comes from, including how to ask
+  ZwiftRacing.app for an API key, and acknowledges zpdatafetch and
+  zwift-api-documentation.
 
 ### Robustness
 

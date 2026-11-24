@@ -25,6 +25,8 @@ OAuth2-authenticated access to profiles, activities, events and worlds.
   : Low-level Zwift GET
 - [`zwift_post()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_post.md)
   : Low-level Zwift POST
+- [`zwift_status()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_status.md)
+  : Zwift service status
 
 ## ZwiftPower
 

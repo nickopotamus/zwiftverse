@@ -27,11 +27,31 @@ pak::pak("nickopotamus/zwiftverse")
 
 ## Credentials
 
-``` r
+Put these in `~/.Renviron` (never in code you commit), then restart R:
 
-Sys.setenv(ZWIFT_USERNAME = "you@example.com", ZWIFT_PASSWORD = "…")
-Sys.setenv(ZR_AUTH = "your-zwiftracing-key")   # sent as the x-api-key header
-```
+    ZWIFT_USERNAME=you@example.com
+    ZWIFT_PASSWORD=...
+    ZP_SID=...                     # phpbb3_lswlk_sid cookie from zwiftpower.com
+    ZR_AUTH=your-zwiftracing-key   # sent as the x-api-key header
+
+- **Zwift** uses your own Zwift login.
+- **ZwiftPower:** log in at zwiftpower.com in a browser, then copy the
+  value of the `phpbb3_lswlk_sid` cookie (browser dev tools → Storage /
+  Application → Cookies).
+  [`zp_login()`](https://nickopotamus.github.io/zwiftverse/reference/zp_login.md)
+  can log in for you instead, but it breaks more often.
+- **ZwiftRacing.app** needs an API key, and keys aren’t self-serve.
+  There’s no sign-up form or published API docs. Ask the ZwiftRacing.app
+  team through their [Discord](https://discord.gg/yxPSpdxYmg) (linked
+  from [zwiftracing.app](https://www.zwiftracing.app)), say what you
+  want to use it for. Keys are rate-limited, with a standard tier and a
+  higher tier agreed with them. A standard key works with the v2
+  endpoints this package uses (`/api/v2/...`); the older
+  `/api/public/...` endpoints and `/api/v2/public/categories` need a
+  different access level and return 401 with one.
+- **Zwift’s status page**
+  ([`zwift_status()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_status.md))
+  needs no credentials.
 
 ## Usage
 
@@ -49,6 +69,8 @@ res <- zwift_event_results(za, 5795672)  # official results, all subgroups
 ent <- zwift_event_entrants(za, 5795672) # sign-ups, all subgroups
 wld <- zwift_riders_in_world(za, 1)    # roster currently in Watopia
 raw <- zwift_get(za, "/api/profiles/me/activities/", list(limit = 5))  # escape hatch
+zwift_status()                         # is Zwift up? (no login needed)
+zwift_status("unresolved")             # open incidents, if any
 
 ## ZwiftPower --------------------------------------------------------
 zp   <- zp_set_cookie(zp_session(), "PASTE_phpbb3_lswlk_sid")  # robust path
@@ -106,7 +128,9 @@ zv_cache_clear()                       # wipe it
   `Inf` = all), `rideons` (+ `give_rideon`), `event`, `event_subgroups`,
   `event_results`, `subgroup_results`, `event_entrants`,
   `subgroup_entrants`, `worlds`, `riders_in_world`, plus
-  `zwift_get`/`zwift_post`.
+  `zwift_get`/`zwift_post`. Service status:
+  [`zwift_status()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_status.md)
+  (`status`, `components`, `unresolved`, `incidents`, `maintenance`).
 - **ZwiftPower:** `profile`, `result`, `signups`, `team`, `event_list`,
   `result_list`, `team_riders`, `team_list`, `sprints`, `primes`,
   `segment_standings`, `analysis`, `event_analysis`, `league_list`,
@@ -114,3 +138,13 @@ zv_cache_clear()                       # wipe it
 - **ZwiftRacing.app (v2):** `rider`, `rider_overview`, `rider_results`,
   `rider_ranking`, `rider_velo`, `rider_power`, `riders`, `event`,
   `result`, `club`, `club_riders`, `routes`, plus `zr_get`.
+
+## Acknowledgements
+
+- [zpdatafetch](https://github.com/puckdoug/zpdatafetch) by Doug Morris
+  (puckdoug), a Python library for the same three APIs plus Zwift’s
+  status page. Its source was the reference used to find and check the
+  endpoints and auth flows here. zwiftverse is an independent R
+  implementation and doesn’t share its code.
+- [zwift-api-documentation](https://github.com/strukturunion-mmw/zwift-api-documentation)
+  by strukturunion-mmw, for the Zwift game API.

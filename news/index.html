@@ -42,12 +42,18 @@
 <div class="section level3">
 <h3 id="new-features-development-version">New features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
 <ul><li>
+<code><a href="../reference/zwift_status.html">zwift_status()</a></code> reads Zwift’s public status page: overall status, per-service components, open and recent incidents, upcoming maintenance. No login needed.</li>
+<li>
 <code><a href="../reference/zp_analysis.html">zp_analysis()</a></code> and <code><a href="../reference/zp_analysis.html">zp_event_analysis()</a></code> return the second-by-second power, heart rate and altitude behind ZwiftPower race reports, for one rider or a whole event / pen.</li>
 <li>
 <code><a href="../reference/zp_get.html">zp_segment_standings()</a></code>: every best effort on a ZwiftPower segment, globally or for one team.</li>
 <li>Cached responses are also kept in memory for the R session, so repeat hits skip the disk read (<code>options(zwiftverse.cache_memory = FALSE)</code> to turn off).</li>
 <li>
 <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code> on a <code><a href="../reference/zwift_auth.html">zwift_auth()</a></code> handle shows token status without revealing the token or credentials.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="documentation-development-version">Documentation<a class="anchor" aria-label="anchor" href="#documentation-development-version"></a></h3>
+<ul><li>README explains where each credential comes from, including how to ask ZwiftRacing.app for an API key, and acknowledges zpdatafetch and zwift-api-documentation.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="robustness-development-version">Robustness<a class="anchor" aria-label="anchor" href="#robustness-development-version"></a></h3>

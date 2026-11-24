@@ -99,9 +99,21 @@
 <div class="section level2">
 <h2 id="credentials">Credentials<a class="anchor" aria-label="anchor" href="#credentials"></a>
 </h2>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv</a></span><span class="op">(</span>ZWIFT_USERNAME <span class="op">=</span> <span class="st">"you@example.com"</span>, ZWIFT_PASSWORD <span class="op">=</span> <span class="st">"…"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv</a></span><span class="op">(</span>ZR_AUTH <span class="op">=</span> <span class="st">"your-zwiftracing-key"</span><span class="op">)</span>   <span class="co"># sent as the x-api-key header</span></span></code></pre></div>
+<p>Put these in <code>~/.Renviron</code> (never in code you commit), then restart R:</p>
+<pre><code><span><span class="va">ZWIFT_USERNAME</span><span class="op">=</span><span class="va">you</span><span class="op">@</span><span class="va">example.com</span></span>
+<span><span class="va">ZWIFT_PASSWORD</span><span class="op">=</span><span class="va">...</span></span>
+<span><span class="va">ZP_SID</span><span class="op">=</span><span class="va">...</span>                     <span class="co"># phpbb3_lswlk_sid cookie from zwiftpower.com</span></span>
+<span><span class="va">ZR_AUTH</span><span class="op">=</span><span class="va">your</span><span class="op">-</span><span class="va">zwiftracing</span><span class="op">-</span><span class="va">key</span>   <span class="co"># sent as the x-api-key header</span></span></code></pre>
+<ul>
+<li>
+<strong>Zwift</strong> uses your own Zwift login.</li>
+<li>
+<strong>ZwiftPower:</strong> log in at zwiftpower.com in a browser, then copy the value of the <code>phpbb3_lswlk_sid</code> cookie (browser dev tools → Storage / Application → Cookies). <code><a href="reference/zp_login.html">zp_login()</a></code> can log in for you instead, but it breaks more often.</li>
+<li>
+<strong>ZwiftRacing.app</strong> needs an API key, and keys aren’t self-serve. There’s no sign-up form or published API docs. Ask the ZwiftRacing.app team through their <a href="https://discord.gg/yxPSpdxYmg" class="external-link">Discord</a> (linked from <a href="https://www.zwiftracing.app" class="external-link">zwiftracing.app</a>), say what you want to use it for. Keys are rate-limited, with a standard tier and a higher tier agreed with them. A standard key works with the v2 endpoints this package uses (<code>/api/v2/...</code>); the older <code>/api/public/...</code> endpoints and <code>/api/v2/public/categories</code> need a different access level and return 401 with one.</li>
+<li>
+<strong>Zwift’s status page</strong> (<code><a href="reference/zwift_status.html">zwift_status()</a></code>) needs no credentials.</li>
+</ul>
 </div>
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
@@ -119,6 +131,8 @@
 <span><span class="va">ent</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zwift_get.html">zwift_event_entrants</a></span><span class="op">(</span><span class="va">za</span>, <span class="fl">5795672</span><span class="op">)</span> <span class="co"># sign-ups, all subgroups</span></span>
 <span><span class="va">wld</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zwift_get.html">zwift_riders_in_world</a></span><span class="op">(</span><span class="va">za</span>, <span class="fl">1</span><span class="op">)</span>    <span class="co"># roster currently in Watopia</span></span>
 <span><span class="va">raw</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/zwift_get.html">zwift_get</a></span><span class="op">(</span><span class="va">za</span>, <span class="st">"/api/profiles/me/activities/"</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">5</span><span class="op">)</span><span class="op">)</span>  <span class="co"># escape hatch</span></span>
+<span><span class="fu"><a href="reference/zwift_status.html">zwift_status</a></span><span class="op">(</span><span class="op">)</span>                         <span class="co"># is Zwift up? (no login needed)</span></span>
+<span><span class="fu"><a href="reference/zwift_status.html">zwift_status</a></span><span class="op">(</span><span class="st">"unresolved"</span><span class="op">)</span>             <span class="co"># open incidents, if any</span></span>
 <span></span>
 <span><span class="co">## ZwiftPower --------------------------------------------------------</span></span>
 <span><span class="va">zp</span>   <span class="op">&lt;-</span> <span class="fu"><a href="reference/zp_set_cookie.html">zp_set_cookie</a></span><span class="op">(</span><span class="fu"><a href="reference/zp_session.html">zp_session</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"PASTE_phpbb3_lswlk_sid"</span><span class="op">)</span>  <span class="co"># robust path</span></span>
@@ -164,11 +178,21 @@
 </h2>
 <ul>
 <li>
-<strong>Zwift:</strong> <code>profile</code>, <code>activities</code>, <code>activity</code>, <code>followers</code>, <code>followees</code> (list endpoints auto-page: <code>limit</code> is the total wanted, <code>Inf</code> = all), <code>rideons</code> (+ <code>give_rideon</code>), <code>event</code>, <code>event_subgroups</code>, <code>event_results</code>, <code>subgroup_results</code>, <code>event_entrants</code>, <code>subgroup_entrants</code>, <code>worlds</code>, <code>riders_in_world</code>, plus <code>zwift_get</code>/<code>zwift_post</code>.</li>
+<strong>Zwift:</strong> <code>profile</code>, <code>activities</code>, <code>activity</code>, <code>followers</code>, <code>followees</code> (list endpoints auto-page: <code>limit</code> is the total wanted, <code>Inf</code> = all), <code>rideons</code> (+ <code>give_rideon</code>), <code>event</code>, <code>event_subgroups</code>, <code>event_results</code>, <code>subgroup_results</code>, <code>event_entrants</code>, <code>subgroup_entrants</code>, <code>worlds</code>, <code>riders_in_world</code>, plus <code>zwift_get</code>/<code>zwift_post</code>. Service status: <code><a href="reference/zwift_status.html">zwift_status()</a></code> (<code>status</code>, <code>components</code>, <code>unresolved</code>, <code>incidents</code>, <code>maintenance</code>).</li>
 <li>
 <strong>ZwiftPower:</strong> <code>profile</code>, <code>result</code>, <code>signups</code>, <code>team</code>, <code>event_list</code>, <code>result_list</code>, <code>team_riders</code>, <code>team_list</code>, <code>sprints</code>, <code>primes</code>, <code>segment_standings</code>, <code>analysis</code>, <code>event_analysis</code>, <code>league_list</code>, <code>league_results</code>, <code>league_team_standings</code>, plus <code>zp_get</code>.</li>
 <li>
 <strong>ZwiftRacing.app (v2):</strong> <code>rider</code>, <code>rider_overview</code>, <code>rider_results</code>, <code>rider_ranking</code>, <code>rider_velo</code>, <code>rider_power</code>, <code>riders</code>, <code>event</code>, <code>result</code>, <code>club</code>, <code>club_riders</code>, <code>routes</code>, plus <code>zr_get</code>.</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
+</h2>
+<ul>
+<li>
+<a href="https://github.com/puckdoug/zpdatafetch" class="external-link">zpdatafetch</a> by Doug Morris (puckdoug), a Python library for the same three APIs plus Zwift’s status page. Its source was the reference used to find and check the endpoints and auth flows here. zwiftverse is an independent R implementation and doesn’t share its code.</li>
+<li>
+<a href="https://github.com/strukturunion-mmw/zwift-api-documentation" class="external-link">zwift-api-documentation</a> by strukturunion-mmw, for the Zwift game API.</li>
 </ul>
 </div>
 </div>
