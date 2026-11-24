@@ -12,3 +12,8 @@ A tibble: one row per cached entry (key, bytes, modified).
 \description{
 Summarise the cache contents.
 }
+\examples{
+info <- zv_cache_info()
+nrow(info)          # number of cached responses
+sum(info$bytes)     # disk used
+}

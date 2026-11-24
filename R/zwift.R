@@ -39,6 +39,12 @@
 #' @param username,password Zwift account credentials. Default to the
 #'   environment variables `ZWIFT_USERNAME` / `ZWIFT_PASSWORD`.
 #' @return An object of class `zwift_auth`.
+#' @examples
+#' \dontrun{
+#' za <- zwift_auth()   # credentials from ZWIFT_USERNAME / ZWIFT_PASSWORD
+#' za                   # token status, never the token itself
+#' zwift_profile(za)
+#' }
 #' @export
 zwift_auth <- function(username = Sys.getenv("ZWIFT_USERNAME"),
                        password = Sys.getenv("ZWIFT_PASSWORD")) {
@@ -160,6 +166,12 @@ print.zwift_auth <- function(x, ...) {
 #' @param ... For the typed wrappers, further arguments forwarded to
 #'   `zwift_get()` (e.g. `parse`, `ttl`).
 #' @return A tibble, parsed list, or httr2 response.
+#' @examples
+#' \dontrun{
+#' za <- zwift_auth()
+#' zwift_get(za, "/api/profiles/me/activities/", list(limit = 5))
+#' zwift_get(za, "/api/profiles/me", parse = "json")
+#' }
 #' @export
 zwift_get <- function(auth, path, query = list(), parse = "tbl", ttl = .zv_ttl("zwift")) {
   stopifnot(inherits(auth, "zwift_auth"))
@@ -178,7 +190,15 @@ zwift_get <- function(auth, path, query = list(), parse = "tbl", ttl = .zv_ttl("
 
 #' Low-level Zwift POST
 #' @inheritParams zwift_get
-#' @param body Request body (encoded as JSON). Defaults to an empty object.
+#' @param body Request body (encoded as JSON). `NULL` (default) sends no body.
+#' @return The httr2 response (or parsed JSON / tibble if `parse` says so).
+#' @examples
+#' \dontrun{
+#' za <- zwift_auth()
+#' # give a ride-on (what zwift_give_rideon() does)
+#' zwift_post(za, "/api/profiles/1234567/activities/987654321/rideon",
+#'            body = list())
+#' }
 #' @export
 zwift_post <- function(auth, path, body = NULL, parse = "resp") {
   stopifnot(inherits(auth, "zwift_auth"))

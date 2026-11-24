@@ -11,10 +11,21 @@ zwift_post(auth, path, body = NULL, parse = "resp")
 
 \item{path}{Endpoint path, e.g. \code{"/api/profiles/me"}.}
 
-\item{body}{Request body (encoded as JSON). Defaults to an empty object.}
+\item{body}{Request body (encoded as JSON). \code{NULL} (default) sends no body.}
 
 \item{parse}{One of \code{"tbl"}, \code{"json"}, \code{"resp"}.}
 }
+\value{
+The httr2 response (or parsed JSON / tibble if \code{parse} says so).
+}
 \description{
 Low-level Zwift POST
+}
+\examples{
+\dontrun{
+za <- zwift_auth()
+# give a ride-on (what zwift_give_rideon() does)
+zwift_post(za, "/api/profiles/1234567/activities/987654321/rideon",
+           body = list())
+}
 }

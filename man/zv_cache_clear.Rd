@@ -13,3 +13,8 @@ Invisibly, the number of cache files removed.
 Removes every entry on disk and the in-session memory copy (see the
 \code{zwiftverse.cache_memory} option in \code{\link[=zv_cache_enabled]{zv_cache_enabled()}}).
 }
+\examples{
+\dontrun{
+zv_cache_clear()   # wipes every cached response
+}
+}

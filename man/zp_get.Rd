@@ -113,3 +113,10 @@ and \code{zp_primes()}'s \code{sprint_id}; e.g. 13 = Watopia Epic KOM Forward.
 \item \code{zp_league_team_standings()}: League team event standings.
 
 }}
+\examples{
+\dontrun{
+zp <- zp_set_cookie(zp_session(), Sys.getenv("ZP_SID"))
+zp_get(zp, "/cache3/results/3590800_view.json")
+zp_get(zp, "/api3.php?do=event_sprints&zid=3590800", parse = "json")
+}
+}

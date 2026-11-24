@@ -17,3 +17,9 @@ An object of class \code{zp_session}.
 \description{
 Create a ZwiftPower session
 }
+\examples{
+\dontrun{
+zp <- zp_set_cookie(zp_session(), Sys.getenv("ZP_SID"))
+zp_result(zp, 3590800)
+}
+}

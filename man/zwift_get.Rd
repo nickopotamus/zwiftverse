@@ -172,3 +172,10 @@ position/power is protobuf on \verb{/relay/worlds/\{id\}/players/\{id\}}; this J
 endpoint returns the roster only.
 
 }}
+\examples{
+\dontrun{
+za <- zwift_auth()
+zwift_get(za, "/api/profiles/me/activities/", list(limit = 5))
+zwift_get(za, "/api/profiles/me", parse = "json")
+}
+}

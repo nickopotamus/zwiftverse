@@ -25,3 +25,9 @@ memory too, so repeated hits skip the disk read. Options:
 default TTLs (900, 3600, 3600 seconds).
 }
 }
+\examples{
+zv_cache_enabled()
+old <- options(zwiftverse.cache = FALSE)   # turn caching off for a while
+zv_cache_enabled()
+options(old)
+}

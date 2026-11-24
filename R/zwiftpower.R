@@ -16,6 +16,11 @@
 #' @param cookie_file Path to an on-disk cookie jar (used by [zp_login()]).
 #' @param sid Optional `phpbb3_lswlk_sid` value (see [zp_set_cookie()]).
 #' @return An object of class `zp_session`.
+#' @examples
+#' \dontrun{
+#' zp <- zp_set_cookie(zp_session(), Sys.getenv("ZP_SID"))
+#' zp_result(zp, 3590800)
+#' }
 #' @export
 zp_session <- function(cookie_file = tempfile(fileext = ".cookies"), sid = NULL) {
   st <- new.env(parent = emptyenv()); st$primed_at <- 0
@@ -60,6 +65,10 @@ zp_session <- function(cookie_file = tempfile(fileext = ".cookies"), sid = NULL)
 #' @param s A [zp_session()].
 #' @param sid The `phpbb3_lswlk_sid` cookie value.
 #' @return The updated session.
+#' @examples
+#' \dontrun{
+#' zp <- zp_set_cookie(zp_session(), "PASTE_phpbb3_lswlk_sid")
+#' }
 #' @export
 zp_set_cookie <- function(s, sid) {
   s$sid <- sid
@@ -76,6 +85,10 @@ zp_set_cookie <- function(s, sid) {
 #' @param s A [zp_session()].
 #' @param username,password Zwift credentials (default to env vars).
 #' @return Invisibly, the session.
+#' @examples
+#' \dontrun{
+#' zp <- zp_login(zp_session())   # uses ZWIFT_USERNAME / ZWIFT_PASSWORD
+#' }
 #' @export
 zp_login <- function(s, username = Sys.getenv("ZWIFT_USERNAME"),
                      password = Sys.getenv("ZWIFT_PASSWORD")) {
@@ -116,6 +129,12 @@ zp_login <- function(s, username = Sys.getenv("ZWIFT_USERNAME"),
 #' @param ttl Cache time-to-live in seconds (`0` = off, `Inf` = permanent).
 #' @param ... For the typed wrappers, further arguments forwarded to `zp_get()`.
 #' @return A tibble, parsed list, or httr2 response.
+#' @examples
+#' \dontrun{
+#' zp <- zp_set_cookie(zp_session(), Sys.getenv("ZP_SID"))
+#' zp_get(zp, "/cache3/results/3590800_view.json")
+#' zp_get(zp, "/api3.php?do=event_sprints&zid=3590800", parse = "json")
+#' }
 #' @export
 zp_get <- function(s, url, parse = "tbl", ttl = .zv_ttl("zp")) {
   stopifnot(inherits(s, "zp_session"))

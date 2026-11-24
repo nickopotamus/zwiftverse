@@ -18,3 +18,9 @@ An object of class \code{zr_client}.
 \description{
 Create a ZwiftRacing.app client
 }
+\examples{
+\dontrun{
+zr <- zr_client()                  # key from the ZR_AUTH environment variable
+zr <- zr_client("your-key", rate = 1)
+}
+}

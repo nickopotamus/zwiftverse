@@ -37,3 +37,10 @@ again with the password instead of failing.
 The handle exposes \code{token()}, \code{login()}, \code{refresh()} and \code{invalidate()};
 printing it shows token status only, never the token or credentials.
 }
+\examples{
+\dontrun{
+za <- zwift_auth()   # credentials from ZWIFT_USERNAME / ZWIFT_PASSWORD
+za                   # token status, never the token itself
+zwift_profile(za)
+}
+}

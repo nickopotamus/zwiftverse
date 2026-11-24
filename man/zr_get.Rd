@@ -117,3 +117,10 @@ power (\verb{wkg*}), and ratings (\code{ratingBefore}, \code{rating}, \code{rati
 \item \code{zr_routes()}: Route catalogue.
 
 }}
+\examples{
+\dontrun{
+zr <- zr_client()
+zr_get(zr, "/riders/1234567")
+zr_get(zr, "/riders/1234567", parse = "json", ttl = 0)  # raw list, no cache
+}
+}

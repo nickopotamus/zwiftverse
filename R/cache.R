@@ -30,11 +30,18 @@
 #' * `zwiftverse.ttl_zwift`, `zwiftverse.ttl_zp`, `zwiftverse.ttl_zr` —
 #'   default TTLs (900, 3600, 3600 seconds).
 #' @return Logical scalar.
+#' @examples
+#' zv_cache_enabled()
+#' old <- options(zwiftverse.cache = FALSE)   # turn caching off for a while
+#' zv_cache_enabled()
+#' options(old)
 #' @export
 zv_cache_enabled <- function() isTRUE(getOption("zwiftverse.cache", TRUE))
 
 #' Path to the cache directory (created on demand).
 #' @return A length-one character path.
+#' @examples
+#' zv_cache_dir()
 #' @export
 zv_cache_dir <- function() {
   getOption("zwiftverse.cache_dir",
@@ -121,6 +128,10 @@ zv_cache_dir <- function() {
 #' Removes every entry on disk and the in-session memory copy (see the
 #' `zwiftverse.cache_memory` option in [zv_cache_enabled()]).
 #' @return Invisibly, the number of cache files removed.
+#' @examples
+#' \dontrun{
+#' zv_cache_clear()   # wipes every cached response
+#' }
 #' @export
 zv_cache_clear <- function() {
   rm(list = ls(.zv_mem, all.names = TRUE), envir = .zv_mem)
@@ -132,6 +143,10 @@ zv_cache_clear <- function() {
 
 #' Summarise the cache contents.
 #' @return A tibble: one row per cached entry (key, bytes, modified).
+#' @examples
+#' info <- zv_cache_info()
+#' nrow(info)          # number of cached responses
+#' sum(info$bytes)     # disk used
 #' @export
 zv_cache_info <- function() {
   dir <- zv_cache_dir()

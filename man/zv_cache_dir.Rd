@@ -12,3 +12,6 @@ A length-one character path.
 \description{
 Path to the cache directory (created on demand).
 }
+\examples{
+zv_cache_dir()
+}

@@ -14,6 +14,11 @@
 #'   Defaults to the environment variable `ZR_AUTH`.
 #' @param rate Throttle in requests per second (default 2; tune to your quota).
 #' @return An object of class `zr_client`.
+#' @examples
+#' \dontrun{
+#' zr <- zr_client()                  # key from the ZR_AUTH environment variable
+#' zr <- zr_client("your-key", rate = 1)
+#' }
 #' @export
 zr_client <- function(auth = Sys.getenv("ZR_AUTH"), rate = 2) {
   if (!nzchar(auth)) stop("Provide your ZwiftRacing.app key or set ZR_AUTH.", call. = FALSE)
@@ -41,6 +46,12 @@ zr_client <- function(auth = Sys.getenv("ZR_AUTH"), rate = 2) {
 #' @param ttl Cache time-to-live in seconds (`0` = off, `Inf` = permanent).
 #' @param ... For the typed wrappers, further arguments forwarded to `zr_get()`.
 #' @return A tibble, parsed list, or httr2 response.
+#' @examples
+#' \dontrun{
+#' zr <- zr_client()
+#' zr_get(zr, "/riders/1234567")
+#' zr_get(zr, "/riders/1234567", parse = "json", ttl = 0)  # raw list, no cache
+#' }
 #' @export
 zr_get <- function(client, path, query = list(), parse = "tbl", ttl = .zv_ttl("zr")) {
   stopifnot(inherits(client, "zr_client"))

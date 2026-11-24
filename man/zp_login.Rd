@@ -23,3 +23,8 @@ Scrapes the Keycloak login form and submits your Zwift credentials. This is
 brittle - if the SSO flow changes it will fail; use \code{\link[=zp_set_cookie]{zp_set_cookie()}} instead.
 Requires the suggested packages \pkg{rvest} and \pkg{xml2}.
 }
+\examples{
+\dontrun{
+zp <- zp_login(zp_session())   # uses ZWIFT_USERNAME / ZWIFT_PASSWORD
+}
+}

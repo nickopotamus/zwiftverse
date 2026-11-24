@@ -18,3 +18,8 @@ The updated session.
 The robust alternative to \code{\link[=zp_login]{zp_login()}}: log in at zwiftpower.com in a browser,
 copy the \code{phpbb3_lswlk_sid} cookie value from devtools, and pass it here.
 }
+\examples{
+\dontrun{
+zp <- zp_set_cookie(zp_session(), "PASTE_phpbb3_lswlk_sid")
+}
+}
