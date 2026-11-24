@@ -83,7 +83,7 @@ zp_login <- function(s, username = Sys.getenv("ZWIFT_USERNAME"),
   cf <- s$cookie_file
   land <- request(.ZP_LOGIN) |>
     req_cookie_preserve(cf) |> req_user_agent(.ZWIFT_UA) |>
-    req_error(body = function(resp) resp_body_string(resp)) |> req_perform()
+    req_error(body = .zv_err_body) |> req_perform()
   html <- xml2::read_html(resp_body_string(land))
   form <- rvest::html_element(html, "form")
   if (length(form) == 0 || inherits(form, "xml_missing"))
@@ -98,7 +98,7 @@ zp_login <- function(s, username = Sys.getenv("ZWIFT_USERNAME"),
   request(action) |>
     req_cookie_preserve(cf) |> req_user_agent(.ZWIFT_UA) |>
     req_body_form(!!!fields) |>
-    req_error(body = function(resp) resp_body_string(resp)) |> req_perform()
+    req_error(body = .zv_err_body) |> req_perform()
   ok <- request(paste0(.ZP_BASE, "/events.php")) |>
     req_cookie_preserve(cf) |> req_user_agent(.ZWIFT_UA) |> req_perform() |>
     resp_body_string()
@@ -124,7 +124,7 @@ zp_get <- function(s, url, parse = "tbl", ttl = .zv_ttl("zp")) {
   req <- .zp_base_req(s, url) |>
     req_headers(Accept = "application/json") |>
     req_retry(max_tries = 3) |>
-    req_error(body = function(resp) resp_body_string(resp))
+    req_error(body = .zv_err_body)
   out <- .zv_fetch(req, parse, ttl)
   if (parse == "tbl") .zp_unescape(out) else out
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/cache.R
 \name{zv_cache_clear}
 \alias{zv_cache_clear}
-\title{Clear the on-disk cache.}
+\title{Clear the cache.}
 \usage{
 zv_cache_clear()
 }
@@ -10,5 +10,6 @@ zv_cache_clear()
 Invisibly, the number of cache files removed.
 }
 \description{
-Clear the on-disk cache.
+Removes every entry on disk and the in-session memory copy (see the
+\code{zwiftverse.cache_memory} option in \code{\link[=zv_cache_enabled]{zv_cache_enabled()}}).
 }

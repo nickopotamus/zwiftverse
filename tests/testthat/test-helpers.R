@@ -48,6 +48,29 @@ test_that("cache set / get / clear round-trips and respects TTL", {
   expect_gte(zv_cache_clear(), 1)
 })
 
+test_that("memory layer serves repeat hits without the disk, honours TTL, clears", {
+  d <- file.path(tempdir(), paste0("zv-cache-", as.integer(runif(1, 1, 1e6))))
+  old <- options(zwiftverse.cache = TRUE, zwiftverse.cache_dir = d,
+                 zwiftverse.cache_memory = TRUE)
+  on.exit(options(old), add = TRUE)
+
+  key <- "mem-test-key"
+  zwiftverse:::.zv_cache_set(key, list(v = 1))
+  unlink(zwiftverse:::.zv_cache_path(key))           # disk copy gone...
+  expect_equal(zwiftverse:::.zv_cache_get(key, ttl = Inf)$v, 1)  # ...memory still serves
+  Sys.sleep(1)
+  expect_null(zwiftverse:::.zv_cache_get(key, ttl = 0.001))       # TTL still applies
+
+  zwiftverse:::.zv_cache_set(key, list(v = 2))
+  zv_cache_clear()
+  expect_null(zwiftverse:::.zv_cache_get(key, ttl = Inf))         # cleared from both
+
+  options(zwiftverse.cache_memory = FALSE)
+  zwiftverse:::.zv_cache_set(key, list(v = 3))
+  unlink(zwiftverse:::.zv_cache_path(key))
+  expect_null(zwiftverse:::.zv_cache_get(key, ttl = Inf))         # memory layer off
+})
+
 test_that("cache key is stable for the same request and differs across urls", {
   r1 <- httr2::request("https://x/api/a")
   r2 <- httr2::request("https://x/api/a")

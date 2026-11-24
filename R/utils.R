@@ -81,3 +81,11 @@
   }
   .zv_bind(pieces)
 }
+
+# Error-body extractor for req_error(): an error response may have no body
+# (e.g. a bare 401), which resp_body_string() would turn into a parse error
+# that hides the real HTTP status.
+.zv_err_body <- function(resp) {
+  if (!resp_has_body(resp)) return(NULL)
+  substr(resp_body_string(resp), 1, 500)
+}

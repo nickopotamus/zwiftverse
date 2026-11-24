@@ -21,6 +21,21 @@
 #' Performs an OAuth2 password-grant login and returns a handle that refreshes
 #' the access token automatically. Requires your own Zwift credentials.
 #'
+#' Token handling:
+#'
+#' * Expiry times are measured from when the token *request was sent*, and a
+#'   token is renewed early (10% of its lifetime, 5–60 s), so slow responses
+#'   and modest clock skew don't produce expired tokens.
+#' * When the access token expires the refresh token is used; if Zwift
+#'   rejects the refresh (expired or revoked server-side), the handle logs in
+#'   again with the password instead of failing.
+#' * A `refresh_expires_in` of `0` (a Keycloak offline token) never expires.
+#' * If the API answers `401` to a token the handle still thought valid,
+#'   [zwift_get()] / [zwift_post()] discard it and retry the request once.
+#'
+#' The handle exposes `token()`, `login()`, `refresh()` and `invalidate()`;
+#' printing it shows token status only, never the token or credentials.
+#'
 #' @param username,password Zwift account credentials. Default to the
 #'   environment variables `ZWIFT_USERNAME` / `ZWIFT_PASSWORD`.
 #' @return An object of class `zwift_auth`.
@@ -35,7 +50,7 @@ zwift_auth <- function(username = Sys.getenv("ZWIFT_USERNAME"),
   st$access <- NULL; st$refresh <- NULL; st$access_exp <- 0; st$refresh_exp <- 0
 
   urls <- getOption("zwiftverse.zwift_auth_url", .ZWIFT_AUTH_URLS)
-  grant <- function(body) {
+  post <- function(body) {
     resp <- NULL
     for (u in urls) {
       resp <- request(u) |>
@@ -47,30 +62,81 @@ zwift_auth <- function(username = Sys.getenv("ZWIFT_USERNAME"),
       # 404/405 => endpoint moved; try the next candidate. Anything else is final.
       if (!resp_status(resp) %in% c(404, 405)) break
     }
-    if (resp_is_error(resp))
-      stop(sprintf("Zwift auth failed (HTTP %s) at %s: %s", resp_status(resp),
-                   resp$url, substr(resp_body_string(resp), 1, 300)), call. = FALSE)
+    resp
+  }
+  fail <- function(resp)
+    stop(sprintf("Zwift auth failed (HTTP %s) at %s: %s", resp_status(resp),
+                 resp$url, .zv_err_body(resp) %||% ""), call. = FALSE)
+  # Store a token response. `sent` is when the request left, so the expiry is
+  # never later than the server's; `early` renews a little before that.
+  store <- function(resp, sent) {
     st$auth_url <- resp$url
     tok <- resp_body_json(resp)
-    now <- as.numeric(Sys.time())
+    early <- function(life) life - min(60, max(5, 0.1 * life))
+    life_a <- as.numeric(tok$expires_in %||% 3600)
+    life_r <- as.numeric(tok$refresh_expires_in %||% 1800)
     st$access      <- tok$access_token
-    st$refresh     <- tok$refresh_token
-    st$access_exp  <- now + (tok$expires_in %||% 3600) - 10
-    st$refresh_exp <- now + (tok$refresh_expires_in %||% 1800) - 10
+    st$refresh     <- tok$refresh_token %||% st$refresh
+    st$access_exp  <- sent + early(life_a)
+    st$refresh_exp <- if (life_r <= 0) Inf else sent + early(life_r)
     invisible(st)
   }
-  login   <- function() grant(list(username = username, password = password,
-                                   grant_type = "password", client_id = .ZWIFT_CLIENT))
-  refresh <- function() grant(list(grant_type = "refresh_token",
-                                   refresh_token = st$refresh, client_id = .ZWIFT_CLIENT))
+  login <- function() {
+    sent <- as.numeric(Sys.time())
+    resp <- post(list(username = username, password = password,
+                      grant_type = "password", client_id = .ZWIFT_CLIENT))
+    if (resp_is_error(resp)) fail(resp)
+    store(resp, sent)
+  }
+  refresh <- function() {
+    if (is.null(st$refresh)) return(login())
+    sent <- as.numeric(Sys.time())
+    resp <- post(list(grant_type = "refresh_token", refresh_token = st$refresh,
+                      client_id = .ZWIFT_CLIENT))
+    # 400 invalid_grant / 401: refresh token expired or revoked -> log in again.
+    if (resp_status(resp) %in% c(400, 401)) {
+      st$refresh <- NULL; st$refresh_exp <- 0
+      return(login())
+    }
+    if (resp_is_error(resp)) fail(resp)
+    store(resp, sent)
+  }
+  invalidate <- function() { st$access_exp <- 0; invisible() }
   token <- function() {
     now <- as.numeric(Sys.time())
     if (!is.null(st$access)  && now < st$access_exp)  return(st$access)
-    if (!is.null(st$refresh) && now < st$refresh_exp) { refresh(); return(st$access) }
-    login(); st$access
+    if (!is.null(st$refresh) && now < st$refresh_exp) refresh() else login()
+    st$access
   }
-  structure(list(token = token, login = login, refresh = refresh, .state = st),
+  structure(list(token = token, login = login, refresh = refresh,
+                 invalidate = invalidate, .state = st),
             class = "zwift_auth")
+}
+
+#' @export
+print.zwift_auth <- function(x, ...) {
+  st <- x$.state
+  left <- function(t) if (is.infinite(t)) "no expiry" else
+    sprintf("%s left", format(round(max(0, t - as.numeric(Sys.time()))), big.mark = ","))
+  cat("<zwift_auth>\n")
+  if (is.null(st$access)) cat("  not logged in yet (first request logs in)\n") else {
+    cat(sprintf("  access token:  %s\n", left(st$access_exp)))
+    cat(sprintf("  refresh token: %s\n",
+                if (is.null(st$refresh)) "none" else left(st$refresh_exp)))
+    cat(sprintf("  endpoint:      %s\n", st$auth_url %||% "?"))
+  }
+  invisible(x)
+}
+
+# Perform a Zwift request built by `build(token)`; on a 401 for a token we
+# thought valid, discard it and retry once with a fresh one.
+.zwift_send <- function(auth, build, parse, ttl) {
+  tryCatch(.zv_fetch(build(auth$token()), parse, ttl),
+           httr2_http_401 = function(e) {
+             if (!is.function(auth$invalidate)) stop(e)
+             auth$invalidate()
+             .zv_fetch(build(auth$token()), parse, ttl)
+           })
 }
 
 # Only /api/profiles/me accepts the "me" alias; sub-resources
@@ -97,14 +163,17 @@ zwift_auth <- function(username = Sys.getenv("ZWIFT_USERNAME"),
 #' @export
 zwift_get <- function(auth, path, query = list(), parse = "tbl", ttl = .zv_ttl("zwift")) {
   stopifnot(inherits(auth, "zwift_auth"))
-  req <- request(paste0(.ZWIFT_BASE, path)) |>
-    req_headers(Authorization = paste("Bearer", auth$token()), Accept = "application/json") |>
-    req_user_agent(.ZWIFT_UA) |>
-    req_retry(max_tries = 3,
-              is_transient = function(resp) resp_status(resp) %in% c(429, 500, 502, 503)) |>
-    req_error(body = function(resp) resp_body_string(resp))
-  if (length(query)) req <- req_url_query(req, !!!query)
-  .zv_fetch(req, parse, ttl)
+  build <- function(token) {
+    req <- request(paste0(.ZWIFT_BASE, path)) |>
+      req_headers(Authorization = paste("Bearer", token), Accept = "application/json") |>
+      req_user_agent(.ZWIFT_UA) |>
+      req_retry(max_tries = 3,
+                is_transient = function(resp) resp_status(resp) %in% c(429, 500, 502, 503)) |>
+      req_error(body = .zv_err_body)
+    if (length(query)) req <- req_url_query(req, !!!query)
+    req
+  }
+  .zwift_send(auth, build, parse, ttl)
 }
 
 #' Low-level Zwift POST
@@ -113,12 +182,15 @@ zwift_get <- function(auth, path, query = list(), parse = "tbl", ttl = .zv_ttl("
 #' @export
 zwift_post <- function(auth, path, body = NULL, parse = "resp") {
   stopifnot(inherits(auth, "zwift_auth"))
-  req <- request(paste0(.ZWIFT_BASE, path)) |>
-    req_headers(Authorization = paste("Bearer", auth$token()), Accept = "application/json") |>
-    req_user_agent(.ZWIFT_UA) |>
-    req_error(body = function(resp) resp_body_string(resp))
-  if (!is.null(body)) req <- req_body_json(req, body)
-  .zv_fetch(req, parse, ttl = 0)
+  build <- function(token) {
+    req <- request(paste0(.ZWIFT_BASE, path)) |>
+      req_headers(Authorization = paste("Bearer", token), Accept = "application/json") |>
+      req_user_agent(.ZWIFT_UA) |>
+      req_error(body = .zv_err_body)
+    if (!is.null(body)) req <- req_body_json(req, body)
+    req
+  }
+  .zwift_send(auth, build, parse, ttl = 0)
 }
 
 #' @describeIn zwift_get A rider's profile (`"me"` or a Zwift id).

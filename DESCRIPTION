@@ -1,6 +1,6 @@
 Package: zwiftverse
 Title: Tidy httr2 Clients for the Zwift, ZwiftPower and ZwiftRacing.app APIs
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R:
     person("Nick", "Plummer", , "nick@example.com", role = c("aut", "cre"))
 Description: Reverse-engineered, unofficial R clients for three Zwift-ecosystem
@@ -10,6 +10,9 @@ Description: Reverse-engineered, unofficial R clients for three Zwift-ecosystem
     None of these are official APIs - they are reverse-engineered and may break
     on any upstream change.
 License: MIT + file LICENSE
+URL: https://github.com/nickopotamus/zwiftverse,
+    https://nickopotamus.github.io/zwiftverse/
+BugReports: https://github.com/nickopotamus/zwiftverse/issues
 Encoding: UTF-8
 Depends:
     R (>= 4.1.0)

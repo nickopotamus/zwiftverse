@@ -1,5 +1,11 @@
 # zwiftverse
 
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/nickopotamus/zwiftverse/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/nickopotamus/zwiftverse/actions/workflows/R-CMD-check.yaml)
+[![pkgdown](https://github.com/nickopotamus/zwiftverse/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/nickopotamus/zwiftverse/actions/workflows/pkgdown.yaml)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+<!-- badges: end -->
+
 Tidy [httr2](https://httr2.r-lib.org) clients for three unofficial [Zwift](https://www.zwift.com/)-ecosystem APIs.
 
 Every endpoint returns a tibble. An on-disk TTL cache keeps you from re-fetching stable data.
@@ -15,9 +21,8 @@ Note that this is entirely **unofficial & reverse-engineered.** None of these ar
 ## Install
 
 ```r
-# install.packages("devtools")
-devtools::install_local("zwiftverse")   # or install.packages("zwiftverse_0.1.0.tar.gz", repos = NULL)
-devtools::document("zwiftverse")        # regenerate man/ from the roxygen tags
+# install.packages("pak")
+pak::pak("nickopotamus/zwiftverse")
 ```
 
 ## Credentials
@@ -71,12 +76,15 @@ zr_rider(zr, 1234567) |> hoist(velo, velo_race = "race")
 
 ## Caching
 
-The cache is on by default and keyed on method + URL + body. TTL (seconds):
-`0` = off, `Inf` = permanent (immutable data such as completed results).
+The cache is on by default and keyed on method + URL + body. Entries are
+stored on disk and, for the rest of the R session, in memory too. TTL
+(seconds): `0` = off, `Inf` = permanent (immutable data such as completed
+results).
 
 ```r
 options(
   zwiftverse.cache     = TRUE,         # master switch
+  zwiftverse.cache_memory = TRUE,      # in-session memory copy of hits
   zwiftverse.ttl_zwift = 900,          # per-API defaults
   zwiftverse.ttl_zp    = 3600,
   zwiftverse.ttl_zr    = 3600

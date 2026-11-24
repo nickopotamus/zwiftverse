@@ -10,5 +10,18 @@ zv_cache_enabled()
 Logical scalar.
 }
 \description{
-Is caching currently enabled?
+Responses are cached as parsed JSON, keyed on method + URL + body, with a
+per-call time-to-live (\code{ttl}: \code{0} = off, \code{Inf} = permanent, else seconds).
+Entries live on disk in \code{\link[=zv_cache_dir]{zv_cache_dir()}} and, within an R session, in
+memory too, so repeated hits skip the disk read. Options:
+}
+\details{
+\itemize{
+\item \code{zwiftverse.cache} — master switch (default \code{TRUE}).
+\item \code{zwiftverse.cache_dir} — cache location (default \code{tools::R_user_dir()}).
+\item \code{zwiftverse.cache_memory} — keep the in-session memory copy (default
+\code{TRUE}; set \code{FALSE} to bound memory when pulling many large payloads).
+\item \code{zwiftverse.ttl_zwift}, \code{zwiftverse.ttl_zp}, \code{zwiftverse.ttl_zr} —
+default TTLs (900, 3600, 3600 seconds).
+}
 }

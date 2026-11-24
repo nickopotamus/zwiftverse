@@ -29,7 +29,7 @@ zr_client <- function(auth = Sys.getenv("ZR_AUTH"), rate = 2) {
                  fill_time_s = 60) |>
     req_retry(max_tries = 5,
               is_transient = function(resp) resp_status(resp) %in% c(429, 500, 502, 503)) |>
-    req_error(body = function(resp) resp_body_string(resp))
+    req_error(body = .zv_err_body)
 }
 
 #' Low-level ZwiftRacing.app GET

@@ -8,6 +8,15 @@
 \description{
 Reverse-engineered, unofficial R clients for three Zwift-ecosystem APIs: the Zwift game API (us-or-rly101.zwift.com), ZwiftPower and ZwiftRacing.app. Typed wrappers return tibbles; low-level accessors reach unwrapped endpoints; an on-disk TTL cache avoids re-fetching stable data. None of these are official APIs - they are reverse-engineered and may break on any upstream change.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/nickopotamus/zwiftverse}
+  \item \url{https://nickopotamus.github.io/zwiftverse/}
+  \item Report bugs at \url{https://github.com/nickopotamus/zwiftverse/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Nick Plummer \email{nick@example.com}
 

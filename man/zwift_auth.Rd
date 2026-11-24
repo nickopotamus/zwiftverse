@@ -20,3 +20,20 @@ An object of class \code{zwift_auth}.
 Performs an OAuth2 password-grant login and returns a handle that refreshes
 the access token automatically. Requires your own Zwift credentials.
 }
+\details{
+Token handling:
+\itemize{
+\item Expiry times are measured from when the token \emph{request was sent}, and a
+token is renewed early (10\% of its lifetime, 5–60 s), so slow responses
+and modest clock skew don't produce expired tokens.
+\item When the access token expires the refresh token is used; if Zwift
+rejects the refresh (expired or revoked server-side), the handle logs in
+again with the password instead of failing.
+\item A \code{refresh_expires_in} of \code{0} (a Keycloak offline token) never expires.
+\item If the API answers \code{401} to a token the handle still thought valid,
+\code{\link[=zwift_get]{zwift_get()}} / \code{\link[=zwift_post]{zwift_post()}} discard it and retry the request once.
+}
+
+The handle exposes \code{token()}, \code{login()}, \code{refresh()} and \code{invalidate()};
+printing it shows token status only, never the token or credentials.
+}
