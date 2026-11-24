@@ -45,6 +45,10 @@ Session-cookie access to results, teams, leagues and segment data.
 
   Unwrap ZwiftPower `[value, flag]` columns
 
+- [`zp_analysis()`](zp_analysis.md)
+  [`zp_event_analysis()`](zp_analysis.md) : Race-report data streams
+  from ZwiftPower
+
 ## ZwiftRacing.app
 
 Key-authenticated rider ratings, results and club rosters.

@@ -1,8 +1,10 @@
 # zwiftverse
 
 Tidy [httr2](https://httr2.r-lib.org) clients for three unofficial
-Zwift-ecosystem APIs. Every endpoint returns a **tibble**; an on-disk
-TTL cache keeps you from re-fetching stable data.
+[Zwift](https://www.zwift.com/)-ecosystem APIs.
+
+Every endpoint returns a tibble. An on-disk TTL cache keeps you from
+re-fetching stable data.
 
 | API | Auth | Base |
 |----|----|----|
@@ -10,10 +12,10 @@ TTL cache keeps you from re-fetching stable data.
 | ZwiftPower | phpBB/SSO session cookie | `zwiftpower.com` |
 | ZwiftRacing.app | static key in `x-api-key` header | `api.zwiftracing.app/api/v2` |
 
-> **Unofficial & reverse-engineered.** None of these are sanctioned
-> APIs. The Zwift and ZwiftPower flows need *your own* Zwift
-> credentials. Personal data is GDPR-consent-gated — you only see riders
-> who have opted in. Endpoints can change without notice.
+Note that this is entirely **unofficial & reverse-engineered.** None of
+these are sanctioned APIs. The Zwift and ZwiftPower flows need *your
+own* Zwift credentials. Personal data is GDPR-consent-gated — you only
+see riders who have opted in. Endpoints can change without notice.
 
 ## Install
 
@@ -21,7 +23,7 @@ TTL cache keeps you from re-fetching stable data.
 
 # install.packages("devtools")
 devtools::install_local("zwiftverse")   # or install.packages("zwiftverse_0.1.0.tar.gz", repos = NULL)
-devtools::document("zwiftverse")         # regenerate man/ from the roxygen tags
+devtools::document("zwiftverse")        # regenerate man/ from the roxygen tags
 ```
 
 ## Credentials
@@ -55,6 +57,8 @@ zp   <- zp_set_cookie(zp_session(), "PASTE_phpbb3_lswlk_sid")  # robust path
 res  <- zp_result(zp, 3590800)         # finishers
 team <- zp_team(zp, 456)
 fts  <- zp_sprints(zp, 3590800)
+rr   <- zp_analysis(zp, 3590800, 1234567)            # race report: per-second power/HR/altitude
+pen  <- zp_event_analysis(zp, 3590800, pen = "B")    # ...for every finisher in pen B
 
 ## ZwiftRacing.app ---------------------------------------------------
 zr <- zr_client()
@@ -104,8 +108,8 @@ zv_cache_clear()                       # wipe it
   `zwift_get`/`zwift_post`.
 - **ZwiftPower:** `profile`, `result`, `signups`, `team`, `event_list`,
   `result_list`, `team_riders`, `team_list`, `sprints`, `primes`,
-  `league_list`, `league_results`, `league_team_standings`, plus
-  `zp_get`.
+  `segment_standings`, `analysis`, `event_analysis`, `league_list`,
+  `league_results`, `league_team_standings`, plus `zp_get`.
 - **ZwiftRacing.app (v2):** `rider`, `rider_overview`, `rider_results`,
   `rider_ranking`, `rider_velo`, `rider_power`, `riders`, `event`,
   `result`, `club`, `club_riders`, `routes`, plus `zr_get`.
