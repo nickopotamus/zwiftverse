@@ -9,3 +9,6 @@ zwiftverse_*.tar.gz
 dev/local.env
 *.Rproj
 HANDOFF.md
+
+# Private analyses (not pushed)
+dev/private/

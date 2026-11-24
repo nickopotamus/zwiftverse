@@ -138,6 +138,9 @@ zp_get <- function(s, url, parse = "tbl", ttl = .zv_ttl("zp")) {
     x <- gsub("&lt;", "<", x, fixed = TRUE)
     x <- gsub("&gt;", ">", x, fixed = TRUE)
     x <- gsub("&apos;", "'", x, fixed = TRUE)
+    named <- c(rsquo = "\u2019", lsquo = "\u2018", rdquo = "\u201d", ldquo = "\u201c",
+               ndash = "\u2013", mdash = "\u2014", hellip = "\u2026", nbsp = "\u00a0")
+    for (n in names(named)) x <- gsub(paste0("&", n, ";"), named[[n]], x, fixed = TRUE)
     m <- gregexpr("&#(x[0-9A-Fa-f]+|[0-9]+);", x, perl = TRUE)
     regmatches(x, m) <- lapply(regmatches(x, m), function(e) {
       if (!length(e)) return(e)
