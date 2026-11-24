@@ -1,0 +1,1084 @@
+{
+  "page": {
+    "id": "sj50pfj5p1yv",
+    "name": "Zwift",
+    "url": "https://status.zwift.com",
+    "time_zone": "Etc/UTC",
+    "updated_at": "2026-11-24T10:53:58.003Z"
+  },
+  "incidents": [
+    {
+      "id": "ck8lxngxnhsx",
+      "name": "Zwift Slow Loading Times",
+      "status": "resolved",
+      "created_at": "2026-10-20T17:02:03.000Z",
+      "updated_at": "2026-10-21T12:47:43.180Z",
+      "monitoring_at": "2026-10-20T17:55:47.924Z",
+      "resolved_at": "2026-10-21T12:45:02.000Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/gfs7zzhyk0g5",
+      "started_at": "2026-10-20T17:02:03.000Z",
+      "page_id": "sj50pfj5p1yv",
+      "incident_updates": [
+        {
+          "id": "48x47ngpy8jx",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "ck8lxngxnhsx",
+          "created_at": "2026-10-21T12:44:02.784Z",
+          "updated_at": "2026-10-21T12:47:43.159Z",
+          "display_at": "2026-10-21T12:45:02.000Z",
+          "affected_components": [
+            {
+              "code": "lmds29dwcjfc",
+              "name": "Log In",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "74vg138n19f4",
+              "name": "Zwift Game - Ride",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "mkbwx9jqxwvv",
+              "name": "Zwift Game - Events",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "hsntnnkg6r4z",
+              "name": "Zwift Game - Workouts",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "z6g8fflqmj67",
+              "name": "Zwift Game - Existing Partner Connections (Importing Workouts & Uploading Zwift Activities)",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "3l3y2m485qp4",
+              "name": "Zwift Game - Activities",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "fnt4cq4znrty",
+              "name": "Zwift Game - Campaign Progress",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "4yd5y7l3nlw4",
+              "name": "Zwift Game - RoboPacers",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "lm9y6wqvjcrd",
+              "name": "New Partner Connections",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "rv7d9w90v0b9",
+          "status": "monitoring",
+          "body": "A fix has been implemented and we are monitoring the results.",
+          "incident_id": "ck8lxngxnhsx",
+          "created_at": "2026-10-20T19:05:51.918Z",
+          "updated_at": "2026-10-20T19:05:51.918Z",
+          "display_at": "2026-10-20T19:05:51.918Z",
+          "affected_components": [
+            {
+              "code": "lmds29dwcjfc",
+              "name": "Log In",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "74vg138n19f4",
+              "name": "Zwift Game - Ride",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "mkbwx9jqxwvv",
+              "name": "Zwift Game - Events",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "hsntnnkg6r4z",
+              "name": "Zwift Game - Workouts",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "z6g8fflqmj67",
+              "name": "Zwift Game - Existing Partner Connections (Importing Workouts & Uploading Zwift Activities)",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "3l3y2m485qp4",
+              "name": "Zwift Game - Activities",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "fnt4cq4znrty",
+              "name": "Zwift Game - Campaign Progress",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "4yd5y7l3nlw4",
+              "name": "Zwift Game - RoboPacers",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "lm9y6wqvjcrd",
+              "name": "New Partner Connections",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "6d6blwcx0lh8",
+          "status": "identified",
+          "body": "The issue has been identified and a fix is being implemented.",
+          "incident_id": "ck8lxngxnhsx",
+          "created_at": "2026-10-20T18:29:01.654Z",
+          "updated_at": "2026-10-20T18:29:01.654Z",
+          "display_at": "2026-10-20T18:29:01.654Z",
+          "affected_components": [
+            {
+              "code": "lmds29dwcjfc",
+              "name": "Log In",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "74vg138n19f4",
+              "name": "Zwift Game - Ride",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "mkbwx9jqxwvv",
+              "name": "Zwift Game - Events",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "hsntnnkg6r4z",
+              "name": "Zwift Game - Workouts",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "z6g8fflqmj67",
+              "name": "Zwift Game - Existing Partner Connections (Importing Workouts & Uploading Zwift Activities)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "3l3y2m485qp4",
+              "name": "Zwift Game - Activities",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "fnt4cq4znrty",
+              "name": "Zwift Game - Campaign Progress",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "4yd5y7l3nlw4",
+              "name": "Zwift Game - RoboPacers",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "lm9y6wqvjcrd",
+              "name": "New Partner Connections",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "3qzsw59gxncj",
+          "status": "monitoring",
+          "body": "A fix has been implemented and we are monitoring the results.",
+          "incident_id": "ck8lxngxnhsx",
+          "created_at": "2026-10-20T17:55:47.924Z",
+          "updated_at": "2026-10-20T17:55:48.591Z",
+          "display_at": "2026-10-20T17:55:47.924Z",
+          "affected_components": [
+            {
+              "code": "74vg138n19f4",
+              "name": "Zwift Game - Ride",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "mkbwx9jqxwvv",
+              "name": "Zwift Game - Events",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 2.1126037060009208e+18
+        },
+        {
+          "id": "55xqtttwv0jg",
+          "status": "investigating",
+          "body": "We are continuing to investigate this issue.",
+          "incident_id": "ck8lxngxnhsx",
+          "created_at": "2026-10-20T17:43:19.492Z",
+          "updated_at": "2026-10-20T17:43:20.149Z",
+          "display_at": "2026-10-20T17:43:19.492Z",
+          "affected_components": [
+            {
+              "code": "74vg138n19f4",
+              "name": "Zwift Game - Ride",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "mkbwx9jqxwvv",
+              "name": "Zwift Game - Events",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 2.112600566824342e+18
+        },
+        {
+          "id": "wzkhb0m5j0wj",
+          "status": "investigating",
+          "body": "We<U+2019>re investigating reports of slow loading times when opening Zwift, along with issues affecting activity saves, Ride Ons, event sign-ups and joins, third-party uploads, and Personal Records. Thank you for your patience while our team looks into the issue. We<U+2019>ll share updates as more information becomes available.",
+          "incident_id": "ck8lxngxnhsx",
+          "created_at": "2026-10-20T17:39:03.915Z",
+          "updated_at": "2026-10-20T18:05:40.254Z",
+          "display_at": "2026-10-20T17:02:03.000Z",
+          "affected_components": [
+            {
+              "code": "lmds29dwcjfc",
+              "name": "Log In",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "74vg138n19f4",
+              "name": "Zwift Game - Ride",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "mkbwx9jqxwvv",
+              "name": "Zwift Game - Events",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 2.1125994944373274e+18
+        }
+      ],
+      "components": [
+        {
+          "id": "74vg138n19f4",
+          "name": "Ride",
+          "status": "operational",
+          "created_at": "2017-11-29T19:51:19.311Z",
+          "updated_at": "2026-10-20T19:05:51.689Z",
+          "position": 1,
+          "description": "Free riding in the game world.",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "n93wssbw964m",
+          "page_id": "sj50pfj5p1yv",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "mkbwx9jqxwvv",
+          "name": "Events",
+          "status": "operational",
+          "created_at": "2017-11-29T19:51:35.629Z",
+          "updated_at": "2026-10-20T19:05:51.715Z",
+          "position": 2,
+          "description": "In game signup, joining, and participation in events.",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "n93wssbw964m",
+          "page_id": "sj50pfj5p1yv",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "hsntnnkg6r4z",
+          "name": "Workouts",
+          "status": "operational",
+          "created_at": "2017-12-04T18:24:23.032Z",
+          "updated_at": "2026-10-20T19:05:51.738Z",
+          "position": 3,
+          "description": "In game workout activities and plans.",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "n93wssbw964m",
+          "page_id": "sj50pfj5p1yv",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "z6g8fflqmj67",
+          "name": "Existing Partner Connections (Importing Workouts & Uploading Zwift Activities)",
+          "status": "operational",
+          "created_at": "2017-11-29T19:52:37.918Z",
+          "updated_at": "2026-10-20T19:05:51.761Z",
+          "position": 4,
+          "description": "Importing workouts (e.g. TrainerRoad, intervals.icu, etc.) and uploading activities between Zwift and 3rd party connections (e.g. Strava, Garmin, Hammerhead, Training Peaks, Wahoo, Whoop, and more)\r\n\r\nAll available 3rd party connections are available here: https://support.zwift.com/zwift-and-third-party-platforms-SypU0LdVr",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "n93wssbw964m",
+          "page_id": "sj50pfj5p1yv",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "lmds29dwcjfc",
+          "name": "Log In",
+          "status": "operational",
+          "created_at": "2017-12-08T18:57:46.355Z",
+          "updated_at": "2026-10-20T19:05:51.782Z",
+          "position": 5,
+          "description": "Login for Zwift, Zwift Companion app, Zwift.com and Zwift Forums.",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "sj50pfj5p1yv",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "3l3y2m485qp4",
+          "name": "Activities",
+          "status": "operational",
+          "created_at": "2023-04-17T18:41:44.756Z",
+          "updated_at": "2026-10-20T19:05:51.807Z",
+          "position": 5,
+          "description": null,
+          "showcase": true,
+          "start_date": "2023-04-17",
+          "group_id": "n93wssbw964m",
+          "page_id": "sj50pfj5p1yv",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "fnt4cq4znrty",
+          "name": "Campaign Progress",
+          "status": "operational",
+          "created_at": "2023-09-12T15:39:06.253Z",
+          "updated_at": "2026-10-20T19:05:51.833Z",
+          "position": 6,
+          "description": null,
+          "showcase": true,
+          "start_date": "2023-09-12",
+          "group_id": "n93wssbw964m",
+          "page_id": "sj50pfj5p1yv",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "4yd5y7l3nlw4",
+          "name": "RoboPacers",
+          "status": "operational",
+          "created_at": "2026-05-23T00:45:30.160Z",
+          "updated_at": "2026-10-20T19:05:51.857Z",
+          "position": 7,
+          "description": null,
+          "showcase": true,
+          "start_date": "2026-05-23",
+          "group_id": "n93wssbw964m",
+          "page_id": "sj50pfj5p1yv",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "lm9y6wqvjcrd",
+          "name": "New Partner Connections",
+          "status": "operational",
+          "created_at": "2026-04-10T22:51:05.681Z",
+          "updated_at": "2026-10-20T19:05:51.878Z",
+          "position": 8,
+          "description": "When going through the consent and connection flow for adding a new third-party partner connection to a Zwift account.",
+          "showcase": true,
+          "start_date": "2026-04-10",
+          "group_id": null,
+          "page_id": "sj50pfj5p1yv",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "nk5df9m95d5f",
+      "name": "Campaigns stopped rewarding Drops or XP from 16:30 PT on September 23rd through 12:30 PT on September 24th",
+      "status": "resolved",
+      "created_at": "2026-09-23T23:30:00.000Z",
+      "updated_at": "2026-09-24T20:15:01.107Z",
+      "monitoring_at": null,
+      "resolved_at": "2026-09-23T23:30:00.000Z",
+      "impact": "major",
+      "shortlink": "https://stspg.io/pk7rztx2bqc2",
+      "started_at": "2026-09-23T23:30:00.000Z",
+      "page_id": "sj50pfj5p1yv",
+      "incident_updates": [
+        {
+          "id": "vlmrkw0mbtnp",
+          "status": "resolved",
+          "body": "The below campaigns temporarily stopped rewarding Drops and/or XP for their respective milestones:\n- Climb of the Week\n- Indoor Outdoor Challenge\n- Route of the Week \n- Zwift Racing Powered by Dura-Ace\n- Zwift Shorts\n\nWe are actively working to determine all impacted Zwifters and re-process their respective missing rewards.\n\nNote: Campaign progress was not impacted by this temporary outage.",
+          "incident_id": "nk5df9m95d5f",
+          "created_at": "2026-09-24T20:09:16.252Z",
+          "updated_at": "2026-09-24T20:10:06.148Z",
+          "display_at": "2026-09-23T23:30:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
+    {
+      "id": "767tf1yc8c0x",
+      "name": "ZwiftPower Outage",
+      "status": "resolved",
+      "created_at": "2026-09-23T13:35:00.000Z",
+      "updated_at": "2026-09-24T20:15:58.851Z",
+      "monitoring_at": null,
+      "resolved_at": "2026-09-23T13:35:00.000Z",
+      "impact": "critical",
+      "shortlink": "https://stspg.io/1my6mwgv0zng",
+      "started_at": "2026-09-23T16:03:26.978Z",
+      "page_id": "sj50pfj5p1yv",
+      "incident_updates": [
+        {
+          "id": "0xvr45t59fcq",
+          "status": "resolved",
+          "body": "ZwiftPower was temporarily unavailable from 06:35AM PT until it was restored at 07:10AM PT after implementing a fix on our end.",
+          "incident_id": "767tf1yc8c0x",
+          "created_at": "2026-09-23T16:03:27.038Z",
+          "updated_at": "2026-09-23T16:03:27.038Z",
+          "display_at": "2026-09-23T13:35:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
+    {
+      "id": "lq32g876d3bp",
+      "name": "Timeout errors when trying to access ZwiftPower",
+      "status": "resolved",
+      "created_at": "2026-09-21T21:43:09.000Z",
+      "updated_at": "2026-09-24T20:16:03.132Z",
+      "monitoring_at": "2026-09-21T22:40:35.123Z",
+      "resolved_at": "2026-09-22T03:43:20.315Z",
+      "impact": "critical",
+      "shortlink": "https://stspg.io/5p8yqkvjzqtv",
+      "started_at": "2026-09-21T21:43:09.000Z",
+      "page_id": "sj50pfj5p1yv",
+      "incident_updates": [
+        {
+          "id": "w2l2pd5rx3tm",
+          "status": "resolved",
+          "body": "After additional backend changes access to ZwiftPower has now been fully restored.",
+          "incident_id": "lq32g876d3bp",
+          "created_at": "2026-09-22T03:43:20.315Z",
+          "updated_at": "2026-09-22T03:43:20.315Z",
+          "display_at": "2026-09-22T03:43:20.315Z",
+          "affected_components": [
+            {
+              "code": "2m9361gbj91b",
+              "name": "ZwiftPower",
+              "old_status": "major_outage",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "wxw1cnfl76t4",
+          "status": "investigating",
+          "body": "The issue is reoccurring and we are continuing to investigate the root cause.",
+          "incident_id": "lq32g876d3bp",
+          "created_at": "2026-09-21T23:18:05.148Z",
+          "updated_at": "2026-09-21T23:18:05.148Z",
+          "display_at": "2026-09-21T23:18:05.148Z",
+          "affected_components": [
+            {
+              "code": "2m9361gbj91b",
+              "name": "ZwiftPower",
+              "old_status": "degraded_performance",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "r2zjkkpvmh3t",
+          "status": "monitoring",
+          "body": "After implementing some changes on the backend ZwiftPower has been coming back online. We are continuing to investigate the root cause, and are still monitoring.",
+          "incident_id": "lq32g876d3bp",
+          "created_at": "2026-09-21T22:40:35.123Z",
+          "updated_at": "2026-09-21T22:40:35.123Z",
+          "display_at": "2026-09-21T22:40:35.123Z",
+          "affected_components": [
+            {
+              "code": "2m9361gbj91b",
+              "name": "ZwiftPower",
+              "old_status": "major_outage",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "5y02jptj39p6",
+          "status": "investigating",
+          "body": "At around 14:30 (2:30PM) PT we discovered ZwiftPower was down, and we are currently investigating this issue.",
+          "incident_id": "lq32g876d3bp",
+          "created_at": "2026-09-21T21:43:09.848Z",
+          "updated_at": "2026-09-21T21:47:20.143Z",
+          "display_at": "2026-09-21T21:43:09.000Z",
+          "affected_components": [
+            {
+              "code": "2m9361gbj91b",
+              "name": "ZwiftPower",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "2m9361gbj91b",
+          "name": "ZwiftPower",
+          "status": "operational",
+          "created_at": "2020-10-13T19:00:15.308Z",
+          "updated_at": "2026-09-23T16:05:48.963Z",
+          "position": 4,
+          "description": "ZwiftPower Application",
+          "showcase": true,
+          "start_date": "2020-10-13",
+          "group_id": null,
+          "page_id": "sj50pfj5p1yv",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "slkb7lr20hwx",
+      "name": "Outage impacting importing external activities from Garmin, Hammerhead, Wahoo, and Whoop",
+      "status": "resolved",
+      "created_at": "2026-09-17T16:18:33.730Z",
+      "updated_at": "2026-09-24T20:16:06.343Z",
+      "monitoring_at": "2026-09-17T16:18:33.783Z",
+      "resolved_at": "2026-09-18T16:00:21.986Z",
+      "impact": "major",
+      "shortlink": "https://stspg.io/1cyx6my93s0k",
+      "started_at": "2026-09-17T16:18:33.718Z",
+      "page_id": "sj50pfj5p1yv",
+      "incident_updates": [
+        {
+          "id": "pngkk9x4k0s0",
+          "status": "resolved",
+          "body": "All Wahoo, Hammerhead, and Garmin data has been reprocessed. Due to limitations when fetching Garmin data and if Zwifters have only granted Zwift limited permissions to their Garmin account then they may need to disconnect and reconnect their Garmin accounts to pull in any missing historical activities.",
+          "incident_id": "slkb7lr20hwx",
+          "created_at": "2026-09-18T16:00:21.986Z",
+          "updated_at": "2026-09-18T16:00:21.986Z",
+          "display_at": "2026-09-18T16:00:21.986Z",
+          "affected_components": [
+            {
+              "code": "z6g8fflqmj67",
+              "name": "Zwift Game - Existing Partner Connections (Importing Workouts & Uploading Zwift Activities)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "9gnqtlyny95k",
+          "status": "monitoring",
+          "body": "All Wahoo and Hammerhead data should now be re-processed, and we are continuing to work on re-processing the remaining Garmin data.",
+          "incident_id": "slkb7lr20hwx",
+          "created_at": "2026-09-17T21:33:43.143Z",
+          "updated_at": "2026-09-17T21:33:43.143Z",
+          "display_at": "2026-09-17T21:33:43.143Z",
+          "affected_components": [
+            {
+              "code": "z6g8fflqmj67",
+              "name": "Zwift Game - Existing Partner Connections (Importing Workouts & Uploading Zwift Activities)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "pmwwjz6tmyrp",
+          "status": "monitoring",
+          "body": "All Wahoo data should now be re-processed, and we are working on re-processing Garmin and Hammerhead data next.",
+          "incident_id": "slkb7lr20hwx",
+          "created_at": "2026-09-17T18:02:49.452Z",
+          "updated_at": "2026-09-17T18:02:49.452Z",
+          "display_at": "2026-09-17T18:02:49.452Z",
+          "affected_components": [
+            {
+              "code": "z6g8fflqmj67",
+              "name": "Zwift Game - Existing Partner Connections (Importing Workouts & Uploading Zwift Activities)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "913d71xjn5hh",
+          "status": "monitoring",
+          "body": "Starting from ~2:30PM PT on September 15th to ~6:30AM PT on September 16th we detected an outage impacting the ingestion of activity data from Garmin, Hammerhead, Wahoo, and Whoop. We are currently re-processing activities from this time frame for all impacted Zwifters.",
+          "incident_id": "slkb7lr20hwx",
+          "created_at": "2026-09-17T16:18:33.783Z",
+          "updated_at": "2026-09-17T16:18:33.783Z",
+          "display_at": "2026-09-17T16:18:33.783Z",
+          "affected_components": [
+            {
+              "code": "z6g8fflqmj67",
+              "name": "Zwift Game - Existing Partner Connections (Importing Workouts & Uploading Zwift Activities)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "z6g8fflqmj67",
+          "name": "Existing Partner Connections (Importing Workouts & Uploading Zwift Activities)",
+          "status": "operational",
+          "created_at": "2017-11-29T19:52:37.918Z",
+          "updated_at": "2026-10-20T19:05:51.761Z",
+          "position": 4,
+          "description": "Importing workouts (e.g. TrainerRoad, intervals.icu, etc.) and uploading activities between Zwift and 3rd party connections (e.g. Strava, Garmin, Hammerhead, Training Peaks, Wahoo, Whoop, and more)\r\n\r\nAll available 3rd party connections are available here: https://support.zwift.com/zwift-and-third-party-platforms-SypU0LdVr",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "n93wssbw964m",
+          "page_id": "sj50pfj5p1yv",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "r712l5m92r0x",
+      "name": "Issues with saving activities and giving Ride Ons",
+      "status": "resolved",
+      "created_at": "2026-08-05T16:13:00.000Z",
+      "updated_at": "2026-08-05T19:47:11.346Z",
+      "monitoring_at": null,
+      "resolved_at": "2026-08-05T16:13:00.000Z",
+      "impact": "critical",
+      "shortlink": "https://stspg.io/r92r4brjfy78",
+      "started_at": "2026-08-05T16:13:00.000Z",
+      "page_id": "sj50pfj5p1yv",
+      "incident_updates": [
+        {
+          "id": "jqh6zytrjgbj",
+          "status": "resolved",
+          "body": "From approximately 9:13AM (PDT) to 10:13AM (PDT) we discovered there was an issue preventing activities from successfully saving, and giving other Zwifters Ride Ons. These issue should now be resolved.",
+          "incident_id": "r712l5m92r0x",
+          "created_at": "2026-08-05T17:28:07.245Z",
+          "updated_at": "2026-08-05T19:47:11.341Z",
+          "display_at": "2026-08-05T16:13:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
+    {
+      "id": "f0bw83bpgg3q",
+      "name": "Issues Loading Zwift Events",
+      "status": "resolved",
+      "created_at": "2026-06-30T16:20:13.858Z",
+      "updated_at": "2026-07-10T19:16:39.677Z",
+      "monitoring_at": null,
+      "resolved_at": "2026-07-10T19:16:39.663Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/nl4zlyrt668b",
+      "started_at": "2026-06-30T16:20:13.848Z",
+      "page_id": "sj50pfj5p1yv",
+      "incident_updates": [
+        {
+          "id": "kdd6hg3t8jch",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "f0bw83bpgg3q",
+          "created_at": "2026-07-10T19:16:39.663Z",
+          "updated_at": "2026-07-10T19:16:39.663Z",
+          "display_at": "2026-07-10T19:16:39.663Z",
+          "affected_components": [
+            {
+              "code": "mkbwx9jqxwvv",
+              "name": "Zwift Game - Events",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "qwh4x6gg5mmf",
+          "status": "investigating",
+          "body": "We are currently investigating reports of slow load times for Zwift events. We appreciate your patience as our team investigates the issue. Updates to follow.",
+          "incident_id": "f0bw83bpgg3q",
+          "created_at": "2026-06-30T16:20:13.941Z",
+          "updated_at": "2026-06-30T16:20:13.941Z",
+          "display_at": "2026-06-30T16:20:13.941Z",
+          "affected_components": [
+            {
+              "code": "mkbwx9jqxwvv",
+              "name": "Zwift Game - Events",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "mkbwx9jqxwvv",
+          "name": "Events",
+          "status": "operational",
+          "created_at": "2017-11-29T19:51:35.629Z",
+          "updated_at": "2026-10-20T19:05:51.715Z",
+          "position": 2,
+          "description": "In game signup, joining, and participation in events.",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "n93wssbw964m",
+          "page_id": "sj50pfj5p1yv",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "9rszmbw6s176",
+      "name": "Zwift Companion Server Issue",
+      "status": "resolved",
+      "created_at": "2026-06-02T16:30:55.000Z",
+      "updated_at": "2026-06-02T16:51:48.978Z",
+      "monitoring_at": null,
+      "resolved_at": "2026-06-02T16:51:48.961Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/7kh9tx9qqln5",
+      "started_at": "2026-06-02T16:30:55.000Z",
+      "page_id": "sj50pfj5p1yv",
+      "incident_updates": [
+        {
+          "id": "pykx8g7cdgd3",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "9rszmbw6s176",
+          "created_at": "2026-06-02T16:51:48.961Z",
+          "updated_at": "2026-06-02T16:51:48.961Z",
+          "display_at": "2026-06-02T16:51:48.961Z",
+          "affected_components": [
+            {
+              "code": "9x9c4yd59vhf",
+              "name": "Zwift Companion",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "4yd5y7l3nlw4",
+              "name": "Zwift Game - RoboPacers",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "s40sf25nzfdc",
+          "status": "investigating",
+          "body": "We are continuing to investigate this issue.",
+          "incident_id": "9rszmbw6s176",
+          "created_at": "2026-06-02T16:41:37.583Z",
+          "updated_at": "2026-06-02T16:41:37.583Z",
+          "display_at": "2026-06-02T16:41:37.583Z",
+          "affected_components": [
+            {
+              "code": "9x9c4yd59vhf",
+              "name": "Zwift Companion",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "4yd5y7l3nlw4",
+              "name": "Zwift Game - RoboPacers",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "3mt5rcpbf2m4",
+          "status": "investigating",
+          "body": "We are currently investigating reports that in-game chat is unavailable and RoboPacers are not appearing for some users.\n\nOur team is actively looking into the issue and will provide another update as soon as we have more information.",
+          "incident_id": "9rszmbw6s176",
+          "created_at": "2026-06-02T16:30:55.313Z",
+          "updated_at": "2026-06-02T16:41:33.662Z",
+          "display_at": "2026-06-02T16:30:55.000Z",
+          "affected_components": [
+            {
+              "code": "9x9c4yd59vhf",
+              "name": "Zwift Companion",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "9x9c4yd59vhf",
+          "name": "Zwift Companion",
+          "status": "operational",
+          "created_at": "2020-04-12T15:30:58.994Z",
+          "updated_at": "2026-06-02T16:53:09.142Z",
+          "position": 3,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "sj50pfj5p1yv",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "4yd5y7l3nlw4",
+          "name": "RoboPacers",
+          "status": "operational",
+          "created_at": "2026-05-23T00:45:30.160Z",
+          "updated_at": "2026-10-20T19:05:51.857Z",
+          "position": 7,
+          "description": null,
+          "showcase": true,
+          "start_date": "2026-05-23",
+          "group_id": "n93wssbw964m",
+          "page_id": "sj50pfj5p1yv",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "34q666tp7gdl",
+      "name": "RoboPacers restarting and disappearing",
+      "status": "resolved",
+      "created_at": "2026-05-23T00:47:40.191Z",
+      "updated_at": "2026-05-23T20:03:04.983Z",
+      "monitoring_at": null,
+      "resolved_at": "2026-05-23T20:03:02.562Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/p9j0978t1c5d",
+      "started_at": "2026-05-23T00:47:40.181Z",
+      "page_id": "sj50pfj5p1yv",
+      "incident_updates": [
+        {
+          "id": "pv0mw0q0trgs",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "34q666tp7gdl",
+          "created_at": "2026-05-23T20:03:02.562Z",
+          "updated_at": "2026-05-23T20:03:02.562Z",
+          "display_at": "2026-05-23T20:03:02.562Z",
+          "affected_components": [
+            {
+              "code": "4yd5y7l3nlw4",
+              "name": "Zwift Game - RoboPacers",
+              "old_status": "major_outage",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "yczxbvwyxw9w",
+          "status": "investigating",
+          "body": "RoboPacers will be disabled over the weekend while we continue to investigate the root cause for the degraded performance and work on resolving the issue.",
+          "incident_id": "34q666tp7gdl",
+          "created_at": "2026-05-23T04:08:42.120Z",
+          "updated_at": "2026-05-23T04:08:42.120Z",
+          "display_at": "2026-05-23T04:08:42.120Z",
+          "affected_components": [
+            {
+              "code": "4yd5y7l3nlw4",
+              "name": "Zwift Game - RoboPacers",
+              "old_status": "degraded_performance",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "rklygnd9xlsh",
+          "status": "investigating",
+          "body": "We are currently investigating this issue.",
+          "incident_id": "34q666tp7gdl",
+          "created_at": "2026-05-23T00:47:40.271Z",
+          "updated_at": "2026-05-23T00:47:40.271Z",
+          "display_at": "2026-05-23T00:47:40.271Z",
+          "affected_components": [
+            {
+              "code": "4yd5y7l3nlw4",
+              "name": "Zwift Game - RoboPacers",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "4yd5y7l3nlw4",
+          "name": "RoboPacers",
+          "status": "operational",
+          "created_at": "2026-05-23T00:45:30.160Z",
+          "updated_at": "2026-10-20T19:05:51.857Z",
+          "position": 7,
+          "description": null,
+          "showcase": true,
+          "start_date": "2026-05-23",
+          "group_id": "n93wssbw964m",
+          "page_id": "sj50pfj5p1yv",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "hhjpvm2c6xg2",
+      "name": "RoboPacer outage",
+      "status": "resolved",
+      "created_at": "2026-05-22T19:30:00.000Z",
+      "updated_at": "2026-05-23T00:47:56.075Z",
+      "monitoring_at": null,
+      "resolved_at": "2026-05-22T19:30:00.000Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/398732t9fndd",
+      "started_at": "2026-05-23T00:47:56.012Z",
+      "page_id": "sj50pfj5p1yv",
+      "incident_updates": [
+        {
+          "id": "q6d9smqzy48n",
+          "status": "resolved",
+          "body": "We are investigating an intermittent outage of RoboPacers.",
+          "incident_id": "hhjpvm2c6xg2",
+          "created_at": "2026-05-23T00:47:56.065Z",
+          "updated_at": "2026-05-23T00:47:56.065Z",
+          "display_at": "2026-05-22T19:30:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    }
+  ]
+}

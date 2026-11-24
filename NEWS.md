@@ -2,6 +2,9 @@
 
 ## New features
 
+* `zwift_status()` reads Zwift's public status page: overall status,
+  per-service components, open and recent incidents, upcoming maintenance.
+  No login needed.
 * `zp_analysis()` and `zp_event_analysis()` return the second-by-second
   power, heart rate and altitude behind ZwiftPower race reports, for one rider
   or a whole event / pen.
@@ -11,6 +14,12 @@
   skip the disk read (`options(zwiftverse.cache_memory = FALSE)` to turn off).
 * `print()` on a `zwift_auth()` handle shows token status without revealing
   the token or credentials.
+
+## Documentation
+
+* README explains where each credential comes from, including how to ask
+  ZwiftRacing.app for an API key, and acknowledges zpdatafetch and
+  zwift-api-documentation.
 
 ## Robustness
 

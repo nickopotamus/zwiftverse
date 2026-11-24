@@ -26,7 +26,12 @@ for (s in zv_dev_specs()) {
     dir <- file.path("tests/testthat/fixtures", s$api)
     dir.create(dir, recursive = TRUE, showWarnings = FALSE)
     out <- file.path(dir, paste0(s$name, ".json"))
-    writeLines(zv_scrub_json(txt, m), out)
+    # Public, non-personal data (spec$scrub = FALSE) is kept as-is, only trimmed.
+    if (isFALSE(s$scrub)) {
+      j <- jsonlite::fromJSON(txt, simplifyVector = FALSE)
+      j <- lapply(j, function(v) if (is.list(v) && is.null(names(v))) utils::head(v, 10) else v)
+      writeLines(jsonlite::toJSON(j, auto_unbox = TRUE, pretty = TRUE, null = "null"), out)
+    } else writeLines(zv_scrub_json(txt, m), out)
     message(sprintf("wrote %s (%s bytes)", out, format(file.size(out), big.mark = ",")))
     TRUE
   }, error = function(e) { message(sprintf("FAIL %s/%s: %s", s$api, s$name, conditionMessage(e))); FALSE })

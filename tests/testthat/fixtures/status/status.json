@@ -1,0 +1,13 @@
+{
+  "page": {
+    "id": "sj50pfj5p1yv",
+    "name": "Zwift",
+    "url": "https://status.zwift.com",
+    "time_zone": "Etc/UTC",
+    "updated_at": "2026-11-24T10:53:58.003Z"
+  },
+  "status": {
+    "indicator": "none",
+    "description": "All Systems Operational"
+  }
+}

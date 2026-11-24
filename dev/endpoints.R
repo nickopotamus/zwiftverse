@@ -74,6 +74,13 @@ zv_dev_specs <- function() {
          call = function(h) zwift_subgroup_entrants(h$zwift, .zv_dev_sgid(h), limit = 50, parse = "resp")),
     list(api = "zwift", name = "worlds",     needs = character(),
          call = function(h) zwift_worlds(h$zwift, parse = "resp")),
+    # ---- Zwift status page (public, no auth) ----
+    list(api = "status", name = "status",     needs = character(), scrub = FALSE,
+         call = function(h) zwift_status("status", parse = "resp")),
+    list(api = "status", name = "components", needs = character(), scrub = FALSE,
+         call = function(h) zwift_status("components", parse = "resp")),
+    list(api = "status", name = "incidents",  needs = character(), scrub = FALSE,
+         call = function(h) zwift_status("incidents", parse = "resp")),
     # ---- ZwiftPower ----
     list(api = "zp", name = "profile",  needs = "rider",
          call = function(h) zp_profile(h$zp, rider(h), parse = "resp")),
@@ -99,7 +106,7 @@ zv_dev_specs <- function() {
 
 # Create whichever API handles we have credentials for. Never prints secrets.
 zv_dev_handles <- function() {
-  h <- list()
+  h <- list(status = TRUE)   # status.zwift.com needs no credentials
   if (!is.null(.env("ZR_AUTH"))) h$zr <- zr_client()
   if (!is.null(.env("ZWIFT_USERNAME")) && !is.null(.env("ZWIFT_PASSWORD"))) {
     h$zwift <- tryCatch({ a <- zwift_auth(); a$token(); a },

@@ -10,6 +10,7 @@ reference:
   - zwift_auth
   - zwift_get
   - zwift_post
+  - zwift_status
 - title: ZwiftPower
   desc: Session-cookie access to results, teams, leagues and segment data.
   contents:

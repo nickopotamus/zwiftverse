@@ -210,3 +210,31 @@ test_that("zp_unflag takes the value (element 2) from sign-up cp triples", {
   expect_equal(out$cp_1200_watts, w)
   expect_true(all(out$cp_1200_wkg > 0.5 & out$cp_1200_wkg < 8, na.rm = TRUE))
 })
+
+# ---- Zwift status page ---------------------------------------------------------
+
+test_that("Zwift status: one row with indicator + description", {
+  use_fixture("status", "status")
+  out <- zwift_status("status")
+  expect_equal(nrow(out), 1)
+  expect_true(all(c("indicator", "description") %in% names(out)))
+})
+
+test_that("Zwift status components / incidents: one row per item", {
+  use_fixture("status", "components")
+  comp <- zwift_status("components")
+  expect_gt(nrow(comp), 1)
+  expect_true(all(c("name", "status") %in% names(comp)))
+
+  use_fixture("status", "incidents")
+  inc <- zwift_status("incidents")
+  expect_gt(nrow(inc), 1)
+  expect_true(all(c("name", "status", "impact", "created_at") %in% names(inc)))
+})
+
+test_that("Zwift status: nothing to report gives zero rows", {
+  httr2::local_mocked_responses(function(req) httr2::response(
+    status_code = 200, url = req$url, headers = list(`Content-Type` = "application/json"),
+    body = charToRaw('{"page": {"id": "x"}, "incidents": []}')))
+  expect_equal(nrow(zwift_status("unresolved")), 0)
+})
