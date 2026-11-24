@@ -12,7 +12,9 @@ zwift_post(auth, path, body = NULL, parse = "resp")
 
 - auth:
 
-  A [`zwift_auth()`](zwift_auth.md) handle.
+  A
+  [`zwift_auth()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_auth.md)
+  handle.
 
 - path:
 

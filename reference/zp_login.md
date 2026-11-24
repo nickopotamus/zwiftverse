@@ -2,8 +2,8 @@
 
 Scrapes the Keycloak login form and submits your Zwift credentials. This
 is brittle - if the SSO flow changes it will fail; use
-[`zp_set_cookie()`](zp_set_cookie.md) instead. Requires the suggested
-packages rvest and xml2.
+[`zp_set_cookie()`](https://nickopotamus.github.io/zwiftverse/reference/zp_set_cookie.md)
+instead. Requires the suggested packages rvest and xml2.
 
 ## Usage
 
@@ -19,7 +19,8 @@ zp_login(
 
 - s:
 
-  A [`zp_session()`](zp_session.md).
+  A
+  [`zp_session()`](https://nickopotamus.github.io/zwiftverse/reference/zp_session.md).
 
 - username, password:
 

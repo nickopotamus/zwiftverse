@@ -40,7 +40,8 @@ zp_league_team_standings(s, id, ...)
 
 - s:
 
-  A [`zp_session()`](zp_session.md).
+  A
+  [`zp_session()`](https://nickopotamus.github.io/zwiftverse/reference/zp_session.md).
 
 - url:
 

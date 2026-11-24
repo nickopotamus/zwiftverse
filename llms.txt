@@ -21,9 +21,8 @@ see riders who have opted in. Endpoints can change without notice.
 
 ``` r
 
-# install.packages("devtools")
-devtools::install_local("zwiftverse")   # or install.packages("zwiftverse_0.1.0.tar.gz", repos = NULL)
-devtools::document("zwiftverse")        # regenerate man/ from the roxygen tags
+# install.packages("pak")
+pak::pak("nickopotamus/zwiftverse")
 ```
 
 ## Credentials
@@ -80,7 +79,8 @@ zr_rider(zr, 1234567) |> hoist(velo, velo_race = "race")
 
 ## Caching
 
-The cache is on by default and keyed on method + URL + body. TTL
+The cache is on by default and keyed on method + URL + body. Entries are
+stored on disk and, for the rest of the R session, in memory too. TTL
 (seconds): `0` = off, `Inf` = permanent (immutable data such as
 completed results).
 
@@ -88,6 +88,7 @@ completed results).
 
 options(
   zwiftverse.cache     = TRUE,         # master switch
+  zwiftverse.cache_memory = TRUE,      # in-session memory copy of hits
   zwiftverse.ttl_zwift = 900,          # per-API defaults
   zwiftverse.ttl_zp    = 3600,
   zwiftverse.ttl_zr    = 3600
@@ -120,79 +121,106 @@ zv_cache_clear()                       # wipe it
 
 OAuth2-authenticated access to profiles, activities, events and worlds.
 
-- [`zwift_auth()`](zwift_auth.md) : Authenticate against the Zwift game
-  API
-- [`zwift_get()`](zwift_get.md) [`zwift_profile()`](zwift_get.md)
-  [`zwift_activities()`](zwift_get.md)
-  [`zwift_activity()`](zwift_get.md) [`zwift_followers()`](zwift_get.md)
-  [`zwift_followees()`](zwift_get.md) [`zwift_rideons()`](zwift_get.md)
-  [`zwift_give_rideon()`](zwift_get.md) [`zwift_event()`](zwift_get.md)
-  [`zwift_event_subgroups()`](zwift_get.md)
-  [`zwift_subgroup_results()`](zwift_get.md)
-  [`zwift_event_results()`](zwift_get.md)
-  [`zwift_subgroup_entrants()`](zwift_get.md)
-  [`zwift_event_entrants()`](zwift_get.md)
-  [`zwift_worlds()`](zwift_get.md)
-  [`zwift_riders_in_world()`](zwift_get.md) : Low-level Zwift GET
-- [`zwift_post()`](zwift_post.md) : Low-level Zwift POST
+- [`zwift_auth()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_auth.md)
+  : Authenticate against the Zwift game API
+- [`zwift_get()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
+  [`zwift_profile()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
+  [`zwift_activities()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
+  [`zwift_activity()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
+  [`zwift_followers()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
+  [`zwift_followees()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
+  [`zwift_rideons()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
+  [`zwift_give_rideon()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
+  [`zwift_event()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
+  [`zwift_event_subgroups()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
+  [`zwift_subgroup_results()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
+  [`zwift_event_results()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
+  [`zwift_subgroup_entrants()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
+  [`zwift_event_entrants()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
+  [`zwift_worlds()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
+  [`zwift_riders_in_world()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
+  : Low-level Zwift GET
+- [`zwift_post()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_post.md)
+  : Low-level Zwift POST
 
 ## ZwiftPower
 
 Session-cookie access to results, teams, leagues and segment data.
 
-- [`zp_session()`](zp_session.md) : Create a ZwiftPower session
+- [`zp_session()`](https://nickopotamus.github.io/zwiftverse/reference/zp_session.md)
+  : Create a ZwiftPower session
 
-- [`zp_set_cookie()`](zp_set_cookie.md) : Set the ZwiftPower session
-  cookie directly
+- [`zp_set_cookie()`](https://nickopotamus.github.io/zwiftverse/reference/zp_set_cookie.md)
+  : Set the ZwiftPower session cookie directly
 
-- [`zp_login()`](zp_login.md) : Log in to ZwiftPower via Zwift SSO (best
-  effort)
+- [`zp_login()`](https://nickopotamus.github.io/zwiftverse/reference/zp_login.md)
+  : Log in to ZwiftPower via Zwift SSO (best effort)
 
-- [`zp_get()`](zp_get.md) [`zp_profile()`](zp_get.md)
-  [`zp_result()`](zp_get.md) [`zp_signups()`](zp_get.md)
-  [`zp_team()`](zp_get.md) [`zp_event_list()`](zp_get.md)
-  [`zp_result_list()`](zp_get.md) [`zp_team_riders()`](zp_get.md)
-  [`zp_team_list()`](zp_get.md) [`zp_sprints()`](zp_get.md)
-  [`zp_primes()`](zp_get.md) [`zp_segment_standings()`](zp_get.md)
-  [`zp_league_list()`](zp_get.md) [`zp_league_results()`](zp_get.md)
-  [`zp_league_team_standings()`](zp_get.md) : Low-level ZwiftPower GET
+- [`zp_get()`](https://nickopotamus.github.io/zwiftverse/reference/zp_get.md)
+  [`zp_profile()`](https://nickopotamus.github.io/zwiftverse/reference/zp_get.md)
+  [`zp_result()`](https://nickopotamus.github.io/zwiftverse/reference/zp_get.md)
+  [`zp_signups()`](https://nickopotamus.github.io/zwiftverse/reference/zp_get.md)
+  [`zp_team()`](https://nickopotamus.github.io/zwiftverse/reference/zp_get.md)
+  [`zp_event_list()`](https://nickopotamus.github.io/zwiftverse/reference/zp_get.md)
+  [`zp_result_list()`](https://nickopotamus.github.io/zwiftverse/reference/zp_get.md)
+  [`zp_team_riders()`](https://nickopotamus.github.io/zwiftverse/reference/zp_get.md)
+  [`zp_team_list()`](https://nickopotamus.github.io/zwiftverse/reference/zp_get.md)
+  [`zp_sprints()`](https://nickopotamus.github.io/zwiftverse/reference/zp_get.md)
+  [`zp_primes()`](https://nickopotamus.github.io/zwiftverse/reference/zp_get.md)
+  [`zp_segment_standings()`](https://nickopotamus.github.io/zwiftverse/reference/zp_get.md)
+  [`zp_league_list()`](https://nickopotamus.github.io/zwiftverse/reference/zp_get.md)
+  [`zp_league_results()`](https://nickopotamus.github.io/zwiftverse/reference/zp_get.md)
+  [`zp_league_team_standings()`](https://nickopotamus.github.io/zwiftverse/reference/zp_get.md)
+  : Low-level ZwiftPower GET
 
-- [`zp_unflag()`](zp_unflag.md) :
+- [`zp_unflag()`](https://nickopotamus.github.io/zwiftverse/reference/zp_unflag.md)
+  :
 
   Unwrap ZwiftPower `[value, flag]` columns
 
-- [`zp_analysis()`](zp_analysis.md)
-  [`zp_event_analysis()`](zp_analysis.md) : Race-report data streams
-  from ZwiftPower
+- [`zp_analysis()`](https://nickopotamus.github.io/zwiftverse/reference/zp_analysis.md)
+  [`zp_event_analysis()`](https://nickopotamus.github.io/zwiftverse/reference/zp_analysis.md)
+  : Race-report data streams from ZwiftPower
 
 ## ZwiftRacing.app
 
 Key-authenticated rider ratings, results and club rosters.
 
-- [`zr_client()`](zr_client.md) : Create a ZwiftRacing.app client
-- [`zr_get()`](zr_get.md) [`zr_rider()`](zr_get.md)
-  [`zr_rider_overview()`](zr_get.md) [`zr_rider_results()`](zr_get.md)
-  [`zr_rider_ranking()`](zr_get.md) [`zr_rider_velo()`](zr_get.md)
-  [`zr_rider_power()`](zr_get.md) [`zr_riders()`](zr_get.md)
-  [`zr_event()`](zr_get.md) [`zr_result()`](zr_get.md)
-  [`zr_club()`](zr_get.md) [`zr_club_riders()`](zr_get.md)
-  [`zr_routes()`](zr_get.md) : Low-level ZwiftRacing.app GET
+- [`zr_client()`](https://nickopotamus.github.io/zwiftverse/reference/zr_client.md)
+  : Create a ZwiftRacing.app client
+- [`zr_get()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+  [`zr_rider()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+  [`zr_rider_overview()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+  [`zr_rider_results()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+  [`zr_rider_ranking()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+  [`zr_rider_velo()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+  [`zr_rider_power()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+  [`zr_riders()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+  [`zr_event()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+  [`zr_result()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+  [`zr_club()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+  [`zr_club_riders()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+  [`zr_routes()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+  : Low-level ZwiftRacing.app GET
 
 ## Caching
 
 On-disk TTL cache controls.
 
-- [`zv_cache_clear()`](zv_cache_clear.md) : Clear the on-disk cache.
-- [`zv_cache_dir()`](zv_cache_dir.md) : Path to the cache directory
-  (created on demand).
-- [`zv_cache_enabled()`](zv_cache_enabled.md) : Is caching currently
-  enabled?
-- [`zv_cache_info()`](zv_cache_info.md) : Summarise the cache contents.
+- [`zv_cache_clear()`](https://nickopotamus.github.io/zwiftverse/reference/zv_cache_clear.md)
+  : Clear the cache.
+- [`zv_cache_dir()`](https://nickopotamus.github.io/zwiftverse/reference/zv_cache_dir.md)
+  : Path to the cache directory (created on demand).
+- [`zv_cache_enabled()`](https://nickopotamus.github.io/zwiftverse/reference/zv_cache_enabled.md)
+  : Is caching currently enabled?
+- [`zv_cache_info()`](https://nickopotamus.github.io/zwiftverse/reference/zv_cache_info.md)
+  : Summarise the cache contents.
 
 # Articles
 
 ### Guides
 
 - [Race analysis across Zwift, ZwiftPower and
-  ZwiftRacing.app](race-analysis.md):
-- [Predicting a pen's times up a KOM](climb-prediction.md):
+  ZwiftRacing.app](https://nickopotamus.github.io/zwiftverse/articles/race-analysis.md):
+- [Predicting a pen's times up a
+  KOM](https://nickopotamus.github.io/zwiftverse/articles/climb-prediction.md):

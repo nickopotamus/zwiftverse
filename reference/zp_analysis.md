@@ -23,7 +23,8 @@ zp_event_analysis(
 
 - s:
 
-  A [`zp_session()`](zp_session.md).
+  A
+  [`zp_session()`](https://nickopotamus.github.io/zwiftverse/reference/zp_session.md).
 
 - race_id:
 

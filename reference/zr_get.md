@@ -42,7 +42,8 @@ zr_routes(client, ...)
 
 - client:
 
-  A [`zr_client()`](zr_client.md).
+  A
+  [`zr_client()`](https://nickopotamus.github.io/zwiftverse/reference/zr_client.md).
 
 - path:
 

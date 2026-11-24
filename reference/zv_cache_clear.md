@@ -1,6 +1,8 @@
-# Clear the on-disk cache.
+# Clear the cache.
 
-Clear the on-disk cache.
+Removes every entry on disk and the in-session memory copy (see the
+`zwiftverse.cache_memory` option in
+[`zv_cache_enabled()`](https://nickopotamus.github.io/zwiftverse/reference/zv_cache_enabled.md)).
 
 ## Usage
 

@@ -9,7 +9,7 @@ the access token automatically. Requires your own Zwift credentials."></head><bo
 
     <a class="navbar-brand me-2" href="../index.html">zwiftverse</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,8 +23,10 @@ the access token automatically. Requires your own Zwift credentials."></head><bo
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/race-analysis.html">Race analysis across Zwift, ZwiftPower and ZwiftRacing.app</a></li>
     <li><a class="dropdown-item" href="../articles/climb-prediction.html">Predicting a pen's times up a KOM</a></li>
   </ul></li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/nickopotamus/zwiftverse/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
 
 
@@ -34,7 +36,7 @@ the access token automatically. Requires your own Zwift credentials."></head><bo
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Authenticate against the Zwift game API</h1>
-
+      <small class="dont-index">Source: <a href="https://github.com/nickopotamus/zwiftverse/blob/main/R/zwift.R" class="external-link"><code>R/zwift.R</code></a></small>
       <div class="d-none name"><code>zwift_auth.Rd</code></div>
     </div>
 
@@ -63,6 +65,20 @@ environment variables <code>ZWIFT_USERNAME</code> / <code>ZWIFT_PASSWORD</code>.
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>An object of class <code>zwift_auth</code>.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>Token handling:</p><ul><li><p>Expiry times are measured from when the token <em>request was sent</em>, and a
+token is renewed early (10% of its lifetime, 5–60 s), so slow responses
+and modest clock skew don't produce expired tokens.</p></li>
+<li><p>When the access token expires the refresh token is used; if Zwift
+rejects the refresh (expired or revoked server-side), the handle logs in
+again with the password instead of failing.</p></li>
+<li><p>A <code>refresh_expires_in</code> of <code>0</code> (a Keycloak offline token) never expires.</p></li>
+<li><p>If the API answers <code>401</code> to a token the handle still thought valid,
+<code><a href="zwift_get.html">zwift_get()</a></code> / <code><a href="zwift_post.html">zwift_post()</a></code> discard it and retry the request once.</p></li>
+</ul><p>The handle exposes <code>token()</code>, <code>login()</code>, <code>refresh()</code> and <code>invalidate()</code>;
+printing it shows token status only, never the token or credentials.</p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

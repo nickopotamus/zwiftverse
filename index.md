@@ -21,9 +21,8 @@ see riders who have opted in. Endpoints can change without notice.
 
 ``` r
 
-# install.packages("devtools")
-devtools::install_local("zwiftverse")   # or install.packages("zwiftverse_0.1.0.tar.gz", repos = NULL)
-devtools::document("zwiftverse")        # regenerate man/ from the roxygen tags
+# install.packages("pak")
+pak::pak("nickopotamus/zwiftverse")
 ```
 
 ## Credentials
@@ -80,7 +79,8 @@ zr_rider(zr, 1234567) |> hoist(velo, velo_race = "race")
 
 ## Caching
 
-The cache is on by default and keyed on method + URL + body. TTL
+The cache is on by default and keyed on method + URL + body. Entries are
+stored on disk and, for the rest of the R session, in memory too. TTL
 (seconds): `0` = off, `Inf` = permanent (immutable data such as
 completed results).
 
@@ -88,6 +88,7 @@ completed results).
 
 options(
   zwiftverse.cache     = TRUE,         # master switch
+  zwiftverse.cache_memory = TRUE,      # in-session memory copy of hits
   zwiftverse.ttl_zwift = 900,          # per-API defaults
   zwiftverse.ttl_zp    = 3600,
   zwiftverse.ttl_zr    = 3600

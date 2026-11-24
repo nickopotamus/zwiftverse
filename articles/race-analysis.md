@@ -41,11 +41,12 @@ The ZwiftPower columns used below (`zwid`, `name`, `position_in_cat`,
 
 ## 1. Finishers from ZwiftPower
 
-[`zp_result()`](../reference/zp_get.md) returns one row per finisher.
-ZwiftPower ships most numbers as `[value, flag]` pairs (they arrive as
-list-columns), so run [`zp_unflag()`](../reference/zp_unflag.md) first,
-then pull the rider id, finishing position and category. Column names
-below were verified against live responses (2026-11).
+[`zp_result()`](https://nickopotamus.github.io/zwiftverse/reference/zp_get.md)
+returns one row per finisher. ZwiftPower ships most numbers as
+`[value, flag]` pairs (they arrive as list-columns), so run
+[`zp_unflag()`](https://nickopotamus.github.io/zwiftverse/reference/zp_unflag.md)
+first, then pull the rider id, finishing position and category. Column
+names below were verified against live responses (2026-11).
 
 ``` r
 
@@ -67,9 +68,10 @@ finishers
 
 ZwiftRacing.app scores the same race, so its event endpoint already
 carries every finisher’s rating *going into* the race — no per-rider
-lookups needed. [`zr_result()`](../reference/zr_get.md) flattens all
-pens into one row per rider. ZwiftRacing keys events on the Zwift event
-id, which is usually the same number as the ZwiftPower id.
+lookups needed.
+[`zr_result()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+flattens all pens into one row per rider. ZwiftRacing keys events on the
+Zwift event id, which is usually the same number as the ZwiftPower id.
 
 ``` r
 
@@ -87,10 +89,11 @@ ratings
 ```
 
 These column names were verified against the live v2 API (2026-11). For
-riders outside a single race, [`zr_rider()`](../reference/zr_get.md)
+riders outside a single race,
+[`zr_rider()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
 returns the current profile (vELO rating under `velo$race`), and
-[`zr_rider_overview()`](../reference/zr_get.md) the legacy `live` /
-`max30` / `max90` ratings:
+[`zr_rider_overview()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+the legacy `live` / `max30` / `max90` ratings:
 
 ``` r
 
@@ -179,7 +182,7 @@ zr_rider(zr, winner, ttl = 0)
 ```
 
 A rider’s rating history (no snapshot endpoint in v2) comes from
-[`zr_rider_velo()`](../reference/zr_get.md):
+[`zr_rider_velo()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md):
 
 ``` r
 
@@ -193,6 +196,7 @@ zr_rider_velo(zr, winner, days = 365, parse = "json")$data$history |>
 These are reverse-engineered APIs. Field names can shift under you,
 personal data is GDPR-consent-gated (non-consenting riders simply won’t
 appear), and the ZwiftPower cookie login is the brittle link — if
-[`zp_login()`](../reference/zp_login.md) fails, fall back to
-[`zp_set_cookie()`](../reference/zp_set_cookie.md) with a value copied
-from your browser.
+[`zp_login()`](https://nickopotamus.github.io/zwiftverse/reference/zp_login.md)
+fails, fall back to
+[`zp_set_cookie()`](https://nickopotamus.github.io/zwiftverse/reference/zp_set_cookie.md)
+with a value copied from your browser.

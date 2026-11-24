@@ -7,6 +7,16 @@ reach unwrapped endpoints; an on-disk TTL cache avoids re-fetching
 stable data. None of these are official APIs - they are
 reverse-engineered and may break on any upstream change.
 
+## See also
+
+Useful links:
+
+- <https://github.com/nickopotamus/zwiftverse>
+
+- <https://nickopotamus.github.io/zwiftverse/>
+
+- Report bugs at <https://github.com/nickopotamus/zwiftverse/issues>
+
 ## Author
 
 **Maintainer**: Nick Plummer <nick@example.com>

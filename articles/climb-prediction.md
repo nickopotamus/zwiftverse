@@ -72,9 +72,9 @@ field |> count(team, sort = TRUE)
 
 Rather than simulating Zwift’s physics (gradient profile, drafting, bike
 choice), learn the relationship from real races.
-[`zp_segment_standings()`](../reference/zp_get.md) returns every best
-effort a team’s riders have set on the segment: elapsed time and average
-w/kg.
+[`zp_segment_standings()`](https://nickopotamus.github.io/zwiftverse/reference/zp_get.md)
+returns every best effort a team’s riders have set on the segment:
+elapsed time and average w/kg.
 
 ``` r
 
