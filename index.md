@@ -211,10 +211,9 @@ zv_cache_clear()                       # wipe it
 
 - **Zwift:** `profile`, `activities`, `activity`, `followers`,
   `followees` (list endpoints auto-page: `limit` is the total wanted,
-  `Inf` = all), `rideons` (+ `give_rideon`), `event`, `event_subgroups`,
-  `event_results`, `subgroup_results`, `event_entrants`,
-  `subgroup_entrants`, `worlds`, `riders_in_world`, plus
-  `zwift_get`/`zwift_post`. Service status:
+  `Inf` = all), `rideons`, `event`, `event_subgroups`, `event_results`,
+  `subgroup_results`, `event_entrants`, `subgroup_entrants`, `worlds`,
+  `riders_in_world`, plus `zwift_get`. Service status:
   [`zwift_status()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_status.md)
   (`status`, `components`, `unresolved`, `incidents`, `maintenance`).
 - **ZwiftPower:** `profile`, `result`, `signups`, `team`, `event_list`,

@@ -76,7 +76,7 @@ rejects the refresh (expired or revoked server-side), the handle logs in
 again with the password instead of failing.</p></li>
 <li><p>A <code>refresh_expires_in</code> of <code>0</code> (a Keycloak offline token) never expires.</p></li>
 <li><p>If the API answers <code>401</code> to a token the handle still thought valid,
-<code><a href="zwift_get.html">zwift_get()</a></code> / <code><a href="zwift_post.html">zwift_post()</a></code> discard it and retry the request once.</p></li>
+<code><a href="zwift_get.html">zwift_get()</a></code> discards it and retry the request once.</p></li>
 </ul><p>The handle exposes <code>token()</code>, <code>login()</code>, <code>refresh()</code> and <code>invalidate()</code>;
 printing it shows token status only, never the token or credentials.</p>
     </div>

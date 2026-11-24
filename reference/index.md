@@ -13,7 +13,6 @@ OAuth2-authenticated access to profiles, activities, events and worlds.
   [`zwift_followers()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
   [`zwift_followees()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
   [`zwift_rideons()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
-  [`zwift_give_rideon()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
   [`zwift_event()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
   [`zwift_event_subgroups()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
   [`zwift_subgroup_results()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
@@ -23,8 +22,6 @@ OAuth2-authenticated access to profiles, activities, events and worlds.
   [`zwift_worlds()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
   [`zwift_riders_in_world()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
   : Low-level Zwift GET
-- [`zwift_post()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_post.md)
-  : Low-level Zwift POST
 - [`zwift_status()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_status.md)
   : Zwift service status
 

@@ -41,9 +41,7 @@ Token handling:
 
 - If the API answers `401` to a token the handle still thought valid,
   [`zwift_get()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_get.md)
-  /
-  [`zwift_post()`](https://nickopotamus.github.io/zwiftverse/reference/zwift_post.md)
-  discard it and retry the request once.
+  discards it and retry the request once.
 
 The handle exposes `token()`, `login()`, `refresh()` and `invalidate()`;
 printing it shows token status only, never the token or credentials.

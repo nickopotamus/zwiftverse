@@ -40,8 +40,6 @@ zwift_followees(
 
 zwift_rideons(auth, rider_id, activity_id, ...)
 
-zwift_give_rideon(auth, rider_id, activity_id)
-
 zwift_event(auth, event_id, ...)
 
 zwift_event_subgroups(auth, event_id, parse = "tbl", ttl = .zv_ttl("zwift"))
@@ -159,9 +157,6 @@ A tibble, parsed list, or httr2 response.
   request).
 
 - `zwift_rideons()`: Ride Ons on an activity.
-
-- `zwift_give_rideon()`: Give a Ride On (POST). Returns the raw
-  response.
 
 - `zwift_event()`: An event by id.
 

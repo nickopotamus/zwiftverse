@@ -40,6 +40,11 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="zwiftverse-development-version">zwiftverse (development version)<a class="anchor" aria-label="anchor" href="#zwiftverse-development-version"></a></h2>
 <div class="section level3">
+<h3 id="breaking-changes-development-version">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
+<ul><li>Requests now identify as zwiftverse with a link to the repo, rather than as the Zwift mobile app.</li>
+<li>The package is now read-only: <code>zwift_give_rideon()</code> and the low-level <code>zwift_post()</code> have been removed. <code><a href="../reference/zwift_get.html">zwift_rideons()</a></code> (reading the Ride Ons on an activity) stays.</li>
+</ul></div>
+<div class="section level3">
 <h3 id="new-features-development-version">New features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
 <ul><li>
 <code><a href="../reference/zwift_status.html">zwift_status()</a></code> reads Zwift’s public status page: overall status, per-service components, open and recent incidents, upcoming maintenance. No login needed.</li>
@@ -58,7 +63,7 @@
 <div class="section level3">
 <h3 id="robustness-development-version">Robustness<a class="anchor" aria-label="anchor" href="#robustness-development-version"></a></h3>
 <ul><li>
-<code><a href="../reference/zwift_auth.html">zwift_auth()</a></code> renews tokens early and times their expiry from when the request was sent, falls back to a password login when Zwift rejects a refresh token, treats <code>refresh_expires_in = 0</code> as non-expiring, and <code><a href="../reference/zwift_get.html">zwift_get()</a></code> / <code><a href="../reference/zwift_post.html">zwift_post()</a></code> retry once with a fresh token after an unexpected 401.</li>
+<code><a href="../reference/zwift_auth.html">zwift_auth()</a></code> renews tokens early and times their expiry from when the request was sent, falls back to a password login when Zwift rejects a refresh token, treats <code>refresh_expires_in = 0</code> as non-expiring, and <code><a href="../reference/zwift_get.html">zwift_get()</a></code> retries once with a fresh token after an unexpected 401.</li>
 <li>Error responses with an empty body now report their HTTP status instead of a body-parsing error.</li>
 <li>An empty response body (ZwiftPower’s “no data”) parses as an empty result.</li>
 </ul></div>

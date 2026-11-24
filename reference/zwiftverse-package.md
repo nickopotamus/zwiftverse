@@ -19,8 +19,8 @@ Useful links:
 
 ## Author
 
-**Maintainer**: Nick Plummer <nick@example.com>
+**Maintainer**: Nick Plummer <nickplummer@cantab.net>
 
 Authors:
 
-- Nick Plummer <nick@example.com>
+- Nick Plummer <nickplummer@cantab.net>

@@ -79,8 +79,6 @@
 <span></span>
 <span><span class="fu">zwift_rideons</span><span class="op">(</span><span class="va">auth</span>, <span class="va">rider_id</span>, <span class="va">activity_id</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">zwift_give_rideon</span><span class="op">(</span><span class="va">auth</span>, <span class="va">rider_id</span>, <span class="va">activity_id</span><span class="op">)</span></span>
-<span></span>
 <span><span class="fu">zwift_event</span><span class="op">(</span><span class="va">auth</span>, <span class="va">event_id</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">zwift_event_subgroups</span><span class="op">(</span><span class="va">auth</span>, <span class="va">event_id</span>, parse <span class="op">=</span> <span class="st">"tbl"</span>, ttl <span class="op">=</span> <span class="fu">.zv_ttl</span><span class="op">(</span><span class="st">"zwift"</span><span class="op">)</span><span class="op">)</span></span>
@@ -192,7 +190,6 @@ page and bound; <code>limit = Inf</code> fetches the whole history.</p></li>
 <li><p><code>zwift_followers()</code>: A rider's followers (auto-paged, 200 per request).</p></li>
 <li><p><code>zwift_followees()</code>: Riders a rider follows (auto-paged, 200 per request).</p></li>
 <li><p><code>zwift_rideons()</code>: Ride Ons on an activity.</p></li>
-<li><p><code>zwift_give_rideon()</code>: Give a Ride On (POST). Returns the raw response.</p></li>
 <li><p><code>zwift_event()</code>: An event by id.</p></li>
 <li><p><code>zwift_event_subgroups()</code>: An event's subgroups (pens / categories): one row
 each, with <code>id</code> (the subgroup id used by the results and entrants
