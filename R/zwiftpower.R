@@ -148,24 +148,52 @@ zp_get <- function(s, url, parse = "tbl", ttl = .zv_ttl("zp")) {
   if (parse == "tbl") .zp_unescape(out) else out
 }
 
-# ZwiftPower HTML-escapes text (names arrive as "van&#039;t Hof"). Decode the
-# common named entities and all numeric ones in character columns.
+# ZwiftPower HTML-escapes text: names arrive as "van&#039;t Hof" or
+# "M&uuml;ller". Decode the HTML named entities riders' names and team names
+# use (quotes, punctuation, the Latin-1 letters and a few Latin Extended-A
+# ones) and every numeric entity, in character columns. Unknown names are left
+# as they are. `&amp;` is decoded last, so "&amp;uuml;" becomes "&uuml;", not
+# "u-umlaut".
+.ZP_LATIN1 <- c("nbsp", "iexcl", "cent", "pound", "curren", "yen", "brvbar", "sect",
+                "uml", "copy", "ordf", "laquo", "not", "shy", "reg", "macr", "deg",
+                "plusmn", "sup2", "sup3", "acute", "micro", "para", "middot", "cedil",
+                "sup1", "ordm", "raquo", "frac14", "frac12", "frac34", "iquest",
+                "Agrave", "Aacute", "Acirc", "Atilde", "Auml", "Aring", "AElig", "Ccedil",
+                "Egrave", "Eacute", "Ecirc", "Euml", "Igrave", "Iacute", "Icirc", "Iuml",
+                "ETH", "Ntilde", "Ograve", "Oacute", "Ocirc", "Otilde", "Ouml", "times",
+                "Oslash", "Ugrave", "Uacute", "Ucirc", "Uuml", "Yacute", "THORN", "szlig",
+                "agrave", "aacute", "acirc", "atilde", "auml", "aring", "aelig", "ccedil",
+                "egrave", "eacute", "ecirc", "euml", "igrave", "iacute", "icirc", "iuml",
+                "eth", "ntilde", "ograve", "oacute", "ocirc", "otilde", "ouml", "divide",
+                "oslash", "ugrave", "uacute", "ucirc", "uuml", "yacute", "thorn", "yuml")
+.ZP_ENTITIES <- c(
+  stats::setNames(vapply(160:255, intToUtf8, character(1)), .ZP_LATIN1),
+  quot = "\"", lt = "<", gt = ">", apos = "'",
+  OElig = "\u0152", oelig = "\u0153", Scaron = "\u0160", scaron = "\u0161",
+  Yuml = "\u0178", Zcaron = "\u017d", zcaron = "\u017e", fnof = "\u0192",
+  rsquo = "\u2019", lsquo = "\u2018", rdquo = "\u201d", ldquo = "\u201c",
+  sbquo = "\u201a", bdquo = "\u201e", ndash = "\u2013", mdash = "\u2014",
+  hellip = "\u2026", bull = "\u2022", trade = "\u2122", euro = "\u20ac"
+)
+
 .zp_unescape <- function(tbl) {
   dec <- function(x) {
     if (!any(grepl("&", x, fixed = TRUE), na.rm = TRUE)) return(x)
-    x <- gsub("&quot;", "\"", x, fixed = TRUE)
-    x <- gsub("&lt;", "<", x, fixed = TRUE)
-    x <- gsub("&gt;", ">", x, fixed = TRUE)
-    x <- gsub("&apos;", "'", x, fixed = TRUE)
-    named <- c(rsquo = "\u2019", lsquo = "\u2018", rdquo = "\u201d", ldquo = "\u201c",
-               ndash = "\u2013", mdash = "\u2014", hellip = "\u2026", nbsp = "\u00a0")
-    for (n in names(named)) x <- gsub(paste0("&", n, ";"), named[[n]], x, fixed = TRUE)
-    m <- gregexpr("&#(x[0-9A-Fa-f]+|[0-9]+);", x, perl = TRUE)
+    m <- gregexpr("&(#x[0-9A-Fa-f]+|#[0-9]+|[A-Za-z][A-Za-z0-9]*);", x, perl = TRUE)
     regmatches(x, m) <- lapply(regmatches(x, m), function(e) {
       if (!length(e)) return(e)
-      code <- sub("^&#(.*);$", "\\1", e)
-      n <- ifelse(startsWith(code, "x"), strtoi(substring(code, 2), 16L), strtoi(code, 10L))
-      vapply(n, intToUtf8, character(1))
+      code <- substr(e, 2, nchar(e) - 1)
+      out <- e                                       # unknown names stay as written
+      num <- startsWith(code, "#")
+      if (any(num)) {
+        c2 <- substring(code[num], 2)
+        n <- ifelse(startsWith(c2, "x"), strtoi(substring(c2, 2), 16L), strtoi(c2, 10L))
+        ok <- !is.na(n) & n > 0
+        out[num][ok] <- vapply(n[ok], intToUtf8, character(1))
+      }
+      named <- !num & code %in% names(.ZP_ENTITIES)
+      out[named] <- unname(.ZP_ENTITIES[code[named]])
+      out
     })
     gsub("&amp;", "&", x, fixed = TRUE)
   }

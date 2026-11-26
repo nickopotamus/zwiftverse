@@ -49,6 +49,14 @@
 * `print()` on a `zwift_auth()` handle shows token status without revealing
   the token or credentials.
 
+
+## Bug fixes
+
+* ZwiftPower text now decodes accented-letter entities, so names such as
+  "M&uuml;ller" come back as "Müller". All the Latin-1 letters and a few
+  Latin Extended-A ones are covered, and unknown entity names are left as
+  they are.
+
 ## Documentation
 
 * README explains where each credential comes from, including how to ask

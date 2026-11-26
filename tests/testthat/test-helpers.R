@@ -126,3 +126,13 @@ test_that(".zp_unescape decodes ZwiftPower HTML entities", {
   expect_equal(out$name, c("Eibert van't Hof", "A & B", "\"Q\" \U0001F98C", NA))
   expect_equal(out$n, 1:4)
 })
+
+test_that(".zp_unescape decodes accented letters and leaves unknown names alone", {
+  x <- tibble::tibble(name = c("Martin M&uuml;ller (Rhino)", "Ren&eacute; &Aring;str&ouml;m",
+                               "Pe&ntilde;a &amp; Sk&aelig;r &szlig;", "&OElig;uvre &Scaron;imon",
+                               "&amp;uuml; stays", "&notanentity; kept", "M&uuml;ller&#0;"))
+  out <- zwiftverse:::.zp_unescape(x)
+  expect_equal(out$name, c("Martin M\u00fcller (Rhino)", "Ren\u00e9 \u00c5str\u00f6m",
+                           "Pe\u00f1a & Sk\u00e6r \u00df", "\u0152uvre \u0160imon",
+                           "&uuml; stays", "&notanentity; kept", "M\u00fcller&#0;"))
+})
