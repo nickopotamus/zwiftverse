@@ -19,11 +19,17 @@ reference:
   - zp_get
   - zp_unflag
   - zp_analysis
+  - zp_power_curve
 - title: ZwiftRacing.app
   desc: Key-authenticated rider ratings, results and club rosters.
   contents:
   - zr_client
   - zr_get
+- title: Across APIs
+  desc: Helpers that combine ZwiftRacing.app and ZwiftPower data.
+  contents:
+  - zv_rider_cp
+  - zv_signups_cp
 - title: Caching
   desc: On-disk TTL cache controls.
   contents:

@@ -1,10 +1,10 @@
 # Shape tests against recorded real payloads. The field names asserted here were
 # verified against live responses (HANDOFF.md Risks 1-3); a failure means the
-# upstream API has changed and the code/vignette must be updated to m# ---- ZwiftRacing.app (v2) ----------------------------------------------------
+# upstream API has changed and the code/vignette must be updated to m# ---- ZwiftRacing.app, service key (website v2 routes) ------------------------
 
 test_that("ZR rider: envelope unwrapped to one row; riderId present (Risk 3)", {
   use_fixture("zr", "rider")
-  out <- zr_rider(fake_zr(), fixture_ids()$rider_id)
+  out <- zr_rider(fake_zr_service(), fixture_ids()$rider_id)
   expect_s3_class(out, "tbl_df")
   expect_equal(nrow(out), 1)
   expect_true(all(c("riderId", "velo", "race", "power", "club") %in% names(out)))
@@ -12,7 +12,7 @@ test_that("ZR rider: envelope unwrapped to one row; riderId present (Risk 3)", {
 
 test_that("ZR rider: v2 rating lives at velo$race; race holds counts (Risk 2)", {
   use_fixture("zr", "rider")
-  j <- zr_rider(fake_zr(), fixture_ids()$rider_id, parse = "json")
+  j <- zr_rider(fake_zr_service(), fixture_ids()$rider_id, parse = "json")
   expect_true(isTRUE(j$success))
   expect_type(j$data$velo$race, "double")
   expect_true(all(c("endurance", "sprint", "climb") %in% names(j$data$velo$factors)))
@@ -21,13 +21,13 @@ test_that("ZR rider: v2 rating lives at velo$race; race holds counts (Risk 2)", 
 
 test_that("ZR rider overview exposes legacy live/max30/max90 ratings", {
   use_fixture("zr", "rider_overview")
-  j <- zr_rider_overview(fake_zr(), 1, parse = "json")
+  j <- zr_rider_overview(fake_zr_service(), 1, parse = "json")
   expect_true(all(c("live", "max30", "max90") %in% names(j$data$legacyRatings)))
 })
 
 test_that("ZR rider results: one row per race, flattened nested fields", {
   use_fixture("zr", "rider_results")
-  out <- zr_rider_results(fake_zr(), 1)
+  out <- zr_rider_results(fake_zr_service(), 1)
   expect_s3_class(out, "tbl_df")
   expect_gte(nrow(out), 1)
   expect_true(all(c("event.eventId", "place.positionInCategory", "legacy.ratingBefore") %in% names(out)))
@@ -35,7 +35,7 @@ test_that("ZR rider results: one row per race, flattened nested fields", {
 
 test_that("ZR result: event pens flattened to one row per rider", {
   use_fixture("zr", "event")
-  out <- zr_result(fake_zr(), 1)
+  out <- zr_result(fake_zr_service(), 1)
   expect_s3_class(out, "tbl_df")
   expect_gt(nrow(out), 1)
   expect_true(all(c("pen", "riderId", "position", "category", "ratingBefore",
@@ -44,14 +44,14 @@ test_that("ZR result: event pens flattened to one row per rider", {
 
 test_that("ZR riders: binds one row per rider", {
   use_fixture("zr", "rider")
-  out <- zr_riders(fake_zr(), c(1, 2))
+  out <- zr_riders(fake_zr_service(), c(1, 2))
   expect_equal(nrow(out), 2)
   expect_true("riderId" %in% names(out))
 })
 
 test_that("ZR club riders: single page parses", {
   use_fixture("zr", "club_riders")
-  out <- zr_club_riders(fake_zr(), 1, page = 0)
+  out <- zr_club_riders(fake_zr_service(), 1, page = 0)
   expect_gt(nrow(out), 1)
   expect_true(all(c("riderId", "velo.race") %in% names(out)))
 })
@@ -61,11 +61,11 @@ for (ep in c("rider_ranking", "rider_velo", "rider_power", "club", "routes")) lo
   test_that(sprintf("ZR %s parses to a tibble", ep), {
     use_fixture("zr", ep)
     f <- switch(ep,
-      rider_ranking = function() zr_rider_ranking(fake_zr(), 1),
-      rider_velo    = function() zr_rider_velo(fake_zr(), 1),
-      rider_power   = function() zr_rider_power(fake_zr(), 1),
-      club          = function() zr_club(fake_zr(), 1),
-      routes        = function() zr_routes(fake_zr()))
+      rider_ranking = function() zr_rider_ranking(fake_zr_service(), 1),
+      rider_velo    = function() zr_rider_velo(fake_zr_service(), 1),
+      rider_power   = function() zr_rider_power(fake_zr_service(), 1),
+      club          = function() zr_club(fake_zr_service(), 1),
+      routes        = function() zr_routes(fake_zr_service()))
     out <- f()
     expect_s3_class(out, "tbl_df")
     expect_gte(ncol(out), 1)

@@ -123,25 +123,14 @@ efforts include some drafting).
 
 ## 3. Each rider's power curve
 
-ZwiftRacing.app holds each rider's power curve at 5 s – 20 min in two
-flavours: `d90` (raw best of the last 90 days) and `live` (a current-form
-estimate in which older bests decay). `live` is the better guide to what a
-rider can do *now*, so it drives the model. One request per rider:
+ZwiftRacing.app's rider record carries each rider's 90-day best power at
+5 s – 20 min. `zr_riders()` fetches the whole field in one batch request:
 
 ```{r zr-curves}
-zr_curve <- function(id) {
-  j <- tryCatch(zr_rider_power(zr, id, parse = "json"), error = function(e) NULL)
-  cv <- j$data$curve
-  if (is.null(cv) || !NROW(cv)) return(NULL)
-  tibble(zwid = id, sec = cv$durationSec, wkg = cv$live.wkg)
-}
-
-# 5- and 20-minute points, one row per rider
+# 5- and 20-minute points (w/kg), one row per rider
 zr_points <- function(ids) {
-  bind_rows(lapply(unique(ids), zr_curve)) |>
-    filter(sec %in% c(300, 1200)) |>
-    pivot_wider(names_from = sec, values_from = wkg, names_prefix = "w") |>
-    rename(zr_wkg5 = w300, zr_wkg20 = w1200)
+  zr_riders(zr, ids) |>
+    transmute(zwid = as.integer(riderId), zr_wkg5 = power.wkg300, zr_wkg20 = power.wkg1200)
 }
 
 field <- field |> left_join(zr_points(field$zwid), by = "zwid")

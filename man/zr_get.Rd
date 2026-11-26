@@ -3,22 +3,27 @@
 \name{zr_get}
 \alias{zr_get}
 \alias{zr_rider}
+\alias{zr_riders}
 \alias{zr_rider_overview}
 \alias{zr_rider_results}
 \alias{zr_rider_ranking}
 \alias{zr_rider_velo}
 \alias{zr_rider_power}
-\alias{zr_riders}
 \alias{zr_event}
 \alias{zr_result}
+\alias{zr_zp_result}
 \alias{zr_club}
 \alias{zr_club_riders}
+\alias{zr_categories}
+\alias{zr_route_weights}
 \alias{zr_routes}
-\title{Low-level ZwiftRacing.app GET}
+\title{Low-level ZwiftRacing.app request}
 \usage{
 zr_get(client, path, query = list(), parse = "tbl", ttl = .zv_ttl("zr"))
 
-zr_rider(client, zwift_id, ...)
+zr_rider(client, zwift_id, time = NULL, ...)
+
+zr_riders(client, ids, time = NULL, ...)
 
 zr_rider_overview(client, zwift_id, ...)
 
@@ -36,22 +41,33 @@ zr_rider_velo(client, zwift_id, days = 365, ...)
 
 zr_rider_power(client, zwift_id, ...)
 
-zr_riders(client, ids, ...)
-
 zr_event(client, event_id, ...)
 
 zr_result(client, event_id, parse = "tbl", ttl = .zv_ttl("zr"))
 
+zr_zp_result(client, event_id, parse = "tbl", ttl = .zv_ttl("zr"))
+
 zr_club(client, club_id, ...)
 
 zr_club_riders(client, club_id, page = NULL, ...)
+
+zr_categories(client, ...)
+
+zr_route_weights(
+  client,
+  route_id,
+  laps = NULL,
+  distance = NULL,
+  event_type = c("race", "timeTrial"),
+  ...
+)
 
 zr_routes(client, ...)
 }
 \arguments{
 \item{client}{A \code{\link[=zr_client]{zr_client()}}.}
 
-\item{path}{Endpoint path under \verb{/api/v2}, e.g. \code{"/riders/123"}.}
+\item{path}{Route path (see Details).}
 
 \item{query}{Named list of query parameters.}
 
@@ -61,66 +77,118 @@ zr_routes(client, ...)
 
 \item{zwift_id}{Zwift rider id.}
 
+\item{time}{Optional point in time for a historical snapshot.}
+
 \item{...}{For the typed wrappers, further arguments forwarded to \code{zr_get()}.}
 
-\item{days}{Look-back window in days.}
-
 \item{ids}{Vector of Zwift rider ids.}
+
+\item{days}{Look-back window in days.}
 
 \item{event_id}{Zwift event id.}
 
 \item{club_id}{Club id.}
 
-\item{page}{Page number (0-based), or \code{NULL} for all pages.}
+\item{page}{Page number (service key) or rider id to start after (user
+key), or \code{NULL} for every page.}
+
+\item{route_id}{Zwift route id.}
+
+\item{laps, distance}{Laps, or distance in metres (exactly one).}
+
+\item{event_type}{\code{"race"} (default) or \code{"timeTrial"}.}
 }
 \value{
 A tibble, parsed list, or httr2 response.
 }
 \description{
-Low-level ZwiftRacing.app GET
+\code{zr_get()} sends a GET to any ZwiftRacing.app route. \code{path} is relative to
+the host (\verb{https://api.zwiftracing.app}), e.g. \code{"/api/public/riders/123"} or,
+with a service key, \code{"/api/v2/riders/123"}. For a \code{"service"} client, a path
+without a leading \verb{/api/} is taken as relative to \verb{/api/v2}, as in earlier
+versions.
+}
+\details{
+\strong{What each key reaches.} A user key (the default; Hobby API Access) can
+call \code{zr_rider()}, \code{zr_riders()}, \code{zr_club()}, \code{zr_club_riders()},
+\code{zr_result()}, \code{zr_zp_result()}, \code{zr_categories()} and
+\code{zr_route_weights()}, subject to its tier's per-route limits (some may be
+0). The rest (\code{zr_rider_overview()}, \code{zr_rider_results()},
+\code{zr_rider_ranking()}, \code{zr_rider_velo()}, \code{zr_rider_power()}, \code{zr_event()},
+\code{zr_routes()}) exist only on the website's v2 routes and need a service key.
+
+\strong{Errors.} A route your tier has no allowance for fails at once with class
+\code{zv_zr_no_access}; a service-only function called with a user key fails with
+class \code{zv_zr_service_only}. Short rate-limit waits are retried; long ones
+are reported with the time to wait.
 }
 \section{Functions}{
 \itemize{
-\item \code{zr_rider()}: A rider's current profile: vELO rating (\code{velo$race},
-with \code{velo$factors}), race counts (\code{race$finishes/wins/podiums/dnfs}),
-power, points, phenotype and club.
+\item \code{zr_rider()}: A rider's profile: vELO rating (\code{velo$race}, with
+\code{velo$factors}, \code{velo$category}), race counts, power bests (\code{power$w5} ...
+\code{power$w1200}, and w/kg), zFTP, phenotype and club. With \code{time} (POSIXct or
+Unix seconds; user keys only), a snapshot at that moment. Only the legacy
+ZwiftRacing rating (\code{race$current}) is rewound: vELO, power bests and race
+counts are always current (checked live, 2026-11).
+
+\item \code{zr_riders()}: Several riders' profiles, one row each. With a user key
+this is one POST per 1000 riders (\code{time} gives snapshots, as for
+\code{zr_rider()}); with a service
+key, one request per rider. Riders that are unknown or opted out are
+simply absent.
 
 \item \code{zr_rider_overview()}: Rider overview, including the legacy ZwiftRacing ratings
-(\code{legacyRatings$live/max30/max90}) and rating history.
+(\code{legacyRatings$live/max30/max90}) and rating history. Service key only.
 
-\item \code{zr_rider_results()}: A rider's race results over the last \code{days} days. One row
-per race (nested \code{event}, \code{place}, \code{race}, \code{velo}, \code{legacy} objects,
-flattened to dotted column names).
+\item \code{zr_rider_results()}: A rider's race results over the last \code{days} days (90 or
+365). One row per race (nested \code{event}, \code{place}, \code{race}, \code{velo}, \code{legacy}
+objects, flattened to dotted column names). Service key only.
 
 \item \code{zr_rider_ranking()}: A rider's ranking / points over the last \code{days} days.
+Service key only.
 
 \item \code{zr_rider_velo()}: A rider's vELO rating history over the last \code{days} days.
+Service key only.
 
-\item \code{zr_rider_power()}: A rider's power curve, efforts and FTP estimate.
+\item \code{zr_rider_power()}: A rider's power curve, efforts and FTP estimate. Service
+key only (a user key's \code{zr_rider()} carries the 5 s - 20 min bests).
 
-\item \code{zr_riders()}: Several riders' profiles, one row each. API v2 has no
-batch endpoint, so this makes one (throttled, cached) request per rider;
-riders that error (e.g. not found / opted out) are dropped with a warning.
+\item \code{zr_event()}: Event metadata (route, distance, pens with summary
+stats). Service key only.
 
-\item \code{zr_event()}: Event metadata (route, distance, pens with summary stats).
+\item \code{zr_result()}: Race results for an event, one row per rider. With a
+service key this flattens the v2 event's pens and adds a \code{pen} column
+(\code{position}, \code{category}, \code{time}, \verb{wkg*}, ratings, \code{power.CP},
+\code{power.AWC}, ...). With a user key it reads \verb{/api/public/results/:id} and
+returns its records as they come.
 
-\item \code{zr_result()}: Race results for an event: one row per rider across all
-pens, with a \code{pen} column. Includes \code{position}, \code{category}, \code{time},
-power (\verb{wkg*}), and ratings (\code{ratingBefore}, \code{rating}, \code{ratingDelta},
-\code{riderVelo.race}).
+\item \code{zr_zp_result()}: ZwiftPower's view of an event's results, as served by
+ZwiftRacing.app (\verb{/api/public/zp/:id/results}). User key.
 
-\item \code{zr_club()}: Club summary (name, colours, rider counts).
+\item \code{zr_club()}: Club summary. With a user key this is
+\verb{/api/public/clubs/:id}, which also carries the first page of riders.
 
-\item \code{zr_club_riders()}: Club members with ratings. Pages hold 50 riders and are
-0-indexed; \code{page = NULL} (default) fetches every page and binds them.
+\item \code{zr_club_riders()}: Club members with ratings. Service keys page by number
+(50 riders a page, 0-indexed; \code{page = NULL} fetches all). User keys page by
+rider id (\verb{/api/public/clubs/:id/:riderId} returns riders with a higher
+id); \code{page = NULL} follows those pages to the end, otherwise \code{page} is the
+rider id to start after (\code{0} for the first page).
 
-\item \code{zr_routes()}: Route catalogue.
+\item \code{zr_categories()}: The vELO category bands (number, name, min, max) on the
+1-1000 scale. User key.
+
+\item \code{zr_route_weights()}: How much each ability (endurance, pursuit, sprint, punch,
+climb, time trial) counts on a route, for a number of \code{laps} or a
+\code{distance} in metres (give one). User key.
+
+\item \code{zr_routes()}: Route catalogue. Service key only.
 
 }}
 \examples{
 \dontrun{
 zr <- zr_client()
-zr_get(zr, "/riders/1234567")
-zr_get(zr, "/riders/1234567", parse = "json", ttl = 0)  # raw list, no cache
+zr_get(zr, "/api/public/riders/1234567")
+zr_rider(zr, 1234567)
+zr_riders(zr, c(1234567, 2345678))        # one POST for up to 1000 riders
 }
 }

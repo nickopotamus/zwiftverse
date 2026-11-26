@@ -4,13 +4,24 @@
 \alias{zr_client}
 \title{Create a ZwiftRacing.app client}
 \usage{
-zr_client(auth = Sys.getenv("ZR_AUTH"), rate = 2)
+zr_client(
+  auth = Sys.getenv("ZR_AUTH"),
+  key_type = c("user", "service"),
+  rate = 2
+)
 }
 \arguments{
-\item{auth}{Your ZwiftRacing.app API key, sent as the \code{x-api-key} header.
-Defaults to the environment variable \code{ZR_AUTH}.}
+\item{auth}{Your ZwiftRacing.app API key. Defaults to the environment
+variable \code{ZR_AUTH}.}
 
-\item{rate}{Throttle in requests per second (default 2; tune to your quota).}
+\item{key_type}{\code{"user"} (default) for the per-account key from
+ZwiftRacing.app Settings -> API access, sent as \code{Authorization} to the
+public routes; or \code{"service"} for a shared service key, sent as
+\code{x-api-key} to the website's v2 routes (what this package used before
+November 2026).}
+
+\item{rate}{Throttle for \code{"service"} keys, in requests per second (default
+2). User keys are throttled per route to the limits the server reports.}
 }
 \value{
 An object of class \code{zr_client}.
@@ -20,7 +31,7 @@ Create a ZwiftRacing.app client
 }
 \examples{
 \dontrun{
-zr <- zr_client()                  # key from the ZR_AUTH environment variable
-zr <- zr_client("your-key", rate = 1)
+zr <- zr_client()                         # user key from ZR_AUTH
+zr <- zr_client(Sys.getenv("ZR_SERVICE_KEY"), key_type = "service")
 }
 }

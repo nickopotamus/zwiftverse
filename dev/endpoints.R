@@ -3,7 +3,8 @@
 #
 # Credentials (put these in ~/.Renviron or a project .Renviron - both gitignored;
 # never commit them):
-#   ZR_AUTH            ZwiftRacing.app key (sent as the x-api-key header)
+#   ZR_AUTH            ZwiftRacing.app account key (sent as the Authorization header)
+#   ZR_SERVICE_KEY     optional shared service key, for the website-only v2 routes
 #   ZWIFT_USERNAME     Zwift login
 #   ZWIFT_PASSWORD     Zwift password
 #   ZP_SID             phpbb3_lswlk_sid cookie copied from zwiftpower.com
@@ -38,27 +39,39 @@ suppressPackageStartupMessages({
 zv_dev_specs <- function() {
   rider <- function(h) h$rider_id
   list(
-    # ---- ZwiftRacing.app (v2) ----
-    list(api = "zr", name = "rider",          needs = "rider",
+    # ---- ZwiftRacing.app ----
+    # User (account) key: public routes.
+    list(api = "zr", name = "public_rider",   needs = "rider",
          call = function(h) zr_rider(h$zr, rider(h), parse = "resp")),
-    list(api = "zr", name = "rider_overview", needs = "rider",
-         call = function(h) zr_rider_overview(h$zr, rider(h), parse = "resp")),
-    list(api = "zr", name = "rider_results",  needs = "rider",
-         call = function(h) zr_rider_results(h$zr, rider(h), parse = "resp")),
-    list(api = "zr", name = "rider_ranking",  needs = "rider",
-         call = function(h) zr_rider_ranking(h$zr, rider(h), parse = "resp")),
-    list(api = "zr", name = "rider_velo",     needs = "rider",
-         call = function(h) zr_rider_velo(h$zr, rider(h), parse = "resp")),
-    list(api = "zr", name = "rider_power",    needs = "rider",
-         call = function(h) zr_rider_power(h$zr, rider(h), parse = "resp")),
-    list(api = "zr", name = "event",          needs = "ZV_ZR_RACE_ID",
-         call = function(h) zr_event(h$zr, .env("ZV_ZR_RACE_ID"), parse = "resp")),
-    list(api = "zr", name = "club",           needs = "ZV_ZR_CLUB_ID",
+    list(api = "zr", name = "public_riders",  needs = "rider",
+         call = function(h) zwiftverse:::.zr_post(h$zr, "/api/public/riders",
+                                                   as.list(as.integer(c(rider(h), .ids("ZV_RIDER_IDS")))),
+                                                   parse = "resp")),
+    list(api = "zr", name = "public_results", needs = "ZV_ZR_RACE_ID",
+         call = function(h) zr_result(h$zr, .env("ZV_ZR_RACE_ID"), parse = "resp")),
+    list(api = "zr", name = "public_club",    needs = "ZV_ZR_CLUB_ID",
          call = function(h) zr_club(h$zr, .env("ZV_ZR_CLUB_ID"), parse = "resp")),
-    list(api = "zr", name = "club_riders",    needs = "ZV_ZR_CLUB_ID",
-         call = function(h) zr_club_riders(h$zr, .env("ZV_ZR_CLUB_ID"), page = 0, parse = "resp")),
-    list(api = "zr", name = "routes",         needs = character(),
-         call = function(h) zr_routes(h$zr, parse = "resp")),
+    # Shared service key (ZR_SERVICE_KEY): the website's v2 routes.
+    list(api = "zr_service", name = "rider",          needs = "rider",
+         call = function(h) zr_rider(h$zr_service, rider(h), parse = "resp")),
+    list(api = "zr_service", name = "rider_overview", needs = "rider",
+         call = function(h) zr_rider_overview(h$zr_service, rider(h), parse = "resp")),
+    list(api = "zr_service", name = "rider_results",  needs = "rider",
+         call = function(h) zr_rider_results(h$zr_service, rider(h), parse = "resp")),
+    list(api = "zr_service", name = "rider_ranking",  needs = "rider",
+         call = function(h) zr_rider_ranking(h$zr_service, rider(h), parse = "resp")),
+    list(api = "zr_service", name = "rider_velo",     needs = "rider",
+         call = function(h) zr_rider_velo(h$zr_service, rider(h), parse = "resp")),
+    list(api = "zr_service", name = "rider_power",    needs = "rider",
+         call = function(h) zr_rider_power(h$zr_service, rider(h), parse = "resp")),
+    list(api = "zr_service", name = "event",          needs = "ZV_ZR_RACE_ID",
+         call = function(h) zr_event(h$zr_service, .env("ZV_ZR_RACE_ID"), parse = "resp")),
+    list(api = "zr_service", name = "club",           needs = "ZV_ZR_CLUB_ID",
+         call = function(h) zr_club(h$zr_service, .env("ZV_ZR_CLUB_ID"), parse = "resp")),
+    list(api = "zr_service", name = "club_riders",    needs = "ZV_ZR_CLUB_ID",
+         call = function(h) zr_club_riders(h$zr_service, .env("ZV_ZR_CLUB_ID"), page = 0, parse = "resp")),
+    list(api = "zr_service", name = "routes",         needs = character(),
+         call = function(h) zr_routes(h$zr_service, parse = "resp")),
     # ---- Zwift game API ----
     list(api = "zwift", name = "profile",    needs = character(),
          call = function(h) zwift_profile(h$zwift, "me", parse = "resp")),
@@ -108,6 +121,7 @@ zv_dev_specs <- function() {
 zv_dev_handles <- function() {
   h <- list(status = TRUE)   # status.zwift.com needs no credentials
   if (!is.null(.env("ZR_AUTH"))) h$zr <- zr_client()
+  if (!is.null(.env("ZR_SERVICE_KEY"))) h$zr_service <- zr_client(.env("ZR_SERVICE_KEY"), key_type = "service")
   if (!is.null(.env("ZWIFT_USERNAME")) && !is.null(.env("ZWIFT_PASSWORD"))) {
     h$zwift <- tryCatch({ a <- zwift_auth(); a$token(); a },
                         error = function(e) { message("Zwift auth FAILED: ", conditionMessage(e)); NULL })
