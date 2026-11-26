@@ -37,12 +37,12 @@ Put these in `~/.Renviron` (never in code you commit), then restart R:
 ZWIFT_USERNAME=you@example.com
 ZWIFT_PASSWORD=...
 ZP_SID=...                     # phpbb3_lswlk_sid cookie from zwiftpower.com
-ZR_AUTH=your-zwiftracing-key   # sent as the x-api-key header
+ZR_AUTH=your-zwiftracing-key   # account key from zwiftracing.app Settings
 ```
 
 - **Zwift** uses your own Zwift login.
 - **ZwiftPower:** log in at zwiftpower.com in a browser, then copy the value of the `phpbb3_lswlk_sid` cookie (browser dev tools → Storage / Application → Cookies). `zp_login()` can log in for you instead, but it breaks more often.
-- **ZwiftRacing.app** needs an API key. "Hobby" level API access can be accessed [by supporting ZwiftRacing.app](https://zwiftracing.app/support), then flagging this to Tim on [Discord](https://discord.gg/yxPSpdxYmg). A standard key works with the v2 endpoints this package uses (`/api/v2/...`); the older `/api/public/...` endpoints and `/api/v2/public/categories` need a different access level and return 401 with one.
+- **ZwiftRacing.app** needs an API key from your own account: join Hobby API Access via [Buy Me a Coffee](https://buymeacoffee.com/timhanson), then sign in at zwiftracing.app and use Settings → API access → Generate API key. `zr_client()` sends it as the `Authorization` header to the public routes (`/api/public/...`). Each route has its own per-key limit, and your tier's allowance can be zero for some; the package then stops with a `zv_zr_no_access` error rather than retrying. A few functions (`zr_rider_results()`, `zr_rider_power()`, `zr_rider_velo()`, `zr_rider_overview()`, `zr_rider_ranking()`, `zr_event()`, `zr_routes()`) only exist on the website's own routes and need a shared service key: `zr_client(key, key_type = "service")`.
 - **Zwift's status page** (`zwift_status()`) needs no credentials.
 
 ## Usage
@@ -71,15 +71,22 @@ team <- zp_team(zp, 456)                          # team roster with category + 
 fts  <- zp_sprints(zp, 3590800)                   # every rider's time + power on each segment
 rr   <- zp_analysis(zp, 3590800, 1234567)         # race report: per-second power/HR/altitude
 pen  <- zp_event_analysis(zp, 3590800, pen = "B") # ...for every finisher in pen B
+pc   <- zp_power_curve(zp, 1234567)               # 90-day best-power curve
 
 ## ZwiftRacing.app ---------------------------------------------------
-zr <- zr_client()
-r1 <- zr_rider(zr, 1234567)                    # vELO rating in velo$race
-lg <- zr_rider_overview(zr, 1234567)           # legacy ratings: live / max30 / max90
-rr <- zr_rider_results(zr, 1234567, days = 90) # one row per race, last 90 days
-ev <- zr_result(zr, 5800908)                   # one row per rider, all pens
+zr <- zr_client()                              # your account (Hobby) key
+r1 <- zr_rider(zr, 1234567)                    # vELO in velo$race, power bests in power
+r0 <- zr_rider(zr, 1234567, time = as.POSIXct("2026-09-01"))   # ZR rating as it stood then
+rb <- zr_riders(zr, c(1234567, 2345678))       # one POST for up to 1000 riders
+ev <- zr_result(zr, 5800908)                   # event results (if your tier allows)
 cm <- zr_club_riders(zr, 456)                  # all pages
-rb <- zr_riders(zr, c(1234567, 2345678))       # one request per rider (no v2 batch)
+
+zs <- zr_client(Sys.getenv("ZR_SERVICE_KEY"), key_type = "service")  # service key only:
+rr <- zr_rider_results(zs, 1234567, days = 90) # one row per race, last 90 days
+
+## Across APIs -------------------------------------------------------
+cp    <- zv_rider_cp(zr, zp, 1234567)               # latest CP / W' (ZR, else ZP 90-day fit)
+field <- zv_signups_cp(zr, zp, 5812345, pen = "C")  # ...for everyone signed up to a race
 ```
 
 Nested JSON arrives as list-columns:
@@ -140,7 +147,7 @@ zp_sprints(zp, 3590800) |>
 
 ### `zr_rider_results()`: a rider's race history on ZwiftRacing.app
 
-One row per race in the last `days` days (default 365). Nested fields are flattened into dotted column names, in groups:
+Needs a service key (see Credentials). One row per race in the last `days` days (default 365). Nested fields are flattened into dotted column names, in groups:
 
 | Column group | What it holds |
 |------------------------------------|------------------------------------|

@@ -1,0 +1,141 @@
+{
+  "riderId": 1000001,
+  "name": "Test Rider",
+  "gender": "M",
+  "country": "gb",
+  "age": "Vet",
+  "height": 175,
+  "weight": 70,
+  "zpCategory": "B",
+  "zpFTP": 291,
+  "power": {
+    "wkg5": 11.974358974359,
+    "wkg15": 11.2179487179487,
+    "wkg30": 8.7051282051282,
+    "wkg60": 6.83333333333333,
+    "wkg120": 5.76923076923077,
+    "wkg300": 4.67948717948718,
+    "wkg1200": 4.01282051282051,
+    "w5": 934,
+    "w15": 875,
+    "w30": 679,
+    "w60": 533,
+    "w120": 450,
+    "w300": 365,
+    "w1200": 313,
+    "compoundScore": 1581.49335232669
+  },
+  "race": {
+    "last": {
+      "rating": 1780.18917611567,
+      "date": 1795635000,
+      "mixed": {
+        "category": "Emerald",
+        "number": 3
+      }
+    },
+    "current": {
+      "rating": 1780.18917611567,
+      "date": 1795635000,
+      "mixed": {
+        "category": "Emerald",
+        "number": 3
+      }
+    },
+    "max30": {
+      "rating": 1780.18917611567,
+      "date": 1795635000,
+      "expires": 1798227000,
+      "mixed": {
+        "category": "Emerald",
+        "number": 3
+      }
+    },
+    "max90": {
+      "rating": 1780.18917611567,
+      "date": 1795635000,
+      "expires": 1803411000,
+      "mixed": {
+        "category": "Emerald",
+        "number": 3
+      }
+    },
+    "finishes": 14,
+    "dnfs": 1,
+    "wins": 3,
+    "podiums": 7
+  },
+  "phenotype": {
+    "version": 4,
+    "label": "sprinter",
+    "confidence": 1,
+    "windowDays": 365,
+    "method": "seedFactorSurplusV1",
+    "scores": {
+      "sprinter": 832.75,
+      "puncheur": 823.45,
+      "pursuiter": 706,
+      "climber": 702.5,
+      "tt": 685
+    }
+  },
+  "club": {
+    "id": 1000002,
+    "name": "Test Rider"
+  },
+  "seed": {
+    "race": 724.8945,
+    "factors": {
+      "endurance": 652,
+      "pursuit": 706,
+      "sprint": 832.75,
+      "punch": 823.45,
+      "climb": 702.5,
+      "timeTrial": 685
+    }
+  },
+  "velo": {
+    "race": 724.8945,
+    "factors": {
+      "endurance": 652,
+      "pursuit": 706,
+      "sprint": 832.75,
+      "punch": 823.45,
+      "climb": 702.5,
+      "timeTrial": 685
+    },
+    "skill": {
+      "endurance": 0,
+      "pursuit": 0,
+      "sprint": 0,
+      "punch": 0,
+      "climb": 0,
+      "timeTrial": 0
+    },
+    "category": {
+      "number": 3,
+      "name": "Test Rider"
+    },
+    "max30": {
+      "rating": 724.8945,
+      "date": 1795635000,
+      "expires": 1798227000,
+      "open": {
+        "number": 3,
+        "name": "Test Rider"
+      }
+    },
+    "max90": {
+      "rating": 724.8945,
+      "date": 1795635000,
+      "expires": 1803411000,
+      "open": {
+        "number": 3,
+        "name": "Test Rider"
+      }
+    }
+  },
+  "zrs": null,
+  "weightChangedAt": 1788544800,
+  "resets": []
+}

@@ -23,7 +23,8 @@ for (s in zv_dev_specs()) {
   if (!is.null(why)) { message(sprintf("skip %s/%s (%s)", s$api, s$name, why)); next }
   ok <- tryCatch({
     txt <- httr2::resp_body_string(s$call(h))
-    dir <- file.path("tests/testthat/fixtures", s$api)
+    # Service-key ZR fixtures live alongside the user-key ones in fixtures/zr.
+    dir <- file.path("tests/testthat/fixtures", sub("^zr_service$", "zr", s$api))
     dir.create(dir, recursive = TRUE, showWarnings = FALSE)
     out <- file.path(dir, paste0(s$name, ".json"))
     # Public, non-personal data (spec$scrub = FALSE) is kept as-is, only trimmed.

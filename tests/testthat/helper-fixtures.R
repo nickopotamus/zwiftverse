@@ -34,7 +34,11 @@ fake_zwift <- function() {
   st <- new.env(); st$me_id <- 1000001          # skip the "me" -> id lookup
   structure(list(token = function() "test-token", .state = st), class = "zwift_auth")
 }
-fake_zr    <- function() zwiftverse::zr_client(auth = "test-key")
+# Each fake client starts with a clean "no access" memo, so tests don't leak it.
+fake_zr    <- function() { zwiftverse:::.zr_forget(); zwiftverse::zr_client(auth = "test-key") }   # user key
+fake_zr_service <- function() {
+  zwiftverse:::.zr_forget(); zwiftverse::zr_client(auth = "test-key", key_type = "service")
+}
 fake_zp    <- function() {
   s <- zwiftverse::zp_set_cookie(zwiftverse::zp_session(), "test-sid")
   s$.state$primed_at <- as.numeric(Sys.time())  # skip CloudFront cookie priming
