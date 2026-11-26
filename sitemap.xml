@@ -12,6 +12,7 @@
 <url><loc>https://nickopotamus.github.io/zwiftverse/reference/zp_analysis.html</loc></url>
 <url><loc>https://nickopotamus.github.io/zwiftverse/reference/zp_get.html</loc></url>
 <url><loc>https://nickopotamus.github.io/zwiftverse/reference/zp_login.html</loc></url>
+<url><loc>https://nickopotamus.github.io/zwiftverse/reference/zp_power_curve.html</loc></url>
 <url><loc>https://nickopotamus.github.io/zwiftverse/reference/zp_session.html</loc></url>
 <url><loc>https://nickopotamus.github.io/zwiftverse/reference/zp_set_cookie.html</loc></url>
 <url><loc>https://nickopotamus.github.io/zwiftverse/reference/zp_unflag.html</loc></url>
@@ -21,6 +22,8 @@
 <url><loc>https://nickopotamus.github.io/zwiftverse/reference/zv_cache_dir.html</loc></url>
 <url><loc>https://nickopotamus.github.io/zwiftverse/reference/zv_cache_enabled.html</loc></url>
 <url><loc>https://nickopotamus.github.io/zwiftverse/reference/zv_cache_info.html</loc></url>
+<url><loc>https://nickopotamus.github.io/zwiftverse/reference/zv_rider_cp.html</loc></url>
+<url><loc>https://nickopotamus.github.io/zwiftverse/reference/zv_signups_cp.html</loc></url>
 <url><loc>https://nickopotamus.github.io/zwiftverse/reference/zwift_auth.html</loc></url>
 <url><loc>https://nickopotamus.github.io/zwiftverse/reference/zwift_get.html</loc></url>
 <url><loc>https://nickopotamus.github.io/zwiftverse/reference/zwift_status.html</loc></url>

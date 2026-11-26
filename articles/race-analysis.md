@@ -14,7 +14,7 @@ Put these in `~/.Renviron` (never in code you commit), then restart R:
 
 ZWIFT_USERNAME=you@example.com
 ZWIFT_PASSWORD=...
-ZR_AUTH=your-zwiftracing-key     # sent as the x-api-key header
+ZR_AUTH=your-zwiftracing-key     # account key from zwiftracing.app Settings
 ZP_SID=...                       # phpbb3_lswlk_sid cookie from zwiftpower.com
 ```
 
@@ -66,42 +66,40 @@ finishers
 
 ## 2. Ratings from ZwiftRacing.app (one call)
 
-ZwiftRacing.app scores the same race, so its event endpoint already
-carries every finisher’s rating *going into* the race — no per-rider
-lookups needed.
-[`zr_result()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
-flattens all pens into one row per rider. ZwiftRacing keys events on the
-Zwift event id, which is usually the same number as the ZwiftPower id.
+ZwiftRacing.app can look up every finisher at once:
+[`zr_riders()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+sends one batch request for up to 1,000 riders. With `time =` it returns
+each profile as a snapshot at that moment, and the snapshot rewinds the
+ZwiftRacing rating (`race.current.rating`), so asking for the race’s
+start time gives every finisher’s rating *going into* the race. vELO is
+not rewound: it is always the rider’s current vELO. The start time comes
+from the Zwift game API (ZwiftRacing keys riders on the Zwift id, the
+same number ZwiftPower uses).
 
 ``` r
 
 zr <- zr_client()
+za <- zwift_auth()
+race_start <- as.POSIXct(zwift_event(za, race_id, parse = "json")$eventStart,
+                         format = "%Y-%m-%dT%H:%M:%OS", tz = "UTC")
 
-ratings <- zr_result(zr, race_id) |>
+ratings <- zr_riders(zr, finishers$zwid, time = race_start) |>
   transmute(
     zwid       = as.integer(riderId),
-    zr_current = ratingBefore,          # ZR rating before the race
-    zr_after   = rating,                # ...and after it
-    zr_velo    = riderVelo.race         # vELO rating
+    zr_current = race.current.rating,   # ZwiftRacing rating at the start
+    zr_velo    = velo.race              # vELO rating today (not rewound)
   )
 
 ratings
 ```
 
-These column names were verified against the live v2 API (2026-11). For
-riders outside a single race,
+These column names were verified against the live API (2026-11). Riders
+who have opted out of ZwiftRacing.app are simply missing. Without
+`time`,
+[`zr_riders()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+and
 [`zr_rider()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
-returns the current profile (vELO rating under `velo$race`), and
-[`zr_rider_overview()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
-the legacy `live` / `max30` / `max90` ratings:
-
-``` r
-
-library(tidyr)
-zr_riders(zr, finishers$zwid[1:5]) |>      # one request per rider (no v2 batch)
-  hoist(velo, zr_velo = "race") |>
-  select(riderId, zr_velo)
-```
+return the current profile.
 
 ## 3. Join and analyse
 
@@ -173,7 +171,7 @@ zv_cache_info()                       # what's stored, how big, how old
 
 # Completed races never change — cache the heavy pulls permanently:
 res     <- zp_result(zp, race_id, ttl = Inf)
-zr_race <- zr_result(zr, race_id, ttl = Inf)
+ratings <- zr_riders(zr, finishers$zwid, time = race_start, ttl = Inf)
 
 # Force-refresh a single call:
 zr_rider(zr, winner, ttl = 0)
@@ -181,14 +179,15 @@ zr_rider(zr, winner, ttl = 0)
 # ...or wipe everything with zv_cache_clear()
 ```
 
-A rider’s rating history (no snapshot endpoint in v2) comes from
-[`zr_rider_velo()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md):
+A rider’s ZwiftRacing rating at any past moment is a snapshot away, so a
+rough history is one request per date:
 
 ``` r
 
-zr_rider_velo(zr, winner, days = 365, parse = "json")$data$history |>
-  tibble::as_tibble() |>
-  head()
+dates <- race_start - c(90, 60, 30, 0) * 86400
+lapply(dates, function(d) zr_rider(zr, winner, time = d, parse = "json")$race$current$rating) |>
+  unlist() |>
+  setNames(format(dates, "%Y-%m-%d"))
 ```
 
 ## Caveats

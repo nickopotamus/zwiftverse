@@ -79,7 +79,7 @@ then restart R:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ZWIFT_USERNAME</span><span class="op">=</span><span class="va">you</span><span class="op">@</span><span class="va">example.com</span></span>
 <span><span class="va">ZWIFT_PASSWORD</span><span class="op">=</span><span class="va">...</span></span>
-<span><span class="va">ZR_AUTH</span><span class="op">=</span><span class="va">your</span><span class="op">-</span><span class="va">zwiftracing</span><span class="op">-</span><span class="va">key</span>     <span class="co"># sent as the x-api-key header</span></span>
+<span><span class="va">ZR_AUTH</span><span class="op">=</span><span class="va">your</span><span class="op">-</span><span class="va">zwiftracing</span><span class="op">-</span><span class="va">key</span>     <span class="co"># account key from zwiftracing.app Settings</span></span>
 <span><span class="va">ZP_SID</span><span class="op">=</span><span class="va">...</span>                       <span class="co"># phpbb3_lswlk_sid cookie from zwiftpower.com</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/nickopotamus/zwiftverse" class="external-link">zwiftverse</a></span><span class="op">)</span></span>
@@ -122,38 +122,38 @@ verified against live responses (2026-11).</p>
 <div class="section level2">
 <h2 id="ratings-from-zwiftracing-app-one-call">2. Ratings from ZwiftRacing.app (one call)<a class="anchor" aria-label="anchor" href="#ratings-from-zwiftracing-app-one-call"></a>
 </h2>
-<p>ZwiftRacing.app scores the same race, so its event endpoint already
-carries every finisher’s rating <em>going into</em> the race — no
-per-rider lookups needed. <code><a href="../reference/zr_get.html">zr_result()</a></code> flattens all pens
-into one row per rider. ZwiftRacing keys events on the Zwift event id,
-which is usually the same number as the ZwiftPower id.</p>
+<p>ZwiftRacing.app can look up every finisher at once:
+<code><a href="../reference/zr_get.html">zr_riders()</a></code> sends one batch request for up to 1,000 riders.
+With <code>time =</code> it returns each profile as a snapshot at that
+moment, and the snapshot rewinds the ZwiftRacing rating
+(<code>race.current.rating</code>), so asking for the race’s start time
+gives every finisher’s rating <em>going into</em> the race. vELO is not
+rewound: it is always the rider’s current vELO. The start time comes
+from the Zwift game API (ZwiftRacing keys riders on the Zwift id, the
+same number ZwiftPower uses).</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">zr</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/zr_client.html">zr_client</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">za</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/zwift_auth.html">zwift_auth</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">race_start</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="fu"><a href="../reference/zwift_get.html">zwift_event</a></span><span class="op">(</span><span class="va">za</span>, <span class="va">race_id</span>, parse <span class="op">=</span> <span class="st">"json"</span><span class="op">)</span><span class="op">$</span><span class="va">eventStart</span>,</span>
+<span>                         format <span class="op">=</span> <span class="st">"%Y-%m-%dT%H:%M:%OS"</span>, tz <span class="op">=</span> <span class="st">"UTC"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">ratings</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/zr_get.html">zr_result</a></span><span class="op">(</span><span class="va">zr</span>, <span class="va">race_id</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span><span class="va">ratings</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/zr_get.html">zr_riders</a></span><span class="op">(</span><span class="va">zr</span>, <span class="va">finishers</span><span class="op">$</span><span class="va">zwid</span>, time <span class="op">=</span> <span class="va">race_start</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">transmute</a></span><span class="op">(</span></span>
 <span>    zwid       <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="va">riderId</span><span class="op">)</span>,</span>
-<span>    zr_current <span class="op">=</span> <span class="va">ratingBefore</span>,          <span class="co"># ZR rating before the race</span></span>
-<span>    zr_after   <span class="op">=</span> <span class="va">rating</span>,                <span class="co"># ...and after it</span></span>
-<span>    zr_velo    <span class="op">=</span> <span class="va">riderVelo.race</span>         <span class="co"># vELO rating</span></span>
+<span>    zr_current <span class="op">=</span> <span class="va">race.current.rating</span>,   <span class="co"># ZwiftRacing rating at the start</span></span>
+<span>    zr_velo    <span class="op">=</span> <span class="va">velo.race</span>              <span class="co"># vELO rating today (not rewound)</span></span>
 <span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="va">ratings</span></span></code></pre></div>
-<p>These column names were verified against the live v2 API (2026-11).
-For riders outside a single race, <code><a href="../reference/zr_get.html">zr_rider()</a></code> returns the
-current profile (vELO rating under <code>velo$race</code>), and
-<code><a href="../reference/zr_get.html">zr_rider_overview()</a></code> the legacy <code>live</code> /
-<code>max30</code> / <code>max90</code> ratings:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/zr_get.html">zr_riders</a></span><span class="op">(</span><span class="va">zr</span>, <span class="va">finishers</span><span class="op">$</span><span class="va">zwid</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span> <span class="op">|&gt;</span>      <span class="co"># one request per rider (no v2 batch)</span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/hoist.html" class="external-link">hoist</a></span><span class="op">(</span><span class="va">velo</span>, zr_velo <span class="op">=</span> <span class="st">"race"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">riderId</span>, <span class="va">zr_velo</span><span class="op">)</span></span></code></pre></div>
+<p>These column names were verified against the live API (2026-11).
+Riders who have opted out of ZwiftRacing.app are simply missing. Without
+<code>time</code>, <code><a href="../reference/zr_get.html">zr_riders()</a></code> and <code><a href="../reference/zr_get.html">zr_rider()</a></code>
+return the current profile.</p>
 </div>
 <div class="section level2">
 <h2 id="join-and-analyse">3. Join and analyse<a class="anchor" aria-label="anchor" href="#join-and-analyse"></a>
 </h2>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">race</span> <span class="op">&lt;-</span> <span class="va">finishers</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">ratings</span>, by <span class="op">=</span> <span class="st">"zwid"</span><span class="op">)</span></span>
 <span></span>
@@ -162,7 +162,7 @@ current profile (vELO rating under <code>velo$race</code>), and
 finish? A rank correlation is the honest summary here — rating and
 position are both ordinal and the relationship is monotonic, not
 linear.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">race</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">zr_current</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">category</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -173,7 +173,7 @@ linear.</p>
 <span>  <span class="op">)</span></span></code></pre></div>
 <p>A strong negative <code>rho</code> means the favourites (higher
 rating) finished nearer the front — i.e. the result went to form.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">race</span> <span class="op">|&gt;</span></span>
@@ -193,7 +193,7 @@ rating) finished nearer the front — i.e. the result went to form.</p>
 <p>ZwiftPower and ZwiftRacing.app both derive from Zwift, so the game
 API is the tie-breaker when a number looks off. Here we confirm the
 winner’s category enforcement FTP straight from source:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">za</span>     <span class="op">&lt;-</span> <span class="fu"><a href="../reference/zwift_auth.html">zwift_auth</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">winner</span> <span class="op">&lt;-</span> <span class="va">race</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">category</span> <span class="op">==</span> <span class="st">"A"</span>, <span class="va">position</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">zwid</span><span class="op">)</span></span>
 <span></span>
@@ -204,23 +204,24 @@ winner’s category enforcement FTP straight from source:</p>
 <h2 id="caching-notes">Caching notes<a class="anchor" aria-label="anchor" href="#caching-notes"></a>
 </h2>
 <p>Everything above is cached on disk, keyed on method + URL + body:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/zv_cache_info.html">zv_cache_info</a></span><span class="op">(</span><span class="op">)</span>                       <span class="co"># what's stored, how big, how old</span></span>
 <span></span>
 <span><span class="co"># Completed races never change — cache the heavy pulls permanently:</span></span>
 <span><span class="va">res</span>     <span class="op">&lt;-</span> <span class="fu"><a href="../reference/zp_get.html">zp_result</a></span><span class="op">(</span><span class="va">zp</span>, <span class="va">race_id</span>, ttl <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span></span>
-<span><span class="va">zr_race</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/zr_get.html">zr_result</a></span><span class="op">(</span><span class="va">zr</span>, <span class="va">race_id</span>, ttl <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span></span>
+<span><span class="va">ratings</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/zr_get.html">zr_riders</a></span><span class="op">(</span><span class="va">zr</span>, <span class="va">finishers</span><span class="op">$</span><span class="va">zwid</span>, time <span class="op">=</span> <span class="va">race_start</span>, ttl <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Force-refresh a single call:</span></span>
 <span><span class="fu"><a href="../reference/zr_get.html">zr_rider</a></span><span class="op">(</span><span class="va">zr</span>, <span class="va">winner</span>, ttl <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># ...or wipe everything with zv_cache_clear()</span></span></code></pre></div>
-<p>A rider’s rating history (no snapshot endpoint in v2) comes from
-<code><a href="../reference/zr_get.html">zr_rider_velo()</a></code>:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/zr_get.html">zr_rider_velo</a></span><span class="op">(</span><span class="va">zr</span>, <span class="va">winner</span>, days <span class="op">=</span> <span class="fl">365</span>, parse <span class="op">=</span> <span class="st">"json"</span><span class="op">)</span><span class="op">$</span><span class="va">data</span><span class="op">$</span><span class="va">history</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>A rider’s ZwiftRacing rating at any past moment is a snapshot away,
+so a rough history is one request per date:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dates</span> <span class="op">&lt;-</span> <span class="va">race_start</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">90</span>, <span class="fl">60</span>, <span class="fl">30</span>, <span class="fl">0</span><span class="op">)</span> <span class="op">*</span> <span class="fl">86400</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">dates</span>, <span class="kw">function</span><span class="op">(</span><span class="va">d</span><span class="op">)</span> <span class="fu"><a href="../reference/zr_get.html">zr_rider</a></span><span class="op">(</span><span class="va">zr</span>, <span class="va">winner</span>, time <span class="op">=</span> <span class="va">d</span>, parse <span class="op">=</span> <span class="st">"json"</span><span class="op">)</span><span class="op">$</span><span class="va">race</span><span class="op">$</span><span class="va">current</span><span class="op">$</span><span class="va">rating</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html" class="external-link">setNames</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="va">dates</span>, <span class="st">"%Y-%m-%d"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="caveats">Caveats<a class="anchor" aria-label="anchor" href="#caveats"></a>

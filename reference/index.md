@@ -64,6 +64,9 @@ Session-cookie access to results, teams, leagues and segment data.
   [`zp_event_analysis()`](https://nickopotamus.github.io/zwiftverse/reference/zp_analysis.md)
   : Race-report data streams from ZwiftPower
 
+- [`zp_power_curve()`](https://nickopotamus.github.io/zwiftverse/reference/zp_power_curve.md)
+  : A rider's power curve from ZwiftPower
+
 ## ZwiftRacing.app
 
 Key-authenticated rider ratings, results and club rosters.
@@ -72,18 +75,30 @@ Key-authenticated rider ratings, results and club rosters.
   : Create a ZwiftRacing.app client
 - [`zr_get()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
   [`zr_rider()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+  [`zr_riders()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
   [`zr_rider_overview()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
   [`zr_rider_results()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
   [`zr_rider_ranking()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
   [`zr_rider_velo()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
   [`zr_rider_power()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
-  [`zr_riders()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
   [`zr_event()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
   [`zr_result()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+  [`zr_zp_result()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
   [`zr_club()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
   [`zr_club_riders()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+  [`zr_categories()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
+  [`zr_route_weights()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
   [`zr_routes()`](https://nickopotamus.github.io/zwiftverse/reference/zr_get.md)
-  : Low-level ZwiftRacing.app GET
+  : Low-level ZwiftRacing.app request
+
+## Across APIs
+
+Helpers that combine ZwiftRacing.app and ZwiftPower data.
+
+- [`zv_rider_cp()`](https://nickopotamus.github.io/zwiftverse/reference/zv_rider_cp.md)
+  : A rider's critical power and W'
+- [`zv_signups_cp()`](https://nickopotamus.github.io/zwiftverse/reference/zv_signups_cp.md)
+  : Critical power and W' for everyone signed up to a race
 
 ## Caching
 

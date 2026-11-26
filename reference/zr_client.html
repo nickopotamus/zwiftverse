@@ -44,7 +44,11 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">zr_client</span><span class="op">(</span>auth <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"ZR_AUTH"</span><span class="op">)</span>, rate <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">zr_client</span><span class="op">(</span></span>
+<span>  auth <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"ZR_AUTH"</span><span class="op">)</span>,</span>
+<span>  key_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"user"</span>, <span class="st">"service"</span><span class="op">)</span>,</span>
+<span>  rate <span class="op">=</span> <span class="fl">2</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -52,12 +56,21 @@
 
 
 <dl><dt id="arg-auth">auth<a class="anchor" aria-label="anchor" href="#arg-auth"></a></dt>
-<dd><p>Your ZwiftRacing.app API key, sent as the <code>x-api-key</code> header.
-Defaults to the environment variable <code>ZR_AUTH</code>.</p></dd>
+<dd><p>Your ZwiftRacing.app API key. Defaults to the environment
+variable <code>ZR_AUTH</code>.</p></dd>
+
+
+<dt id="arg-key-type">key_type<a class="anchor" aria-label="anchor" href="#arg-key-type"></a></dt>
+<dd><p><code>"user"</code> (default) for the per-account key from
+ZwiftRacing.app Settings -&gt; API access, sent as <code>Authorization</code> to the
+public routes; or <code>"service"</code> for a shared service key, sent as
+<code>x-api-key</code> to the website's v2 routes (what this package used before
+November 2026).</p></dd>
 
 
 <dt id="arg-rate">rate<a class="anchor" aria-label="anchor" href="#arg-rate"></a></dt>
-<dd><p>Throttle in requests per second (default 2; tune to your quota).</p></dd>
+<dd><p>Throttle for <code>"service"</code> keys, in requests per second (default
+2). User keys are throttled per route to the limits the server reports.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -68,8 +81,8 @@ Defaults to the environment variable <code>ZR_AUTH</code>.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="va">zr</span> <span class="op">&lt;-</span> <span class="fu">zr_client</span><span class="op">(</span><span class="op">)</span>                  <span class="co"># key from the ZR_AUTH environment variable</span></span></span>
-<span class="r-in"><span><span class="va">zr</span> <span class="op">&lt;-</span> <span class="fu">zr_client</span><span class="op">(</span><span class="st">"your-key"</span>, rate <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">zr</span> <span class="op">&lt;-</span> <span class="fu">zr_client</span><span class="op">(</span><span class="op">)</span>                         <span class="co"># user key from ZR_AUTH</span></span></span>
+<span class="r-in"><span><span class="va">zr</span> <span class="op">&lt;-</span> <span class="fu">zr_client</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"ZR_SERVICE_KEY"</span><span class="op">)</span>, key_type <span class="op">=</span> <span class="st">"service"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

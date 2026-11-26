@@ -41,12 +41,21 @@
 <h2 class="pkg-version" data-toc-text="development version" id="zwiftverse-development-version">zwiftverse (development version)<a class="anchor" aria-label="anchor" href="#zwiftverse-development-version"></a></h2>
 <div class="section level3">
 <h3 id="breaking-changes-development-version">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
-<ul><li>Requests now identify as zwiftverse with a link to the repo, rather than as the Zwift mobile app.</li>
-<li>The package is now read-only: <code>zwift_give_rideon()</code> and the low-level <code>zwift_post()</code> have been removed. <code><a href="../reference/zwift_get.html">zwift_rideons()</a></code> (reading the Ride Ons on an activity) stays.</li>
+<ul><li><p>ZwiftRacing.app keys now belong to user accounts (Hobby API Access). <code><a href="../reference/zr_client.html">zr_client()</a></code> treats a key as a user key by default and sends it as <code>Authorization</code> to the public routes (<code>/api/public/...</code>). The old behaviour (<code>x-api-key</code> on the website’s v2 routes) needs <code>key_type = "service"</code>. <code><a href="../reference/zr_get.html">zr_rider_results()</a></code>, <code><a href="../reference/zr_get.html">zr_rider_power()</a></code>, <code><a href="../reference/zr_get.html">zr_rider_velo()</a></code>, <code><a href="../reference/zr_get.html">zr_rider_overview()</a></code>, <code><a href="../reference/zr_get.html">zr_rider_ranking()</a></code>, <code><a href="../reference/zr_get.html">zr_event()</a></code> and <code><a href="../reference/zr_get.html">zr_routes()</a></code> exist only on those v2 routes, and now stop with a <code>zv_zr_service_only</code> error under a user key.</p></li>
+<li><p>With a user key, <code><a href="../reference/zr_get.html">zr_riders()</a></code> is one batch POST per 1,000 riders, rather than one request per rider. <code><a href="../reference/zr_get.html">zr_rider()</a></code> and <code><a href="../reference/zr_get.html">zr_riders()</a></code> take <code>time =</code> for a snapshot, which rewinds the ZwiftRacing rating (vELO and power stay current).</p></li>
+<li><p>A route your ZwiftRacing tier has no allowance for (a 429 with <code>ratelimit-policy: 0</code>) fails at once with a <code>zv_zr_no_access</code> error rather than being retried. Long rate-limit waits are reported with the time to wait.</p></li>
+<li><p>Requests now identify as zwiftverse with a link to the repo, rather than as the Zwift mobile app.</p></li>
+<li><p>The package is now read-only: <code>zwift_give_rideon()</code> and the low-level <code>zwift_post()</code> have been removed. <code><a href="../reference/zwift_get.html">zwift_rideons()</a></code> (reading the Ride Ons on an activity) stays.</p></li>
 </ul></div>
 <div class="section level3">
 <h3 id="new-features-development-version">New features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
 <ul><li>
+<code><a href="../reference/zv_rider_cp.html">zv_rider_cp()</a></code> returns a rider’s latest critical power and W’. It reads ZwiftRacing.app’s modelled values (<code>power.CP</code>, <code>power.AWC</code>) from their most recent race result within 90 days. Failing that, it fits the two-parameter CP model to their ZwiftPower 90-day power curve. <code><a href="../reference/zv_signups_cp.html">zv_signups_cp()</a></code> does the same for everyone signed up to a race, optionally one pen.</li>
+<li>
+<code><a href="../reference/zr_get.html">zr_zp_result()</a></code>, <code><a href="../reference/zr_get.html">zr_categories()</a></code> and <code><a href="../reference/zr_get.html">zr_route_weights()</a></code> cover the remaining public ZwiftRacing.app routes.</li>
+<li>
+<code><a href="../reference/zp_power_curve.html">zp_power_curve()</a></code>: a rider’s best-power curve from ZwiftPower (90-day, 30-day or a single event).</li>
+<li>
 <code><a href="../reference/zwift_status.html">zwift_status()</a></code> reads Zwift’s public status page: overall status, per-service components, open and recent incidents, upcoming maintenance. No login needed.</li>
 <li>
 <code><a href="../reference/zp_analysis.html">zp_analysis()</a></code> and <code><a href="../reference/zp_analysis.html">zp_event_analysis()</a></code> return the second-by-second power, heart rate and altitude behind ZwiftPower race reports, for one rider or a whole event / pen.</li>
@@ -55,6 +64,10 @@
 <li>Cached responses are also kept in memory for the R session, so repeat hits skip the disk read (<code>options(zwiftverse.cache_memory = FALSE)</code> to turn off).</li>
 <li>
 <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code> on a <code><a href="../reference/zwift_auth.html">zwift_auth()</a></code> handle shows token status without revealing the token or credentials.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
+<ul><li>ZwiftPower text now decodes accented-letter entities, so names such as “Müller” come back as “Müller”. All the Latin-1 letters and a few Latin Extended-A ones are covered, and unknown entity names are left as they are.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="documentation-development-version">Documentation<a class="anchor" aria-label="anchor" href="#documentation-development-version"></a></h3>
