@@ -59,6 +59,12 @@
 
 ## Documentation
 
+* The two vignettes are now pre-rendered from live data, so the website shows
+  real output and figures. `vignettes/precompute.R` knits each
+  `vignettes/*.Rmd.orig` into the `.Rmd` that is shipped; riders are
+  pseudonymised while knitting (names, rider ids and team names), and the run
+  fails if any real id or name reaches the output.
+
 * README explains where each credential comes from, including how to ask
   ZwiftRacing.app for an API key, and acknowledges zpdatafetch and
   zwift-api-documentation.

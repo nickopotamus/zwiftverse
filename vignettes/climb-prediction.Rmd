@@ -7,13 +7,11 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include = FALSE}
-# Live API calls need credentials, so chunks only run when you opt in:
-#   Sys.setenv(ZV_LIVE_VIGNETTES = "true")
-live <- identical(Sys.getenv("ZV_LIVE_VIGNETTES"), "true")
-knitr::opts_chunk$set(collapse = TRUE, comment = "#>", eval = live,
-                      fig.width = 7, fig.height = 4.5)
-```
+
+
+> **Note:** this page was rendered from live data. Rider names, rider ids and
+> team names in the output have been replaced with pseudonyms ("Rider 12",
+> "Team A", ids from 100000001 up); everything else is as the APIs returned it.
 
 **Question:** before a race, who in my pen is likely to get up the big climb
 fastest, and how long will it take them?
@@ -30,7 +28,8 @@ The worked example is Zwift Racing League event `5811034` (Muir and the
 Mountain), pen B, and the climb is ZwiftPower segment `13` — the **Watopia Epic
 KOM (forward)**. Change the four values below to reuse it for any race.
 
-```{r params}
+
+``` r
 library(zwiftverse)
 library(dplyr)
 library(tidyr)
@@ -51,9 +50,18 @@ zr <- zr_client()
 Zwift's own entrant list is the authority on who is signed up. Each subgroup
 (pen) has its own id:
 
-```{r entrants}
+
+``` r
 pens <- zwift_event_subgroups(za, event_id)
 pens |> select(id, subgroupLabel, eventSubgroupStart, totalEntrantCount)
+#> # A tibble: 5 x 4
+#>        id subgroupLabel eventSubgroupStart           totalEntrantCount
+#>     <int> <chr>         <chr>                                    <int>
+#> 1 7500062 A             2026-11-24T06:01:00.000+0000                23
+#> 2 7500059 B             2026-11-24T06:02:00.000+0000                62
+#> 3 7500060 C             2026-11-24T06:03:00.000+0000                49
+#> 4 7500061 D             2026-11-24T06:04:00.000+0000                29
+#> 5 7500058 E             2026-11-24T06:00:00.000+0000                 2
 
 pen_id <- pens$id[pens$subgroupLabel == pen]
 
@@ -61,12 +69,14 @@ entrants <- zwift_subgroup_entrants(za, pen_id) |>
   transmute(zwid = id, rider = paste(firstName, lastName),
             weight_kg = weight / 1000)
 nrow(entrants)
+#> [1] 62
 ```
 
 ZwiftPower's sign-up list adds the team and ZwiftPower's own 5- and 20-minute
 bests. It labels pens 1–5 rather than A–E:
 
-```{r zp-signups}
+
+``` r
 zp_pen <- match(pen, LETTERS)
 
 zp_signup <- zp_signups(zp, event_id) |>
@@ -77,6 +87,23 @@ zp_signup <- zp_signups(zp, event_id) |>
 
 field <- entrants |> left_join(zp_signup, by = "zwid")
 field |> count(team, sort = TRUE)
+#> # A tibble: 14 x 2
+#>    team         n
+#>    <chr>    <int>
+#>  1 "Team C"    10
+#>  2 "Team A"     9
+#>  3 "Team B"     9
+#>  4 "Team F"     9
+#>  5 "Team D"     5
+#>  6 "Team G"     5
+#>  7 "Team I"     4
+#>  8 "Team K"     4
+#>  9 "Team H"     2
+#> 10 ""           1
+#> 11 "Team E"     1
+#> 12 "Team J"     1
+#> 13 "Team L"     1
+#> 14 "Team M"     1
 ```
 
 ## 2. How w/kg becomes time on this climb
@@ -86,7 +113,8 @@ choice), learn the relationship from real races. `zp_segment_standings()`
 returns every best effort a team's riders have set on the segment: elapsed time
 and average w/kg.
 
-```{r team-efforts}
+
+``` r
 team_efforts <- zp_segment_standings(zp, segment_id, team_id) |>
   zp_unflag() |>
   transmute(zwid, elapsed = as.numeric(elapsed), wkg = as.numeric(wkg),
@@ -94,16 +122,23 @@ team_efforts <- zp_segment_standings(zp, segment_id, team_id) |>
   filter(elapsed > 0, wkg > 0)
 
 nrow(team_efforts)
+#> [1] 215
 summary(team_efforts$elapsed / 60)
+#>    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+#>   18.65   24.43   27.89   29.03   32.76   56.83
 ```
 
 On a long climb, time falls as a power law of w/kg. A straight line on log–log
 axes captures it:
 
-```{r climb-model}
+
+``` r
 climb_fit <- lm(log(elapsed) ~ log(wkg), data = team_efforts)
 summary(climb_fit)$r.squared
+#> [1] 0.9582186
 coef(climb_fit)
+#> (Intercept)    log(wkg) 
+#>   8.2665703  -0.7555259
 
 # time (s) for a given average w/kg on this segment
 climb_time <- function(wkg) exp(predict(climb_fit, data.frame(wkg = wkg)))
@@ -117,6 +152,8 @@ ggplot(team_efforts, aes(wkg, elapsed / 60)) +
   theme_minimal()
 ```
 
+![plot of chunk climb-model](figures/climb-prediction-climb-model-1.png)
+
 The exponent is shallower than −1: doubling w/kg doesn't halve the time,
 because rolling resistance and air drag don't scale with power (and race
 efforts include some drafting).
@@ -126,7 +163,8 @@ efforts include some drafting).
 ZwiftRacing.app's rider record carries each rider's 90-day best power at
 5 s – 20 min. `zr_riders()` fetches the whole field in one batch request:
 
-```{r zr-curves}
+
+``` r
 # 5- and 20-minute points (w/kg), one row per rider
 zr_points <- function(ids) {
   zr_riders(zr, ids) |>
@@ -135,6 +173,7 @@ zr_points <- function(ids) {
 
 field <- field |> left_join(zr_points(field$zwid), by = "zwid")
 sum(!is.na(field$zr_wkg20))   # entrants with a ZwiftRacing curve
+#> [1] 62
 ```
 
 ## 4. From a power curve to a climb time
@@ -143,7 +182,8 @@ The climb takes longer than 20 minutes — beyond the longest measured duration
 — so extrapolate with the two-parameter **critical power** model,
 P(t) = CP + W′/t, fitted exactly through the 5- and 20-minute points:
 
-```{r cp-model}
+
+``` r
 sustainable <- function(p5, p20, t) {
   w_prime <- (p5 - p20) / (1 / 300 - 1 / 1200)   # work capacity above CP (J/kg)
   cp <- p20 - w_prime / 1200
@@ -156,7 +196,8 @@ seconds gets them up the climb in exactly *t* seconds. Riders in a race don't
 climb at 100% of their curve, so scale it by a **race-day fraction** *k*
 (estimated in the next section):
 
-```{r solve}
+
+``` r
 predict_climb <- function(p5, p20, k = 1) {
   if (anyNA(c(p5, p20)) || p5 <= p20 || p20 <= 0) return(NA_real_)
   f <- function(t) t - climb_time(k * sustainable(p5, p20, t))
@@ -172,7 +213,8 @@ held with what their curve says they *could* hold for that long gives *k*.
 Only use efforts from the last year — older ones were set by a fitter (or
 less fit) version of the rider than today's curve describes:
 
-```{r calibrate}
+
+``` r
 cal <- team_efforts |>
   filter(when > Sys.time() - 365 * 86400) |>
   inner_join(zr_points(team_efforts$zwid), by = "zwid") |>
@@ -181,12 +223,15 @@ cal <- team_efforts |>
 
 k <- median(cal$frac)
 c(n = nrow(cal), k = round(k, 3), sd = round(sd(cal$frac), 3))
+#>      n      k     sd 
+#> 22.000  0.924  0.130
 ```
 
 How good are the predictions? Leave each effort out, re-estimate *k* from the
 rest, and predict it:
 
-```{r validate}
+
+``` r
 cal$loo <- vapply(seq_len(nrow(cal)), function(i)
   predict_climb(cal$zr_wkg5[i], cal$zr_wkg20[i], k = median(cal$frac[-i])), numeric(1))
 
@@ -195,6 +240,10 @@ cal |>
             bias_s = mean(loo - elapsed),
             mae_s  = mean(abs(loo - elapsed)),
             mape   = mean(abs(loo - elapsed) / elapsed))
+#> # A tibble: 1 x 4
+#>       n bias_s mae_s  mape
+#>   <int>  <dbl> <dbl> <dbl>
+#> 1    22  -34.9  193. 0.110
 
 ggplot(cal, aes(elapsed / 60, loo / 60)) +
   geom_abline(linetype = 2, colour = "grey50") +
@@ -205,6 +254,8 @@ ggplot(cal, aes(elapsed / 60, loo / 60)) +
   theme_minimal()
 ```
 
+![plot of chunk validate](figures/climb-prediction-validate-1.png)
+
 Expect individual predictions to be good to roughly the MAPE above — riders
 differ a lot in how hard they actually go on a race climb — but the *ordering*
 of a pen is more robust than any single time.
@@ -214,7 +265,8 @@ of a pen is more robust than any single time.
 Run every entrant through both sources of power numbers, with the calibrated
 *k*:
 
-```{r predict}
+
+``` r
 preds <- field |>
   mutate(
     zr_min   = mapply(predict_climb, zr_wkg5, zr_wkg20, k = k) / 60,
@@ -227,12 +279,79 @@ preds |>
   select(rider, team, zr_wkg20, zr_min, zp_min) |>
   mutate(across(where(is.numeric), \(x) round(x, 1))) |>
   print(n = Inf)
+#> # A tibble: 62 x 5
+#>    rider    team     zr_wkg20 zr_min zp_min
+#>    <chr>    <chr>       <dbl>  <dbl>  <dbl>
+#>  1 Rider 13 "Team C"      4.3   22.9   23  
+#>  2 Rider 48 "Team F"      4.3   22.9   22.9
+#>  3 Rider 31 "Team B"      4.3   23.1   23  
+#>  4 Rider 14 "Team A"      4.2   23.3   24.3
+#>  5 Rider 33 "Team C"      4.2   23.4   23  
+#>  6 Rider 39 "Team K"      4.2   23.4   23.4
+#>  7 Rider 25 "Team A"      4.2   23.4   23.4
+#>  8 Rider 57 "Team C"      4.2   23.5   23.4
+#>  9 Rider 42 "Team F"      4.2   23.6   23.5
+#> 10 Rider 28 "Team D"      4.1   23.6   23.8
+#> 11 Rider 29 "Team I"      4.2   23.6   23.4
+#> 12 Rider 6  "Team F"      4.1   23.7   25.3
+#> 13 Rider 51 "Team F"      4.1   23.7   24.3
+#> 14 Rider 21 "Team F"      4.1   23.7   23.9
+#> 15 Rider 54 "Team I"      4.1   23.7   23.8
+#> 16 Rider 11 "Team H"      4.1   23.8   23.8
+#> 17 Rider 45 "Team A"      4.1   23.8   24.9
+#> 18 Rider 10 "Team B"      4.1   23.8   23.4
+#> 19 Rider 20 "Team A"      4.1   23.8   24.3
+#> 20 Rider 34 "Team B"      4.1   24     23.8
+#> 21 Rider 8  "Team L"      4     24     24.3
+#> 22 Rider 7  "Team G"      4     24.1   23  
+#> 23 Rider 49 "Team B"      4.1   24.1   24  
+#> 24 Rider 44 "Team F"      4     24.2   24.8
+#> 25 Rider 58 "Team K"      4     24.2   24.3
+#> 26 Rider 36 "Team G"      4     24.2   24.3
+#> 27 Rider 55 "Team K"      4     24.3   24.3
+#> 28 Rider 38 "Team A"      4     24.4   24.3
+#> 29 Rider 62 "Team M"      4     24.4   24.4
+#> 30 Rider 23 "Team B"      3.9   24.5   24.8
+#> 31 Rider 37 "Team B"      4     24.5   24.3
+#> 32 Rider 19 "Team A"      3.9   24.5   23  
+#> 33 Rider 56 "Team D"      3.9   24.7   24.8
+#> 34 Rider 53 "Team F"      3.9   24.7   24.8
+#> 35 Rider 41 "Team D"      3.9   24.8   24.8
+#> 36 Rider 1  "Team F"      3.9   24.8   24.8
+#> 37 Rider 16 "Team G"      3.9   24.8   25.4
+#> 38 Rider 18 "Team B"      3.9   24.8   24.8
+#> 39 Rider 12 "Team B"      3.9   24.9   24.8
+#> 40 Rider 52 "Team A"      3.9   25     24.8
+#> 41 Rider 26 "Team G"      3.8   25.2   25.4
+#> 42 Rider 46 "Team J"      3.8   25.3   24.8
+#> 43 Rider 32 "Team F"      3.8   25.4   25.2
+#> 44 Rider 43 "Team D"      3.8   25.4   25.2
+#> 45 Rider 9  "Team C"      3.8   25.5   25.2
+#> 46 Rider 2  "Team C"      3.8   25.6   25.3
+#> 47 Rider 61 "Team C"      3.8   25.6   25.9
+#> 48 Rider 35 "Team B"      3.7   25.7   25.9
+#> 49 Rider 60 "Team A"      3.7   25.8   25.8
+#> 50 Rider 22 "Team D"      3.7   25.9   25.8
+#> 51 Rider 3  ""            3.7   26     25.9
+#> 52 Rider 47 "Team C"      3.6   26.2   26.4
+#> 53 Rider 27 "Team G"      3.6   26.2   26.4
+#> 54 Rider 50 "Team H"      3.6   26.3   26.4
+#> 55 Rider 40 "Team K"      3.6   26.3   26.3
+#> 56 Rider 30 "Team C"      3.6   26.3   28  
+#> 57 Rider 59 "Team I"      3.6   26.4   27.1
+#> 58 Rider 24 "Team A"      3.5   27     26.9
+#> 59 Rider 15 "Team C"      3.4   27.7   27.7
+#> 60 Rider 5  "Team E"      3.4   27.8   27.6
+#> 61 Rider 17 "Team I"      3.3   28     28.2
+#> 62 Rider 4  "Team C"      3.2   29.3   29.8
 ```
 
 How well do the two sources agree?
 
-```{r compare-sources}
+
+``` r
 with(preds, cor(zr_min, zp_min, use = "complete.obs"))
+#> [1] 0.9400269
 
 ggplot(preds, aes(zp_min, zr_min)) +
   geom_abline(linetype = 2, colour = "grey50") +
@@ -242,16 +361,20 @@ ggplot(preds, aes(zp_min, zr_min)) +
   theme_minimal()
 ```
 
+![plot of chunk compare-sources](figures/climb-prediction-compare-sources-1.png)
+
 Finally, put the pen in context: where would each entrant's predicted time
 sit among the reference team's efforts on this climb over the last year?
 
-```{r context}
+
+``` r
 team_name <- zp_segment_standings(zp, segment_id, team_id) |> pull(tname) |> first()
 
 ggplot() +
   geom_histogram(aes(elapsed / 60), binwidth = 1, fill = "grey80",
                  data = filter(team_efforts, when > Sys.time() - 365 * 86400)) +
-  geom_rug(aes(best_min, colour = coalesce(team == team_name, FALSE)), data = preds,
+  geom_rug(aes(best_min, colour = coalesce(team == team_name, FALSE)),
+           data = arrange(preds, coalesce(team == team_name, FALSE)),   # team on top
            linewidth = 1, length = unit(0.08, "npc"), na.rm = TRUE) +
   scale_colour_manual(values = c(`TRUE` = "firebrick", `FALSE` = "steelblue"),
                       labels = c(`TRUE` = team_name, `FALSE` = "Other entrants"),
@@ -260,6 +383,8 @@ ggplot() +
        y = sprintf("%s efforts, last 12 months", team_name)) +
   theme_minimal()
 ```
+
+![plot of chunk context](figures/climb-prediction-context-1.png)
 
 ## Caveats
 

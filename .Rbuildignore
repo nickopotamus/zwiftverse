@@ -11,3 +11,6 @@
 ^\.Renviron$
 ^\.gitignore$
 ^\.Rhistory$
+^vignettes/.*\.Rmd\.orig$
+^vignettes/precompute\.R$
+^vignettes/anonymise\.R$

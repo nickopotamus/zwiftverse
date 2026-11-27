@@ -1,0 +1,200 @@
+---
+title: "Race analysis across Zwift, ZwiftPower and ZwiftRacing.app"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Race analysis across Zwift, ZwiftPower and ZwiftRacing.app}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+# This is the live source. vignettes/precompute.R knits it (with credentials)
+# into race-analysis.Rmd, so the package and the website build without API access.
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", error = FALSE,
+                      fig.path = "figures/race-analysis-")
+# Riders are pseudonymised at the API boundary (see anonymise.R).
+source("anonymise.R", local = knitr::knit_global())
+```
+
+> **Note:** this page was rendered from live data. Rider names, rider ids and
+> team names in the output have been replaced with pseudonyms ("Rider 12",
+> "Team A", ids from 100000001 up); everything else is as the APIs returned it.
+
+This walkthrough answers one question end to end: **for a given race, does a
+rider's ZwiftRacing.app rating predict where they finished?** It touches all
+three sources — finishers from ZwiftPower, ratings from ZwiftRacing.app, and a
+spot-check against the Zwift game API — and leans on the cache so repeated runs
+don't re-hit the servers.
+
+## Credentials
+
+Put these in `~/.Renviron` (never in code you commit), then restart R:
+
+```{r creds, eval = FALSE}
+ZWIFT_USERNAME=you@example.com
+ZWIFT_PASSWORD=...
+ZR_AUTH=your-zwiftracing-key     # account key from zwiftracing.app Settings
+ZP_SID=...                       # phpbb3_lswlk_sid cookie from zwiftpower.com
+```
+
+```{r libs, message = FALSE, warning = FALSE}
+library(zwiftverse)
+library(dplyr)
+```
+
+The field names returned by each API are not stable or documented, so the first
+thing to do with any new endpoint is look at what came back:
+
+```{r inspect}
+zp  <- zp_set_cookie(zp_session(), Sys.getenv("ZP_SID"))
+race_id <- 5795672L        # a completed race (ZwiftPower id = Zwift event id)
+
+res <- zp_result(zp, race_id)
+names(res)                 # confirm the id / position / category column names
+```
+
+The ZwiftPower columns used below (`zwid`, `name`, `position_in_cat`,
+`category`, `avg_wkg`) are confirmed against live data.
+
+## 1. Finishers from ZwiftPower
+
+`zp_result()` returns one row per finisher. ZwiftPower ships most numbers as
+`[value, flag]` pairs (they arrive as list-columns), so run `zp_unflag()`
+first, then pull the rider id, finishing position and category. Column names
+below were verified against live responses (2026-11).
+
+```{r finishers}
+finishers <- res |>
+  zp_unflag() |>
+  transmute(
+    zwid     = as.integer(zwid),          # ZwiftPower rider id
+    name,
+    position = as.integer(position_in_cat),
+    category,
+    wkg_avg  = as.numeric(avg_wkg)
+  ) |>
+  arrange(category, position)
+
+finishers
+```
+
+## 2. Ratings from ZwiftRacing.app (one call)
+
+ZwiftRacing.app can look up every finisher at once: `zr_riders()` sends one
+batch request for up to 1,000 riders. With `time =` it returns each profile as
+a snapshot at that moment, and the snapshot rewinds the ZwiftRacing rating
+(`race.current.rating`), so asking for the race's start time gives every
+finisher's rating *going into* the race. vELO is not rewound: it is always the
+rider's current vELO. The start time comes from
+the Zwift game API (ZwiftRacing keys riders on the Zwift id, the same number
+ZwiftPower uses).
+
+```{r ratings}
+zr <- zr_client()
+za <- zwift_auth()
+race_start <- as.POSIXct(zwift_event(za, race_id, parse = "json")$eventStart,
+                         format = "%Y-%m-%dT%H:%M:%OS", tz = "UTC")
+
+ratings <- zr_riders(zr, finishers$zwid, time = race_start) |>
+  transmute(
+    zwid       = as.integer(riderId),
+    zr_current = race.current.rating,   # ZwiftRacing rating at the start
+    zr_velo    = velo.race              # vELO rating today (not rewound)
+  )
+
+ratings
+```
+
+These column names were verified against the live API (2026-11). Riders who
+have opted out of ZwiftRacing.app are simply missing. Without `time`,
+`zr_riders()` and `zr_rider()` return the current profile.
+
+## 3. Join and analyse
+
+```{r join}
+race <- finishers |>
+  left_join(ratings, by = "zwid")
+
+race |> count(is.na(zr_current))   # how many finishers had no ZR rating?
+```
+
+Within a category, does a higher pre-race rating go with a better finish? A rank
+correlation is the honest summary here — rating and position are both ordinal
+and the relationship is monotonic, not linear.
+
+```{r correlation}
+race |>
+  filter(!is.na(zr_current)) |>
+  group_by(category) |>
+  summarise(
+    n       = dplyr::n(),
+    rho     = cor(zr_current, position, method = "spearman"),
+    .groups = "drop"
+  )
+```
+
+A strong negative `rho` means the favourites (higher rating) finished nearer the
+front — i.e. the result went to form.
+
+```{r plot, fig.width = 7, fig.height = 4.5}
+library(ggplot2)
+
+race |>
+  filter(!is.na(zr_current)) |>
+  ggplot(aes(zr_current, position, colour = category)) +
+  geom_point(alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE, linewidth = 0.5) +
+  scale_y_reverse() +                     # position 1 at the top
+  labs(x = "ZwiftRacing rating (pre-race)", y = "Finishing position",
+       colour = "Category",
+       title = sprintf("Race %d: rating vs finish", race_id)) +
+  theme_minimal()
+```
+
+## 4. Cross-check against the Zwift game API
+
+ZwiftPower and ZwiftRacing.app both derive from Zwift, so the game API is the
+tie-breaker when a number looks off. Here we confirm the winner's category
+enforcement FTP straight from source:
+
+```{r crosscheck}
+za     <- zwift_auth()
+winner <- race |> filter(category == "A", position == 1) |> pull(zwid)
+
+zwift_profile(za, winner) |>
+  select(any_of(c("firstName", "lastName", "ftp", "competitionMetrics")))
+```
+
+## Caching notes
+
+Everything above is cached on disk, keyed on method + URL + body:
+
+```{r cache}
+zv_cache_info()                       # what's stored, how big, how old
+
+# Completed races never change — cache the heavy pulls permanently:
+res     <- zp_result(zp, race_id, ttl = Inf)
+ratings <- zr_riders(zr, finishers$zwid, time = race_start, ttl = Inf)
+
+# Force-refresh a single call:
+winner_now <- zr_rider(zr, winner, ttl = 0)
+
+# ...or wipe everything with zv_cache_clear()
+```
+
+A rider's ZwiftRacing rating at any past moment is a snapshot away, so a rough
+history is one request per date:
+
+```{r history}
+dates <- race_start - c(90, 60, 30, 0) * 86400
+lapply(dates, function(d) zr_rider(zr, winner, time = d, parse = "json")$race$current$rating) |>
+  unlist() |>
+  setNames(format(dates, "%Y-%m-%d"))
+```
+
+## Caveats
+
+These are reverse-engineered APIs. Field names can shift under you, personal
+data is GDPR-consent-gated (non-consenting riders simply won't appear), and the
+ZwiftPower cookie login is the brittle link — if `zp_login()` fails, fall back to
+`zp_set_cookie()` with a value copied from your browser.
