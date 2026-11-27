@@ -2,6 +2,13 @@
 
 ## Breaking changes
 
+* ZwiftRacing.app service keys (`zr_client(key_type = "service")`) are
+  deprecated: keys issued before ZwiftRacing.app accounts existed stop working
+  on 1 January 2027. A service client warns once per session.
+  `zr_rider_results()`, `zr_rider_power()`, `zr_rider_velo()`,
+  `zr_rider_overview()`, `zr_rider_ranking()`, `zr_event()` and `zr_routes()`
+  need one and will be removed after that date.
+
 * ZwiftRacing.app keys now belong to user accounts (Hobby API Access).
   `zr_client()` treats a key as a user key by default and sends it as
   `Authorization` to the public routes (`/api/public/...`). The old behaviour
@@ -51,6 +58,17 @@
 
 
 ## Bug fixes
+
+* `zr_club_riders()` with an account key started each page at the last rider
+  of the previous one, repeating that rider. The start id is inclusive, so
+  pages now start at the last id plus one (per zwiftracing.app/developer).
+* ZwiftRacing.app's daily cap (250 rider GETs and 15 POSTs per UTC day) now
+  fails at once with a `zv_zr_daily_limit` error saying when it resets, rather
+  than a misleading "try again in 3600 s" or retries. Rate limits are read
+  from the 429 body when the headers don't carry them.
+* The `zv_zr_no_access` error now says when a route is for event organisers
+  only (results, ZwiftPower results, categories, route factor weights), rather
+  than suggesting a tier problem.
 
 * ZwiftPower text now decodes accented-letter entities, so names such as
   "M&uuml;ller" come back as "Müller". All the Latin-1 letters and a few

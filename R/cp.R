@@ -53,11 +53,12 @@ zp_power_curve <- function(s, zwift_id, window = "90days", parse = "tbl",
 #' each rider's `power.CP` and `power.AWC` at the time of the event. The
 #' function finds the rider's races from the last `max_age_days` and reads
 #' their row from the newest event that has them (trying up to `tries`
-#' events). A service key lists those races from ZwiftRacing; a user (Hobby)
-#' key has no such route, so they come from the rider's ZwiftPower race
-#' history, and `zp` is needed for this step too. If the key has no allowance
-#' for event results, the function warns (now and then, not for every rider)
-#' and uses the ZwiftPower fit.
+#' events). A service key lists those races from ZwiftRacing; a user key has
+#' no such route, so they come from the rider's ZwiftPower race history, and
+#' `zp` is needed for this step too. Event results are for organiser keys only
+#' (and service keys, which stop working on 1 January 2027), so with a Hobby
+#' key the function warns (now and then, not for every rider) and uses the
+#' ZwiftPower fit; pass `zr = NULL` to skip ZwiftRacing quietly.
 #'
 #' **ZwiftPower fallback.** If ZwiftRacing has no result within
 #' `max_age_days`, or `zr` is `NULL`, the two-parameter model
@@ -227,10 +228,11 @@ zv_rider_cp <- function(zr, zp, zwift_id, max_age_days = 90,
 #'
 #' Each rider can cost a ZwiftPower race-history request, up to `tries`
 #' ZwiftRacing.app results requests and a ZwiftPower power-curve request. All
-#' are cached. ZwiftRacing allows a user key at most one results request a
-#' minute, so with `zr` a large field can take a long time the first time; pass
-#' `zr = NULL` for a quick ZwiftPower-only table. If the key has no results
-#' allowance at all, ZwiftRacing is dropped after the first rider.
+#' are cached. Event results are for ZwiftRacing organiser keys only: with a
+#' Hobby key ZwiftRacing is dropped after the first rider, so pass
+#' `zr = NULL` for a ZwiftPower-only table without the warning. An organiser
+#' key is throttled to one results request a minute, so a large field can take
+#' a long time the first time.
 #'
 #' @param zr A [zr_client()], or `NULL` to use only the ZwiftPower fit.
 #' @param zp A [zp_session()] (required: the sign-ups come from ZwiftPower).

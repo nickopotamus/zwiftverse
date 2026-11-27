@@ -31,10 +31,11 @@ optionally one pen only.
 \details{
 Each rider can cost a ZwiftPower race-history request, up to \code{tries}
 ZwiftRacing.app results requests and a ZwiftPower power-curve request. All
-are cached. ZwiftRacing allows a user key at most one results request a
-minute, so with \code{zr} a large field can take a long time the first time; pass
-\code{zr = NULL} for a quick ZwiftPower-only table. If the key has no results
-allowance at all, ZwiftRacing is dropped after the first rider.
+are cached. Event results are for ZwiftRacing organiser keys only: with a
+Hobby key ZwiftRacing is dropped after the first rider, so pass
+\code{zr = NULL} for a ZwiftPower-only table without the warning. An organiser
+key is throttled to one results request a minute, so a large field can take
+a long time the first time.
 }
 \examples{
 \dontrun{

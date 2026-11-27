@@ -89,7 +89,7 @@ zr_routes(client, ...)
 
 \item{club_id}{Club id.}
 
-\item{page}{Page number (service key) or rider id to start after (user
+\item{page}{Page number (service key) or rider id to start from (user
 key), or \code{NULL} for every page.}
 
 \item{route_id}{Zwift route id.}
@@ -109,18 +109,23 @@ without a leading \verb{/api/} is taken as relative to \verb{/api/v2}, as in ear
 versions.
 }
 \details{
-\strong{What each key reaches.} A user key (the default; Hobby API Access) can
-call \code{zr_rider()}, \code{zr_riders()}, \code{zr_club()}, \code{zr_club_riders()},
-\code{zr_result()}, \code{zr_zp_result()}, \code{zr_categories()} and
-\code{zr_route_weights()}, subject to its tier's per-route limits (some may be
-0). The rest (\code{zr_rider_overview()}, \code{zr_rider_results()},
-\code{zr_rider_ranking()}, \code{zr_rider_velo()}, \code{zr_rider_power()}, \code{zr_event()},
-\code{zr_routes()}) exist only on the website's v2 routes and need a service key.
+\strong{What each key reaches} (see \url{https://zwiftracing.app/developer}). A
+Hobby API Access key (the default user key) can call \code{zr_rider()} (5 a
+minute), \code{zr_riders()} (2 batch requests every 10 minutes), \code{zr_club()} and
+\code{zr_club_riders()} (1 request every 10 minutes), with a daily cap of 250
+rider GETs and 15 POSTs per UTC day. \code{zr_result()}, \code{zr_zp_result()},
+\code{zr_categories()} and \code{zr_route_weights()} are for event organisers only,
+with access set up by ZwiftRacing.app directly. The rest
+(\code{zr_rider_overview()}, \code{zr_rider_results()}, \code{zr_rider_ranking()},
+\code{zr_rider_velo()}, \code{zr_rider_power()}, \code{zr_event()}, \code{zr_routes()}) exist
+only on the website's v2 routes and need a shared service key; those keys
+stop working on 1 January 2027, and these functions will then be removed.
 
-\strong{Errors.} A route your tier has no allowance for fails at once with class
-\code{zv_zr_no_access}; a service-only function called with a user key fails with
-class \code{zv_zr_service_only}. Short rate-limit waits are retried; long ones
-are reported with the time to wait.
+\strong{Errors.} A route your key has no access to fails at once with class
+\code{zv_zr_no_access}; the daily cap fails with class \code{zv_zr_daily_limit}; a
+service-only function called with a user key fails with class
+\code{zv_zr_service_only}. Short rate-limit waits are retried; long ones are
+reported with the time to wait.
 }
 \section{Functions}{
 \itemize{
@@ -160,26 +165,31 @@ stats). Service key only.
 service key this flattens the v2 event's pens and adds a \code{pen} column
 (\code{position}, \code{category}, \code{time}, \verb{wkg*}, ratings, \code{power.CP},
 \code{power.AWC}, ...). With a user key it reads \verb{/api/public/results/:id} and
-returns its records as they come.
+returns its records as they come; that route is for event organisers
+only, not Hobby keys.
 
 \item \code{zr_zp_result()}: ZwiftPower's view of an event's results, as served by
-ZwiftRacing.app (\verb{/api/public/zp/:id/results}). User key.
+ZwiftRacing.app (\verb{/api/public/zp/:id/results}). Organiser keys only.
 
 \item \code{zr_club()}: Club summary. With a user key this is
-\verb{/api/public/clubs/:id}, which also carries the first page of riders.
+\verb{/api/public/clubs/:id}: \code{clubId}, \code{name} and the first 1,000 riders that
+have power data. An unknown club comes back with \code{clubId} and \code{name}
+\code{NULL} and no riders.
 
-\item \code{zr_club_riders()}: Club members with ratings. Service keys page by number
-(50 riders a page, 0-indexed; \code{page = NULL} fetches all). User keys page by
-rider id (\verb{/api/public/clubs/:id/:riderId} returns riders with a higher
-id); \code{page = NULL} follows those pages to the end, otherwise \code{page} is the
-rider id to start after (\code{0} for the first page).
+\item \code{zr_club_riders()}: Club members with ratings (only riders with power data).
+Service keys page by number (50 riders a page, 0-indexed; \code{page = NULL}
+fetches all). User keys page by rider id: \verb{/api/public/clubs/:id/:riderId}
+returns up to 1,000 riders from that id up, sorted by id. \code{page = NULL}
+follows those pages to the end; otherwise \code{page} is the rider id to start
+from (\code{0} for the first page). The club route allows one request every
+10 minutes, so a club of more than 1,000 riders stops with the wait.
 
 \item \code{zr_categories()}: The vELO category bands (number, name, min, max) on the
-1-1000 scale. User key.
+1-1000 scale. Organiser keys only.
 
 \item \code{zr_route_weights()}: How much each ability (endurance, pursuit, sprint, punch,
 climb, time trial) counts on a route, for a number of \code{laps} or a
-\code{distance} in metres (give one). User key.
+\code{distance} in metres (give one). Organiser keys only.
 
 \item \code{zr_routes()}: Route catalogue. Service key only.
 

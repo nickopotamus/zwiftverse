@@ -42,7 +42,10 @@ ZR_AUTH=your-zwiftracing-key   # account key from zwiftracing.app Settings
 
 - **Zwift** uses your own Zwift login.
 - **ZwiftPower:** log in at zwiftpower.com in a browser, then copy the value of the `phpbb3_lswlk_sid` cookie (browser dev tools → Storage / Application → Cookies). `zp_login()` can log in for you instead, but it breaks more often.
-- **ZwiftRacing.app** needs an API key from your own account: join Hobby API Access via [Buy Me a Coffee](https://buymeacoffee.com/timhanson), then sign in at zwiftracing.app and use Settings → API access → Generate API key. `zr_client()` sends it as the `Authorization` header to the public routes (`/api/public/...`). Each route has its own per-key limit, and your tier's allowance can be zero for some; the package then stops with a `zv_zr_no_access` error rather than retrying. A few functions (`zr_rider_results()`, `zr_rider_power()`, `zr_rider_velo()`, `zr_rider_overview()`, `zr_rider_ranking()`, `zr_event()`, `zr_routes()`) only exist on the website's own routes and need a shared service key: `zr_client(key, key_type = "service")`.
+- **ZwiftRacing.app** needs an API key from your own account: join Hobby API Access via [Buy Me a Coffee](https://buymeacoffee.com/timhanson) (one-off support doesn't include it), then sign in at zwiftracing.app with the same email and use Settings → Generate API key. The key is shown once; generating a new one cancels the old one, and it stops working 7 days after the membership ends. `zr_client()` sends it as the `Authorization` header to the public routes (`/api/public/...`). See [zwiftracing.app/developer](https://zwiftracing.app/developer) for the full rules. In short:
+  - **Hobby keys** reach rider lookups (`zr_rider()`, 5 a minute), batch lookups (`zr_riders()`, up to 1,000 riders per request, 2 requests every 10 minutes) and clubs (`zr_club()`, `zr_club_riders()`, 1 request every 10 minutes). There is also a daily cap of 250 rider GETs and 15 POSTs, which resets at 00:00 UTC. Hobby access is meant for personal projects and club tools; your key is yours, so keep it out of shared code.
+  - **Organiser-only routes.** Event results (`zr_result()`, `zr_zp_result()`), vELO categories (`zr_categories()`) and route factor weights (`zr_route_weights()`) are for event organisers, with access set up by ZwiftRacing.app directly. With a Hobby key they stop at once with a `zv_zr_no_access` error; the daily cap gives `zv_zr_daily_limit`.
+  - **Old shared service keys stop working on 1 January 2027.** `zr_client(key, key_type = "service")` still works until then, with a warning. So do the functions that only exist on the website's own routes: `zr_rider_results()`, `zr_rider_power()`, `zr_rider_velo()`, `zr_rider_overview()`, `zr_rider_ranking()`, `zr_event()` and `zr_routes()`. They will be removed after that date.
 - **Zwift's status page** (`zwift_status()`) needs no credentials.
 
 ## Usage
@@ -81,7 +84,7 @@ rb <- zr_riders(zr, c(1234567, 2345678))       # one POST for up to 1000 riders
 ev <- zr_result(zr, 5800908)                   # event results (if your tier allows)
 cm <- zr_club_riders(zr, 456)                  # all pages
 
-zs <- zr_client(Sys.getenv("ZR_SERVICE_KEY"), key_type = "service")  # service key only:
+zs <- zr_client(Sys.getenv("ZR_SERVICE_KEY"), key_type = "service")  # old service key, until 2027-01-01:
 rr <- zr_rider_results(zs, 1234567, days = 90) # one row per race, last 90 days
 
 ## Across APIs -------------------------------------------------------
@@ -147,7 +150,7 @@ zp_sprints(zp, 3590800) |>
 
 ### `zr_rider_results()`: a rider's race history on ZwiftRacing.app
 
-Needs a service key (see Credentials). One row per race in the last `days` days (default 365). Nested fields are flattened into dotted column names, in groups:
+Needs an old shared service key, which stops working on 1 January 2027 (see Credentials). One row per race in the last `days` days (default 365). Nested fields are flattened into dotted column names, in groups:
 
 | Column group | What it holds |
 |------------------------------------|------------------------------------|

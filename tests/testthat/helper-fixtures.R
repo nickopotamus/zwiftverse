@@ -37,7 +37,10 @@ fake_zwift <- function() {
 # Each fake client starts with a clean "no access" memo, so tests don't leak it.
 fake_zr    <- function() { zwiftverse:::.zr_forget(); zwiftverse::zr_client(auth = "test-key") }   # user key
 fake_zr_service <- function() {
-  zwiftverse:::.zr_forget(); zwiftverse::zr_client(auth = "test-key", key_type = "service")
+  zwiftverse:::.zr_forget()
+  # The deprecation warning has its own test (test-zr-public.R).
+  withCallingHandlers(zwiftverse::zr_client(auth = "test-key", key_type = "service"),
+                      zv_zr_service_deprecated = function(w) invokeRestart("muffleWarning"))
 }
 fake_zp    <- function() {
   s <- zwiftverse::zp_set_cookie(zwiftverse::zp_session(), "test-sid")

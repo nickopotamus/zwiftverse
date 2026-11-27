@@ -1,27 +1,32 @@
 # ZwiftRacing.app --------------------------------------------------------------
 # Host: https://api.zwiftracing.app
 #
-# Two kinds of key, two route families (verified live 2026-11-26):
+# Docs: https://zwiftracing.app/developer (checked 2026-11-27).
+#
+# Two kinds of key, two route families:
 #
 # * "user" keys (the default): the per-account key from ZwiftRacing.app
-#   Settings -> API access (Hobby API Access tier). Sent as
-#   `Authorization: <key>` (raw, no "Bearer") to the public routes:
-#     GET  /api/public/riders/:id[/:time]      single rider (optionally a snapshot)
-#     POST /api/public/riders[/:time]          batch, JSON array of <= 1000 ids
-#     GET  /api/public/clubs/:id[/:riderId]    club + riders, paged by rider id
+#   Settings (Hobby API Access membership). Sent as `Authorization: <key>`
+#   (raw, no "Bearer") to the public routes. Hobby keys reach:
+#     GET  /api/public/riders/:id[/:time]      5 / min   single rider (or snapshot)
+#     POST /api/public/riders[/:time]          2 / 10 min  JSON array of <= 1000 ids
+#     GET  /api/public/clubs/:id[/:riderId]    1 / 10 min  club + up to 1000 riders,
+#                                              from riderId (inclusive), by id
+#   plus a daily cap of 250 rider GETs and 15 POSTs (resets 00:00 UTC). These
+#   are for event organisers only, set up with Tim directly:
 #     GET  /api/public/results/:id             event results
 #     GET  /api/public/zp/:id/results          ZwiftPower view of event results
 #     GET  /api/v2/public/categories           vELO category bands
 #     GET  /api/v2/public/routes/:id/factor-weights
-#   Limits are per key and per route; the server reports each one in a
-#   `ratelimit-policy: <n>;w=<seconds>` header. A tier can have 0 for a route,
-#   which the server signals as a 429 with `limit: 0` - that is "no access",
-#   not "slow down", so it is raised as `zv_zr_no_access` and never retried.
+#   A route outside the key's access answers 429 with `limit: 0` - "no access",
+#   not "slow down" - so it is raised as `zv_zr_no_access` and never retried.
+#   The daily cap is raised as `zv_zr_daily_limit`.
 #
-# * "service" keys: the shared service key behind the website's own v2 routes,
-#   sent as `x-api-key` to /api/v2/riders/..., /api/v2/events/..., etc.
-#   User keys are rejected there (401 however they are sent). The functions
-#   that only exist on those routes raise `zv_zr_service_only` with a user key.
+# * "service" keys (deprecated): the shared key behind the website's own v2
+#   routes, sent as `x-api-key` to /api/v2/riders/..., /api/v2/events/...
+#   Keys issued before accounts existed stop working on 1 January 2027, and
+#   with them the functions that only exist on those routes (they raise
+#   `zv_zr_service_only` with a user key).
 #
 # Read-only rule: it covers Zwift and ZwiftPower. ZwiftRacing's batch lookup is
 # a read done by POST, which is fine.
@@ -37,7 +42,9 @@
 #'   ZwiftRacing.app Settings -> API access, sent as `Authorization` to the
 #'   public routes; or `"service"` for a shared service key, sent as
 #'   `x-api-key` to the website's v2 routes (what this package used before
-#'   November 2026).
+#'   November 2026). **Deprecated:** keys issued before ZwiftRacing.app
+#'   accounts existed stop working on 1 January 2027; a `"service"` client
+#'   warns once per session.
 #' @param rate Throttle for `"service"` keys, in requests per second (default
 #'   2). User keys are throttled per route to the limits the server reports.
 #' @return An object of class `zr_client`.
@@ -51,6 +58,14 @@ zr_client <- function(auth = Sys.getenv("ZR_AUTH"), key_type = c("user", "servic
                       rate = 2) {
   key_type <- match.arg(key_type)
   if (!nzchar(auth)) stop("Provide your ZwiftRacing.app key or set ZR_AUTH.", call. = FALSE)
+  if (key_type == "service") {
+    rlang::warn(c("ZwiftRacing.app service keys stop working on 1 January 2027.",
+                  i = "Generate an account key in zwiftracing.app Settings (Hobby API Access) and use `zr_client(key)`.",
+                  i = paste("`zr_rider_results()`, `zr_rider_power()`, `zr_rider_velo()`, `zr_rider_overview()`,",
+                            "`zr_rider_ranking()`, `zr_event()` and `zr_routes()` need a service key and will be removed.")),
+                class = "zv_zr_service_deprecated",
+                .frequency = "once", .frequency_id = "zv_zr_service_key")
+  }
   structure(list(auth = trimws(auth), key_type = key_type, rate = rate), class = "zr_client")
 }
 
@@ -64,10 +79,10 @@ print.zr_client <- function(x, ...) {
 
 .zr_is_service <- function(client) identical(client$key_type, "service")
 
-# Per-route throttles for user keys: limits seen live on a Hobby key on
-# 2026-11-26 (riders GET 5/min, POST 2/10 min) or, where the key had 0, the
-# documented standard-tier limit. Routes with 10-minute windows are not
-# throttled here: waiting silently for minutes is worse than a clear error.
+# Per-route throttles for user keys: the documented Hobby limits (riders GET
+# 5/min) or, for organiser-only routes, the limits seen in their headers.
+# Routes with 10-minute windows (riders POST, clubs) are not throttled here:
+# waiting silently for minutes is worse than a clear error.
 .zr_user_throttle <- function(path, method) {
   if (grepl("^/api/public/riders", path) && method == "GET") return(c(5, 60))
   if (grepl("^/api/public/(results|zp)/", path)) return(c(1, 60))
@@ -98,11 +113,20 @@ print.zr_client <- function(x, ...) {
 }
 
 # The window a 429 asks us to wait, and the allowance it reports.
+# The server's headers are preferred; the JSON body (`retryAfter`,
+# `windowMinutes`, `limit`) fills any gap. `daily` is the 250 GET / 15 POST
+# per-UTC-day cap (windowMinutes 1440).
 .zr_limit <- function(resp) {
+  b <- tryCatch(resp_body_json(resp), error = function(e) list())
+  if (!is.list(b)) b <- list()
+  num <- function(x) suppressWarnings(as.numeric(x %||% NA)[1])
   pol <- resp_header(resp, "ratelimit-policy")
-  lim <- suppressWarnings(as.numeric(sub(";.*$", "", pol %||% NA)))
-  wait <- suppressWarnings(as.numeric(resp_header(resp, "retry-after") %||% NA))
-  list(limit = lim, wait = wait, policy = pol)
+  lim <- num(sub(";.*$", "", pol %||% NA))
+  if (is.na(lim)) lim <- num(b$limit)
+  wait <- num(resp_header(resp, "retry-after"))
+  if (is.na(wait)) wait <- num(b$retryAfter)
+  daily <- isTRUE(num(b$windowMinutes) >= 1440) || grepl("daily", b$error %||% "", ignore.case = TRUE)
+  list(limit = lim, wait = wait, policy = pol, daily = daily)
 }
 
 # Retry 5xx, and 429s only when the route has an allowance and the wait is
@@ -112,14 +136,15 @@ print.zr_client <- function(x, ...) {
   if (s %in% c(500, 502, 503)) return(TRUE)
   if (s != 429) return(FALSE)
   l <- .zr_limit(resp)
-  !isTRUE(l$limit == 0) && (is.na(l$wait) || l$wait <= 120)
+  !l$daily && !isTRUE(l$limit == 0) && (is.na(l$wait) || l$wait <= 120)
 }
 
 .zr_err_body <- function(resp) {
   s <- resp_status(resp)
   if (s == 429) {
     l <- .zr_limit(resp)
-    if (isTRUE(l$limit == 0)) return(paste(.zr_no_access_msg(l$policy), collapse = " "))
+    if (isTRUE(l$limit == 0)) return(paste(.zr_no_access_msg(l$policy, resp_url(resp)), collapse = " "))
+    if (l$daily) return(paste(.zr_daily_msg(l$limit), collapse = " "))
     return(sprintf("Rate limit reached (ratelimit-policy %s); try again in %s s.",
                    l$policy %||% "?", if (is.na(l$wait)) "?" else l$wait))
   }
@@ -137,10 +162,24 @@ print.zr_client <- function(x, ...) {
 .zr_memo_key <- function(client, route) paste(rlang::hash(client$auth), route)
 .zr_forget <- function() rm(list = ls(.zr_state), envir = .zr_state)
 
-.zr_no_access_msg <- function(policy) {
+# Routes ZwiftRacing.app keeps for event organisers (not in Hobby access).
+.zr_organiser_only <- function(path)
+  grepl("/api/public/(results|zp|ladder)|/api/v2/public/(categories|routes)", path %||% "")
+
+.zr_no_access_msg <- function(policy, path = NULL) {
+  if (.zr_organiser_only(path)) {
+    return(c("This ZwiftRacing.app endpoint is for event organisers only; Hobby API Access keys can't use it.",
+             i = "Organiser access is set up with Tim directly: https://zwiftracing.app/contact"))
+  }
   c(sprintf("Your ZwiftRacing.app key has no allowance for this endpoint (ratelimit-policy %s).",
             policy %||% "0"),
-    i = "Ask the ZwiftRacing.app team about your tier's access.")
+    i = "See https://zwiftracing.app/developer for what each key can reach.")
+}
+
+.zr_daily_msg <- function(limit = NA) {
+  c(sprintf("ZwiftRacing.app daily request limit reached%s.",
+            if (is.na(limit)) "" else sprintf(" (%s for this route)", limit)),
+    i = "Hobby keys get 250 rider GETs and 15 POSTs per UTC day; the count resets at 00:00 UTC.")
 }
 
 # Run a request; turn a zero-allowance 429 into a classed condition so callers
@@ -151,14 +190,15 @@ print.zr_client <- function(x, ...) {
   if (!is.null(seen) && as.numeric(Sys.time()) - seen$at < 600) {
     cached <- parse != "resp" && zv_cache_enabled() && !identical(ttl, 0) &&
       !is.null(.zv_cache_get(.zv_key(req), ttl))
-    if (!cached) rlang::abort(.zr_no_access_msg(seen$policy), class = "zv_zr_no_access")
+    if (!cached) rlang::abort(.zr_no_access_msg(seen$policy, req$url), class = "zv_zr_no_access")
   }
   tryCatch(.zv_fetch(req, parse, ttl), httr2_http_429 = function(e) {
-    l <- if (!is.null(e$resp)) .zr_limit(e$resp) else list(limit = NA)
+    l <- if (!is.null(e$resp)) .zr_limit(e$resp) else list(limit = NA, daily = FALSE)
     if (isTRUE(l$limit == 0)) {
       .zr_state[[mk]] <- list(at = as.numeric(Sys.time()), policy = l$policy)
-      rlang::abort(.zr_no_access_msg(l$policy), class = "zv_zr_no_access", parent = e)
+      rlang::abort(.zr_no_access_msg(l$policy, req$url), class = "zv_zr_no_access", parent = e)
     }
+    if (isTRUE(l$daily)) rlang::abort(.zr_daily_msg(l$limit), class = "zv_zr_daily_limit", parent = e)
     rlang::cnd_signal(e)
   })
 }
@@ -166,7 +206,8 @@ print.zr_client <- function(x, ...) {
 .zr_need_service <- function(client, fn) {
   if (.zr_is_service(client)) return(invisible(TRUE))
   rlang::abort(c(sprintf("`%s()` uses a ZwiftRacing.app route that only accepts the shared service key.", fn),
-                 i = "User (Hobby) keys can reach riders, clubs and results: see `?zr_get`.",
+                 i = "Account (Hobby) keys can reach riders and clubs: see `?zr_get`.",
+                 i = "Service keys stop working on 1 January 2027, and this function will be removed.",
                  i = "If you have a service key, use `zr_client(key, key_type = \"service\")`."),
                class = "zv_zr_service_only")
 }
@@ -179,18 +220,23 @@ print.zr_client <- function(x, ...) {
 #' without a leading `/api/` is taken as relative to `/api/v2`, as in earlier
 #' versions.
 #'
-#' **What each key reaches.** A user key (the default; Hobby API Access) can
-#' call `zr_rider()`, `zr_riders()`, `zr_club()`, `zr_club_riders()`,
-#' `zr_result()`, `zr_zp_result()`, `zr_categories()` and
-#' `zr_route_weights()`, subject to its tier's per-route limits (some may be
-#' 0). The rest (`zr_rider_overview()`, `zr_rider_results()`,
-#' `zr_rider_ranking()`, `zr_rider_velo()`, `zr_rider_power()`, `zr_event()`,
-#' `zr_routes()`) exist only on the website's v2 routes and need a service key.
+#' **What each key reaches** (see <https://zwiftracing.app/developer>). A
+#' Hobby API Access key (the default user key) can call `zr_rider()` (5 a
+#' minute), `zr_riders()` (2 batch requests every 10 minutes), `zr_club()` and
+#' `zr_club_riders()` (1 request every 10 minutes), with a daily cap of 250
+#' rider GETs and 15 POSTs per UTC day. `zr_result()`, `zr_zp_result()`,
+#' `zr_categories()` and `zr_route_weights()` are for event organisers only,
+#' with access set up by ZwiftRacing.app directly. The rest
+#' (`zr_rider_overview()`, `zr_rider_results()`, `zr_rider_ranking()`,
+#' `zr_rider_velo()`, `zr_rider_power()`, `zr_event()`, `zr_routes()`) exist
+#' only on the website's v2 routes and need a shared service key; those keys
+#' stop working on 1 January 2027, and these functions will then be removed.
 #'
-#' **Errors.** A route your tier has no allowance for fails at once with class
-#' `zv_zr_no_access`; a service-only function called with a user key fails with
-#' class `zv_zr_service_only`. Short rate-limit waits are retried; long ones
-#' are reported with the time to wait.
+#' **Errors.** A route your key has no access to fails at once with class
+#' `zv_zr_no_access`; the daily cap fails with class `zv_zr_daily_limit`; a
+#' service-only function called with a user key fails with class
+#' `zv_zr_service_only`. Short rate-limit waits are retried; long ones are
+#' reported with the time to wait.
 #'
 #' @param client A [zr_client()].
 #' @param path Route path (see Details).
@@ -328,7 +374,8 @@ zr_event <- function(client, event_id, ...) {
 #'   service key this flattens the v2 event's pens and adds a `pen` column
 #'   (`position`, `category`, `time`, `wkg*`, ratings, `power.CP`,
 #'   `power.AWC`, ...). With a user key it reads `/api/public/results/:id` and
-#'   returns its records as they come.
+#'   returns its records as they come; that route is for event organisers
+#'   only, not Hobby keys.
 #' @export
 zr_result <- function(client, event_id, parse = "tbl", ttl = .zv_ttl("zr")) {
   if (!.zr_is_service(client)) {
@@ -351,7 +398,7 @@ zr_result <- function(client, event_id, parse = "tbl", ttl = .zv_ttl("zr")) {
 }
 
 #' @describeIn zr_get ZwiftPower's view of an event's results, as served by
-#'   ZwiftRacing.app (`/api/public/zp/:id/results`). User key.
+#'   ZwiftRacing.app (`/api/public/zp/:id/results`). Organiser keys only.
 #' @export
 zr_zp_result <- function(client, event_id, parse = "tbl", ttl = .zv_ttl("zr")) {
   j <- zr_get(client, sprintf("/api/public/zp/%s/results", event_id),
@@ -375,7 +422,9 @@ zr_zp_result <- function(client, event_id, parse = "tbl", ttl = .zv_ttl("zr")) {
 # ---- clubs / misc --------------------------------------------------------------
 
 #' @describeIn zr_get Club summary. With a user key this is
-#'   `/api/public/clubs/:id`, which also carries the first page of riders.
+#'   `/api/public/clubs/:id`: `clubId`, `name` and the first 1,000 riders that
+#'   have power data. An unknown club comes back with `clubId` and `name`
+#'   `NULL` and no riders.
 #' @param club_id Club id.
 #' @export
 zr_club <- function(client, club_id, ...) {
@@ -383,12 +432,14 @@ zr_club <- function(client, club_id, ...) {
   zr_get(client, sprintf(path, club_id), ...)
 }
 
-#' @describeIn zr_get Club members with ratings. Service keys page by number
-#'   (50 riders a page, 0-indexed; `page = NULL` fetches all). User keys page by
-#'   rider id (`/api/public/clubs/:id/:riderId` returns riders with a higher
-#'   id); `page = NULL` follows those pages to the end, otherwise `page` is the
-#'   rider id to start after (`0` for the first page).
-#' @param page Page number (service key) or rider id to start after (user
+#' @describeIn zr_get Club members with ratings (only riders with power data).
+#'   Service keys page by number (50 riders a page, 0-indexed; `page = NULL`
+#'   fetches all). User keys page by rider id: `/api/public/clubs/:id/:riderId`
+#'   returns up to 1,000 riders from that id up, sorted by id. `page = NULL`
+#'   follows those pages to the end; otherwise `page` is the rider id to start
+#'   from (`0` for the first page). The club route allows one request every
+#'   10 minutes, so a club of more than 1,000 riders stops with the wait.
+#' @param page Page number (service key) or rider id to start from (user
 #'   key), or `NULL` for every page.
 #' @export
 zr_club_riders <- function(client, club_id, page = NULL, ...) {
@@ -415,27 +466,27 @@ zr_club_riders <- function(client, club_id, page = NULL, ...) {
     .zr_records(j$riders %||% list())
   }
   if (!is.null(page)) return(one(page))
-  out <- list(); after <- 0; size <- NULL
+  out <- list(); after <- 0; size <- NULL   # `after`: first rider id of the next page
   repeat {
     x <- one(after)
     if (!NROW(x) || !"riderId" %in% names(x)) break
     out[[length(out) + 1]] <- x
     size <- size %||% nrow(x)                 # the first page sets the page size
     if (nrow(x) < size || length(out) >= 200) break
-    after <- max(as.numeric(x$riderId))
+    after <- max(as.numeric(x$riderId)) + 1   # the start id is inclusive
   }
   .zv_bind(out)
 }
 
 #' @describeIn zr_get The vELO category bands (number, name, min, max) on the
-#'   1-1000 scale. User key.
+#'   1-1000 scale. Organiser keys only.
 #' @export
 zr_categories <- function(client, ...)
   zr_get(client, "/api/v2/public/categories", ...)
 
 #' @describeIn zr_get How much each ability (endurance, pursuit, sprint, punch,
 #'   climb, time trial) counts on a route, for a number of `laps` or a
-#'   `distance` in metres (give one). User key.
+#'   `distance` in metres (give one). Organiser keys only.
 #' @param route_id Zwift route id.
 #' @param laps,distance Laps, or distance in metres (exactly one).
 #' @param event_type `"race"` (default) or `"timeTrial"`.

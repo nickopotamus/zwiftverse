@@ -5,6 +5,7 @@
 # never commit them):
 #   ZR_AUTH            ZwiftRacing.app account key (sent as the Authorization header)
 #   ZR_SERVICE_KEY     optional shared service key, for the website-only v2 routes
+#                      (deprecated: these keys stop working on 2027-01-01)
 #   ZWIFT_USERNAME     Zwift login
 #   ZWIFT_PASSWORD     Zwift password
 #   ZP_SID             phpbb3_lswlk_sid cookie copied from zwiftpower.com
@@ -47,6 +48,7 @@ zv_dev_specs <- function() {
          call = function(h) zwiftverse:::.zr_post(h$zr, "/api/public/riders",
                                                    as.list(as.integer(c(rider(h), .ids("ZV_RIDER_IDS")))),
                                                    parse = "resp")),
+    # Organiser-only routes: a Hobby key gets zv_zr_no_access here.
     list(api = "zr", name = "public_results", needs = "ZV_ZR_RACE_ID",
          call = function(h) zr_result(h$zr, .env("ZV_ZR_RACE_ID"), parse = "resp")),
     list(api = "zr", name = "public_club",    needs = "ZV_ZR_CLUB_ID",

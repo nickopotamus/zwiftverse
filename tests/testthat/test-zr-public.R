@@ -2,9 +2,10 @@
 # batch POST, and the errors for zero-allowance and service-only routes.
 
 # Record each request, answer from a fixture or with a canned status.
-mock_zr <- function(fixture = NULL, status = 200, headers = list(), env = parent.frame()) {
+mock_zr <- function(fixture = NULL, status = 200, headers = list(), body = NULL,
+                    env = parent.frame()) {
   seen <- new.env(); seen$reqs <- list()
-  body <- if (!is.null(fixture)) {
+  body <- if (!is.null(body)) charToRaw(body) else if (!is.null(fixture)) {
     p <- test_path("fixtures", "zr", paste0(fixture, ".json"))
     readBin(p, "raw", file.size(p))
   } else charToRaw('{"error":"Too many requests, please try again later.","retryAfter":"60","windowMinutes":1,"limit":0}')
@@ -21,7 +22,11 @@ test_that("zr_client defaults to a user key and prints without the key", {
   expect_equal(zr$key_type, "user")
   expect_output(print(zr), "user key")
   expect_false(any(grepl("secret-key-123", capture.output(print(zr)))))
-  expect_equal(zr_client("k", key_type = "service")$key_type, "service")
+  rlang::local_options(rlib_warning_verbosity = "verbose")
+  expect_warning(zs <- zr_client("k", key_type = "service"), "1 January 2027",
+                 class = "zv_zr_service_deprecated")
+  expect_equal(zs$key_type, "service")
+  expect_no_warning(zr_client("k"))
 })
 
 test_that("a user key is sent as Authorization to /api/public/riders", {
@@ -69,7 +74,7 @@ test_that("a zero allowance fails at once with zv_zr_no_access, without retrying
   seen <- mock_zr(status = 429, headers = list(`ratelimit-policy` = "0;w=60", `retry-after` = "60"))
   zr <- zr_client("key-for-no-access-test")
   err <- expect_error(zr_result(zr, 5800908), class = "zv_zr_no_access")
-  expect_match(conditionMessage(err), "no allowance")
+  expect_match(conditionMessage(err), "event organisers only")
   expect_length(seen$reqs, 1)
   # The route is remembered: the next event fails without a request.
   expect_error(zr_result(zr, 5800909), class = "zv_zr_no_access")
@@ -111,4 +116,46 @@ test_that("zr_route_weights needs exactly one of laps or distance", {
   seen <- mock_zr("public_rider")
   zr_route_weights(fake_zr(), 1365497350, laps = 2, parse = "json")
   expect_match(seen$reqs[[1]]$url, "/api/v2/public/routes/1365497350/factor-weights\\?laps=2&eventType=race$")
+})
+
+test_that("a zero allowance on a Hobby route gets the general message", {
+  seen <- mock_zr(status = 429, headers = list(`ratelimit-policy` = "0;w=600"))
+  err <- expect_error(zr_club(zr_client("key-for-club-test"), 20650), class = "zv_zr_no_access")
+  expect_match(conditionMessage(err), "no allowance")
+  expect_no_match(conditionMessage(err), "organisers")
+})
+
+test_that("a limit given only in the 429 body still counts as no access", {
+  seen <- mock_zr(status = 429)   # default body: limit 0, no ratelimit-policy header
+  expect_error(zr_result(zr_client("key-for-body-limit"), 1), class = "zv_zr_no_access")
+  expect_length(seen$reqs, 1)
+})
+
+test_that("the daily cap fails at once with zv_zr_daily_limit", {
+  seen <- mock_zr(status = 429, headers = list(`retry-after` = "3600"),
+                  body = '{"error":"Daily request limit reached, please try again after 00:00 UTC.","retryAfter":3600,"windowMinutes":1440,"limit":250}')
+  err <- expect_error(zr_rider(fake_zr(), 1000001), class = "zv_zr_daily_limit")
+  expect_match(conditionMessage(err), "00:00 UTC")
+  expect_length(seen$reqs, 1)
+  # Even without a Retry-After header it is not retried.
+  seen2 <- mock_zr(status = 429,
+                   body = '{"error":"Daily request limit reached, please try again after 00:00 UTC.","retryAfter":3600,"windowMinutes":1440,"limit":15}')
+  expect_error(zr_riders(fake_zr(), 1:3, ttl = 0), class = "zv_zr_daily_limit")
+  expect_length(seen2$reqs, 1)
+})
+
+test_that("user-key club paging starts each page at the last id plus one", {
+  urls <- character()
+  page <- function(ids) sprintf('{"clubId":7,"name":"Test Club","riders":[%s]}',
+                                paste(sprintf('{"riderId":%d}', ids), collapse = ","))
+  httr2::local_mocked_responses(function(req) {
+    urls[[length(urls) + 1]] <<- req$url
+    body <- if (grepl("/clubs/7$", req$url)) page(c(11, 12, 13)) else
+      if (grepl("/clubs/7/14$", req$url)) page(c(14, 15)) else page(integer())
+    httr2::response(status_code = 200, url = req$url, headers = list(`Content-Type` = "application/json"),
+                    body = charToRaw(body))
+  })
+  out <- zr_club_riders(fake_zr(), 7, ttl = 0)
+  expect_equal(sub(".*/api", "/api", urls), c("/api/public/clubs/7", "/api/public/clubs/7/14"))
+  expect_equal(as.numeric(out$riderId), c(11, 12, 13, 14, 15))   # no repeats
 })

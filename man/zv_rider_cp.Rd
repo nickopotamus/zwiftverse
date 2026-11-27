@@ -44,11 +44,12 @@ when ZwiftRacing has nothing recent enough.
 each rider's \code{power.CP} and \code{power.AWC} at the time of the event. The
 function finds the rider's races from the last \code{max_age_days} and reads
 their row from the newest event that has them (trying up to \code{tries}
-events). A service key lists those races from ZwiftRacing; a user (Hobby)
-key has no such route, so they come from the rider's ZwiftPower race
-history, and \code{zp} is needed for this step too. If the key has no allowance
-for event results, the function warns (now and then, not for every rider)
-and uses the ZwiftPower fit.
+events). A service key lists those races from ZwiftRacing; a user key has
+no such route, so they come from the rider's ZwiftPower race history, and
+\code{zp} is needed for this step too. Event results are for organiser keys only
+(and service keys, which stop working on 1 January 2027), so with a Hobby
+key the function warns (now and then, not for every rider) and uses the
+ZwiftPower fit; pass \code{zr = NULL} to skip ZwiftRacing quietly.
 
 \strong{ZwiftPower fallback.} If ZwiftRacing has no result within
 \code{max_age_days}, or \code{zr} is \code{NULL}, the two-parameter model

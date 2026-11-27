@@ -18,7 +18,9 @@ variable \code{ZR_AUTH}.}
 ZwiftRacing.app Settings -> API access, sent as \code{Authorization} to the
 public routes; or \code{"service"} for a shared service key, sent as
 \code{x-api-key} to the website's v2 routes (what this package used before
-November 2026).}
+November 2026). \strong{Deprecated:} keys issued before ZwiftRacing.app
+accounts existed stop working on 1 January 2027; a \code{"service"} client
+warns once per session.}
 
 \item{rate}{Throttle for \code{"service"} keys, in requests per second (default
 2). User keys are throttled per route to the limits the server reports.}
